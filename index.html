@@ -1690,8 +1690,8 @@
     .form-grid{grid-template-columns:1fr 1fr;padding:14px;}
 
     main{padding:8px 16px;}
-    .grid{grid-template-columns:1fr;gap:12px;}
-    .card{padding:14px;}
+    .grid{grid-template-columns:minmax(0, 1fr);gap:12px;min-width:0;width:100%;overflow:hidden;}
+    .card{padding:14px;min-width:0;max-width:100%;box-sizing:border-box;}
     .card-logo-banner{margin:-14px -14px 10px -14px;}
     .fav-btn{right:32px;top:8px;}
     .del-btn{top:8px;right:8px;}
@@ -2105,7 +2105,7 @@
     border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;
   }
   .product-thumb img{width:100%;height:100%;display:block;}
-  .product-thumb.has-photo img{object-fit:cover;}
+  .product-thumb.has-photo img{object-fit:contain;padding:3px;}
   .product-thumb.has-logo img{object-fit:contain;padding:5px;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.35));}
   .product-thumb.has-glyph svg{width:52%;height:52%;fill:hsl(var(--h,280) 72% 72%);opacity:0.95;}
   .thumb-admin{
@@ -2159,6 +2159,46 @@
     .product-shelf{
       grid-template-columns:repeat(3, minmax(0, 1fr));
       gap:6px;
+      width:100%;
+      min-width:0;
+      overflow:hidden;
+    }
+    .product-shelf .product-tile{
+      min-width:0;
+      padding:5px 4px 6px;
+      gap:5px;
+      border-radius:10px;
+    }
+    .product-shelf .product-thumb{
+      min-height:62px;
+      max-height:76px;
+      border-radius:7px;
+    }
+    .product-shelf .product-head{
+      min-width:0;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      gap:2px;
+      margin-bottom:0;
+      text-align:center;
+    }
+    .product-shelf .product-kind{
+      font-size:7.2px;
+      letter-spacing:0.25px;
+    }
+    .product-shelf .product-kind-sub{display:none;}
+    .product-shelf .src-badge{
+      font-size:6px;
+      padding:1px 3px;
+      letter-spacing:0;
+      max-width:100%;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .product-shelf .product-price-row{
+      justify-content:center;
+      gap:1px;
     }
     .product-shelf .price-field{
       padding:8px 5px 7px;
@@ -2195,10 +2235,11 @@
     }
     .product-shelf .cm-ref{
       margin-top:3px;
-      font-size:7px;
+      font-size:6.3px;
       line-height:1.25;
       text-align:center;
       justify-content:center;
+      overflow-wrap:anywhere;
     }
     .product-shelf .cm-ref-tag{display:none;}
     .product-shelf .propose-btn{
@@ -2221,7 +2262,8 @@
       flex-direction:column;
     }
     .product-tile[data-field="etb"] .product-thumb{width:100%;}
-    .product-price-main{font-size:clamp(13px, 3.6vw, 18px);}
+    .product-price-main{font-size:clamp(13px, 3.4vw, 16px);}
+    .product-price-main .euro{font-size:9px;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -2949,10 +2991,12 @@ async function loadState(){
     state.favorites = JSON.parse(localStorage.getItem("pokestar_favorites") || "[]");
   }catch(e){ state.favorites = []; }
 
+  // Affiche immédiatement le catalogue de base, même si Firestore est lent ou bloqué.
+  render();
+  updateAccountUI();
+
   if(!firebaseReady){
     showToast("⚠️ Mode hors-ligne : impossible de contacter le serveur. Les prix affichés sont ceux de base uniquement.");
-    render();
-    updateAccountUI();
     return;
   }
 
@@ -3360,67 +3404,6 @@ function badgeClass(block){
   if(block==="Écarlate et Violet") return "ev";
   if(block==="Méga-Évolution") return "me";
   return "autre";
-}
-
-function priceCell(entry, field, label){
-  const val = entry[field];
-  const display = (val && val > 0) ? val : "";
-  const isAdmin = !!state.isAdmin;
-  const photo = entry.photos && entry.photos[field];
-  let trend = "";
-  if(field === "booster" && entry.prevBooster != null && entry.prevBooster !== val){
-    const diff = val - entry.prevBooster;
-    const arrow = diff > 0 ? "▲" : "▼";
-    const cls = diff > 0 ? "up" : "down";
-    trend = `<span class="trend ${cls}" title="Précédent : ${entry.prevBooster.toFixed(2)} €">${arrow} ${Math.abs(diff).toFixed(2)}</span>`;
-  }
-
-  const photoBlock = photo
-    ? `<div class="item-photo">
-        <img src="${photo}" alt="${label}">
-        ${isAdmin ? `<button class="item-photo-clear" data-clearitemphoto="${entry.id}" data-photofield="${field}" title="Retirer la photo"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></button>` : ""}
-      </div>`
-    : (isAdmin
-        ? `<label class="item-photo-add" title="Ajouter une photo pour ${label}">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Photo</span>
-            <input type="file" accept="image/*" data-setitemphoto="${entry.id}" data-photofield="${field}">
-          </label>`
-        : "");
-
-  if(isAdmin){
-    return `
-    <div class="price-field ${photo ? 'has-photo' : ''}">
-      ${photoBlock}
-      <label>${label}</label>
-      <div class="row">
-        <input type="number" step="0.01" placeholder="—" value="${display}"
-          data-id="${entry.id}" data-field="${field}" data-custom="${entry._custom?1:0}">
-        <span class="currency">€</span>
-        ${trend}
-      </div>
-      ${cmRefLine(entry, field)}
-      ${consensusHint(entry, field)}
-    </div>`;
-  }
-
-  // Visiteur / client : lecture seule + repères Cardmarket inline
-  const shown = cmDisplayPrice(entry, field, display);
-  const shownTxt = shown.value != null ? Number(shown.value).toFixed(2) : "—";
-  return `
-    <div class="price-field ${photo ? 'has-photo' : ''}">
-      ${photoBlock}
-      <label>${label}</label>
-      <div class="row">
-        <span class="price-readonly">${shownTxt}</span>
-        <span class="currency">€</span>
-        ${shown.source}
-        ${trend}
-      </div>
-      ${cmRefLine(entry, field, { trendShown: !!shown.source })}
-      <button class="propose-btn" data-propose="${entry.id}" data-proposefield="${field}" title="Proposer un prix">Proposer</button>
-      ${consensusHint(entry, field)}
-    </div>`;
 }
 
 function consensusHint(entry, field){
