@@ -396,27 +396,95 @@
     gap:8px;
     align-items:center;
   }
-  .controls-search{gap:10px;}
-  .controls-search input[type=text], .controls-search input[type=search]{flex:2;min-width:200px;}
-  .logo-nav{
+  .controls-toolbar{
+    display:flex;
+    align-items:stretch;
+    gap:8px;
+  }
+  .toolbar-search{
     flex:1;
     display:flex;
+    align-items:center;
     gap:8px;
-    overflow-x:auto;
-    padding:2px 2px 6px;
-    scrollbar-width:thin;
+    min-height:42px;
+    padding:0 14px;
+    border-radius:999px;
+    background:rgba(37,31,51,0.75);
+    border:1px solid var(--line);
+    transition:border-color .15s ease, box-shadow .15s ease;
   }
-  .logo-nav:empty::after{
-    content:"Les logos que tu ajoutes en mode admin apparaissent ici pour un accès rapide.";
+  .toolbar-search:focus-within{
+    border-color:rgba(168,85,232,0.55);
+    box-shadow:0 0 0 2px rgba(168,85,232,0.12);
+  }
+  .toolbar-search svg{flex-shrink:0;color:var(--muted);}
+  .toolbar-search input[type=search]{
+    flex:1;
+    min-width:0;
+    border:none;
+    background:transparent;
+    padding:10px 0;
+    box-shadow:none;
+  }
+  .toolbar-search input[type=search]:focus{
+    outline:none;
+    border:none;
+    box-shadow:none;
+  }
+  .toolbar-btn{
+    flex-shrink:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    min-height:42px;
+    padding:0 16px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(37,31,51,0.75);
     color:var(--muted);
-    font-size:11.5px;
-    font-style:italic;
-    align-self:center;
+    font-weight:600;
+    font-size:13px;
+    cursor:pointer;
+    font-family:var(--body);
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .toolbar-btn:hover{border-color:var(--violet);color:var(--cream);}
+  .toolbar-btn.active{
+    border-color:var(--violet);
+    color:var(--cream);
+    background:rgba(168,85,232,0.14);
+    box-shadow:0 0 14px rgba(168,85,232,0.2);
+  }
+
+  /* ---------- Bandeau collections (auto-scroll) ---------- */
+  .collections-band{
+    width:100%;
+    overflow:hidden;
+    padding:10px 0 12px;
+    background:rgba(8,6,14,0.55);
+    border-bottom:1px solid rgba(61,51,80,0.65);
+    mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  }
+  .collections-band.is-empty{display:none;}
+  .collections-track{
+    display:inline-flex;
+    align-items:center;
+    gap:20px;
+    padding:0 12px;
+    animation:collections-scroll 42s linear infinite;
+    will-change:transform;
+  }
+  .collections-band:hover .collections-track{animation-play-state:paused;}
+  @keyframes collections-scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
   }
   .logo-nav-btn{
     flex-shrink:0;
-    height:76px;
-    max-width:190px;
+    height:68px;
+    max-width:180px;
     border-radius:0;
     border:none;
     padding:0;
@@ -1415,7 +1483,8 @@
 
     .controls{padding:8px 16px 12px;gap:8px;}
     .controls-row{gap:6px;}
-    .controls-search input[type=text], .controls-search input[type=search]{min-width:100%;order:-1;}
+    .controls-toolbar{flex-wrap:nowrap;}
+    .toolbar-search{min-width:0;}
     .admin-controls{border-left:none;padding-left:0;margin-left:0;width:100%;border-top:1px dashed var(--line);padding-top:8px;margin-top:2px;}
     input[type=text], input[type=search]{min-width:100%;order:-1;}
     .chip, .btn-ghost, .btn-add, .btn-shop{
@@ -1969,6 +2038,7 @@
       animation-iteration-count:1 !important;
       transition-duration:0.01ms !important;
     }
+    .collections-track{animation:none;flex-wrap:wrap;justify-content:center;}
   }
 </style>
 </head>
@@ -2048,11 +2118,20 @@
       </label>
     </span>
   </div>
-  <div class="controls-row controls-search">
-    <input type="search" id="search" placeholder="Rechercher une série…" autocomplete="off" aria-label="Rechercher une série" enterkeyhint="search">
-    <div id="logoNav" class="logo-nav"></div>
-    <button class="chip" id="favChip"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px;margin-right:4px"><path d="M12 2 15 9 22 10 17 15 18.5 22 12 18.5 5.5 22 7 15 2 10 9 9Z"/></svg>Favoris</button>
+  <div class="controls-row controls-toolbar">
+    <label class="toolbar-search" for="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" id="search" placeholder="Rechercher une série…" autocomplete="off" aria-label="Rechercher une série" enterkeyhint="search">
+    </label>
+    <button type="button" class="toolbar-btn" id="favChip" aria-pressed="false">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9 22 10 17 15 18.5 22 12 18.5 5.5 22 7 15 2 10 9 9Z"/></svg>
+      Favoris
+    </button>
   </div>
+</div>
+
+<div class="collections-band is-empty" id="collectionsBand" aria-label="Collections Pokémon TCG">
+  <div class="collections-track logo-nav" id="logoNav"></div>
 </div>
 
 <div id="addForm">
@@ -3077,20 +3156,27 @@ function consensusHint(entry, field){
 
 function renderLogoNav(entries){
   const nav = document.getElementById("logoNav");
+  const band = document.getElementById("collectionsBand");
   const blocks = ["Méga-Évolution","Écarlate et Violet","Épée et Bouclier","Soleil et Lune","XY","Noir et Blanc","HeartGold SoulSilver","Platine","Diamant et Perle","EX","e-Card","Wizards","Autre"];
   const picks = [];
   blocks.forEach(block=>{
     const inBlock = entries.filter(e=>e.block===block && e.logo);
     if(inBlock.length === 0) return;
-    // On préfère la série qui porte le même nom que le bloc (la série "fondatrice")
     const eponymous = inBlock.find(e=>e.name.replace(/&/g,"et").trim().toLowerCase() === block.replace(/&/g,"et").trim().toLowerCase());
     picks.push(eponymous || inBlock[0]);
   });
-  nav.innerHTML = picks.map(e=>`
-    <button class="logo-nav-btn" data-jumpblock="${normalizeSlug(e.block)}" title="Aller au bloc ${e.block}">
+  if(!picks.length){
+    nav.innerHTML = "";
+    if(band) band.classList.add("is-empty");
+    return;
+  }
+  if(band) band.classList.remove("is-empty");
+  const chunk = picks.map(e=>`
+    <button type="button" class="logo-nav-btn" data-jumpblock="${normalizeSlug(e.block)}" title="Aller au bloc ${e.block}">
       <img src="${e.logo}" alt="${e.block}">
     </button>
   `).join("");
+  nav.innerHTML = chunk + chunk;
 }
 
 function render(){
@@ -3685,7 +3771,9 @@ document.getElementById("footerCatalogLink").addEventListener("click", e=>{
 });
 document.getElementById("favChip").addEventListener("click", ()=>{
   onlyFavorites = !onlyFavorites;
-  document.getElementById("favChip").classList.toggle("active", onlyFavorites);
+  const favBtn = document.getElementById("favChip");
+  favBtn.classList.toggle("active", onlyFavorites);
+  favBtn.setAttribute("aria-pressed", onlyFavorites ? "true" : "false");
   render();
 });
 document.addEventListener("keydown", e=>{
