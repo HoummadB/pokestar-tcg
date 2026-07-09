@@ -1986,7 +1986,6 @@
       <button type="button" class="site-nav-link active" data-nav-view="catalog" id="navCatalog" role="menuitem">Catalogue</button>
       <button type="button" class="site-nav-link" data-nav-view="distrib" id="showDistrib" role="menuitem">Distributeurs</button>
       <a class="site-nav-link nav-ebay" href="https://www.ebay.fr/sch/i.html?_ssn=pokestartcg" target="_blank" rel="noopener" role="menuitem">Boutique eBay</a>
-      <button type="button" class="site-nav-link" data-nav-view="legal" id="navLegal" role="menuitem">Mentions légales</button>
     </div>
     <div class="site-header-actions">
       <button type="button" class="btn-header-account" id="accountBtn" aria-label="Connexion">
@@ -3758,7 +3757,6 @@ document.getElementById("resetAllPrices").addEventListener("click", onResetAllPr
 document.getElementById("navHome").addEventListener("click", e=>{ e.preventDefault(); setView("catalog"); });
 document.getElementById("navCatalog").addEventListener("click", ()=> setView("catalog"));
 document.getElementById("showDistrib").addEventListener("click", ()=>{ setView("distrib"); setupDistribPins(); });
-document.getElementById("navLegal").addEventListener("click", ()=> setView("legal"));
 document.getElementById("navToggle").addEventListener("click", ()=>{
   const nav = document.getElementById("siteNav");
   const open = nav.classList.toggle("open");
