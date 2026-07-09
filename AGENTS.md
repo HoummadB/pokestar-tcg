@@ -7,6 +7,7 @@ boutique eBay affiliée, distributeurs automatiques.
 |-------|--------|
 | URL prod | https://pokestar-tcg.com |
 | Chemin | `NEWMETA/Pokestar/` |
+| Repo Git | https://github.com/HoummadB/pokestar-tcg |
 | Stack | SPA monolithique HTML/CSS/JS + Firebase Firestore/Auth |
 | Contact | pokestar.store@gmail.com |
 | Vendeur eBay | pokestartcg |
@@ -90,7 +91,7 @@ Après modification de `index.html` ou des prix CM :
 
 1. `python3 refresh-cm-cache.py`
 2. Vérifier rendu local (`python3 -m http.server`)
-3. Deploy Vercel (push ou CLI selon setup Hoummad)
+3. Deploy Vercel depuis `https://github.com/HoummadB/pokestar-tcg` (push `main` ou CLI)
 4. Commit local ChakmallOs si scope terminé
 
 **Push** : uniquement sur demande explicite de Hoummad.
