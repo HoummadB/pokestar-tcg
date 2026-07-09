@@ -211,20 +211,32 @@
     line-height:1.55;
   }
 
-  .onboarding-strip{
+  .help-steps{
     display:flex;
-    flex-wrap:wrap;
-    gap:18px;
-    margin-top:20px;
-    position:relative;
-    z-index:1;
+    flex-direction:column;
+    gap:14px;
+    margin:22px 0 8px;
   }
-  .onboard-step{
+  .help-step{
     display:flex;
-    align-items:center;
-    gap:8px;
+    align-items:flex-start;
+    gap:14px;
+    padding:16px 18px;
+    border-radius:12px;
+    background:var(--surface);
+    border:1px solid var(--line);
+  }
+  .help-step p{
+    margin:0;
+    font-size:14.5px;
+    line-height:1.5;
+    color:var(--cream);
+  }
+  .help-step .step-note{
+    margin-top:6px;
     font-size:12.5px;
     color:var(--muted);
+    line-height:1.45;
   }
   .onboard-num{
     display:inline-flex;
@@ -2054,6 +2066,7 @@
     </a>
     <div class="site-nav" id="siteNav" role="menubar">
       <button type="button" class="site-nav-link active" data-nav-view="catalog" id="navCatalog" role="menuitem">Catalogue</button>
+      <button type="button" class="site-nav-link" data-nav-view="help" id="navHelp" role="menuitem">Aide</button>
       <button type="button" class="site-nav-link" data-nav-view="distrib" id="showDistrib" role="menuitem">Distributeurs</button>
       <a class="site-nav-link nav-ebay" href="https://www.ebay.fr/sch/i.html?_ssn=pokestartcg" target="_blank" rel="noopener" role="menuitem">Boutique eBay</a>
     </div>
@@ -2085,22 +2098,7 @@
       <h1>La Cote du TCG Pokémon</h1>
     </div>
   </div>
-  <p class="sub">Pokestar est un site par la communauté, pour la communauté : on te donne les repères de prix des boosters Pokémon TCG, série par série, pour t'aider à acheter au meilleur prix — en ligne ou directement à l'un de nos distributeurs automatiques près de chez toi. Connecte-toi pour proposer ton propre prix et faire évoluer la cote ensemble.</p>
-
-  <div class="onboarding-strip">
-    <div class="onboard-step">
-      <span class="onboard-num">1</span>
-      <span>Consulte les prix de référence, série par série</span>
-    </div>
-    <div class="onboard-step">
-      <span class="onboard-num">2</span>
-      <span>Connecte-toi pour proposer ton propre prix</span>
-    </div>
-    <div class="onboard-step">
-      <span class="onboard-num">3</span>
-      <span>Achète sur eBay ou à l'un de nos distributeurs</span>
-    </div>
-  </div>
+  <p class="sub">Pokestar est un site par la communauté, pour la communauté : repères de prix des boosters Pokémon TCG, série par série, pour acheter au meilleur prix — en ligne ou chez nos distributeurs automatiques.</p>
 </header>
 
 <div id="catalogView">
@@ -2262,6 +2260,48 @@
 </footer>
 
 <div class="copyright">© Pokestar — TCG &amp; Distributeurs · <button id="showLegal" class="legal-link">Mentions légales &amp; Confidentialité</button></div>
+</div>
+
+<div id="helpView" style="display:none;">
+  <div class="distrib-wrap">
+    <button id="backToCatalogFromHelp" class="back-link-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Retour à La Cote du TCG Pokémon
+    </button>
+    <h1 class="distrib-title">Aide — Comment ça marche ?</h1>
+    <p class="sub">Pokestar te donne des repères de prix fiables pour les boosters, displays et ETB Pokémon TCG. La cote évolue grâce à la communauté et aux vérifications de l'équipe.</p>
+
+    <div class="help-steps">
+      <div class="help-step">
+        <span class="onboard-num">1</span>
+        <div>
+          <p><strong>Consulte les prix de référence, série par série</strong></p>
+          <p class="step-note">Parcours le catalogue, filtre par favoris ou recherche une extension. Chaque carte affiche Booster, Display et ETB avec repères Cardmarket et cote communautaire.</p>
+        </div>
+      </div>
+      <div class="help-step">
+        <span class="onboard-num">2</span>
+        <div>
+          <p><strong>Connecte-toi pour proposer ton propre prix</strong></p>
+          <p class="step-note">Crée un compte gratuit, puis utilise « Proposer » sur une série. Quand plusieurs membres convergent, le prix peut être validé par consensus communautaire.</p>
+        </div>
+      </div>
+      <div class="help-step">
+        <span class="onboard-num">3</span>
+        <div>
+          <p><strong>Achète sur eBay ou à l'un de nos distributeurs</strong></p>
+          <p class="step-note">Les achats passent par notre boutique eBay officielle (pokestartcg) ou nos machines automatiques installées en France. Les liens Cardmarket et eBay vendu servent de repères avant d'acheter.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="legal-content">
+      <h2>Comprendre les prix affichés</h2>
+      <p><strong>Cote Pokestar</strong> : prix vérifié par l'équipe ou confirmé par la communauté (au moins 3 propositions avec 60 % d'accord).</p>
+      <p><strong>Repère Cardmarket</strong> : tendance et prix minimum issus du guide officiel, mis à jour quotidiennement.</p>
+      <p><strong>eBay vendu</strong> : lien externe vers les ventes terminées — pas d'API fiable, à consulter avant de proposer ta cote.</p>
+    </div>
+  </div>
 </div>
 
 <div id="profileView" style="display:none;">
@@ -3785,7 +3825,7 @@ document.addEventListener("keydown", e=>{
   }
 });
 
-const POKESTAR_VIEWS = ["catalogView","legalView","distribView","profileView"];
+const POKESTAR_VIEWS = ["catalogView","helpView","legalView","distribView","profileView"];
 
 function closeNavMenu(){
   const nav = document.getElementById("siteNav");
@@ -3796,7 +3836,7 @@ function closeNavMenu(){
 
 function setView(view, opts){
   opts = opts || {};
-  const map = { catalog:"catalogView", legal:"legalView", distrib:"distribView", profile:"profileView" };
+  const map = { catalog:"catalogView", help:"helpView", legal:"legalView", distrib:"distribView", profile:"profileView" };
   const target = map[view] || "catalogView";
   POKESTAR_VIEWS.forEach(id => {
     const el = document.getElementById(id);
@@ -3833,6 +3873,7 @@ function routeFromHash(){
     else { setView("catalog", { hash:false }); openAuth(); }
     return;
   }
+  if(raw === "help"){ setView("help", { hash:false }); return; }
   if(raw === "legal"){ setView("legal", { hash:false }); return; }
   if(raw === "distrib"){ setView("distrib", { hash:false }); setupDistribPins(); return; }
   setView("catalog", { hash:false });
@@ -3844,6 +3885,7 @@ document.getElementById("bulkLogoInput").addEventListener("change", onBulkLogoIm
 document.getElementById("resetAllPrices").addEventListener("click", onResetAllPrices);
 document.getElementById("navHome").addEventListener("click", e=>{ e.preventDefault(); setView("catalog"); });
 document.getElementById("navCatalog").addEventListener("click", ()=> setView("catalog"));
+document.getElementById("navHelp").addEventListener("click", ()=> setView("help"));
 document.getElementById("showDistrib").addEventListener("click", ()=>{ setView("distrib"); setupDistribPins(); });
 document.getElementById("navToggle").addEventListener("click", ()=>{
   const nav = document.getElementById("siteNav");
@@ -3852,6 +3894,7 @@ document.getElementById("navToggle").addEventListener("click", ()=>{
 });
 document.getElementById("backToCatalog").addEventListener("click", ()=> setView("catalog"));
 document.getElementById("showLegal").addEventListener("click", ()=> setView("legal"));
+document.getElementById("backToCatalogFromHelp").addEventListener("click", ()=> setView("catalog"));
 document.getElementById("backToCatalogFromLegal").addEventListener("click", ()=> setView("catalog"));
 function showProfile(opts){
   opts = opts || {};
