@@ -3165,6 +3165,37 @@ const PRODUCT_GLYPHS = {
   etb: `<path d="M5 6h14v15H5z"/><path d="M8 4h8v2H8z"/><path d="M9 14h6" stroke="currentColor" stroke-width="1.5" fill="none"/>`
 };
 
+// Visuels produits scellés (Scrydex CDN public) — s1 booster, s2 display, s3 ETB
+const SCRYDEX_PRODUCT_SLOT = { booster: "s1", display: "s2", etb: "s3" };
+const SCRYDEX_BY_CM_SLUG = {
+  "Scarlet-Violet":"sv1","Paldea-Evolved":"sv2","Obsidian-Flames":"sv3","151":"sv3pt5",
+  "Paradox-Rift":"sv4","Paldean-Fates":"sv4pt5","Temporal-Forces":"sv5","Twilight-Masquerade":"sv6",
+  "Shrouded-Fable":"sv6pt5","Stellar-Crown":"sv7","Surging-Sparks":"sv8","Prismatic-Evolutions":"sv8pt5",
+  "Journey-Together":"sv9","Destined-Rivals":"sv10","Black-Bolt":"zsv10pt5","White-Flare":"rsv10pt5",
+  "Mega-Evolution":"me1","Phantasmal-Flames":"me2","Ascended-Heroes":"me2pt5","Perfect-Order":"me3",
+  "Chaos-Rising":"me4","Pitch-Black":"me5",
+  "Sword-Shield":"swsh1","Rebel-Clash":"swsh2","Darkness-Ablaze":"swsh3","Vivid-Voltage":"swsh4",
+  "Champions-Path":"swsh35","Battle-Styles":"swsh5","Chilling-Reign":"swsh6","Evolving-Skies":"swsh7",
+  "Fusion-Strike":"swsh8","Brilliant-Stars":"swsh9","Astral-Radiance":"swsh10","Lost-Origin":"swsh11",
+  "Silver-Tempest":"swsh12","Crown-Zenith":"swsh12pt5","Pokemon-GO":"pgo","Shining-Fates":"swsh45",
+  "Sun-Moon":"sm1","Guardians-Rising":"sm2","Burning-Shadows":"sm3","Crimson-Invasion":"sm4",
+  "Ultra-Prism":"sm5","Forbidden-Light":"sm6","Celestial-Storm":"sm7","Lost-Thunder":"sm8",
+  "Team-Up":"sm9","Unbroken-Bonds":"sm10","Unified-Minds":"sm11","Cosmic-Eclipse":"sm12",
+  "Hidden-Fates":"sm115","Base-Set":"base1","Jungle":"base2","Fossil":"base3","Team-Rocket":"base4",
+  "Neo-Genesis":"neo1","Neo-Discovery":"neo2","Neo-Revelation":"neo3","Neo-Destiny":"neo4"
+};
+
+function cmSlugFromEntry(entry){
+  const m = (entry.cm || "").match(/\/Expansions\/([^/?#]+)/);
+  return m ? m[1] : null;
+}
+
+function scrydexProductUrl(entry, field){
+  const sid = SCRYDEX_BY_CM_SLUG[cmSlugFromEntry(entry)];
+  const slot = SCRYDEX_PRODUCT_SLOT[field];
+  return sid && slot ? `https://images.scrydex.com/pokemon/${sid}-${slot}/medium` : null;
+}
+
 function cardHero(entry, upcoming){
   const hue = entry.hue ?? 280;
   const path = ICONS[entry.icon] || ICONS.orb;
@@ -3204,6 +3235,7 @@ function cardHero(entry, upcoming){
 function productThumb(entry, field, label){
   const isAdmin = !!state.isAdmin;
   const photo = entry.photos && entry.photos[field];
+  const autoPhoto = !photo && scrydexProductUrl(entry, field);
   const hue = entry.hue ?? 280;
   const glyph = PRODUCT_GLYPHS[field] || PRODUCT_GLYPHS.booster;
   let cls = 'has-glyph';
@@ -3211,6 +3243,9 @@ function productThumb(entry, field, label){
   if(photo){
     cls = 'has-photo';
     inner = `<img src="${photo}" alt="${label}">`;
+  } else if(autoPhoto){
+    cls = 'has-photo';
+    inner = `<img src="${autoPhoto}" alt="${label}" loading="lazy" decoding="async">`;
   } else if(entry.logo){
     cls = 'has-logo';
     inner = `<img src="${entry.logo}" alt="${label}">`;
