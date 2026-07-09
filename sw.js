@@ -1,4 +1,4 @@
-const CACHE = "pokestar-shell-v3";
+const CACHE = "pokestar-shell-v4";
 const PRECACHE = [
   "./",
   "./index.html",
