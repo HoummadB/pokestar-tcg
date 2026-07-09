@@ -625,41 +625,56 @@
   /* ---------- Bandeau collections (auto-scroll) ---------- */
   .collections-band{
     width:100%;
-    overflow:hidden;
     padding:10px 0 12px;
     background:rgba(8,6,14,0.55);
     border-bottom:1px solid rgba(61,51,80,0.65);
-    mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-    -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
   }
   .collections-band.is-empty{display:none;}
+  .collections-marquee{
+    overflow:hidden;
+    width:100%;
+    mask-image:linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+    -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  }
   .collections-track{
-    display:inline-flex;
+    display:flex;
+    flex-wrap:nowrap;
     align-items:center;
     gap:20px;
-    padding:0 12px;
-    animation:collections-scroll 42s linear infinite;
+    width:max-content;
+    padding:2px 16px;
+    animation:collections-scroll 38s linear infinite;
     will-change:transform;
+    -webkit-transform:translateZ(0);
   }
   .collections-band:hover .collections-track{animation-play-state:paused;}
   @keyframes collections-scroll{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
+    from{transform:translate3d(0,0,0);}
+    to{transform:translate3d(-50%,0,0);}
   }
   .logo-nav-btn{
+    flex:0 0 auto;
     flex-shrink:0;
-    height:68px;
-    max-width:180px;
+    height:64px;
+    width:auto;
+    max-width:170px;
     border-radius:0;
     border:none;
     padding:0;
-    overflow:hidden;
+    overflow:visible;
     cursor:pointer;
     background:none;
-    transition:transform .15s ease, filter .15s ease;
+    transition:filter .15s ease;
   }
-  .logo-nav-btn:hover{transform:translateY(-2px) scale(1.04); filter:brightness(1.15);}
-  .logo-nav-btn img{width:auto;height:100%;max-width:100%;object-fit:contain;display:block;margin:0 auto;}
+  .logo-nav-btn:hover{filter:brightness(1.12);}
+  .logo-nav-btn img{
+    height:64px;
+    width:auto;
+    max-width:170px;
+    object-fit:contain;
+    display:block;
+    pointer-events:none;
+  }
   .controls-admin{
     padding-top:6px;
     border-top:1px solid var(--line);
@@ -1638,6 +1653,10 @@
     .btn-header-icon{padding:0;width:40px;}
     .header-search-panel{padding:8px 16px 10px;}
     .account-menu{right:-4px;min-width:168px;}
+    .collections-band{padding:8px 0 10px;}
+    .collections-marquee{mask-image:none;-webkit-mask-image:none;}
+    .collections-track{gap:14px;padding:2px 12px;animation-duration:32s;}
+    .logo-nav-btn,.logo-nav-btn img{height:48px;max-width:120px;}
   }
   @media(max-width:640px){
     body{padding-bottom:100px;}
@@ -2208,7 +2227,17 @@
       animation-iteration-count:1 !important;
       transition-duration:0.01ms !important;
     }
-    .collections-track{animation:none;flex-wrap:wrap;justify-content:center;}
+    .collections-track{
+      animation:none;
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      width:100%;
+      max-width:100%;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      padding-bottom:4px;
+    }
+    .collections-track::-webkit-scrollbar{display:none;}
   }
 </style>
 </head>
@@ -2310,7 +2339,9 @@
 </div>
 
 <div class="collections-band is-empty" id="collectionsBand" aria-label="Collections Pokémon TCG">
-  <div class="collections-track logo-nav" id="logoNav"></div>
+  <div class="collections-marquee">
+    <div class="collections-track" id="logoNav"></div>
+  </div>
 </div>
 
 <div id="addForm">
