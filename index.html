@@ -3229,9 +3229,29 @@ const SCRYDEX_BY_CM_SLUG = {
   "Neo-Genesis":"neo1","Neo-Discovery":"neo2","Neo-Revelation":"neo3","Neo-Destiny":"neo4"
 };
 
+const PRODUCT_PHOTOS_VERSION = "20260709-local-v1";
+let localProductPhotos = {};
+
 function cmSlugFromEntry(entry){
   const m = (entry.cm || "").match(/\/Expansions\/([^/?#]+)/);
   return m ? m[1] : null;
+}
+
+async function loadLocalProductPhotos(){
+  try{
+    const res = await fetch(`assets/product-photos/manifest.json?v=${PRODUCT_PHOTOS_VERSION}`, { cache: "no-cache" });
+    if(!res.ok) throw new Error(`manifest photos HTTP ${res.status}`);
+    const data = await res.json();
+    localProductPhotos = data.photos || {};
+  }catch(e){
+    console.warn("Photos produit locales indisponibles", e);
+    localProductPhotos = {};
+  }
+}
+
+function localProductPhotoUrl(entry, field){
+  const row = localProductPhotos[entry.id];
+  return row && row[field] ? row[field] : null;
 }
 
 function scrydexProductUrl(entry, field){
@@ -3278,15 +3298,20 @@ function cardHero(entry, upcoming){
 
 function productThumb(entry, field, label){
   const isAdmin = !!state.isAdmin;
-  const photo = entry.photos && entry.photos[field];
+  const manualPhoto = entry.photos && entry.photos[field];
+  const localPhoto = localProductPhotoUrl(entry, field);
+  const photo = localPhoto || manualPhoto;
   const autoPhoto = !photo && scrydexProductUrl(entry, field);
   const hue = entry.hue ?? 280;
   const glyph = PRODUCT_GLYPHS[field] || PRODUCT_GLYPHS.booster;
   let cls = 'has-glyph';
   let inner = `<svg viewBox="0 0 24 24">${glyph}</svg>`;
-  if(photo){
+  if(localPhoto){
     cls = 'has-photo';
-    inner = `<img src="${photo}" alt="${label}">`;
+    inner = `<img src="${localPhoto}" alt="${label}" loading="lazy" decoding="async">`;
+  } else if(manualPhoto){
+    cls = 'has-photo';
+    inner = `<img src="${manualPhoto}" alt="${label}">`;
   } else if(autoPhoto){
     cls = 'has-photo';
     inner = `<img src="${autoPhoto}" alt="${label}" loading="lazy" decoding="async">`;
@@ -3296,7 +3321,7 @@ function productThumb(entry, field, label){
   }
   const admin = isAdmin ? `
     <div class="thumb-admin">
-      ${photo ? `<button type="button" class="thumb-clear" data-clearitemphoto="${entry.id}" data-photofield="${field}" title="Retirer la photo">×</button>` : ''}
+      ${manualPhoto ? `<button type="button" class="thumb-clear" data-clearitemphoto="${entry.id}" data-photofield="${field}" title="Retirer la photo manuelle">×</button>` : ''}
       <label class="thumb-add" title="Photo ${label}">+
         <input type="file" accept="image/*" data-setitemphoto="${entry.id}" data-photofield="${field}">
       </label>
@@ -4559,12 +4584,12 @@ document.getElementById("loginSubmit").addEventListener("click", async ()=>{
 
 auth.onAuthStateChanged(()=>{ updateAccountUI(); });
 
-loadState().then(()=>{ loadCmMarket(); routeFromHash(); });
+loadLocalProductPhotos().then(()=>loadState()).then(()=>{ loadCmMarket(); routeFromHash(); });
 
 
 if("serviceWorker" in navigator){
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("sw.js?v=20260709-cache-v5", { updateViaCache: "none" }).then((registration)=>{
+    navigator.serviceWorker.register("sw.js?v=20260709-photos-v1", { updateViaCache: "none" }).then((registration)=>{
       registration.update().catch(()=>{});
     }).catch(()=>{
       /* échoue silencieusement si ouvert en local sans serveur */

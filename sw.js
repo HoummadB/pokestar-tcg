@@ -1,4 +1,4 @@
-const CACHE = "pokestar-shell-v5";
+const CACHE = "pokestar-shell-v6";
 const PRECACHE = [
   "./manifest.json",
   "./robots.txt",

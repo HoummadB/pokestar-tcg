@@ -1,0 +1,603 @@
+{
+  "version": "20260709-local-v1",
+  "generatedAt": "2026-07-09",
+  "basePath": "assets/product-photos",
+  "fields": [
+    "booster",
+    "display",
+    "etb"
+  ],
+  "count": 354,
+  "photos": {
+    "dp01": {
+      "booster": "assets/product-photos/dp01/booster.jpg",
+      "display": "assets/product-photos/dp01/display.png",
+      "etb": "assets/product-photos/dp01/etb.png"
+    },
+    "dp02": {
+      "booster": "assets/product-photos/dp02/booster.png",
+      "display": "assets/product-photos/dp02/display.png",
+      "etb": "assets/product-photos/dp02/etb.png"
+    },
+    "dp03": {
+      "booster": "assets/product-photos/dp03/booster.png",
+      "display": "assets/product-photos/dp03/display.jpg",
+      "etb": "assets/product-photos/dp03/etb.jpg"
+    },
+    "dp04": {
+      "booster": "assets/product-photos/dp04/booster.jpg",
+      "display": "assets/product-photos/dp04/display.png",
+      "etb": "assets/product-photos/dp04/etb.jpg"
+    },
+    "dp05": {
+      "booster": "assets/product-photos/dp05/booster.png",
+      "display": "assets/product-photos/dp05/display.png",
+      "etb": "assets/product-photos/dp05/etb.png"
+    },
+    "dp06": {
+      "booster": "assets/product-photos/dp06/booster.png",
+      "display": "assets/product-photos/dp06/display.jpg",
+      "etb": "assets/product-photos/dp06/etb.jpg"
+    },
+    "dp07": {
+      "booster": "assets/product-photos/dp07/booster.jpg",
+      "display": "assets/product-photos/dp07/display.png",
+      "etb": "assets/product-photos/dp07/etb.jpg"
+    },
+    "eb01": {
+      "booster": "assets/product-photos/eb01/booster.png",
+      "display": "assets/product-photos/eb01/display.png",
+      "etb": "assets/product-photos/eb01/etb.png"
+    },
+    "eb02": {
+      "booster": "assets/product-photos/eb02/booster.png",
+      "display": "assets/product-photos/eb02/display.png",
+      "etb": "assets/product-photos/eb02/etb.png"
+    },
+    "eb03": {
+      "booster": "assets/product-photos/eb03/booster.png",
+      "display": "assets/product-photos/eb03/display.png",
+      "etb": "assets/product-photos/eb03/etb.png"
+    },
+    "eb04": {
+      "booster": "assets/product-photos/eb04/booster.png",
+      "display": "assets/product-photos/eb04/display.png",
+      "etb": "assets/product-photos/eb04/etb.png"
+    },
+    "eb05": {
+      "booster": "assets/product-photos/eb05/booster.png",
+      "display": "assets/product-photos/eb05/display.png",
+      "etb": "assets/product-photos/eb05/etb.png"
+    },
+    "eb06": {
+      "booster": "assets/product-photos/eb06/booster.png",
+      "display": "assets/product-photos/eb06/display.png",
+      "etb": "assets/product-photos/eb06/etb.png"
+    },
+    "eb07": {
+      "booster": "assets/product-photos/eb07/booster.png",
+      "display": "assets/product-photos/eb07/display.png",
+      "etb": "assets/product-photos/eb07/etb.png"
+    },
+    "eb08": {
+      "booster": "assets/product-photos/eb08/booster.png",
+      "display": "assets/product-photos/eb08/display.png",
+      "etb": "assets/product-photos/eb08/etb.png"
+    },
+    "eb09": {
+      "booster": "assets/product-photos/eb09/booster.png",
+      "display": "assets/product-photos/eb09/display.png",
+      "etb": "assets/product-photos/eb09/etb.png"
+    },
+    "eb10": {
+      "booster": "assets/product-photos/eb10/booster.png",
+      "display": "assets/product-photos/eb10/display.png",
+      "etb": "assets/product-photos/eb10/etb.png"
+    },
+    "eb11": {
+      "booster": "assets/product-photos/eb11/booster.png",
+      "display": "assets/product-photos/eb11/display.png",
+      "etb": "assets/product-photos/eb11/etb.png"
+    },
+    "eb12": {
+      "booster": "assets/product-photos/eb12/booster.png",
+      "display": "assets/product-photos/eb12/display.png",
+      "etb": "assets/product-photos/eb12/etb.png"
+    },
+    "eb13": {
+      "booster": "assets/product-photos/eb13/booster.png",
+      "display": "assets/product-photos/eb13/display.png",
+      "etb": "assets/product-photos/eb13/etb.png"
+    },
+    "eb14": {
+      "booster": "assets/product-photos/eb14/booster.png",
+      "display": "assets/product-photos/eb14/display.png",
+      "etb": "assets/product-photos/eb14/etb.png"
+    },
+    "eb15": {
+      "booster": "assets/product-photos/eb15/booster.png",
+      "display": "assets/product-photos/eb15/display.png",
+      "etb": "assets/product-photos/eb15/etb.png"
+    },
+    "eb16": {
+      "booster": "assets/product-photos/eb16/booster.png",
+      "display": "assets/product-photos/eb16/display.png",
+      "etb": "assets/product-photos/eb16/etb.png"
+    },
+    "eb17": {
+      "booster": "assets/product-photos/eb17/booster.png",
+      "display": "assets/product-photos/eb17/display.png",
+      "etb": "assets/product-photos/eb17/etb.png"
+    },
+    "ec02": {
+      "booster": "assets/product-photos/ec02/booster.png",
+      "display": "assets/product-photos/ec02/display.png",
+      "etb": "assets/product-photos/ec02/etb.jpg"
+    },
+    "ec03": {
+      "booster": "assets/product-photos/ec03/booster.jpg",
+      "display": "assets/product-photos/ec03/display.png",
+      "etb": "assets/product-photos/ec03/etb.png"
+    },
+    "ev01": {
+      "booster": "assets/product-photos/ev01/booster.png",
+      "display": "assets/product-photos/ev01/display.png",
+      "etb": "assets/product-photos/ev01/etb.png"
+    },
+    "ev02": {
+      "booster": "assets/product-photos/ev02/booster.png",
+      "display": "assets/product-photos/ev02/display.png",
+      "etb": "assets/product-photos/ev02/etb.png"
+    },
+    "ev03": {
+      "booster": "assets/product-photos/ev03/booster.png",
+      "display": "assets/product-photos/ev03/display.png",
+      "etb": "assets/product-photos/ev03/etb.png"
+    },
+    "ev04": {
+      "booster": "assets/product-photos/ev04/booster.png",
+      "display": "assets/product-photos/ev04/display.png",
+      "etb": "assets/product-photos/ev04/etb.png"
+    },
+    "ev045": {
+      "booster": "assets/product-photos/ev045/booster.png",
+      "display": "assets/product-photos/ev045/display.png",
+      "etb": "assets/product-photos/ev045/etb.png"
+    },
+    "ev05": {
+      "booster": "assets/product-photos/ev05/booster.png",
+      "display": "assets/product-photos/ev05/display.png",
+      "etb": "assets/product-photos/ev05/etb.png"
+    },
+    "ev06": {
+      "booster": "assets/product-photos/ev06/booster.png",
+      "display": "assets/product-photos/ev06/display.png",
+      "etb": "assets/product-photos/ev06/etb.png"
+    },
+    "ev065": {
+      "booster": "assets/product-photos/ev065/booster.png",
+      "display": "assets/product-photos/ev065/display.png",
+      "etb": "assets/product-photos/ev065/etb.png"
+    },
+    "ev07": {
+      "booster": "assets/product-photos/ev07/booster.png",
+      "display": "assets/product-photos/ev07/display.png",
+      "etb": "assets/product-photos/ev07/etb.png"
+    },
+    "ev08": {
+      "booster": "assets/product-photos/ev08/booster.png",
+      "display": "assets/product-photos/ev08/display.png",
+      "etb": "assets/product-photos/ev08/etb.png"
+    },
+    "ev085": {
+      "booster": "assets/product-photos/ev085/booster.png",
+      "display": "assets/product-photos/ev085/display.png",
+      "etb": "assets/product-photos/ev085/etb.png"
+    },
+    "ev09": {
+      "booster": "assets/product-photos/ev09/booster.png",
+      "display": "assets/product-photos/ev09/display.png",
+      "etb": "assets/product-photos/ev09/etb.png"
+    },
+    "ev10": {
+      "booster": "assets/product-photos/ev10/booster.png",
+      "display": "assets/product-photos/ev10/display.png",
+      "etb": "assets/product-photos/ev10/etb.png"
+    },
+    "ev105a": {
+      "booster": "assets/product-photos/ev105a/booster.png",
+      "display": "assets/product-photos/ev105a/display.png",
+      "etb": "assets/product-photos/ev105a/etb.png"
+    },
+    "ev105b": {
+      "booster": "assets/product-photos/ev105b/booster.png",
+      "display": "assets/product-photos/ev105b/display.png",
+      "etb": "assets/product-photos/ev105b/etb.png"
+    },
+    "ev151": {
+      "booster": "assets/product-photos/ev151/booster.jpg",
+      "display": "assets/product-photos/ev151/display.png",
+      "etb": "assets/product-photos/ev151/etb.png"
+    },
+    "ex01": {
+      "booster": "assets/product-photos/ex01/booster.jpg",
+      "display": "assets/product-photos/ex01/display.png",
+      "etb": "assets/product-photos/ex01/etb.png"
+    },
+    "ex02": {
+      "booster": "assets/product-photos/ex02/booster.jpg",
+      "display": "assets/product-photos/ex02/display.png",
+      "etb": "assets/product-photos/ex02/etb.png"
+    },
+    "ex03": {
+      "booster": "assets/product-photos/ex03/booster.png",
+      "display": "assets/product-photos/ex03/display.png",
+      "etb": "assets/product-photos/ex03/etb.png"
+    },
+    "ex04": {
+      "booster": "assets/product-photos/ex04/booster.png",
+      "display": "assets/product-photos/ex04/display.jpg",
+      "etb": "assets/product-photos/ex04/etb.png"
+    },
+    "ex05": {
+      "booster": "assets/product-photos/ex05/booster.png",
+      "display": "assets/product-photos/ex05/display.png",
+      "etb": "assets/product-photos/ex05/etb.png"
+    },
+    "ex06": {
+      "booster": "assets/product-photos/ex06/booster.jpg",
+      "display": "assets/product-photos/ex06/display.png",
+      "etb": "assets/product-photos/ex06/etb.png"
+    },
+    "ex07": {
+      "booster": "assets/product-photos/ex07/booster.jpg",
+      "display": "assets/product-photos/ex07/display.png",
+      "etb": "assets/product-photos/ex07/etb.png"
+    },
+    "ex08": {
+      "booster": "assets/product-photos/ex08/booster.jpg",
+      "display": "assets/product-photos/ex08/display.png",
+      "etb": "assets/product-photos/ex08/etb.png"
+    },
+    "ex09": {
+      "booster": "assets/product-photos/ex09/booster.jpg",
+      "display": "assets/product-photos/ex09/display.png",
+      "etb": "assets/product-photos/ex09/etb.png"
+    },
+    "ex10": {
+      "booster": "assets/product-photos/ex10/booster.png",
+      "display": "assets/product-photos/ex10/display.png",
+      "etb": "assets/product-photos/ex10/etb.png"
+    },
+    "ex11": {
+      "booster": "assets/product-photos/ex11/booster.png",
+      "display": "assets/product-photos/ex11/display.png",
+      "etb": "assets/product-photos/ex11/etb.png"
+    },
+    "ex12": {
+      "booster": "assets/product-photos/ex12/booster.jpg",
+      "display": "assets/product-photos/ex12/display.png",
+      "etb": "assets/product-photos/ex12/etb.png"
+    },
+    "ex13": {
+      "booster": "assets/product-photos/ex13/booster.png",
+      "display": "assets/product-photos/ex13/display.jpg",
+      "etb": "assets/product-photos/ex13/etb.png"
+    },
+    "ex14": {
+      "booster": "assets/product-photos/ex14/booster.jpg",
+      "display": "assets/product-photos/ex14/display.png",
+      "etb": "assets/product-photos/ex14/etb.png"
+    },
+    "ex15": {
+      "booster": "assets/product-photos/ex15/booster.png",
+      "display": "assets/product-photos/ex15/display.png",
+      "etb": "assets/product-photos/ex15/etb.png"
+    },
+    "hs01": {
+      "booster": "assets/product-photos/hs01/booster.png",
+      "display": "assets/product-photos/hs01/display.png",
+      "etb": "assets/product-photos/hs01/etb.png"
+    },
+    "hs02": {
+      "booster": "assets/product-photos/hs02/booster.jpg",
+      "display": "assets/product-photos/hs02/display.png",
+      "etb": "assets/product-photos/hs02/etb.png"
+    },
+    "hs03": {
+      "booster": "assets/product-photos/hs03/booster.png",
+      "display": "assets/product-photos/hs03/display.png",
+      "etb": "assets/product-photos/hs03/etb.png"
+    },
+    "hs04": {
+      "booster": "assets/product-photos/hs04/booster.jpg",
+      "display": "assets/product-photos/hs04/display.png",
+      "etb": "assets/product-photos/hs04/etb.png"
+    },
+    "hs05": {
+      "booster": "assets/product-photos/hs05/booster.png",
+      "display": "assets/product-photos/hs05/display.png",
+      "etb": "assets/product-photos/hs05/etb.png"
+    },
+    "me01": {
+      "booster": "assets/product-photos/me01/booster.png",
+      "display": "assets/product-photos/me01/display.png",
+      "etb": "assets/product-photos/me01/etb.png"
+    },
+    "me02": {
+      "booster": "assets/product-photos/me02/booster.png",
+      "display": "assets/product-photos/me02/display.png",
+      "etb": "assets/product-photos/me02/etb.png"
+    },
+    "me025": {
+      "booster": "assets/product-photos/me025/booster.jpg",
+      "display": "assets/product-photos/me025/display.png",
+      "etb": "assets/product-photos/me025/etb.png"
+    },
+    "me03": {
+      "booster": "assets/product-photos/me03/booster.png",
+      "display": "assets/product-photos/me03/display.png",
+      "etb": "assets/product-photos/me03/etb.png"
+    },
+    "me04": {
+      "booster": "assets/product-photos/me04/booster.png",
+      "display": "assets/product-photos/me04/display.png",
+      "etb": "assets/product-photos/me04/etb.png"
+    },
+    "me05": {
+      "booster": "assets/product-photos/me05/booster.png",
+      "display": "assets/product-photos/me05/display.png",
+      "etb": "assets/product-photos/me05/etb.png"
+    },
+    "nb01": {
+      "booster": "assets/product-photos/nb01/booster.jpg",
+      "display": "assets/product-photos/nb01/display.png",
+      "etb": "assets/product-photos/nb01/etb.png"
+    },
+    "nb02": {
+      "booster": "assets/product-photos/nb02/booster.png",
+      "display": "assets/product-photos/nb02/display.png",
+      "etb": "assets/product-photos/nb02/etb.png"
+    },
+    "nb03": {
+      "booster": "assets/product-photos/nb03/booster.jpg",
+      "display": "assets/product-photos/nb03/display.png",
+      "etb": "assets/product-photos/nb03/etb.png"
+    },
+    "nb04": {
+      "booster": "assets/product-photos/nb04/booster.png",
+      "display": "assets/product-photos/nb04/display.png",
+      "etb": "assets/product-photos/nb04/etb.png"
+    },
+    "nb05": {
+      "booster": "assets/product-photos/nb05/booster.png",
+      "display": "assets/product-photos/nb05/display.png",
+      "etb": "assets/product-photos/nb05/etb.png"
+    },
+    "nb06": {
+      "booster": "assets/product-photos/nb06/booster.jpg",
+      "display": "assets/product-photos/nb06/display.png",
+      "etb": "assets/product-photos/nb06/etb.png"
+    },
+    "nb07": {
+      "booster": "assets/product-photos/nb07/booster.jpg",
+      "display": "assets/product-photos/nb07/display.png",
+      "etb": "assets/product-photos/nb07/etb.png"
+    },
+    "nb08": {
+      "booster": "assets/product-photos/nb08/booster.jpg",
+      "display": "assets/product-photos/nb08/display.png",
+      "etb": "assets/product-photos/nb08/etb.png"
+    },
+    "nb09": {
+      "booster": "assets/product-photos/nb09/booster.png",
+      "display": "assets/product-photos/nb09/display.png",
+      "etb": "assets/product-photos/nb09/etb.png"
+    },
+    "nb10": {
+      "booster": "assets/product-photos/nb10/booster.png",
+      "display": "assets/product-photos/nb10/display.png",
+      "etb": "assets/product-photos/nb10/etb.png"
+    },
+    "pl01": {
+      "booster": "assets/product-photos/pl01/booster.png",
+      "display": "assets/product-photos/pl01/display.png",
+      "etb": "assets/product-photos/pl01/etb.png"
+    },
+    "pl02": {
+      "booster": "assets/product-photos/pl02/booster.jpg",
+      "display": "assets/product-photos/pl02/display.png",
+      "etb": "assets/product-photos/pl02/etb.png"
+    },
+    "pl03": {
+      "booster": "assets/product-photos/pl03/booster.png",
+      "display": "assets/product-photos/pl03/display.png",
+      "etb": "assets/product-photos/pl03/etb.png"
+    },
+    "sl01": {
+      "booster": "assets/product-photos/sl01/booster.png",
+      "display": "assets/product-photos/sl01/display.png",
+      "etb": "assets/product-photos/sl01/etb.png"
+    },
+    "sl02": {
+      "booster": "assets/product-photos/sl02/booster.png",
+      "display": "assets/product-photos/sl02/display.png",
+      "etb": "assets/product-photos/sl02/etb.png"
+    },
+    "sl03": {
+      "booster": "assets/product-photos/sl03/booster.png",
+      "display": "assets/product-photos/sl03/display.png",
+      "etb": "assets/product-photos/sl03/etb.png"
+    },
+    "sl04": {
+      "booster": "assets/product-photos/sl04/booster.png",
+      "display": "assets/product-photos/sl04/display.png",
+      "etb": "assets/product-photos/sl04/etb.png"
+    },
+    "sl05": {
+      "booster": "assets/product-photos/sl05/booster.png",
+      "display": "assets/product-photos/sl05/display.png",
+      "etb": "assets/product-photos/sl05/etb.png"
+    },
+    "sl06": {
+      "booster": "assets/product-photos/sl06/booster.png",
+      "display": "assets/product-photos/sl06/display.png",
+      "etb": "assets/product-photos/sl06/etb.png"
+    },
+    "sl07": {
+      "booster": "assets/product-photos/sl07/booster.png",
+      "display": "assets/product-photos/sl07/display.png",
+      "etb": "assets/product-photos/sl07/etb.png"
+    },
+    "sl08": {
+      "booster": "assets/product-photos/sl08/booster.png",
+      "display": "assets/product-photos/sl08/display.png",
+      "etb": "assets/product-photos/sl08/etb.png"
+    },
+    "sl09": {
+      "booster": "assets/product-photos/sl09/booster.png",
+      "display": "assets/product-photos/sl09/display.png",
+      "etb": "assets/product-photos/sl09/etb.png"
+    },
+    "sl10": {
+      "booster": "assets/product-photos/sl10/booster.png",
+      "display": "assets/product-photos/sl10/display.png",
+      "etb": "assets/product-photos/sl10/etb.png"
+    },
+    "sl11": {
+      "booster": "assets/product-photos/sl11/booster.png",
+      "display": "assets/product-photos/sl11/display.png",
+      "etb": "assets/product-photos/sl11/etb.png"
+    },
+    "sl12": {
+      "booster": "assets/product-photos/sl12/booster.png",
+      "display": "assets/product-photos/sl12/display.png",
+      "etb": "assets/product-photos/sl12/etb.png"
+    },
+    "sl13": {
+      "booster": "assets/product-photos/sl13/booster.png",
+      "display": "assets/product-photos/sl13/display.png",
+      "etb": "assets/product-photos/sl13/etb.png"
+    },
+    "sl14": {
+      "booster": "assets/product-photos/sl14/booster.png",
+      "display": "assets/product-photos/sl14/display.png",
+      "etb": "assets/product-photos/sl14/etb.png"
+    },
+    "sl15": {
+      "booster": "assets/product-photos/sl15/booster.png",
+      "display": "assets/product-photos/sl15/display.png",
+      "etb": "assets/product-photos/sl15/etb.png"
+    },
+    "sl16": {
+      "booster": "assets/product-photos/sl16/booster.png",
+      "display": "assets/product-photos/sl16/display.png",
+      "etb": "assets/product-photos/sl16/etb.png"
+    },
+    "wiz01": {
+      "booster": "assets/product-photos/wiz01/booster.png",
+      "display": "assets/product-photos/wiz01/display.png",
+      "etb": "assets/product-photos/wiz01/etb.png"
+    },
+    "wiz02": {
+      "booster": "assets/product-photos/wiz02/booster.png",
+      "display": "assets/product-photos/wiz02/display.png",
+      "etb": "assets/product-photos/wiz02/etb.png"
+    },
+    "wiz03": {
+      "booster": "assets/product-photos/wiz03/booster.png",
+      "display": "assets/product-photos/wiz03/display.png",
+      "etb": "assets/product-photos/wiz03/etb.png"
+    },
+    "wiz04": {
+      "booster": "assets/product-photos/wiz04/booster.png",
+      "display": "assets/product-photos/wiz04/display.png",
+      "etb": "assets/product-photos/wiz04/etb.png"
+    },
+    "wiz05": {
+      "booster": "assets/product-photos/wiz05/booster.png",
+      "display": "assets/product-photos/wiz05/display.png",
+      "etb": "assets/product-photos/wiz05/etb.png"
+    },
+    "wiz06": {
+      "booster": "assets/product-photos/wiz06/booster.png",
+      "display": "assets/product-photos/wiz06/display.png",
+      "etb": "assets/product-photos/wiz06/etb.png"
+    },
+    "wiz07": {
+      "booster": "assets/product-photos/wiz07/booster.png",
+      "display": "assets/product-photos/wiz07/display.png",
+      "etb": "assets/product-photos/wiz07/etb.png"
+    },
+    "wiz08": {
+      "booster": "assets/product-photos/wiz08/booster.png",
+      "display": "assets/product-photos/wiz08/display.png",
+      "etb": "assets/product-photos/wiz08/etb.jpg"
+    },
+    "xy01": {
+      "booster": "assets/product-photos/xy01/booster.png",
+      "display": "assets/product-photos/xy01/display.png",
+      "etb": "assets/product-photos/xy01/etb.png"
+    },
+    "xy02": {
+      "booster": "assets/product-photos/xy02/booster.jpg",
+      "display": "assets/product-photos/xy02/display.png",
+      "etb": "assets/product-photos/xy02/etb.png"
+    },
+    "xy03": {
+      "booster": "assets/product-photos/xy03/booster.png",
+      "display": "assets/product-photos/xy03/display.png",
+      "etb": "assets/product-photos/xy03/etb.png"
+    },
+    "xy04": {
+      "booster": "assets/product-photos/xy04/booster.jpg",
+      "display": "assets/product-photos/xy04/display.png",
+      "etb": "assets/product-photos/xy04/etb.png"
+    },
+    "xy05": {
+      "booster": "assets/product-photos/xy05/booster.png",
+      "display": "assets/product-photos/xy05/display.png",
+      "etb": "assets/product-photos/xy05/etb.png"
+    },
+    "xy06": {
+      "booster": "assets/product-photos/xy06/booster.png",
+      "display": "assets/product-photos/xy06/display.png",
+      "etb": "assets/product-photos/xy06/etb.png"
+    },
+    "xy07": {
+      "booster": "assets/product-photos/xy07/booster.png",
+      "display": "assets/product-photos/xy07/display.png",
+      "etb": "assets/product-photos/xy07/etb.png"
+    },
+    "xy08": {
+      "booster": "assets/product-photos/xy08/booster.png",
+      "display": "assets/product-photos/xy08/display.png",
+      "etb": "assets/product-photos/xy08/etb.png"
+    },
+    "xy09": {
+      "booster": "assets/product-photos/xy09/booster.png",
+      "display": "assets/product-photos/xy09/display.png",
+      "etb": "assets/product-photos/xy09/etb.png"
+    },
+    "xy10": {
+      "booster": "assets/product-photos/xy10/booster.png",
+      "display": "assets/product-photos/xy10/display.png",
+      "etb": "assets/product-photos/xy10/etb.png"
+    },
+    "xy11": {
+      "booster": "assets/product-photos/xy11/booster.png",
+      "display": "assets/product-photos/xy11/display.png",
+      "etb": "assets/product-photos/xy11/etb.png"
+    },
+    "xy12": {
+      "booster": "assets/product-photos/xy12/booster.png",
+      "display": "assets/product-photos/xy12/display.png",
+      "etb": "assets/product-photos/xy12/etb.png"
+    },
+    "xy13": {
+      "booster": "assets/product-photos/xy13/booster.png",
+      "display": "assets/product-photos/xy13/display.png",
+      "etb": "assets/product-photos/xy13/etb.png"
+    }
+  }
+}
