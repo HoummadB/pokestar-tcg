@@ -113,20 +113,19 @@
 
   /* ---------- Hero ---------- */
   header.hero{
-    padding:36px 24px 28px;
+    padding:20px 24px 22px;
     max-width:1100px;
     margin:0 auto;
-    text-align:left;
     position:relative;
     overflow:hidden;
   }
   .hero-deco{
     position:absolute;
-    top:-60px;
-    right:-40px;
-    width:340px;
-    height:340px;
-    opacity:0.5;
+    top:-80px;
+    right:-60px;
+    width:360px;
+    height:360px;
+    opacity:0.45;
     pointer-events:none;
     z-index:0;
   }
@@ -135,74 +134,117 @@
     fill:none;
     stroke-width:1;
   }
-  .brand-row, h1, .sub{
+  .hero-panel{
     position:relative;
     z-index:1;
+    border-radius:18px;
+    border:1px solid rgba(168,85,232,0.22);
+    background:
+      radial-gradient(ellipse 80% 120% at 0% 0%, rgba(168,85,232,0.14), transparent 55%),
+      radial-gradient(ellipse 60% 80% at 100% 100%, rgba(229,56,74,0.08), transparent 50%),
+      rgba(20,16,30,0.72);
+    box-shadow:0 16px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+    padding:22px 24px 18px;
   }
-  .brand-row{
+  .hero-main{
     display:flex;
     align-items:center;
     gap:22px;
-    margin-bottom:6px;
-    position:relative;
   }
-  .brand-row::after{
-    content:"";
-    position:absolute;
-    left:114px;
-    top:4px;
-    bottom:4px;
-    width:1px;
-    background:linear-gradient(180deg, transparent, var(--violet-deep), transparent);
-  }
-  .brand-logo{
-    width:92px;
-    height:92px;
-    border-radius:18px;
+  .hero-logo{
+    width:96px;
+    height:96px;
+    border-radius:20px;
     object-fit:cover;
-    box-shadow:0 0 12px rgba(168,85,232,0.5), 0 0 45px rgba(168,85,232,0.55), 0 0 90px rgba(124,47,196,0.35);
     flex-shrink:0;
     animation:logoGlow 4s ease-in-out infinite;
+    box-shadow:0 0 12px rgba(168,85,232,0.5), 0 0 45px rgba(168,85,232,0.55), 0 0 90px rgba(124,47,196,0.35);
   }
   @keyframes logoGlow{
     0%,100%{ box-shadow:0 0 12px rgba(168,85,232,0.5), 0 0 45px rgba(168,85,232,0.55), 0 0 90px rgba(124,47,196,0.35); }
     50%{ box-shadow:0 0 16px rgba(168,85,232,0.7), 0 0 60px rgba(168,85,232,0.7), 0 0 110px rgba(124,47,196,0.5); }
   }
-  .brand-text{
-    padding-left:20px;
-  }
-  .wordmark{
-    font-family:var(--display);
-    font-weight:900;
-    font-size:30px;
-    letter-spacing:2px;
-    line-height:1;
-    background:linear-gradient(100deg, var(--cream), var(--violet));
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-  }
-  .tagline{
+  .hero-copy{min-width:0;flex:1;}
+  .hero-eyebrow{
+    margin:0 0 8px;
     font-family:var(--mono);
-    font-size:11px;
-    color:var(--muted);
-    letter-spacing:3px;
+    font-size:10px;
+    letter-spacing:2.5px;
     text-transform:uppercase;
-    margin-top:5px;
+    color:var(--gold);
   }
-  h1{
+  .hero h1{
     font-family:var(--display);
     font-weight:900;
     text-transform:uppercase;
-    font-size:clamp(32px,5.5vw,52px);
-    line-height:0.98;
-    margin:0 0 12px;
-    letter-spacing:0.5px;
-    background:linear-gradient(100deg, var(--cream) 0%, var(--violet) 45%, var(--violet-deep) 75%, var(--scarlet) 100%);
+    font-size:clamp(34px,6.2vw,58px);
+    line-height:0.92;
+    margin:0 0 10px;
+    letter-spacing:-0.5px;
+    background:linear-gradient(100deg, var(--cream) 0%, var(--violet) 42%, var(--scarlet) 100%);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
-    filter:drop-shadow(0 0 22px rgba(168,85,232,0.35));
+    filter:drop-shadow(0 0 24px rgba(168,85,232,0.35));
+  }
+  .hero-lead{
+    margin:0 0 14px;
+    max-width:520px;
+    font-size:15px;
+    line-height:1.4;
+    color:var(--cream);
+    opacity:0.88;
+  }
+  .hero-cta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .hero-cta-primary,
+  .hero-cta-ghost{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    min-height:40px;
+    padding:0 16px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    font-family:var(--body);
+    transition:filter .15s ease, transform .15s ease, border-color .15s ease;
+  }
+  .hero-cta-primary{
+    border:none;
+    color:#1a1300;
+    background:linear-gradient(100deg,#f5af02,#e47911);
+    box-shadow:0 0 18px rgba(228,121,17,0.35);
+  }
+  .hero-cta-primary:hover{filter:brightness(1.08);transform:translateY(-1px);}
+  .hero-cta-ghost{
+    border:1px solid var(--line);
+    background:rgba(37,31,51,0.55);
+    color:var(--cream);
+  }
+  .hero-cta-ghost:hover{border-color:var(--violet);}
+  .hero-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px dashed rgba(61,51,80,0.8);
+  }
+  .hero-pill{
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:0.4px;
+    text-transform:uppercase;
+    color:var(--muted);
+    padding:5px 10px;
+    border-radius:999px;
+    border:1px solid rgba(61,51,80,0.9);
+    background:rgba(12,10,19,0.45);
   }
   .sub{
     color:var(--muted);
@@ -1484,14 +1526,15 @@
   }
   @media(max-width:640px){
     body{padding-bottom:100px;}
-    header.hero{padding:28px 16px 20px;}
-    .brand-row{gap:14px;}
-    .brand-row::after{left:78px;}
-    .brand-logo{width:64px;height:64px;border-radius:14px;}
-    .wordmark{font-size:22px;}
-    .tagline{font-size:9.5px;letter-spacing:2px;}
-    .sub{font-size:13.5px;}
-    .hero-deco{width:220px;height:220px;top:-40px;right:-60px;}
+    header.hero{padding:14px 16px 16px;}
+    .hero-panel{padding:16px 14px 14px;border-radius:14px;}
+    .hero-main{flex-direction:column;align-items:flex-start;gap:14px;}
+    .hero-logo{width:72px;height:72px;border-radius:16px;}
+    .hero h1{font-size:clamp(28px,9vw,40px);}
+    .hero-lead{font-size:14px;max-width:none;}
+    .hero-cta{width:100%;}
+    .hero-cta-primary,.hero-cta-ghost{flex:1;justify-content:center;min-width:0;}
+    .hero-deco{width:200px;height:200px;top:-30px;right:-70px;opacity:0.3;}
 
     .controls{padding:8px 16px 12px;gap:8px;}
     .controls-row{gap:6px;}
@@ -2083,22 +2126,30 @@
 </nav>
 
 <header class="hero" id="siteHero">
-  <svg class="hero-deco" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+  <svg class="hero-deco" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M170 20 L300 170 L170 320 L40 170 Z"/>
     <path d="M170 70 L250 170 L170 270 L90 170 Z"/>
     <path d="M170 120 L200 170 L170 220 L140 170 Z"/>
   </svg>
-  <div class="brand-row">
-    <img class="brand-logo" src="assets/brand-logo.jpg" alt="Pokestar">
-    <div>
-      <div class="brand-text">
-        <div class="wordmark">POKESTAR</div>
-        <div class="tagline">TCG &amp; Distributeurs</div>
+  <div class="hero-panel">
+    <div class="hero-main">
+      <img class="hero-logo brand-logo" src="assets/brand-logo.jpg" alt="Pokestar">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Par la communauté · Pour la communauté</p>
+        <h1>La Cote du<br>TCG Pokémon</h1>
+        <p class="hero-lead">Les bons prix boosters, série par série — en ligne ou chez nos distributeurs.</p>
+        <div class="hero-cta">
+          <button type="button" class="hero-cta-primary" id="heroScrollCatalog">Explorer les séries</button>
+          <button type="button" class="hero-cta-ghost" id="heroGoHelp">Comment ça marche</button>
+        </div>
       </div>
-      <h1>La Cote du TCG Pokémon</h1>
+    </div>
+    <div class="hero-pills" aria-label="Points clés">
+      <span class="hero-pill">Repères Cardmarket</span>
+      <span class="hero-pill">Cote communautaire</span>
+      <span class="hero-pill">eBay &amp; distributeurs</span>
     </div>
   </div>
-  <p class="sub">Pokestar est un site par la communauté, pour la communauté : repères de prix des boosters Pokémon TCG, série par série, pour acheter au meilleur prix — en ligne ou chez nos distributeurs automatiques.</p>
 </header>
 
 <div id="catalogView">
@@ -3886,6 +3937,12 @@ document.getElementById("resetAllPrices").addEventListener("click", onResetAllPr
 document.getElementById("navHome").addEventListener("click", e=>{ e.preventDefault(); setView("catalog"); });
 document.getElementById("navCatalog").addEventListener("click", ()=> setView("catalog"));
 document.getElementById("navHelp").addEventListener("click", ()=> setView("help"));
+document.getElementById("heroGoHelp").addEventListener("click", ()=> setView("help"));
+document.getElementById("heroScrollCatalog").addEventListener("click", ()=>{
+  const main = document.getElementById("main");
+  if(main) main.scrollIntoView({ behavior: "smooth", block: "start" });
+  else document.getElementById("search").focus();
+});
 document.getElementById("showDistrib").addEventListener("click", ()=>{ setView("distrib"); setupDistribPins(); });
 document.getElementById("navToggle").addEventListener("click", ()=>{
   const nav = document.getElementById("siteNav");
