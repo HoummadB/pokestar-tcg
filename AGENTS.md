@@ -42,7 +42,7 @@ Point d'entrée déploiement : **`index.html`** à la racine du site.
 
 - **Cote Pokestar** : prix communautaires / admin, stockés Firestore `pokestar_state/main`.
 - **Logos de série** : Firestore `pokestar_logos` (base64). **Photos produit** : manifest local `assets/product-photos/manifest.json`, puis Firestore manuel et Scrydex en secours.
-- **Prix Cardmarket** : guide officiel JSON (maj ~1×/jour), embarqué `CM_MARKET_SEED` + fichier `cm-market-cache.json`.
+- **Prix Cardmarket UE** : guide officiel JSON (maj ~1×/jour), embarqué `CM_MARKET_SEED` + fichier `cm-market-cache.json`. Le guide n'est pas un prix France-only.
 - **eBay vendu** : pas d'API — lien externe seulement.
 - **UI** : hero logo série + tuiles Booster / Display / ETB (photo → logo → icône).
 
@@ -117,7 +117,23 @@ Après modification de `index.html` ou des prix CM :
   références heuristiques ont été retirées du manifest le 2026-07-10. Le rendu
   affiche donc le glyphe ETB neutre jusqu'à validation d'une source dédiée.
 - Les 15 logos hero EX sont absents de `pokestar_logos` dans l'état contrôlé le
-  2026-07-10 : ne pas détourner une photo booster/display ni fabriquer un logo.
+  2026-07-10 : ils sont servis localement depuis `assets/series-logos/`, avec
+  le mapping et les URLs du catalogue Pokémon TCG API conservés dans le
+  manifest. Vérifier les droits d'usage avant toute nouvelle série ou usage
+  commercial élargi.
+
+## Périmètre des prix
+
+- `cm-market-cache.json` et `CM_MARKET_SEED` viennent du guide Cardmarket
+  agrégé UE : l'URL `/fr/` traduit l'interface, elle ne limite pas le guide
+  aux vendeurs français.
+- Pour une cote France, la piste identifiée est l'API Pokéindex (`api.pokeindex.fr`)
+  qui agrège Cardmarket, eBay, Vinted et Leboncoin. La clé doit rester côté
+  serveur/cron et le service est payant ; aucune clé ne doit entrer dans le
+  front public.
+- Tant que cette source n'est pas activée, l'interface doit afficher
+  explicitement « Cardmarket UE » et ne pas présenter ces valeurs comme le
+  marché français.
 
 ---
 

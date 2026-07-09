@@ -1,5 +1,5 @@
 {
-  "version": "20260710-local-v2",
+  "version": "20260710-local-v3",
   "generatedAt": "2026-07-10",
   "basePath": "assets/product-photos",
   "fields": [
@@ -11,6 +11,11 @@
   "notes": "Les 15 références ETB du bloc EX ont été retirées après audit visuel : aucun n'est un ETB vérifiable.",
   "excluded": {
     "etb": ["ex01", "ex02", "ex03", "ex04", "ex05", "ex06", "ex07", "ex08", "ex09", "ex10", "ex11", "ex12", "ex13", "ex14", "ex15"]
+  },
+  "heroSources": {
+    "provider": "Pokémon TCG API CDN",
+    "catalog": "https://docs.pokemontcg.io/api-reference/sets/set-object/",
+    "note": "Logos EX téléchargés localement depuis les URLs images du catalogue pour éviter un hotlink en production."
   },
   "photos": {
     "dp01": {
@@ -225,63 +230,78 @@
     },
     "ex01": {
       "booster": "assets/product-photos/ex01/booster.jpg",
-      "display": "assets/product-photos/ex01/display.png"
+      "display": "assets/product-photos/ex01/display.png",
+      "hero": "assets/series-logos/ex01.png"
     },
     "ex02": {
       "booster": "assets/product-photos/ex02/booster.jpg",
-      "display": "assets/product-photos/ex02/display.png"
+      "display": "assets/product-photos/ex02/display.png",
+      "hero": "assets/series-logos/ex02.png"
     },
     "ex03": {
       "booster": "assets/product-photos/ex03/booster.png",
-      "display": "assets/product-photos/ex03/display.png"
+      "display": "assets/product-photos/ex03/display.png",
+      "hero": "assets/series-logos/ex03.png"
     },
     "ex04": {
       "booster": "assets/product-photos/ex04/booster.png",
-      "display": "assets/product-photos/ex04/display.jpg"
+      "display": "assets/product-photos/ex04/display.jpg",
+      "hero": "assets/series-logos/ex04.png"
     },
     "ex05": {
       "booster": "assets/product-photos/ex05/booster.png",
-      "display": "assets/product-photos/ex05/display.png"
+      "display": "assets/product-photos/ex05/display.png",
+      "hero": "assets/series-logos/ex05.png"
     },
     "ex06": {
       "booster": "assets/product-photos/ex06/booster.jpg",
-      "display": "assets/product-photos/ex06/display.png"
+      "display": "assets/product-photos/ex06/display.png",
+      "hero": "assets/series-logos/ex06.png"
     },
     "ex07": {
       "booster": "assets/product-photos/ex07/booster.jpg",
-      "display": "assets/product-photos/ex07/display.png"
+      "display": "assets/product-photos/ex07/display.png",
+      "hero": "assets/series-logos/ex07.png"
     },
     "ex08": {
       "booster": "assets/product-photos/ex08/booster.jpg",
-      "display": "assets/product-photos/ex08/display.png"
+      "display": "assets/product-photos/ex08/display.png",
+      "hero": "assets/series-logos/ex08.png"
     },
     "ex09": {
       "booster": "assets/product-photos/ex09/booster.jpg",
-      "display": "assets/product-photos/ex09/display.png"
+      "display": "assets/product-photos/ex09/display.png",
+      "hero": "assets/series-logos/ex09.png"
     },
     "ex10": {
       "booster": "assets/product-photos/ex10/booster.png",
-      "display": "assets/product-photos/ex10/display.png"
+      "display": "assets/product-photos/ex10/display.png",
+      "hero": "assets/series-logos/ex10.png"
     },
     "ex11": {
       "booster": "assets/product-photos/ex11/booster.png",
-      "display": "assets/product-photos/ex11/display.png"
+      "display": "assets/product-photos/ex11/display.png",
+      "hero": "assets/series-logos/ex11.png"
     },
     "ex12": {
       "booster": "assets/product-photos/ex12/booster.jpg",
-      "display": "assets/product-photos/ex12/display.png"
+      "display": "assets/product-photos/ex12/display.png",
+      "hero": "assets/series-logos/ex12.png"
     },
     "ex13": {
       "booster": "assets/product-photos/ex13/booster.png",
-      "display": "assets/product-photos/ex13/display.jpg"
+      "display": "assets/product-photos/ex13/display.jpg",
+      "hero": "assets/series-logos/ex13.png"
     },
     "ex14": {
       "booster": "assets/product-photos/ex14/booster.jpg",
-      "display": "assets/product-photos/ex14/display.png"
+      "display": "assets/product-photos/ex14/display.png",
+      "hero": "assets/series-logos/ex14.png"
     },
     "ex15": {
       "booster": "assets/product-photos/ex15/booster.png",
-      "display": "assets/product-photos/ex15/display.png"
+      "display": "assets/product-photos/ex15/display.png",
+      "hero": "assets/series-logos/ex15.png"
     },
     "hs01": {
       "booster": "assets/product-photos/hs01/booster.png",

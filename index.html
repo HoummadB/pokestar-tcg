@@ -2359,7 +2359,7 @@
       </div>
     </div>
     <div class="hero-pills" aria-label="Points clés">
-      <span class="hero-pill">Repères Cardmarket</span>
+      <span class="hero-pill">Repères Cardmarket UE</span>
       <span class="hero-pill">Cote communautaire</span>
       <span class="hero-pill">eBay &amp; distributeurs</span>
     </div>
@@ -2555,7 +2555,7 @@
     <div class="legal-content">
       <h2>Comprendre les prix affichés</h2>
       <p><strong>Cote Pokestar</strong> : prix vérifié par l'équipe ou confirmé par la communauté (au moins 3 propositions avec 60 % d'accord).</p>
-      <p><strong>Repère Cardmarket</strong> : tendance et prix minimum issus du guide officiel, mis à jour quotidiennement.</p>
+      <p><strong>Repère Cardmarket UE</strong> : tendance et prix minimum issus du guide officiel, mis à jour quotidiennement. Ce repère n'est pas une moyenne réservée aux vendeurs français.</p>
       <p><strong>eBay vendu</strong> : lien externe vers les ventes terminées — pas d'API fiable, à consulter avant de proposer ta cote.</p>
     </div>
   </div>
@@ -2811,7 +2811,7 @@ function cmRefLine(entry, field, opts){
   if(ref.low != null) bits.push("dès " + fmtEur(ref.low) + " €");
   if(ref.trend != null && !opts.trendShown) bits.push("tend. " + fmtEur(ref.trend) + " €");
   if(!bits.length) return "";
-  return `<div class="cm-ref" title="Cardmarket — repère marché FR (maj quotidienne)"><span class="cm-ref-tag">CM</span>${bits.join(" · ")}</div>`;
+  return `<div class="cm-ref" title="Cardmarket — repère marché UE (maj quotidienne)"><span class="cm-ref-tag">CM UE</span>${bits.join(" · ")}</div>`;
 }
 
 function cmDisplayPrice(entry, field, communityVal){
@@ -2844,7 +2844,7 @@ async function loadCmMarket(){
   const note = document.getElementById("cmMarketUpdated");
   if(note && cmMarket.updatedAt){
     const d = new Date(cmMarket.updatedAt);
-    note.textContent = isNaN(d) ? cmMarket.updatedAt : ("Cardmarket : maj " + d.toLocaleDateString("fr-FR", {day:"2-digit", month:"short", year:"numeric"}));
+    note.textContent = isNaN(d) ? cmMarket.updatedAt : ("Cardmarket UE : maj " + d.toLocaleDateString("fr-FR", {day:"2-digit", month:"short", year:"numeric"}));
   }
   render();
 }
@@ -3229,7 +3229,7 @@ const SCRYDEX_BY_CM_SLUG = {
   "Neo-Genesis":"neo1","Neo-Discovery":"neo2","Neo-Revelation":"neo3","Neo-Destiny":"neo4"
 };
 
-const PRODUCT_PHOTOS_VERSION = "20260710-local-v2";
+const PRODUCT_PHOTOS_VERSION = "20260710-local-v3";
 let localProductPhotos = {};
 
 function cmSlugFromEntry(entry){
@@ -3264,15 +3264,17 @@ function cardHero(entry, upcoming){
   const hue = entry.hue ?? 280;
   const path = ICONS[entry.icon] || ICONS.orb;
   const isAdmin = !!state.isAdmin;
+  const localHero = localProductPhotoUrl(entry, "hero");
   const metaBadges = `
     <span class="badge ${badgeClass(entry.block)}">${entry.block}</span>
     ${upcoming ? '<span class="badge upcoming">à venir</span>' : ''}
     ${entry.date ? `<span class="card-hero-date">${fmtDate(entry.date)}</span>` : ''}`;
   const overlay = `<div class="card-hero-overlay"><h3 class="card-hero-title">${entry.name}</h3><div class="card-hero-meta">${metaBadges}</div></div>`;
-  if(entry.logo){
+  if(entry.logo || localHero){
+    const heroSrc = entry.logo || localHero;
     return `
     <div class="card-hero has-logo" style="--h:${hue}">
-      <img class="card-hero-img" src="${entry.logo}" alt="${entry.name}" />
+      <img class="card-hero-img" src="${heroSrc}" alt="${entry.name}" />
       ${overlay}
       ${isAdmin ? `<button class="logo-clear" data-clearlogo="${entry.id}" title="Retirer le logo"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></button>` : ""}
     </div>`;
