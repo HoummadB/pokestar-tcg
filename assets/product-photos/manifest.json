@@ -10,13 +10,39 @@
   "count": 339,
   "notes": "Les 15 références ETB du bloc EX ont été retirées après audit visuel : aucun n'est un ETB vérifiable.",
   "excluded": {
-    "etb": ["ex01", "ex02", "ex03", "ex04", "ex05", "ex06", "ex07", "ex08", "ex09", "ex10", "ex11", "ex12", "ex13", "ex14", "ex15"]
+    "etb": [
+      "ex01",
+      "ex02",
+      "ex03",
+      "ex04",
+      "ex05",
+      "ex06",
+      "ex07",
+      "ex08",
+      "ex09",
+      "ex10",
+      "ex11",
+      "ex12",
+      "ex13",
+      "ex14",
+      "ex15"
+    ]
   },
   "heroSources": {
     "provider": "Pokémon TCG API CDN",
     "catalog": "https://docs.pokemontcg.io/api-reference/sets/set-object/",
-    "note": "Logos EX téléchargés localement depuis les URLs images du catalogue pour éviter un hotlink en production.",
+    "note": "112 logos de séries téléchargés localement depuis les URLs images du catalogue ; 6 séries récentes utilisent leur booster local faute de logo publié.",
     "urls": {
+      "wiz01": "https://images.pokemontcg.io/base1/logo.png",
+      "wiz02": "https://images.pokemontcg.io/base2/logo.png",
+      "wiz03": "https://images.pokemontcg.io/base3/logo.png",
+      "wiz04": "https://images.pokemontcg.io/base5/logo.png",
+      "wiz05": "https://images.pokemontcg.io/neo1/logo.png",
+      "wiz06": "https://images.pokemontcg.io/neo2/logo.png",
+      "wiz07": "https://images.pokemontcg.io/neo3/logo.png",
+      "wiz08": "https://images.pokemontcg.io/neo4/logo.png",
+      "ec02": "https://images.pokemontcg.io/ecard1/logo.png",
+      "ec03": "https://images.pokemontcg.io/ecard2/logo.png",
       "ex01": "https://images.pokemontcg.io/ex1/logo.png",
       "ex02": "https://images.pokemontcg.io/ex2/logo.png",
       "ex03": "https://images.pokemontcg.io/ex3/logo.png",
@@ -31,219 +57,374 @@
       "ex12": "https://images.pokemontcg.io/ex13/logo.png",
       "ex13": "https://images.pokemontcg.io/ex14/logo.png",
       "ex14": "https://images.pokemontcg.io/ex15/logo.png",
-      "ex15": "https://images.pokemontcg.io/ex16/logo.png"
+      "ex15": "https://images.pokemontcg.io/ex16/logo.png",
+      "dp01": "https://images.pokemontcg.io/dp1/logo.png",
+      "dp02": "https://images.pokemontcg.io/dp2/logo.png",
+      "dp03": "https://images.pokemontcg.io/dp3/logo.png",
+      "dp04": "https://images.pokemontcg.io/dp4/logo.png",
+      "dp05": "https://images.pokemontcg.io/dp5/logo.png",
+      "dp06": "https://images.pokemontcg.io/dp6/logo.png",
+      "dp07": "https://images.pokemontcg.io/dp7/logo.png",
+      "pl01": "https://images.pokemontcg.io/pl1/logo.png",
+      "pl02": "https://images.pokemontcg.io/pl2/logo.png",
+      "pl03": "https://images.pokemontcg.io/pl3/logo.png",
+      "hs01": "https://images.pokemontcg.io/hgss1/logo.png",
+      "hs02": "https://images.pokemontcg.io/hgss2/logo.png",
+      "hs03": "https://images.pokemontcg.io/hgss3/logo.png",
+      "hs04": "https://images.pokemontcg.io/hgss4/logo.png",
+      "hs05": "https://images.pokemontcg.io/col1/logo.png",
+      "nb01": "https://images.pokemontcg.io/bw1/logo.png",
+      "nb02": "https://images.pokemontcg.io/bw2/logo.png",
+      "nb03": "https://images.pokemontcg.io/bw3/logo.png",
+      "nb04": "https://images.pokemontcg.io/bw4/logo.png",
+      "nb05": "https://images.pokemontcg.io/bw5/logo.png",
+      "nb06": "https://images.pokemontcg.io/bw6/logo.png",
+      "nb07": "https://images.pokemontcg.io/bw7/logo.png",
+      "nb08": "https://images.pokemontcg.io/bw8/logo.png",
+      "nb09": "https://images.pokemontcg.io/bw9/logo.png",
+      "nb10": "https://images.pokemontcg.io/bw10/logo.png",
+      "xy01": "https://images.pokemontcg.io/xy1/logo.png",
+      "xy02": "https://images.pokemontcg.io/xy2/logo.png",
+      "xy03": "https://images.pokemontcg.io/xy3/logo.png",
+      "xy04": "https://images.pokemontcg.io/xy4/logo.png",
+      "xy05": "https://images.pokemontcg.io/xy5/logo.png",
+      "xy06": "https://images.pokemontcg.io/xy6/logo.png",
+      "xy07": "https://images.pokemontcg.io/xy7/logo.png",
+      "xy08": "https://images.pokemontcg.io/xy9/logo.png",
+      "xy09": "https://images.pokemontcg.io/xy8/logo.png",
+      "xy10": "https://images.pokemontcg.io/xy10/logo.png",
+      "xy11": "https://images.pokemontcg.io/xy11/logo.png",
+      "xy12": "https://images.pokemontcg.io/xy12/logo.png",
+      "xy13": "https://images.pokemontcg.io/g1/logo.png",
+      "sl01": "https://images.pokemontcg.io/sm1/logo.png",
+      "sl02": "https://images.pokemontcg.io/sm2/logo.png",
+      "sl03": "https://images.pokemontcg.io/sm3/logo.png",
+      "sl04": "https://images.pokemontcg.io/sm4/logo.png",
+      "sl05": "https://images.pokemontcg.io/sm5/logo.png",
+      "sl06": "https://images.pokemontcg.io/sm6/logo.png",
+      "sl07": "https://images.pokemontcg.io/sm7/logo.png",
+      "sl08": "https://images.pokemontcg.io/sm75/logo.png",
+      "sl09": "https://images.pokemontcg.io/sm8/logo.png",
+      "sl10": "https://images.pokemontcg.io/sm9/logo.png",
+      "sl11": "https://images.pokemontcg.io/sm10/logo.png",
+      "sl12": "https://images.pokemontcg.io/sm11/logo.png",
+      "sl13": "https://images.pokemontcg.io/sm115/logo.png",
+      "sl14": "https://images.pokemontcg.io/sm12/logo.png",
+      "sl15": "https://images.pokemontcg.io/sm35/logo.png",
+      "sl16": "https://images.pokemontcg.io/det1/logo.png",
+      "eb01": "https://images.pokemontcg.io/swsh1/logo.png",
+      "eb02": "https://images.pokemontcg.io/swsh2/logo.png",
+      "eb03": "https://images.pokemontcg.io/swsh3/logo.png",
+      "eb04": "https://images.pokemontcg.io/swsh4/logo.png",
+      "eb05": "https://images.pokemontcg.io/swsh5/logo.png",
+      "eb06": "https://images.pokemontcg.io/swsh6/logo.png",
+      "eb07": "https://images.pokemontcg.io/swsh7/logo.png",
+      "eb08": "https://images.pokemontcg.io/cel25/logo.png",
+      "eb09": "https://images.pokemontcg.io/swsh8/logo.png",
+      "eb10": "https://images.pokemontcg.io/swsh9/logo.png",
+      "eb11": "https://images.pokemontcg.io/swsh10/logo.png",
+      "eb12": "https://images.pokemontcg.io/swsh11/logo.png",
+      "eb13": "https://images.pokemontcg.io/swsh12/logo.png",
+      "eb14": "https://images.pokemontcg.io/swsh12pt5/logo.png",
+      "eb15": "https://images.pokemontcg.io/swsh35/logo.png",
+      "eb16": "https://images.pokemontcg.io/swsh45/logo.png",
+      "eb17": "https://images.pokemontcg.io/pgo/logo.png",
+      "ev01": "https://images.pokemontcg.io/sv1/logo.png",
+      "ev02": "https://images.pokemontcg.io/sv2/logo.png",
+      "ev03": "https://images.pokemontcg.io/sv3/logo.png",
+      "ev151": "https://images.pokemontcg.io/sv3pt5/logo.png",
+      "ev04": "https://images.pokemontcg.io/sv4/logo.png",
+      "ev045": "https://images.pokemontcg.io/sv4pt5/logo.png",
+      "ev05": "https://images.pokemontcg.io/sv5/logo.png",
+      "ev06": "https://images.pokemontcg.io/sv6/logo.png",
+      "ev065": "https://images.pokemontcg.io/sv6pt5/logo.png",
+      "ev07": "https://images.pokemontcg.io/sv7/logo.png",
+      "ev08": "https://images.pokemontcg.io/sv8/logo.png",
+      "ev085": "https://images.pokemontcg.io/sv8pt5/logo.png",
+      "ev09": "https://images.pokemontcg.io/sv9/logo.png",
+      "ev10": "https://images.pokemontcg.io/sv10/logo.png",
+      "me01": "https://images.pokemontcg.io/me1/logo.png",
+      "me02": "https://images.pokemontcg.io/me2/logo.png"
+    },
+    "fallbacks": {
+      "ev105a": {
+        "type": "booster",
+        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
+      },
+      "ev105b": {
+        "type": "booster",
+        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
+      },
+      "me025": {
+        "type": "booster",
+        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
+      },
+      "me03": {
+        "type": "booster",
+        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
+      },
+      "me04": {
+        "type": "booster",
+        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
+      },
+      "me05": {
+        "type": "booster",
+        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
+      }
     }
   },
   "photos": {
     "dp01": {
       "booster": "assets/product-photos/dp01/booster.jpg",
       "display": "assets/product-photos/dp01/display.png",
-      "etb": "assets/product-photos/dp01/etb.png"
+      "etb": "assets/product-photos/dp01/etb.png",
+      "hero": "assets/series-logos/dp01.png"
     },
     "dp02": {
       "booster": "assets/product-photos/dp02/booster.png",
       "display": "assets/product-photos/dp02/display.png",
-      "etb": "assets/product-photos/dp02/etb.png"
+      "etb": "assets/product-photos/dp02/etb.png",
+      "hero": "assets/series-logos/dp02.png"
     },
     "dp03": {
       "booster": "assets/product-photos/dp03/booster.png",
       "display": "assets/product-photos/dp03/display.jpg",
-      "etb": "assets/product-photos/dp03/etb.jpg"
+      "etb": "assets/product-photos/dp03/etb.jpg",
+      "hero": "assets/series-logos/dp03.png"
     },
     "dp04": {
       "booster": "assets/product-photos/dp04/booster.jpg",
       "display": "assets/product-photos/dp04/display.png",
-      "etb": "assets/product-photos/dp04/etb.jpg"
+      "etb": "assets/product-photos/dp04/etb.jpg",
+      "hero": "assets/series-logos/dp04.png"
     },
     "dp05": {
       "booster": "assets/product-photos/dp05/booster.png",
       "display": "assets/product-photos/dp05/display.png",
-      "etb": "assets/product-photos/dp05/etb.png"
+      "etb": "assets/product-photos/dp05/etb.png",
+      "hero": "assets/series-logos/dp05.png"
     },
     "dp06": {
       "booster": "assets/product-photos/dp06/booster.png",
       "display": "assets/product-photos/dp06/display.jpg",
-      "etb": "assets/product-photos/dp06/etb.jpg"
+      "etb": "assets/product-photos/dp06/etb.jpg",
+      "hero": "assets/series-logos/dp06.png"
     },
     "dp07": {
       "booster": "assets/product-photos/dp07/booster.jpg",
       "display": "assets/product-photos/dp07/display.png",
-      "etb": "assets/product-photos/dp07/etb.jpg"
+      "etb": "assets/product-photos/dp07/etb.jpg",
+      "hero": "assets/series-logos/dp07.png"
     },
     "eb01": {
       "booster": "assets/product-photos/eb01/booster.png",
       "display": "assets/product-photos/eb01/display.png",
-      "etb": "assets/product-photos/eb01/etb.png"
+      "etb": "assets/product-photos/eb01/etb.png",
+      "hero": "assets/series-logos/eb01.png"
     },
     "eb02": {
       "booster": "assets/product-photos/eb02/booster.png",
       "display": "assets/product-photos/eb02/display.png",
-      "etb": "assets/product-photos/eb02/etb.png"
+      "etb": "assets/product-photos/eb02/etb.png",
+      "hero": "assets/series-logos/eb02.png"
     },
     "eb03": {
       "booster": "assets/product-photos/eb03/booster.png",
       "display": "assets/product-photos/eb03/display.png",
-      "etb": "assets/product-photos/eb03/etb.png"
+      "etb": "assets/product-photos/eb03/etb.png",
+      "hero": "assets/series-logos/eb03.png"
     },
     "eb04": {
       "booster": "assets/product-photos/eb04/booster.png",
       "display": "assets/product-photos/eb04/display.png",
-      "etb": "assets/product-photos/eb04/etb.png"
+      "etb": "assets/product-photos/eb04/etb.png",
+      "hero": "assets/series-logos/eb04.png"
     },
     "eb05": {
       "booster": "assets/product-photos/eb05/booster.png",
       "display": "assets/product-photos/eb05/display.png",
-      "etb": "assets/product-photos/eb05/etb.png"
+      "etb": "assets/product-photos/eb05/etb.png",
+      "hero": "assets/series-logos/eb05.png"
     },
     "eb06": {
       "booster": "assets/product-photos/eb06/booster.png",
       "display": "assets/product-photos/eb06/display.png",
-      "etb": "assets/product-photos/eb06/etb.png"
+      "etb": "assets/product-photos/eb06/etb.png",
+      "hero": "assets/series-logos/eb06.png"
     },
     "eb07": {
       "booster": "assets/product-photos/eb07/booster.png",
       "display": "assets/product-photos/eb07/display.png",
-      "etb": "assets/product-photos/eb07/etb.png"
+      "etb": "assets/product-photos/eb07/etb.png",
+      "hero": "assets/series-logos/eb07.png"
     },
     "eb08": {
       "booster": "assets/product-photos/eb08/booster.png",
       "display": "assets/product-photos/eb08/display.png",
-      "etb": "assets/product-photos/eb08/etb.png"
+      "etb": "assets/product-photos/eb08/etb.png",
+      "hero": "assets/series-logos/eb08.png"
     },
     "eb09": {
       "booster": "assets/product-photos/eb09/booster.png",
       "display": "assets/product-photos/eb09/display.png",
-      "etb": "assets/product-photos/eb09/etb.png"
+      "etb": "assets/product-photos/eb09/etb.png",
+      "hero": "assets/series-logos/eb09.png"
     },
     "eb10": {
       "booster": "assets/product-photos/eb10/booster.png",
       "display": "assets/product-photos/eb10/display.png",
-      "etb": "assets/product-photos/eb10/etb.png"
+      "etb": "assets/product-photos/eb10/etb.png",
+      "hero": "assets/series-logos/eb10.png"
     },
     "eb11": {
       "booster": "assets/product-photos/eb11/booster.png",
       "display": "assets/product-photos/eb11/display.png",
-      "etb": "assets/product-photos/eb11/etb.png"
+      "etb": "assets/product-photos/eb11/etb.png",
+      "hero": "assets/series-logos/eb11.png"
     },
     "eb12": {
       "booster": "assets/product-photos/eb12/booster.png",
       "display": "assets/product-photos/eb12/display.png",
-      "etb": "assets/product-photos/eb12/etb.png"
+      "etb": "assets/product-photos/eb12/etb.png",
+      "hero": "assets/series-logos/eb12.png"
     },
     "eb13": {
       "booster": "assets/product-photos/eb13/booster.png",
       "display": "assets/product-photos/eb13/display.png",
-      "etb": "assets/product-photos/eb13/etb.png"
+      "etb": "assets/product-photos/eb13/etb.png",
+      "hero": "assets/series-logos/eb13.png"
     },
     "eb14": {
       "booster": "assets/product-photos/eb14/booster.png",
       "display": "assets/product-photos/eb14/display.png",
-      "etb": "assets/product-photos/eb14/etb.png"
+      "etb": "assets/product-photos/eb14/etb.png",
+      "hero": "assets/series-logos/eb14.png"
     },
     "eb15": {
       "booster": "assets/product-photos/eb15/booster.png",
       "display": "assets/product-photos/eb15/display.png",
-      "etb": "assets/product-photos/eb15/etb.png"
+      "etb": "assets/product-photos/eb15/etb.png",
+      "hero": "assets/series-logos/eb15.png"
     },
     "eb16": {
       "booster": "assets/product-photos/eb16/booster.png",
       "display": "assets/product-photos/eb16/display.png",
-      "etb": "assets/product-photos/eb16/etb.png"
+      "etb": "assets/product-photos/eb16/etb.png",
+      "hero": "assets/series-logos/eb16.png"
     },
     "eb17": {
       "booster": "assets/product-photos/eb17/booster.png",
       "display": "assets/product-photos/eb17/display.png",
-      "etb": "assets/product-photos/eb17/etb.png"
+      "etb": "assets/product-photos/eb17/etb.png",
+      "hero": "assets/series-logos/eb17.png"
     },
     "ec02": {
       "booster": "assets/product-photos/ec02/booster.png",
       "display": "assets/product-photos/ec02/display.png",
-      "etb": "assets/product-photos/ec02/etb.jpg"
+      "etb": "assets/product-photos/ec02/etb.jpg",
+      "hero": "assets/series-logos/ec02.png"
     },
     "ec03": {
       "booster": "assets/product-photos/ec03/booster.jpg",
       "display": "assets/product-photos/ec03/display.png",
-      "etb": "assets/product-photos/ec03/etb.png"
+      "etb": "assets/product-photos/ec03/etb.png",
+      "hero": "assets/series-logos/ec03.png"
     },
     "ev01": {
       "booster": "assets/product-photos/ev01/booster.png",
       "display": "assets/product-photos/ev01/display.png",
-      "etb": "assets/product-photos/ev01/etb.png"
+      "etb": "assets/product-photos/ev01/etb.png",
+      "hero": "assets/series-logos/ev01.png"
     },
     "ev02": {
       "booster": "assets/product-photos/ev02/booster.png",
       "display": "assets/product-photos/ev02/display.png",
-      "etb": "assets/product-photos/ev02/etb.png"
+      "etb": "assets/product-photos/ev02/etb.png",
+      "hero": "assets/series-logos/ev02.png"
     },
     "ev03": {
       "booster": "assets/product-photos/ev03/booster.png",
       "display": "assets/product-photos/ev03/display.png",
-      "etb": "assets/product-photos/ev03/etb.png"
+      "etb": "assets/product-photos/ev03/etb.png",
+      "hero": "assets/series-logos/ev03.png"
     },
     "ev04": {
       "booster": "assets/product-photos/ev04/booster.png",
       "display": "assets/product-photos/ev04/display.png",
-      "etb": "assets/product-photos/ev04/etb.png"
+      "etb": "assets/product-photos/ev04/etb.png",
+      "hero": "assets/series-logos/ev04.png"
     },
     "ev045": {
       "booster": "assets/product-photos/ev045/booster.png",
       "display": "assets/product-photos/ev045/display.png",
-      "etb": "assets/product-photos/ev045/etb.png"
+      "etb": "assets/product-photos/ev045/etb.png",
+      "hero": "assets/series-logos/ev045.png"
     },
     "ev05": {
       "booster": "assets/product-photos/ev05/booster.png",
       "display": "assets/product-photos/ev05/display.png",
-      "etb": "assets/product-photos/ev05/etb.png"
+      "etb": "assets/product-photos/ev05/etb.png",
+      "hero": "assets/series-logos/ev05.png"
     },
     "ev06": {
       "booster": "assets/product-photos/ev06/booster.png",
       "display": "assets/product-photos/ev06/display.png",
-      "etb": "assets/product-photos/ev06/etb.png"
+      "etb": "assets/product-photos/ev06/etb.png",
+      "hero": "assets/series-logos/ev06.png"
     },
     "ev065": {
       "booster": "assets/product-photos/ev065/booster.png",
       "display": "assets/product-photos/ev065/display.png",
-      "etb": "assets/product-photos/ev065/etb.png"
+      "etb": "assets/product-photos/ev065/etb.png",
+      "hero": "assets/series-logos/ev065.png"
     },
     "ev07": {
       "booster": "assets/product-photos/ev07/booster.png",
       "display": "assets/product-photos/ev07/display.png",
-      "etb": "assets/product-photos/ev07/etb.png"
+      "etb": "assets/product-photos/ev07/etb.png",
+      "hero": "assets/series-logos/ev07.png"
     },
     "ev08": {
       "booster": "assets/product-photos/ev08/booster.png",
       "display": "assets/product-photos/ev08/display.png",
-      "etb": "assets/product-photos/ev08/etb.png"
+      "etb": "assets/product-photos/ev08/etb.png",
+      "hero": "assets/series-logos/ev08.png"
     },
     "ev085": {
       "booster": "assets/product-photos/ev085/booster.png",
       "display": "assets/product-photos/ev085/display.png",
-      "etb": "assets/product-photos/ev085/etb.png"
+      "etb": "assets/product-photos/ev085/etb.png",
+      "hero": "assets/series-logos/ev085.png"
     },
     "ev09": {
       "booster": "assets/product-photos/ev09/booster.png",
       "display": "assets/product-photos/ev09/display.png",
-      "etb": "assets/product-photos/ev09/etb.png"
+      "etb": "assets/product-photos/ev09/etb.png",
+      "hero": "assets/series-logos/ev09.png"
     },
     "ev10": {
       "booster": "assets/product-photos/ev10/booster.png",
       "display": "assets/product-photos/ev10/display.png",
-      "etb": "assets/product-photos/ev10/etb.png"
+      "etb": "assets/product-photos/ev10/etb.png",
+      "hero": "assets/series-logos/ev10.png"
     },
     "ev105a": {
       "booster": "assets/product-photos/ev105a/booster.png",
       "display": "assets/product-photos/ev105a/display.png",
-      "etb": "assets/product-photos/ev105a/etb.png"
+      "etb": "assets/product-photos/ev105a/etb.png",
+      "hero": "assets/product-photos/ev105a/booster.png"
     },
     "ev105b": {
       "booster": "assets/product-photos/ev105b/booster.png",
       "display": "assets/product-photos/ev105b/display.png",
-      "etb": "assets/product-photos/ev105b/etb.png"
+      "etb": "assets/product-photos/ev105b/etb.png",
+      "hero": "assets/product-photos/ev105b/booster.png"
     },
     "ev151": {
       "booster": "assets/product-photos/ev151/booster.jpg",
       "display": "assets/product-photos/ev151/display.png",
-      "etb": "assets/product-photos/ev151/etb.png"
+      "etb": "assets/product-photos/ev151/etb.png",
+      "hero": "assets/series-logos/ev151.png"
     },
     "ex01": {
       "booster": "assets/product-photos/ex01/booster.jpg",
@@ -323,307 +504,368 @@
     "hs01": {
       "booster": "assets/product-photos/hs01/booster.png",
       "display": "assets/product-photos/hs01/display.png",
-      "etb": "assets/product-photos/hs01/etb.png"
+      "etb": "assets/product-photos/hs01/etb.png",
+      "hero": "assets/series-logos/hs01.png"
     },
     "hs02": {
       "booster": "assets/product-photos/hs02/booster.jpg",
       "display": "assets/product-photos/hs02/display.png",
-      "etb": "assets/product-photos/hs02/etb.png"
+      "etb": "assets/product-photos/hs02/etb.png",
+      "hero": "assets/series-logos/hs02.png"
     },
     "hs03": {
       "booster": "assets/product-photos/hs03/booster.png",
       "display": "assets/product-photos/hs03/display.png",
-      "etb": "assets/product-photos/hs03/etb.png"
+      "etb": "assets/product-photos/hs03/etb.png",
+      "hero": "assets/series-logos/hs03.png"
     },
     "hs04": {
       "booster": "assets/product-photos/hs04/booster.jpg",
       "display": "assets/product-photos/hs04/display.png",
-      "etb": "assets/product-photos/hs04/etb.png"
+      "etb": "assets/product-photos/hs04/etb.png",
+      "hero": "assets/series-logos/hs04.png"
     },
     "hs05": {
       "booster": "assets/product-photos/hs05/booster.png",
       "display": "assets/product-photos/hs05/display.png",
-      "etb": "assets/product-photos/hs05/etb.png"
+      "etb": "assets/product-photos/hs05/etb.png",
+      "hero": "assets/series-logos/hs05.png"
     },
     "me01": {
       "booster": "assets/product-photos/me01/booster.png",
       "display": "assets/product-photos/me01/display.png",
-      "etb": "assets/product-photos/me01/etb.png"
+      "etb": "assets/product-photos/me01/etb.png",
+      "hero": "assets/series-logos/me01.png"
     },
     "me02": {
       "booster": "assets/product-photos/me02/booster.png",
       "display": "assets/product-photos/me02/display.png",
-      "etb": "assets/product-photos/me02/etb.png"
+      "etb": "assets/product-photos/me02/etb.png",
+      "hero": "assets/series-logos/me02.png"
     },
     "me025": {
       "booster": "assets/product-photos/me025/booster.jpg",
       "display": "assets/product-photos/me025/display.png",
-      "etb": "assets/product-photos/me025/etb.png"
+      "etb": "assets/product-photos/me025/etb.png",
+      "hero": "assets/product-photos/me025/booster.jpg"
     },
     "me03": {
       "booster": "assets/product-photos/me03/booster.png",
       "display": "assets/product-photos/me03/display.png",
-      "etb": "assets/product-photos/me03/etb.png"
+      "etb": "assets/product-photos/me03/etb.png",
+      "hero": "assets/product-photos/me03/booster.png"
     },
     "me04": {
       "booster": "assets/product-photos/me04/booster.png",
       "display": "assets/product-photos/me04/display.png",
-      "etb": "assets/product-photos/me04/etb.png"
+      "etb": "assets/product-photos/me04/etb.png",
+      "hero": "assets/product-photos/me04/booster.png"
     },
     "me05": {
       "booster": "assets/product-photos/me05/booster.png",
       "display": "assets/product-photos/me05/display.png",
-      "etb": "assets/product-photos/me05/etb.png"
+      "etb": "assets/product-photos/me05/etb.png",
+      "hero": "assets/product-photos/me05/booster.png"
     },
     "nb01": {
       "booster": "assets/product-photos/nb01/booster.jpg",
       "display": "assets/product-photos/nb01/display.png",
-      "etb": "assets/product-photos/nb01/etb.png"
+      "etb": "assets/product-photos/nb01/etb.png",
+      "hero": "assets/series-logos/nb01.png"
     },
     "nb02": {
       "booster": "assets/product-photos/nb02/booster.png",
       "display": "assets/product-photos/nb02/display.png",
-      "etb": "assets/product-photos/nb02/etb.png"
+      "etb": "assets/product-photos/nb02/etb.png",
+      "hero": "assets/series-logos/nb02.png"
     },
     "nb03": {
       "booster": "assets/product-photos/nb03/booster.jpg",
       "display": "assets/product-photos/nb03/display.png",
-      "etb": "assets/product-photos/nb03/etb.png"
+      "etb": "assets/product-photos/nb03/etb.png",
+      "hero": "assets/series-logos/nb03.png"
     },
     "nb04": {
       "booster": "assets/product-photos/nb04/booster.png",
       "display": "assets/product-photos/nb04/display.png",
-      "etb": "assets/product-photos/nb04/etb.png"
+      "etb": "assets/product-photos/nb04/etb.png",
+      "hero": "assets/series-logos/nb04.png"
     },
     "nb05": {
       "booster": "assets/product-photos/nb05/booster.png",
       "display": "assets/product-photos/nb05/display.png",
-      "etb": "assets/product-photos/nb05/etb.png"
+      "etb": "assets/product-photos/nb05/etb.png",
+      "hero": "assets/series-logos/nb05.png"
     },
     "nb06": {
       "booster": "assets/product-photos/nb06/booster.jpg",
       "display": "assets/product-photos/nb06/display.png",
-      "etb": "assets/product-photos/nb06/etb.png"
+      "etb": "assets/product-photos/nb06/etb.png",
+      "hero": "assets/series-logos/nb06.png"
     },
     "nb07": {
       "booster": "assets/product-photos/nb07/booster.jpg",
       "display": "assets/product-photos/nb07/display.png",
-      "etb": "assets/product-photos/nb07/etb.png"
+      "etb": "assets/product-photos/nb07/etb.png",
+      "hero": "assets/series-logos/nb07.png"
     },
     "nb08": {
       "booster": "assets/product-photos/nb08/booster.jpg",
       "display": "assets/product-photos/nb08/display.png",
-      "etb": "assets/product-photos/nb08/etb.png"
+      "etb": "assets/product-photos/nb08/etb.png",
+      "hero": "assets/series-logos/nb08.png"
     },
     "nb09": {
       "booster": "assets/product-photos/nb09/booster.png",
       "display": "assets/product-photos/nb09/display.png",
-      "etb": "assets/product-photos/nb09/etb.png"
+      "etb": "assets/product-photos/nb09/etb.png",
+      "hero": "assets/series-logos/nb09.png"
     },
     "nb10": {
       "booster": "assets/product-photos/nb10/booster.png",
       "display": "assets/product-photos/nb10/display.png",
-      "etb": "assets/product-photos/nb10/etb.png"
+      "etb": "assets/product-photos/nb10/etb.png",
+      "hero": "assets/series-logos/nb10.png"
     },
     "pl01": {
       "booster": "assets/product-photos/pl01/booster.png",
       "display": "assets/product-photos/pl01/display.png",
-      "etb": "assets/product-photos/pl01/etb.png"
+      "etb": "assets/product-photos/pl01/etb.png",
+      "hero": "assets/series-logos/pl01.png"
     },
     "pl02": {
       "booster": "assets/product-photos/pl02/booster.jpg",
       "display": "assets/product-photos/pl02/display.png",
-      "etb": "assets/product-photos/pl02/etb.png"
+      "etb": "assets/product-photos/pl02/etb.png",
+      "hero": "assets/series-logos/pl02.png"
     },
     "pl03": {
       "booster": "assets/product-photos/pl03/booster.png",
       "display": "assets/product-photos/pl03/display.png",
-      "etb": "assets/product-photos/pl03/etb.png"
+      "etb": "assets/product-photos/pl03/etb.png",
+      "hero": "assets/series-logos/pl03.png"
     },
     "sl01": {
       "booster": "assets/product-photos/sl01/booster.png",
       "display": "assets/product-photos/sl01/display.png",
-      "etb": "assets/product-photos/sl01/etb.png"
+      "etb": "assets/product-photos/sl01/etb.png",
+      "hero": "assets/series-logos/sl01.png"
     },
     "sl02": {
       "booster": "assets/product-photos/sl02/booster.png",
       "display": "assets/product-photos/sl02/display.png",
-      "etb": "assets/product-photos/sl02/etb.png"
+      "etb": "assets/product-photos/sl02/etb.png",
+      "hero": "assets/series-logos/sl02.png"
     },
     "sl03": {
       "booster": "assets/product-photos/sl03/booster.png",
       "display": "assets/product-photos/sl03/display.png",
-      "etb": "assets/product-photos/sl03/etb.png"
+      "etb": "assets/product-photos/sl03/etb.png",
+      "hero": "assets/series-logos/sl03.png"
     },
     "sl04": {
       "booster": "assets/product-photos/sl04/booster.png",
       "display": "assets/product-photos/sl04/display.png",
-      "etb": "assets/product-photos/sl04/etb.png"
+      "etb": "assets/product-photos/sl04/etb.png",
+      "hero": "assets/series-logos/sl04.png"
     },
     "sl05": {
       "booster": "assets/product-photos/sl05/booster.png",
       "display": "assets/product-photos/sl05/display.png",
-      "etb": "assets/product-photos/sl05/etb.png"
+      "etb": "assets/product-photos/sl05/etb.png",
+      "hero": "assets/series-logos/sl05.png"
     },
     "sl06": {
       "booster": "assets/product-photos/sl06/booster.png",
       "display": "assets/product-photos/sl06/display.png",
-      "etb": "assets/product-photos/sl06/etb.png"
+      "etb": "assets/product-photos/sl06/etb.png",
+      "hero": "assets/series-logos/sl06.png"
     },
     "sl07": {
       "booster": "assets/product-photos/sl07/booster.png",
       "display": "assets/product-photos/sl07/display.png",
-      "etb": "assets/product-photos/sl07/etb.png"
+      "etb": "assets/product-photos/sl07/etb.png",
+      "hero": "assets/series-logos/sl07.png"
     },
     "sl08": {
       "booster": "assets/product-photos/sl08/booster.png",
       "display": "assets/product-photos/sl08/display.png",
-      "etb": "assets/product-photos/sl08/etb.png"
+      "etb": "assets/product-photos/sl08/etb.png",
+      "hero": "assets/series-logos/sl08.png"
     },
     "sl09": {
       "booster": "assets/product-photos/sl09/booster.png",
       "display": "assets/product-photos/sl09/display.png",
-      "etb": "assets/product-photos/sl09/etb.png"
+      "etb": "assets/product-photos/sl09/etb.png",
+      "hero": "assets/series-logos/sl09.png"
     },
     "sl10": {
       "booster": "assets/product-photos/sl10/booster.png",
       "display": "assets/product-photos/sl10/display.png",
-      "etb": "assets/product-photos/sl10/etb.png"
+      "etb": "assets/product-photos/sl10/etb.png",
+      "hero": "assets/series-logos/sl10.png"
     },
     "sl11": {
       "booster": "assets/product-photos/sl11/booster.png",
       "display": "assets/product-photos/sl11/display.png",
-      "etb": "assets/product-photos/sl11/etb.png"
+      "etb": "assets/product-photos/sl11/etb.png",
+      "hero": "assets/series-logos/sl11.png"
     },
     "sl12": {
       "booster": "assets/product-photos/sl12/booster.png",
       "display": "assets/product-photos/sl12/display.png",
-      "etb": "assets/product-photos/sl12/etb.png"
+      "etb": "assets/product-photos/sl12/etb.png",
+      "hero": "assets/series-logos/sl12.png"
     },
     "sl13": {
       "booster": "assets/product-photos/sl13/booster.png",
       "display": "assets/product-photos/sl13/display.png",
-      "etb": "assets/product-photos/sl13/etb.png"
+      "etb": "assets/product-photos/sl13/etb.png",
+      "hero": "assets/series-logos/sl13.png"
     },
     "sl14": {
       "booster": "assets/product-photos/sl14/booster.png",
       "display": "assets/product-photos/sl14/display.png",
-      "etb": "assets/product-photos/sl14/etb.png"
+      "etb": "assets/product-photos/sl14/etb.png",
+      "hero": "assets/series-logos/sl14.png"
     },
     "sl15": {
       "booster": "assets/product-photos/sl15/booster.png",
       "display": "assets/product-photos/sl15/display.png",
-      "etb": "assets/product-photos/sl15/etb.png"
+      "etb": "assets/product-photos/sl15/etb.png",
+      "hero": "assets/series-logos/sl15.png"
     },
     "sl16": {
       "booster": "assets/product-photos/sl16/booster.png",
       "display": "assets/product-photos/sl16/display.png",
-      "etb": "assets/product-photos/sl16/etb.png"
+      "etb": "assets/product-photos/sl16/etb.png",
+      "hero": "assets/series-logos/sl16.png"
     },
     "wiz01": {
       "booster": "assets/product-photos/wiz01/booster.png",
       "display": "assets/product-photos/wiz01/display.png",
-      "etb": "assets/product-photos/wiz01/etb.png"
+      "etb": "assets/product-photos/wiz01/etb.png",
+      "hero": "assets/series-logos/wiz01.png"
     },
     "wiz02": {
       "booster": "assets/product-photos/wiz02/booster.png",
       "display": "assets/product-photos/wiz02/display.png",
-      "etb": "assets/product-photos/wiz02/etb.png"
+      "etb": "assets/product-photos/wiz02/etb.png",
+      "hero": "assets/series-logos/wiz02.png"
     },
     "wiz03": {
       "booster": "assets/product-photos/wiz03/booster.png",
       "display": "assets/product-photos/wiz03/display.png",
-      "etb": "assets/product-photos/wiz03/etb.png"
+      "etb": "assets/product-photos/wiz03/etb.png",
+      "hero": "assets/series-logos/wiz03.png"
     },
     "wiz04": {
       "booster": "assets/product-photos/wiz04/booster.png",
       "display": "assets/product-photos/wiz04/display.png",
-      "etb": "assets/product-photos/wiz04/etb.png"
+      "etb": "assets/product-photos/wiz04/etb.png",
+      "hero": "assets/series-logos/wiz04.png"
     },
     "wiz05": {
       "booster": "assets/product-photos/wiz05/booster.png",
       "display": "assets/product-photos/wiz05/display.png",
-      "etb": "assets/product-photos/wiz05/etb.png"
+      "etb": "assets/product-photos/wiz05/etb.png",
+      "hero": "assets/series-logos/wiz05.png"
     },
     "wiz06": {
       "booster": "assets/product-photos/wiz06/booster.png",
       "display": "assets/product-photos/wiz06/display.png",
-      "etb": "assets/product-photos/wiz06/etb.png"
+      "etb": "assets/product-photos/wiz06/etb.png",
+      "hero": "assets/series-logos/wiz06.png"
     },
     "wiz07": {
       "booster": "assets/product-photos/wiz07/booster.png",
       "display": "assets/product-photos/wiz07/display.png",
-      "etb": "assets/product-photos/wiz07/etb.png"
+      "etb": "assets/product-photos/wiz07/etb.png",
+      "hero": "assets/series-logos/wiz07.png"
     },
     "wiz08": {
       "booster": "assets/product-photos/wiz08/booster.png",
       "display": "assets/product-photos/wiz08/display.png",
-      "etb": "assets/product-photos/wiz08/etb.jpg"
+      "etb": "assets/product-photos/wiz08/etb.jpg",
+      "hero": "assets/series-logos/wiz08.png"
     },
     "xy01": {
       "booster": "assets/product-photos/xy01/booster.png",
       "display": "assets/product-photos/xy01/display.png",
-      "etb": "assets/product-photos/xy01/etb.png"
+      "etb": "assets/product-photos/xy01/etb.png",
+      "hero": "assets/series-logos/xy01.png"
     },
     "xy02": {
       "booster": "assets/product-photos/xy02/booster.jpg",
       "display": "assets/product-photos/xy02/display.png",
-      "etb": "assets/product-photos/xy02/etb.png"
+      "etb": "assets/product-photos/xy02/etb.png",
+      "hero": "assets/series-logos/xy02.png"
     },
     "xy03": {
       "booster": "assets/product-photos/xy03/booster.png",
       "display": "assets/product-photos/xy03/display.png",
-      "etb": "assets/product-photos/xy03/etb.png"
+      "etb": "assets/product-photos/xy03/etb.png",
+      "hero": "assets/series-logos/xy03.png"
     },
     "xy04": {
       "booster": "assets/product-photos/xy04/booster.jpg",
       "display": "assets/product-photos/xy04/display.png",
-      "etb": "assets/product-photos/xy04/etb.png"
+      "etb": "assets/product-photos/xy04/etb.png",
+      "hero": "assets/series-logos/xy04.png"
     },
     "xy05": {
       "booster": "assets/product-photos/xy05/booster.png",
       "display": "assets/product-photos/xy05/display.png",
-      "etb": "assets/product-photos/xy05/etb.png"
+      "etb": "assets/product-photos/xy05/etb.png",
+      "hero": "assets/series-logos/xy05.png"
     },
     "xy06": {
       "booster": "assets/product-photos/xy06/booster.png",
       "display": "assets/product-photos/xy06/display.png",
-      "etb": "assets/product-photos/xy06/etb.png"
+      "etb": "assets/product-photos/xy06/etb.png",
+      "hero": "assets/series-logos/xy06.png"
     },
     "xy07": {
       "booster": "assets/product-photos/xy07/booster.png",
       "display": "assets/product-photos/xy07/display.png",
-      "etb": "assets/product-photos/xy07/etb.png"
+      "etb": "assets/product-photos/xy07/etb.png",
+      "hero": "assets/series-logos/xy07.png"
     },
     "xy08": {
       "booster": "assets/product-photos/xy08/booster.png",
       "display": "assets/product-photos/xy08/display.png",
-      "etb": "assets/product-photos/xy08/etb.png"
+      "etb": "assets/product-photos/xy08/etb.png",
+      "hero": "assets/series-logos/xy08.png"
     },
     "xy09": {
       "booster": "assets/product-photos/xy09/booster.png",
       "display": "assets/product-photos/xy09/display.png",
-      "etb": "assets/product-photos/xy09/etb.png"
+      "etb": "assets/product-photos/xy09/etb.png",
+      "hero": "assets/series-logos/xy09.png"
     },
     "xy10": {
       "booster": "assets/product-photos/xy10/booster.png",
       "display": "assets/product-photos/xy10/display.png",
-      "etb": "assets/product-photos/xy10/etb.png"
+      "etb": "assets/product-photos/xy10/etb.png",
+      "hero": "assets/series-logos/xy10.png"
     },
     "xy11": {
       "booster": "assets/product-photos/xy11/booster.png",
       "display": "assets/product-photos/xy11/display.png",
-      "etb": "assets/product-photos/xy11/etb.png"
+      "etb": "assets/product-photos/xy11/etb.png",
+      "hero": "assets/series-logos/xy11.png"
     },
     "xy12": {
       "booster": "assets/product-photos/xy12/booster.png",
       "display": "assets/product-photos/xy12/display.png",
-      "etb": "assets/product-photos/xy12/etb.png"
+      "etb": "assets/product-photos/xy12/etb.png",
+      "hero": "assets/series-logos/xy12.png"
     },
     "xy13": {
       "booster": "assets/product-photos/xy13/booster.png",
       "display": "assets/product-photos/xy13/display.png",
-      "etb": "assets/product-photos/xy13/etb.png"
+      "etb": "assets/product-photos/xy13/etb.png",
+      "hero": "assets/series-logos/xy13.png"
     }
   }
 }

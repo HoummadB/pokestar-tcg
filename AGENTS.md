@@ -116,11 +116,11 @@ Après modification de `index.html` ou des prix CM :
 - Le bloc EX (`ex01` à `ex15`) n'a pas d'ETB historique vérifiable : ses 15
   références heuristiques ont été retirées du manifest le 2026-07-10. Le rendu
   affiche donc le glyphe ETB neutre jusqu'à validation d'une source dédiée.
-- Les 15 logos hero EX sont absents de `pokestar_logos` dans l'état contrôlé le
-  2026-07-10 : ils sont servis localement depuis `assets/series-logos/`, avec
-  le mapping et les URLs du catalogue Pokémon TCG API conservés dans le
-  manifest. Vérifier les droits d'usage avant toute nouvelle série ou usage
-  commercial élargi.
+- Les logos hero Firestore ne sont pas nécessaires pour le catalogue de base :
+  les 118 séries ont désormais un hero local dans le manifest. 112 utilisent
+  un logo du catalogue Pokémon TCG API ; six séries récentes utilisent leur
+  booster local faute de logo publié. Vérifier les droits d'usage avant toute
+  nouvelle série ou usage commercial élargi.
 
 ## Périmètre des prix
 
