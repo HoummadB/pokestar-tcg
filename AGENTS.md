@@ -41,7 +41,7 @@ Point d'entrée déploiement : **`index.html`** à la racine du site.
 ## Fonctionnement
 
 - **Cote Pokestar** : prix communautaires / admin, stockés Firestore `pokestar_state/main`.
-- **Logos & photos produit** : Firestore `pokestar_logos` (base64).
+- **Logos de série** : Firestore `pokestar_logos` (base64). **Photos produit** : manifest local `assets/product-photos/manifest.json`, puis Firestore manuel et Scrydex en secours.
 - **Prix Cardmarket** : guide officiel JSON (maj ~1×/jour), embarqué `CM_MARKET_SEED` + fichier `cm-market-cache.json`.
 - **eBay vendu** : pas d'API — lien externe seulement.
 - **UI** : hero logo série + tuiles Booster / Display / ETB (photo → logo → icône).
@@ -108,6 +108,16 @@ Après modification de `index.html` ou des prix CM :
 | Photo booster/display/ETB | Admin → survol vignette produit → `+` |
 | UI / UX | Modifier CSS + fonctions `cardHero`, `productThumb`, `priceCell` dans `index.html` |
 | Mentions légales / footer | Section `#legalView` et `<footer>` dans `index.html` |
+
+## Qualité des photos produit
+
+- Le manifest local ne doit référencer que des visuels dont le type produit et
+  la série sont vérifiés.
+- Le bloc EX (`ex01` à `ex15`) n'a pas d'ETB historique vérifiable : ses 15
+  références heuristiques ont été retirées du manifest le 2026-07-10. Le rendu
+  affiche donc le glyphe ETB neutre jusqu'à validation d'une source dédiée.
+- Les 15 logos hero EX sont absents de `pokestar_logos` dans l'état contrôlé le
+  2026-07-10 : ne pas détourner une photo booster/display ni fabriquer un logo.
 
 ---
 

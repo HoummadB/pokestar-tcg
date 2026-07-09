@@ -1,13 +1,17 @@
 {
-  "version": "20260709-local-v1",
-  "generatedAt": "2026-07-09",
+  "version": "20260710-local-v2",
+  "generatedAt": "2026-07-10",
   "basePath": "assets/product-photos",
   "fields": [
     "booster",
     "display",
     "etb"
   ],
-  "count": 354,
+  "count": 339,
+  "notes": "Les 15 références ETB du bloc EX ont été retirées après audit visuel : aucun n'est un ETB vérifiable.",
+  "excluded": {
+    "etb": ["ex01", "ex02", "ex03", "ex04", "ex05", "ex06", "ex07", "ex08", "ex09", "ex10", "ex11", "ex12", "ex13", "ex14", "ex15"]
+  },
   "photos": {
     "dp01": {
       "booster": "assets/product-photos/dp01/booster.jpg",
@@ -221,78 +225,63 @@
     },
     "ex01": {
       "booster": "assets/product-photos/ex01/booster.jpg",
-      "display": "assets/product-photos/ex01/display.png",
-      "etb": "assets/product-photos/ex01/etb.png"
+      "display": "assets/product-photos/ex01/display.png"
     },
     "ex02": {
       "booster": "assets/product-photos/ex02/booster.jpg",
-      "display": "assets/product-photos/ex02/display.png",
-      "etb": "assets/product-photos/ex02/etb.png"
+      "display": "assets/product-photos/ex02/display.png"
     },
     "ex03": {
       "booster": "assets/product-photos/ex03/booster.png",
-      "display": "assets/product-photos/ex03/display.png",
-      "etb": "assets/product-photos/ex03/etb.png"
+      "display": "assets/product-photos/ex03/display.png"
     },
     "ex04": {
       "booster": "assets/product-photos/ex04/booster.png",
-      "display": "assets/product-photos/ex04/display.jpg",
-      "etb": "assets/product-photos/ex04/etb.png"
+      "display": "assets/product-photos/ex04/display.jpg"
     },
     "ex05": {
       "booster": "assets/product-photos/ex05/booster.png",
-      "display": "assets/product-photos/ex05/display.png",
-      "etb": "assets/product-photos/ex05/etb.png"
+      "display": "assets/product-photos/ex05/display.png"
     },
     "ex06": {
       "booster": "assets/product-photos/ex06/booster.jpg",
-      "display": "assets/product-photos/ex06/display.png",
-      "etb": "assets/product-photos/ex06/etb.png"
+      "display": "assets/product-photos/ex06/display.png"
     },
     "ex07": {
       "booster": "assets/product-photos/ex07/booster.jpg",
-      "display": "assets/product-photos/ex07/display.png",
-      "etb": "assets/product-photos/ex07/etb.png"
+      "display": "assets/product-photos/ex07/display.png"
     },
     "ex08": {
       "booster": "assets/product-photos/ex08/booster.jpg",
-      "display": "assets/product-photos/ex08/display.png",
-      "etb": "assets/product-photos/ex08/etb.png"
+      "display": "assets/product-photos/ex08/display.png"
     },
     "ex09": {
       "booster": "assets/product-photos/ex09/booster.jpg",
-      "display": "assets/product-photos/ex09/display.png",
-      "etb": "assets/product-photos/ex09/etb.png"
+      "display": "assets/product-photos/ex09/display.png"
     },
     "ex10": {
       "booster": "assets/product-photos/ex10/booster.png",
-      "display": "assets/product-photos/ex10/display.png",
-      "etb": "assets/product-photos/ex10/etb.png"
+      "display": "assets/product-photos/ex10/display.png"
     },
     "ex11": {
       "booster": "assets/product-photos/ex11/booster.png",
-      "display": "assets/product-photos/ex11/display.png",
-      "etb": "assets/product-photos/ex11/etb.png"
+      "display": "assets/product-photos/ex11/display.png"
     },
     "ex12": {
       "booster": "assets/product-photos/ex12/booster.jpg",
-      "display": "assets/product-photos/ex12/display.png",
-      "etb": "assets/product-photos/ex12/etb.png"
+      "display": "assets/product-photos/ex12/display.png"
     },
     "ex13": {
       "booster": "assets/product-photos/ex13/booster.png",
-      "display": "assets/product-photos/ex13/display.jpg",
-      "etb": "assets/product-photos/ex13/etb.png"
+      "display": "assets/product-photos/ex13/display.jpg"
     },
     "ex14": {
       "booster": "assets/product-photos/ex14/booster.jpg",
-      "display": "assets/product-photos/ex14/display.png",
-      "etb": "assets/product-photos/ex14/etb.png"
+      "display": "assets/product-photos/ex14/display.png"
     },
     "ex15": {
       "booster": "assets/product-photos/ex15/booster.png",
-      "display": "assets/product-photos/ex15/display.png",
-      "etb": "assets/product-photos/ex15/etb.png"
+      "display": "assets/product-photos/ex15/display.png"
     },
     "hs01": {
       "booster": "assets/product-photos/hs01/booster.png",
