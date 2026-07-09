@@ -15,7 +15,24 @@
   "heroSources": {
     "provider": "Pokémon TCG API CDN",
     "catalog": "https://docs.pokemontcg.io/api-reference/sets/set-object/",
-    "note": "Logos EX téléchargés localement depuis les URLs images du catalogue pour éviter un hotlink en production."
+    "note": "Logos EX téléchargés localement depuis les URLs images du catalogue pour éviter un hotlink en production.",
+    "urls": {
+      "ex01": "https://images.pokemontcg.io/ex1/logo.png",
+      "ex02": "https://images.pokemontcg.io/ex2/logo.png",
+      "ex03": "https://images.pokemontcg.io/ex3/logo.png",
+      "ex04": "https://images.pokemontcg.io/ex4/logo.png",
+      "ex05": "https://images.pokemontcg.io/ex8/logo.png",
+      "ex06": "https://images.pokemontcg.io/ex9/logo.png",
+      "ex07": "https://images.pokemontcg.io/ex6/logo.png",
+      "ex08": "https://images.pokemontcg.io/ex5/logo.png",
+      "ex09": "https://images.pokemontcg.io/ex10/logo.png",
+      "ex10": "https://images.pokemontcg.io/ex11/logo.png",
+      "ex11": "https://images.pokemontcg.io/ex12/logo.png",
+      "ex12": "https://images.pokemontcg.io/ex13/logo.png",
+      "ex13": "https://images.pokemontcg.io/ex14/logo.png",
+      "ex14": "https://images.pokemontcg.io/ex15/logo.png",
+      "ex15": "https://images.pokemontcg.io/ex16/logo.png"
+    }
   },
   "photos": {
     "dp01": {
