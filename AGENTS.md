@@ -80,6 +80,8 @@ deux emplacements entrent ensemble dans le panier. Le
 panier reste local jusqu'à traitement par un agent. Après application des
 fichiers dans le repo, l'agent met à jour `tools/photo-review-state.json`
 (`resolved`) afin que les lignes traitées quittent automatiquement le panier.
+La vue initiale affiche tous les emplacements (Booster, Display et ETB) ; le
+filtre **À examiner** masque volontairement les visuels déjà traités.
 Chaque résolution utilise la clé `<serie-id>:<field>` et au minimum
 `{"resolvedAt":"<ISO>","manifestVersion":"<version>"}`.
 

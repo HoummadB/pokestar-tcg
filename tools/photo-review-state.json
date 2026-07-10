@@ -1,7 +1,21 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-10T00:00:00.000Z",
-  "resolved": {},
+  "updatedAt": "2026-07-10T01:25:00.000Z",
+  "resolved": {
+    "me01:display": {
+      "resolvedAt": "2026-07-10T01:25:00.000Z",
+      "manifestVersion": "20260710-local-v4",
+      "action": "swap-local-path",
+      "note": "Le display ME01 a reçu le fichier display vérifié depuis l'ancien etb.png."
+    },
+    "me01:etb": {
+      "resolvedAt": "2026-07-10T01:25:00.000Z",
+      "manifestVersion": "20260710-local-v4",
+      "action": "replace-image",
+      "source": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCHVHaWMs-07Y6y-P8b84YEvJvgssSaAn_0VhBh9YUnw&s=10",
+      "note": "ETB Mega-Évolution vérifié visuellement depuis l'image fournie dans le panier."
+    }
+  },
   "decisions": {
     "ev01:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Contrôle visuel du 2026-07-09 : booster Écarlate et Violet cohérent." },
     "ev01:display": { "status": "valid", "confidence": "high", "source": "", "note": "Contrôle visuel du 2026-07-09 : display Écarlate et Violet cohérent." },
