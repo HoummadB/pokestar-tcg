@@ -2013,14 +2013,15 @@
     .site-nav-toggle{display:none !important;}
     .site-header-actions{gap:6px;margin-left:auto;}
     .site-header-actions .btn-header-icon{display:none;}
-    .site-header-actions .btn-header-distrib{
-      display:inline-flex;
-      width:auto;
-      padding:0 12px;
-      gap:6px;
+    .site-header-actions .header-account-wrap{display:block;}
+    .site-header-actions .btn-header-account{
+      width:40px;
+      height:40px;
+      padding:0;
+      justify-content:center;
+      gap:0;
     }
-    .site-header-actions .btn-header-distrib .hdr-btn-label{display:inline;font-size:11px;}
-    .site-header-actions .header-account-wrap{display:none;}
+    .site-header-actions .btn-header-account #accountLabel{display:none;}
     .distrib-wrap{padding:24px 16px 48px;}
     .distrib-loc-block{grid-template-columns:1fr;gap:16px;}
     .loc-grid{grid-template-columns:1fr;}
@@ -2927,13 +2928,13 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         <span>Chercher</span>
       </button>
+      <button type="button" class="mobile-tab" id="tabDistrib" aria-label="Distributeurs" data-nav-view="distrib">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Distributeurs</span>
+      </button>
       <button type="button" class="mobile-tab" id="tabMenu" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenuSheet">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>
         <span>Menu</span>
-      </button>
-      <button type="button" class="mobile-tab" id="tabAccount" aria-label="Compte" aria-haspopup="true" aria-expanded="false" aria-controls="accountMenu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
-        <span id="tabAccountLabel">Compte</span>
       </button>
     </div>
   </div>
@@ -5070,7 +5071,7 @@ function closeNavMenu(){
 }
 
 function syncMobileTabs(which){
-  const map = { home:"tabHome", search:"tabSearch", menu:"tabMenu", account:"tabAccount" };
+  const map = { home:"tabHome", search:"tabSearch", menu:"tabMenu", distrib:"tabDistrib" };
   document.querySelectorAll(".mobile-tab").forEach(el=> el.classList.remove("active"));
   const id = map[which];
   if(id){
@@ -5103,8 +5104,8 @@ function toggleMobileMenu(){
 }
 
 function mobileTabForView(view){
-  if(view === "profile") return "account";
-  if(view === "help" || view === "distrib" || view === "legal") return "menu";
+  if(view === "distrib") return "distrib";
+  if(view === "help" || view === "legal") return "menu";
   return "home";
 }
 
@@ -5121,7 +5122,6 @@ function handleAccountAction(){
     }
   } else {
     closeMobileMenu();
-    syncMobileTabs("account");
     openAuth();
   }
 }
@@ -5151,10 +5151,8 @@ function openSearchModal(){
 function closeAccountMenu(){
   const menu = document.getElementById("accountMenu");
   const btn = document.getElementById("accountBtn");
-  const tab = document.getElementById("tabAccount");
   if(menu){ menu.classList.remove("open"); menu.hidden = true; }
   if(btn) btn.setAttribute("aria-expanded", "false");
-  if(tab) tab.setAttribute("aria-expanded", "false");
 }
 
 function openAccountMenu(){
@@ -5162,11 +5160,8 @@ function openAccountMenu(){
   closeMobileMenu();
   const menu = document.getElementById("accountMenu");
   const btn = document.getElementById("accountBtn");
-  const tab = document.getElementById("tabAccount");
   if(menu){ menu.classList.add("open"); menu.hidden = false; }
   if(btn) btn.setAttribute("aria-expanded", "true");
-  if(tab) tab.setAttribute("aria-expanded", "true");
-  syncMobileTabs("account");
 }
 
 function toggleSearchModal(){
@@ -5189,8 +5184,6 @@ function setView(view, opts){
   document.querySelectorAll("[data-nav-view]").forEach(el => {
     el.classList.toggle("active", el.dataset.navView === navView);
   });
-  const headerDistrib = document.getElementById("headerDistrib");
-  if(headerDistrib) headerDistrib.classList.toggle("active", view === "distrib");
   closeNavMenu();
   closeSearchModal();
   closeAccountMenu();
@@ -5240,11 +5233,10 @@ document.getElementById("heroScrollCatalog").addEventListener("click", ()=>{
   else openSearchModal();
 });
 document.getElementById("showDistrib").addEventListener("click", ()=>{ setView("distrib"); setupDistribPins(); });
-document.getElementById("headerDistrib").addEventListener("click", ()=>{
+document.getElementById("tabDistrib").addEventListener("click", ()=>{
   closeMobileMenu();
   setView("distrib");
   setupDistribPins();
-  syncMobileTabs("menu");
 });
 document.getElementById("navToggle").addEventListener("click", ()=>{
   const nav = document.getElementById("siteNav");
@@ -5439,7 +5431,6 @@ function updateAccountUI(){
   const menu = document.getElementById("accountMenu");
   const favBtn = document.getElementById("favChip");
   const menuFavBtn = document.getElementById("menuFavChip");
-  const tabAccountLabel = document.getElementById("tabAccountLabel");
   const menuProfile = document.getElementById("menuProfile");
   const menuLogout = document.getElementById("menuLogout");
   const controlsBar = document.getElementById("controlsBar");
@@ -5461,8 +5452,6 @@ function updateAccountUI(){
     shortName = "Compte";
     btn.classList.remove("logged-in");
   }
-  if(tabAccountLabel) tabAccountLabel.textContent = shortName.length > 9 ? shortName.slice(0, 8) + "…" : shortName;
-
   if(menu){
     if(favBtn) favBtn.style.display = realUser ? "" : "none";
     if(menuProfile) menuProfile.style.display = realUser ? "" : "none";
@@ -5513,14 +5502,9 @@ document.getElementById("accountBtn").addEventListener("click", e=>{
   e.stopPropagation();
   handleAccountAction();
 });
-document.getElementById("tabAccount").addEventListener("click", e=>{
-  e.stopPropagation();
-  handleAccountAction();
-});
 document.getElementById("menuProfile").addEventListener("click", ()=>{
   closeAccountMenu();
   showProfile();
-  syncMobileTabs("account");
 });
 document.getElementById("menuLogout").addEventListener("click", ()=>{
   closeAccountMenu();
@@ -5552,7 +5536,6 @@ document.getElementById("menuHelp").addEventListener("click", ()=>{
 document.getElementById("menuDistrib").addEventListener("click", ()=>{
   setView("distrib");
   setupDistribPins();
-  syncMobileTabs("menu");
 });
 document.getElementById("searchModalClose").addEventListener("click", ()=> closeSearchModal());
 document.getElementById("searchOverlay").addEventListener("click", e=>{
@@ -5574,7 +5557,7 @@ document.querySelectorAll(".search-tab").forEach(tab=>{
   });
 });
 document.addEventListener("click", e=>{
-  if(!e.target.closest("#accountMenuWrap") && !e.target.closest("#tabAccount")){
+  if(!e.target.closest("#accountMenuWrap")){
     if(document.getElementById("accountMenu")?.classList.contains("open")){
       closeAccountMenu();
       const activeView = (location.hash || "#catalog").replace(/^#/, "") || "catalog";
