@@ -219,9 +219,10 @@
   .image-meta strong{display:block;margin-top:2px;color:var(--cyan);font-weight:700}
 
   .google-search{width:100%;margin:8px 0 10px}
-  .search-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;align-items:stretch}
+  .search-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;align-items:stretch}
   .search-actions .google-search,.search-actions .copy-query{margin:8px 0 10px}
-  .copy-query{border-color:rgba(100,217,235,.35);background:rgba(100,217,235,.06);color:#a9eef8;white-space:nowrap}
+  .search-actions .button{min-width:0;padding:8px 7px;font-size:10px;line-height:1.15;white-space:nowrap}
+  .copy-query{border-color:rgba(100,217,235,.35);background:rgba(100,217,235,.06);color:#a9eef8}
   .correction-box{display:grid;gap:7px;padding-top:10px;border-top:1px dashed #41334f}
   .paste-zone{
     display:grid;grid-template-columns:52px 1fr auto;gap:9px;align-items:center;min-height:66px;
@@ -560,11 +561,11 @@
       <div class="search-actions">
         <a class="button google google-search" href="${googleUrl(item,field)}" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-          Rechercher sur Google Images
+          Google Images
         </a>
         <button class="button copy-query" data-action="copy-query" data-query="${escapeHtml(googleQuery(item,field))}" type="button" title="Copier le texte de la recherche">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
-          Copier la recherche
+          Copier
         </button>
       </div>
       <div class="correction-box">

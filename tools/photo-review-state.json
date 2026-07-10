@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-10T01:25:00.000Z",
+  "updatedAt": "2026-07-10T01:30:00.000Z",
   "resolved": {
     "me01:display": {
       "resolvedAt": "2026-07-10T01:25:00.000Z",
@@ -14,7 +14,31 @@
       "action": "replace-image",
       "source": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCHVHaWMs-07Y6y-P8b84YEvJvgssSaAn_0VhBh9YUnw&s=10",
       "note": "ETB Mega-Évolution vérifié visuellement depuis l'image fournie dans le panier."
-    }
+    },
+    "eb08:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "eb08:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "eb09:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "replace-image", "source": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQjWmM6AsPM8yV5XJcnfC-vacdCwuzM2esOTY7YptCj0ee6lLbfnFHdarPA-b2DkooI6aR89dVn8p68VdvjtNGGeH2t9x6oJjllNardZBju_mS7AcwxqTRWri-zlhfczoRW7eBFqxqn7Q&usqp=CAc" },
+    "eb12:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "replace-image", "source": "https://image.darty.com/darty?type=image&source=/market/2023/02/03/19156027_3723_1.jpg&height=603" },
+    "eb15:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "eb15:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "eb16:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "eb16:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "ev065:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "ev065:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "ev085:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "ev085:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "ev105b:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "ev105b:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "ev151:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "ev151:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "me02:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "me02:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "replace-image", "source": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTrx_n6eyHrjDGBZQWvQSzgHlbDCh4RWH2aViCgnkQMY6pVD3SUcBr8CvjtLwERd9m4i13-8vtpp3LL-EKAy8ADZUfV-JydbVE-fAzfTZz6&usqp=CAc" },
+    "sl02:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "sl02:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "sl06:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "sl06:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "sl07:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "sl07:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" }
   },
   "decisions": {
     "ev01:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Contrôle visuel du 2026-07-09 : booster Écarlate et Violet cohérent." },
