@@ -2022,9 +2022,26 @@
       gap:0;
     }
     .site-header-actions .btn-header-account #accountLabel{display:none;}
-    .distrib-wrap{padding:24px 16px 48px;}
-    .distrib-loc-block{grid-template-columns:1fr;gap:16px;}
+    .distrib-wrap{padding:16px 16px 48px;}
+    .distrib-loc-block{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      margin:12px 0 28px;
+    }
     .loc-grid{grid-template-columns:1fr;}
+    .loc-card{position:relative;z-index:1;}
+    .distrib-loc-block .france-map{
+      width:100%;
+      max-width:100%;
+      margin:0 auto;
+      overflow:hidden;
+      border-radius:12px;
+      background:var(--surface);
+      isolation:isolate;
+    }
+    .find-us .france-map{animation:none;}
+
     .machines{grid-template-columns:1fr;gap:12px;}
     .machine-specs{grid-template-columns:1fr;}
     .process-steps{grid-template-columns:1fr;gap:12px;}
@@ -2233,7 +2250,9 @@
     text-align:center;
     font-size:10.5px;
     color:var(--muted);
-    margin:-30px 0 30px;
+    margin:8px 0 0;
+    position:relative;
+    z-index:2;
   }
   .map-credit a{color:var(--violet);text-decoration:none;}
   .map-credit a:hover{color:var(--cream);}
@@ -3322,8 +3341,8 @@
           <img class="pin-logo" id="pinLogoAles" alt="Pokestar">
           <span class="pin-label">Alès</span>
         </div>
+        <p class="map-credit">Carte : <a href="https://commons.wikimedia.org/wiki/File:France_blank.svg" target="_blank" rel="noopener">Wikimedia Commons</a>, licence <a href="https://creativecommons.org/licenses/by-sa/2.5/" target="_blank" rel="noopener">CC BY-SA 2.5</a></p>
       </div>
-      <p class="map-credit">Carte : <a href="https://commons.wikimedia.org/wiki/File:France_blank.svg" target="_blank" rel="noopener">Wikimedia Commons</a>, licence <a href="https://creativecommons.org/licenses/by-sa/2.5/" target="_blank" rel="noopener">CC BY-SA 2.5</a></p>
       </div>
     </div>
 
@@ -5203,6 +5222,12 @@ function toggleSearchModal(){
   else openSearchModal();
 }
 
+function resetPageScroll(){
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
+
 function setView(view, opts){
   opts = opts || {};
   const map = { catalog:"catalogView", help:"helpView", legal:"legalView", distrib:"distribView", profile:"profileView" };
@@ -5222,7 +5247,13 @@ function setView(view, opts){
   closeAccountMenu();
   closeMobileMenu();
   syncMobileTabs(mobileTabForView(view));
-  if(opts.scroll !== false) window.scrollTo(0, 0);
+  if(opts.scroll !== false){
+    resetPageScroll();
+    requestAnimationFrame(()=>{
+      resetPageScroll();
+      requestAnimationFrame(resetPageScroll);
+    });
+  }
   updateTabHomeScrollMode();
   if(opts.hash !== false){
     const next = "#" + (view || "catalog");
@@ -5253,6 +5284,7 @@ function routeFromHash(){
   setView("catalog", { hash:false });
 }
 
+if("scrollRestoration" in history) history.scrollRestoration = "manual";
 window.addEventListener("popstate", routeFromHash);
 
 document.getElementById("bulkLogoInput").addEventListener("change", onBulkLogoImport);
