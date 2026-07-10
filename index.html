@@ -419,6 +419,73 @@
     flex-shrink:0;
   }
   .site-nav-toggle svg{display:block;}
+
+  .mobile-tabbar{display:none;}
+  .mobile-menu-sheet{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:45;
+    pointer-events:none;
+  }
+  .mobile-menu-sheet.open{
+    display:block;
+    pointer-events:auto;
+  }
+  .mobile-menu-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(6,5,10,0.55);
+    opacity:0;
+    transition:opacity .2s ease;
+  }
+  .mobile-menu-sheet.open .mobile-menu-backdrop{opacity:1;}
+  .mobile-menu-panel{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    background:var(--surface);
+    border-top:1px solid var(--violet);
+    border-radius:18px 18px 0 0;
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    box-shadow:0 -12px 40px rgba(0,0,0,0.45);
+    transform:translateY(100%);
+    transition:transform .22s ease;
+  }
+  .mobile-menu-sheet.open .mobile-menu-panel{transform:translateY(0);}
+  .mobile-menu-panel h3{
+    margin:0 0 10px;
+    font-size:12px;
+    font-family:var(--mono);
+    text-transform:uppercase;
+    letter-spacing:0.6px;
+    color:var(--muted);
+  }
+  .mobile-menu-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    text-align:left;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 14px;
+    margin-bottom:8px;
+    color:var(--cream);
+    font-size:14px;
+    font-weight:600;
+    font-family:var(--body);
+    cursor:pointer;
+    text-decoration:none;
+    transition:border-color .15s, background .15s;
+  }
+  .mobile-menu-item:hover{border-color:var(--violet);background:rgba(124,47,196,0.12);}
+  .mobile-menu-item.active{border-color:rgba(168,85,232,0.55);background:rgba(168,85,232,0.14);}
+  .mobile-menu-item.nav-ebay{color:var(--gold);}
+  .mobile-menu-item svg{flex-shrink:0;opacity:0.85;}
+
   .btn-header-icon{
     display:inline-flex;
     align-items:center;
@@ -1939,35 +2006,73 @@
 
   /* ---------- Mobile ---------- */
   @media(max-width:768px){
+    body{padding-bottom:calc(80px + env(safe-area-inset-bottom));}
     .site-header-inner{padding:0 16px;gap:10px;position:relative;}
-    .site-nav-toggle{display:inline-flex;}
-    .site-nav{
-      display:none;
-      position:absolute;
-      left:0;
-      right:0;
-      top:100%;
-      flex:unset;
-      flex-direction:column;
-      align-items:stretch;
-      gap:2px;
-      padding:10px 16px 14px;
-      background:rgba(12,10,19,0.98);
-      border-bottom:1px solid var(--line);
-      box-shadow:0 12px 32px rgba(0,0,0,0.45);
-      z-index:5;
-    }
-    .site-nav.open{display:flex;}
-    .site-nav-link{
-      text-align:left;
-      padding:12px 14px;
-      border-radius:8px;
-    }
-    .site-header-actions{gap:6px;}
+    .site-nav{display:none !important;}
+    .site-nav-toggle{display:none !important;}
+    .site-header-actions{gap:6px;margin-left:auto;}
+    .site-header-actions .btn-header-icon{display:none;}
     .site-header-actions .btn-header-account span{display:none;}
     .site-header-actions .btn-header-account{padding:8px 12px;}
-    .btn-header-icon .hdr-btn-label{display:none;}
-    .btn-header-icon{padding:0;width:40px;}
+    .mobile-tabbar{
+      display:block;
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:35;
+      background:linear-gradient(0deg, rgba(12,10,19,0.98) 0%, rgba(12,10,19,0.92) 100%);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border-top:1px solid rgba(168,85,232,0.22);
+      padding-bottom:env(safe-area-inset-bottom);
+      box-shadow:0 -8px 28px rgba(0,0,0,0.4);
+    }
+    .mobile-tabbar-inner{
+      display:flex;
+      justify-content:flex-end;
+      max-width:1100px;
+      margin:0 auto;
+      padding:6px 14px 8px;
+    }
+    .mobile-tabbar-group{
+      display:flex;
+      gap:4px;
+      background:rgba(37,31,51,0.65);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:4px;
+      box-shadow:0 4px 18px rgba(0,0,0,0.25);
+    }
+    .mobile-tab{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:3px;
+      min-width:68px;
+      padding:8px 12px 6px;
+      border:none;
+      background:none;
+      color:var(--muted);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:0.2px;
+      border-radius:12px;
+      cursor:pointer;
+      font-family:var(--body);
+      transition:color .15s, background .15s;
+    }
+    .mobile-tab svg{width:20px;height:20px;}
+    .mobile-tab.active{
+      color:var(--cream);
+      background:rgba(168,85,232,0.22);
+      box-shadow:inset 0 0 0 1px rgba(168,85,232,0.3);
+    }
+    .mobile-menu-panel{
+      bottom:calc(58px + env(safe-area-inset-bottom));
+      border-radius:16px 16px 0 0;
+    }
     .header-search-panel{padding:8px 16px 10px;}
     .account-menu{right:-4px;min-width:168px;}
     .collections-band{padding:10px 0 14px;}
@@ -1977,7 +2082,7 @@
     .logo-nav-btn,.logo-nav-btn img{height:60px;max-width:155px;}
   }
   @media(max-width:640px){
-    body{padding-bottom:100px;}
+    body{padding-bottom:calc(88px + env(safe-area-inset-bottom));}
     header.hero{padding:14px 16px 16px;}
     .hero-panel{padding:16px 14px 14px;border-radius:14px;}
     .hero-main{flex-direction:column;align-items:flex-start;gap:14px;}
@@ -2651,6 +2756,39 @@
     </div>
   </div>
 </nav>
+
+<nav class="mobile-tabbar" id="mobileTabbar" aria-label="Navigation mobile">
+  <div class="mobile-tabbar-inner">
+    <div class="mobile-tabbar-group">
+      <button type="button" class="mobile-tab active" id="tabHome" aria-label="Accueil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>
+        <span>Accueil</span>
+      </button>
+      <button type="button" class="mobile-tab" id="tabSearch" aria-label="Rechercher" aria-controls="searchOverlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <span>Chercher</span>
+      </button>
+      <button type="button" class="mobile-tab" id="tabMenu" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenuSheet">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>
+        <span>Menu</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div id="mobileMenuSheet" class="mobile-menu-sheet" aria-hidden="true">
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+  <div class="mobile-menu-panel" role="dialog" aria-labelledby="mobileMenuTitle">
+    <h3 id="mobileMenuTitle">Menu</h3>
+    <button type="button" class="mobile-menu-item" id="menuFavChip" aria-pressed="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9 22 10 17 15 18.5 22 12 18.5 5.5 22 7 15 2 10 9 9Z"/></svg>
+      Mes favoris
+    </button>
+    <button type="button" class="mobile-menu-item" id="menuHelp" data-nav-view="help">Aide</button>
+    <button type="button" class="mobile-menu-item" id="menuDistrib" data-nav-view="distrib">Distributeurs</button>
+    <a class="mobile-menu-item nav-ebay" href="https://www.ebay.fr/sch/i.html?_ssn=pokestartcg" target="_blank" rel="noopener">Boutique eBay ↗</a>
+  </div>
+</div>
 
 <header class="hero" id="siteHero">
   <svg class="hero-deco" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -4661,10 +4799,17 @@ document.getElementById("footerCatalogLink").addEventListener("click", e=>{
   const main = document.getElementById("main");
   if(main) main.scrollIntoView({ behavior: "smooth" });
 });
-document.getElementById("favChip").addEventListener("click", ()=>{
+function toggleFavoritesFilter(){
   onlyFavorites = !onlyFavorites;
   updateAccountUI();
   render();
+}
+document.getElementById("favChip").addEventListener("click", toggleFavoritesFilter);
+document.getElementById("menuFavChip").addEventListener("click", ()=>{
+  toggleFavoritesFilter();
+  setView("catalog");
+  closeMobileMenu();
+  syncMobileTabs("home");
 });
 document.addEventListener("keydown", e=>{
   const tag = document.activeElement.tagName;
@@ -4684,22 +4829,64 @@ function closeNavMenu(){
   if(toggle) toggle.setAttribute("aria-expanded", "false");
 }
 
+function syncMobileTabs(which){
+  const map = { home:"tabHome", search:"tabSearch", menu:"tabMenu" };
+  document.querySelectorAll(".mobile-tab").forEach(el=> el.classList.remove("active"));
+  const id = map[which];
+  if(id){
+    const tab = document.getElementById(id);
+    if(tab) tab.classList.add("active");
+  }
+}
+
+function closeMobileMenu(){
+  const sheet = document.getElementById("mobileMenuSheet");
+  const tab = document.getElementById("tabMenu");
+  if(sheet){ sheet.classList.remove("open"); sheet.setAttribute("aria-hidden", "true"); }
+  if(tab) tab.setAttribute("aria-expanded", "false");
+}
+
+function openMobileMenu(){
+  closeSearchModal();
+  closeAccountMenu();
+  const sheet = document.getElementById("mobileMenuSheet");
+  const tab = document.getElementById("tabMenu");
+  if(sheet){ sheet.classList.add("open"); sheet.setAttribute("aria-hidden", "false"); }
+  if(tab) tab.setAttribute("aria-expanded", "true");
+  syncMobileTabs("menu");
+}
+
+function toggleMobileMenu(){
+  const sheet = document.getElementById("mobileMenuSheet");
+  if(sheet && sheet.classList.contains("open")) closeMobileMenu();
+  else openMobileMenu();
+}
+
+function mobileTabForView(view){
+  if(view === "help" || view === "distrib" || view === "legal") return "menu";
+  return "home";
+}
+
 function closeSearchModal(){
   const overlay = document.getElementById("searchOverlay");
   const btn = document.getElementById("searchToggle");
   if(overlay) overlay.classList.remove("open");
   if(btn){ btn.classList.remove("active"); btn.setAttribute("aria-expanded", "false"); }
+  const activeView = (location.hash || "#catalog").replace(/^#/, "") || "catalog";
+  syncMobileTabs(mobileTabForView(activeView === "profile" ? "catalog" : activeView));
 }
 
 function openSearchModal(){
   closeAccountMenu();
   closeNavMenu();
+  closeMobileMenu();
   resetSearchModalState();
   const overlay = document.getElementById("searchOverlay");
   const btn = document.getElementById("searchToggle");
   if(overlay) overlay.classList.add("open");
   if(btn){ btn.classList.add("active"); btn.setAttribute("aria-expanded", "true"); }
   renderSearchModalBody();
+  syncMobileTabs("search");
 }
 
 function closeAccountMenu(){
@@ -4740,6 +4927,8 @@ function setView(view, opts){
   closeNavMenu();
   closeSearchModal();
   closeAccountMenu();
+  closeMobileMenu();
+  syncMobileTabs(mobileTabForView(view));
   if(opts.scroll !== false) window.scrollTo(0, 0);
   if(opts.hash !== false){
     const next = "#" + (view || "catalog");
@@ -4976,6 +5165,7 @@ function updateAccountUI(){
   const label = document.getElementById("accountLabel");
   const menu = document.getElementById("accountMenu");
   const favBtn = document.getElementById("favChip");
+  const menuFavBtn = document.getElementById("menuFavChip");
   const menuProfile = document.getElementById("menuProfile");
   const menuLogout = document.getElementById("menuLogout");
   const controlsBar = document.getElementById("controlsBar");
@@ -5003,10 +5193,12 @@ function updateAccountUI(){
     }
     if(!hasSession) closeAccountMenu();
   }
-  if(favBtn){
-    favBtn.classList.toggle("active", onlyFavorites);
-    favBtn.setAttribute("aria-pressed", onlyFavorites ? "true" : "false");
-  }
+  [favBtn, menuFavBtn].forEach(btn=>{
+    if(!btn) return;
+    btn.classList.toggle("active", onlyFavorites);
+    btn.setAttribute("aria-pressed", onlyFavorites ? "true" : "false");
+  });
+  if(menuFavBtn) menuFavBtn.style.display = realUser ? "" : "none";
 
   document.getElementById("adminControls").classList.toggle("show", !!state.isAdmin);
   const adminRow = document.getElementById("adminControlsRow");
@@ -5061,6 +5253,30 @@ document.getElementById("searchToggle").addEventListener("click", e=>{
   e.stopPropagation();
   toggleSearchModal();
 });
+document.getElementById("tabHome").addEventListener("click", ()=>{
+  closeMobileMenu();
+  setView("catalog");
+});
+document.getElementById("tabSearch").addEventListener("click", ()=>{
+  toggleSearchModal();
+});
+document.getElementById("tabMenu").addEventListener("click", ()=>{
+  toggleMobileMenu();
+});
+document.getElementById("mobileMenuBackdrop").addEventListener("click", ()=>{
+  closeMobileMenu();
+  const activeView = (location.hash || "#catalog").replace(/^#/, "") || "catalog";
+  syncMobileTabs(mobileTabForView(activeView === "profile" ? "catalog" : activeView));
+});
+document.getElementById("menuHelp").addEventListener("click", ()=>{
+  setView("help");
+  syncMobileTabs("menu");
+});
+document.getElementById("menuDistrib").addEventListener("click", ()=>{
+  setView("distrib");
+  setupDistribPins();
+  syncMobileTabs("menu");
+});
 document.getElementById("searchModalClose").addEventListener("click", ()=> closeSearchModal());
 document.getElementById("searchOverlay").addEventListener("click", e=>{
   if(e.target.id === "searchOverlay") closeSearchModal();
@@ -5086,7 +5302,13 @@ document.addEventListener("click", e=>{
 document.addEventListener("keydown", e=>{
   if(e.key === "Escape"){
     const searchOpen = document.getElementById("searchOverlay")?.classList.contains("open");
+    const menuOpen = document.getElementById("mobileMenuSheet")?.classList.contains("open");
     if(searchOpen) closeSearchModal();
+    else if(menuOpen){
+      closeMobileMenu();
+      const activeView = (location.hash || "#catalog").replace(/^#/, "") || "catalog";
+      syncMobileTabs(mobileTabForView(activeView === "profile" ? "catalog" : activeView));
+    }
     else closeAccountMenu();
   }
 });
