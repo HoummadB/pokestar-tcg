@@ -86,6 +86,7 @@
   .button:hover{transform:translateY(-1px);border-color:var(--line-strong);background:var(--surface-3)}
   .button.primary{border-color:rgba(179,92,242,.7);background:linear-gradient(135deg,#8c35ca,#b55cef)}
   .button.google{border-color:rgba(100,217,235,.45);background:rgba(100,217,235,.09);color:#a9eef8}
+  .button.pokecardex{border-color:rgba(99,215,147,.45);background:rgba(99,215,147,.09);color:#b8f5d0}
   .button.danger{border-color:rgba(255,110,130,.42);background:rgba(255,110,130,.09);color:#ffc2cb}
   .button[disabled]{opacity:.4;cursor:not-allowed;transform:none}
   .button svg{width:15px;height:15px;flex:none}
@@ -179,6 +180,8 @@
   .series-code{margin-top:12px;color:hsl(var(--series-hue) 78% 72%);font:900 25px/.9 var(--mono);letter-spacing:-.07em;text-transform:uppercase}
   .series-name{margin-top:8px;font-weight:850;font-size:13px;line-height:1.18}
   .series-meta{margin-top:9px;color:var(--muted);font:9px/1.45 var(--mono)}
+  .series-links{margin-top:12px;display:flex;flex-wrap:wrap;gap:7px}
+  .series-links .button{min-height:32px;padding:6px 10px;font-size:10px}
 
   .slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
   .slot{min-width:0;padding:15px;border-right:1px solid var(--line)}
@@ -308,7 +311,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Recherche et collecte</p>
         <h1>Trouve. Colle. Envoie.</h1>
-        <p>Glisse une photo sur une autre pour les intervertir. Pour un nouveau visuel, ouvre Google Images, colle l’image ou son lien, puis envoie uniquement ton panier de corrections.</p>
+        <p>Glisse une photo sur une autre pour les intervertir. Pour un nouveau visuel, ouvre <strong>PokéCardex</strong> (bouton sur chaque série → puis « Produits ») ou Google Images, colle l’image ou son lien, puis envoie uniquement ton panier de corrections.</p>
       </div>
       <div class="hero-cart"><b id="heroCartCount">0</b><span>correction dans le panier</span></div>
     </section>
@@ -362,6 +365,21 @@
     etb:{label:"ETB",expected:"Coffret Dresseur d’Élite",query:"ETB coffret dresseur élite français"}
   };
   const BLOCK_ORDER = ["Méga-Évolution","Écarlate et Violet","Épée et Bouclier","Soleil et Lune","XY","Noir et Blanc","HeartGold SoulSilver","Platine","Diamant et Perle","EX","e-Card","Wizards","Autre"];
+  const POKECARDEX_BASE = "https://www.pokecardex.com/series/";
+  const POKECARDEX_BY_ID = {
+    dp01:"DP",dp02:"MT",dp03:"SW",dp04:"GE",dp05:"MD",dp06:"LA",dp07:"SF",
+    eb01:"SWSH1",eb02:"SWSH2",eb03:"SWSH3",eb04:"SWSH4",eb05:"SWSH5",eb06:"CRE",eb07:"EVS",eb08:"CEL",eb09:"FST",eb10:"BRS",eb11:"ASR",eb12:"LOR",eb13:"SIT",eb14:"CRZ",eb15:"SWSH35",eb16:"SWSH45",eb17:"PGO",
+    ec02:"EX",ec03:"AQ",
+    ev01:"SVI",ev02:"PAL",ev03:"OBF",ev04:"PAR",ev045:"PAF",ev05:"TEF",ev06:"TWM",ev065:"SFA",ev07:"SCR",ev08:"SSP",ev085:"PRE",ev09:"JTG",ev10:"DRI",ev105a:"BLK",ev105b:"WHT",ev151:"MEW",
+    ex01:"RS",ex02:"SS",ex03:"DR",ex04:"TMTA",ex05:"DX",ex06:"EM",ex07:"RFVF",ex08:"HL",ex09:"UF",ex10:"DS",ex11:"LM",ex12:"HP",ex13:"CG",ex14:"DF",ex15:"PK",
+    hs01:"HGSS",hs02:"UL",hs03:"UD",hs04:"TM",hs05:"CL",
+    me01:"MEG",me02:"PFL",me025:"ASC",me03:"POR",me04:"CRI",me05:"PBL",
+    nb01:"BLW",nb02:"EPO",nb03:"NVI",nb04:"NXD",nb05:"DRX",nb06:"DRV",nb07:"BCR",nb08:"PLS",nb09:"PLF",nb10:"PLB",
+    pl01:"PT",pl02:"RR",pl03:"SV",
+    sl01:"SM01",sl02:"SM02",sl03:"SM03",sl04:"SM04",sl05:"SM05",sl06:"SM06",sl07:"SM07",sl08:"SM75",sl09:"SM08",sl10:"SM09",sl11:"SM10",sl12:"SM11",sl13:"SM115",sl14:"SM12",sl15:"SLE",sl16:"DPK",
+    wiz01:"BS",wiz02:"JU",wiz03:"FO",wiz04:"TR",wiz05:"NG",wiz06:"ND",wiz07:"NR",wiz08:"N4",
+    xy01:"XY",xy02:"FLF",xy03:"FFI",xy04:"PHF",xy05:"PRC",xy06:"ROS",xy07:"AOR",xy08:"BKT",xy09:"BKP",xy10:"FAC",xy11:"STS",xy12:"EVO",xy13:"GNR"
+  };
 
   let catalog=[];
   let manifest={photos:{}};
@@ -528,6 +546,11 @@
 
   function googleQuery(item,field){return `Pokémon ${item.code || ""} ${item.name} ${FIELD_META[field].query}`.replace(/\s+/g," ").trim();}
   function googleUrl(item,field){return `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(googleQuery(item,field))}`;}
+  function pokecardexSlug(item){return POKECARDEX_BY_ID[item?.id] || "";}
+  function pokecardexUrl(item){
+    const slug=pokecardexSlug(item);
+    return slug ? `${POKECARDEX_BASE}${encodeURIComponent(slug)}` : "";
+  }
 
   function slotHtml(item,field){
     const key=keyFor(item.id,field);
@@ -593,10 +616,15 @@
 
   function seriesHtml(item,fields){
     const hero=heroPath(item.id);
+    const pcxUrl=pokecardexUrl(item);
+    const pcxSlug=pokecardexSlug(item);
+    const pcxLink=pcxUrl
+      ? `<div class="series-links"><a class="button pokecardex" href="${escapeHtml(pcxUrl)}" target="_blank" rel="noopener" title="Ouvre la série ${escapeHtml(pcxSlug)} sur PokéCardex — clique ensuite sur Produits pour les visuels scellés">PokéCardex · Produits</a></div>`
+      : "";
     return `<article class="series-card" style="--series-hue:${Number(item.hue || 280)}">
       <aside class="series-identity">
         ${hero?`<img class="series-hero" src="${ROOT}/${escapeHtml(hero)}" alt="${escapeHtml(item.name)}" loading="lazy">`:""}
-        <div><div class="series-code">${escapeHtml(item.code || item.id)}</div><div class="series-name">${escapeHtml(item.name)}</div><div class="series-meta">${escapeHtml(item.block)}<br>${escapeHtml(item.date || "Date inconnue")}</div></div>
+        <div><div class="series-code">${escapeHtml(item.code || item.id)}</div><div class="series-name">${escapeHtml(item.name)}</div><div class="series-meta">${escapeHtml(item.block)}<br>${escapeHtml(item.date || "Date inconnue")}</div>${pcxLink}</div>
       </aside>
       <div class="slots" style="grid-template-columns:repeat(${fields.length},minmax(0,1fr))">${fields.map((field)=>slotHtml(item,field)).join("")}</div>
     </article>`;
