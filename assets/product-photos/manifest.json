@@ -29,9 +29,118 @@
     ]
   },
   "heroSources": {
-    "provider": "Pokémon TCG API CDN",
-    "catalog": "https://docs.pokemontcg.io/api-reference/sets/set-object/",
-    "note": "112 logos de séries téléchargés localement depuis les URLs images du catalogue ; 6 séries récentes utilisent leur booster local faute de logo publié.",
+    "provider": "PkmCards.fr (visuels français) + Pokémon TCG API CDN (fallback)",
+    "catalog": "https://www.pkmcards.fr/series/",
+    "note": "107 logos de séries récupérés depuis PkmCards.fr et stockés localement; 11 séries sans visuel PkmCards conservent le logo Pokémon TCG API.",
+    "pkmcardsUrls": {
+      "me05": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-me05-mega-evolution-nuit-noire.webp",
+      "me04": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-me04-mega-evolution-chaos-ascendant.webp",
+      "me03": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-me03-mega-evolution-equilibre-parfait.webp",
+      "me025": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-mega-evolution-heros-transcendants.webp",
+      "me02": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-mega-evolution-flammes-fantasmagoriques.webp",
+      "me01": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-me01-mega-evolution.webp",
+      "ev105a": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-blk-ecarlate-et-violet-foudre-noire.webp",
+      "ev105b": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-wht-ecarlate-et-violet-flamme-blanche.webp",
+      "ev10": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-rivalites-destinees.webp",
+      "ev09": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-aventures-ensemble.webp",
+      "ev085": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-evolution-prismatiques.webp",
+      "ev08": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-etincelles-deferlantes.webp",
+      "ev07": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-couronne-stellaire.webp",
+      "ev065": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-fable-nebuleuse.webp",
+      "ev06": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-mascarade-crepusculaire.webp",
+      "ev05": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-forces-temporelles.webp",
+      "ev045": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-destinees-de-paldea.webp",
+      "ev04": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-faille-paradoxe.webp",
+      "ev151": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-151.webp",
+      "ev03": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-flammes-obsidiennes.webp",
+      "ev02": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet-evolutions-a-paldea.webp",
+      "ev01": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ecarlate-et-violet.webp",
+      "eb14": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-zenith-supreme.webp",
+      "eb13": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-tempete-argentee.webp",
+      "eb12": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-origine-perdue.webp",
+      "eb17": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-pokemon-go.webp",
+      "eb11": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-astres-radieux.webp",
+      "eb10": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-stars-etincelantes.webp",
+      "eb09": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-poing-de-fusion.webp",
+      "eb08": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-celebrations.webp",
+      "eb07": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-evolution-celeste.webp",
+      "eb06": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-regne-de-glace.webp",
+      "eb05": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-styles-de-combat.webp",
+      "eb16": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-destinees-radieuses.webp",
+      "eb04": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-voltage-eclatant.webp",
+      "eb15": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-la-voie-du-maitre.webp",
+      "eb03": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-tenebres-embrasees.webp",
+      "eb02": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier-clash-des-rebelles.webp",
+      "eb01": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-epee-et-bouclier.webp",
+      "sl14": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-eclipse-cosmique.webp",
+      "sl13": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-destinees-occultes.webp",
+      "sl12": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-harmonie-des-esprits.webp",
+      "sl11": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-alliance-infaillible.webp",
+      "sl16": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-detective-pikachu.webp",
+      "sl10": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-duo-de-choc.webp",
+      "sl09": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-tonnerre-perdu.webp",
+      "sl08": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-majeste-des-dragons.webp",
+      "sl07": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-tempete-celeste.webp",
+      "sl06": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-lumiere-interdite.webp",
+      "sl05": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-ultra-prisme.webp",
+      "sl04": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-invasion-carmin.webp",
+      "sl15": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-legendes-brillantes.webp",
+      "sl03": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-ombres-ardentes.webp",
+      "sl02": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune-gardiens-ascendants.webp",
+      "sl01": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-soleil-et-lune.webp",
+      "xy12": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-evolutions.webp",
+      "xy11": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-offensive-vapeur.webp",
+      "xy10": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-impact-des-destins.webp",
+      "xy13": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-generations.webp",
+      "xy08": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-rupture-turbo.webp",
+      "xy09": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-impulsion-turbo.webp",
+      "xy07": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-origines-antiques.webp",
+      "xy06": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-ciel-rugissant.webp",
+      "xy05": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-primo-choc.webp",
+      "xy04": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-vigueur-spectrale.webp",
+      "xy03": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-poings-furieux.webp",
+      "xy02": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y-etincelles.webp",
+      "xy01": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-x-et-y.webp",
+      "nb10": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-noir-et-blanc-explosion-plasma.webp",
+      "nb09": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-noir-et-blanc-glaciation-plasma.webp",
+      "nb08": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-noir-et-blanc-tempete-plasma.webp",
+      "nb07": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-noir-et-blanc-frontieres-franchies.webp",
+      "nb06": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-noir-et-blanc-dragons-exaltes.webp",
+      "nb05": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-noir-et-blanc-explorateurs-obscurs.webp",
+      "nb04": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-noir-et-blanc-destinees-futures.webp",
+      "nb03": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-noir-et-blanc-nobles-victoires.webp",
+      "nb02": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-noir-et-blanc-pouvoirs-emergents.webp",
+      "nb01": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-noir-et-blanc.webp",
+      "hs05": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-l-appel-des-legendes.webp",
+      "hs04": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-heartgold-soulsilver-triomphe.webp",
+      "hs03": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-heartgold-soulsilver-indomptable.webp",
+      "hs02": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-heartgold-soulsilver-dechainement.webp",
+      "hs01": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-heartgold-soulsilver.webp",
+      "pl03": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-platine-vainqueurs-supremes.webp",
+      "pl02": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-platine-rivaux-emergeants.webp",
+      "pl01": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-platine.webp",
+      "dp07": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-diamant-et-perle-tempete.webp",
+      "dp06": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-diamant-et-perle-eveil-des-legendes.webp",
+      "dp05": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-diamant-et-perle-aube-majestueuse.webp",
+      "dp04": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-diamant-et-perle-duels-au-sommet.webp",
+      "dp03": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-diamant-et-perle-merveilles-secretes.webp",
+      "dp02": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-diamant-et-perle-tresors-mysterieux.webp",
+      "dp01": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-diamant-et-perle.webp",
+      "ex15": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-gardiens-du-pouvoir.webp",
+      "ex14": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-ile-des-dragons.webp",
+      "ex13": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-gardiens-de-cristal.webp",
+      "ex12": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-fantomes-holon.webp",
+      "ex11": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-createurs-de-legendes.webp",
+      "ex10": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-especes-delta.webp",
+      "ex09": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-forces-cachees.webp",
+      "ex08": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-legendes-oubliees.webp",
+      "ex06": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-emeraude.webp",
+      "ex05": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-deoxys.webp",
+      "ex04": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-team-magma-versus-team-aqua.webp",
+      "ex07": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-rouge-feu-vert-feuille.webp",
+      "ex03": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-dragon.webp",
+      "ex02": "https://static.pkmcards.fr/series/fr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-ex-tempete-de-sable.webp"
+    },
     "urls": {
       "wiz01": "https://images.pokemontcg.io/base1/logo.png",
       "wiz02": "https://images.pokemontcg.io/base2/logo.png",
@@ -145,32 +254,6 @@
       "ev10": "https://images.pokemontcg.io/sv10/logo.png",
       "me01": "https://images.pokemontcg.io/me1/logo.png",
       "me02": "https://images.pokemontcg.io/me2/logo.png"
-    },
-    "fallbacks": {
-      "ev105a": {
-        "type": "booster",
-        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
-      },
-      "ev105b": {
-        "type": "booster",
-        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
-      },
-      "me025": {
-        "type": "booster",
-        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
-      },
-      "me03": {
-        "type": "booster",
-        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
-      },
-      "me04": {
-        "type": "booster",
-        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
-      },
-      "me05": {
-        "type": "booster",
-        "reason": "logo absent du catalogue PokeTCG au 2026-07-10"
-      }
     }
   },
   "photos": {
@@ -178,145 +261,145 @@
       "booster": "assets/product-photos/dp01/booster.jpg",
       "display": "assets/product-photos/dp01/display.png",
       "etb": "assets/product-photos/dp01/etb.png",
-      "hero": "assets/series-logos/dp01.png"
+      "hero": "assets/series-logos/dp01.webp"
     },
     "dp02": {
       "booster": "assets/product-photos/dp02/booster.png",
       "display": "assets/product-photos/dp02/display.png",
       "etb": "assets/product-photos/dp02/etb.png",
-      "hero": "assets/series-logos/dp02.png"
+      "hero": "assets/series-logos/dp02.webp"
     },
     "dp03": {
       "booster": "assets/product-photos/dp03/booster.png",
       "display": "assets/product-photos/dp03/display.jpg",
       "etb": "assets/product-photos/dp03/etb.jpg",
-      "hero": "assets/series-logos/dp03.png"
+      "hero": "assets/series-logos/dp03.webp"
     },
     "dp04": {
       "booster": "assets/product-photos/dp04/booster.jpg",
       "display": "assets/product-photos/dp04/display.png",
       "etb": "assets/product-photos/dp04/etb.jpg",
-      "hero": "assets/series-logos/dp04.png"
+      "hero": "assets/series-logos/dp04.webp"
     },
     "dp05": {
       "booster": "assets/product-photos/dp05/booster.png",
       "display": "assets/product-photos/dp05/display.png",
       "etb": "assets/product-photos/dp05/etb.png",
-      "hero": "assets/series-logos/dp05.png"
+      "hero": "assets/series-logos/dp05.webp"
     },
     "dp06": {
       "booster": "assets/product-photos/dp06/booster.png",
       "display": "assets/product-photos/dp06/display.jpg",
       "etb": "assets/product-photos/dp06/etb.jpg",
-      "hero": "assets/series-logos/dp06.png"
+      "hero": "assets/series-logos/dp06.webp"
     },
     "dp07": {
       "booster": "assets/product-photos/dp07/booster.jpg",
       "display": "assets/product-photos/dp07/display.png",
       "etb": "assets/product-photos/dp07/etb.jpg",
-      "hero": "assets/series-logos/dp07.png"
+      "hero": "assets/series-logos/dp07.webp"
     },
     "eb01": {
       "booster": "assets/product-photos/eb01/booster.png",
       "display": "assets/product-photos/eb01/display.png",
       "etb": "assets/product-photos/eb01/etb.png",
-      "hero": "assets/series-logos/eb01.png"
+      "hero": "assets/series-logos/eb01.webp"
     },
     "eb02": {
       "booster": "assets/product-photos/eb02/booster.png",
       "display": "assets/product-photos/eb02/display.png",
       "etb": "assets/product-photos/eb02/etb.png",
-      "hero": "assets/series-logos/eb02.png"
+      "hero": "assets/series-logos/eb02.webp"
     },
     "eb03": {
       "booster": "assets/product-photos/eb03/booster.png",
       "display": "assets/product-photos/eb03/display.png",
       "etb": "assets/product-photos/eb03/etb.png",
-      "hero": "assets/series-logos/eb03.png"
+      "hero": "assets/series-logos/eb03.webp"
     },
     "eb04": {
       "booster": "assets/product-photos/eb04/booster.png",
       "display": "assets/product-photos/eb04/display.png",
       "etb": "assets/product-photos/eb04/etb.png",
-      "hero": "assets/series-logos/eb04.png"
+      "hero": "assets/series-logos/eb04.webp"
     },
     "eb05": {
       "booster": "assets/product-photos/eb05/booster.png",
       "display": "assets/product-photos/eb05/display.png",
       "etb": "assets/product-photos/eb05/etb.png",
-      "hero": "assets/series-logos/eb05.png"
+      "hero": "assets/series-logos/eb05.webp"
     },
     "eb06": {
       "booster": "assets/product-photos/eb06/booster.png",
       "display": "assets/product-photos/eb06/display.png",
       "etb": "assets/product-photos/eb06/etb.png",
-      "hero": "assets/series-logos/eb06.png"
+      "hero": "assets/series-logos/eb06.webp"
     },
     "eb07": {
       "booster": "assets/product-photos/eb07/booster.png",
       "display": "assets/product-photos/eb07/display.png",
       "etb": "assets/product-photos/eb07/etb.png",
-      "hero": "assets/series-logos/eb07.png"
+      "hero": "assets/series-logos/eb07.webp"
     },
     "eb08": {
       "booster": "assets/product-photos/eb08/booster.png",
       "display": "assets/product-photos/eb08/display.png",
       "etb": "assets/product-photos/eb08/etb.png",
-      "hero": "assets/series-logos/eb08.png"
+      "hero": "assets/series-logos/eb08.webp"
     },
     "eb09": {
       "booster": "assets/product-photos/eb09/booster.png",
       "display": "assets/product-photos/eb09/display.png",
       "etb": "assets/product-photos/eb09/etb.png",
-      "hero": "assets/series-logos/eb09.png"
+      "hero": "assets/series-logos/eb09.webp"
     },
     "eb10": {
       "booster": "assets/product-photos/eb10/booster.png",
       "display": "assets/product-photos/eb10/display.png",
       "etb": "assets/product-photos/eb10/etb.png",
-      "hero": "assets/series-logos/eb10.png"
+      "hero": "assets/series-logos/eb10.webp"
     },
     "eb11": {
       "booster": "assets/product-photos/eb11/booster.png",
       "display": "assets/product-photos/eb11/display.png",
       "etb": "assets/product-photos/eb11/etb.png",
-      "hero": "assets/series-logos/eb11.png"
+      "hero": "assets/series-logos/eb11.webp"
     },
     "eb12": {
       "booster": "assets/product-photos/eb12/booster.png",
       "display": "assets/product-photos/eb12/display.png",
       "etb": "assets/product-photos/eb12/etb.png",
-      "hero": "assets/series-logos/eb12.png"
+      "hero": "assets/series-logos/eb12.webp"
     },
     "eb13": {
       "booster": "assets/product-photos/eb13/booster.png",
       "display": "assets/product-photos/eb13/display.png",
       "etb": "assets/product-photos/eb13/etb.png",
-      "hero": "assets/series-logos/eb13.png"
+      "hero": "assets/series-logos/eb13.webp"
     },
     "eb14": {
       "booster": "assets/product-photos/eb14/booster.png",
       "display": "assets/product-photos/eb14/display.png",
       "etb": "assets/product-photos/eb14/etb.png",
-      "hero": "assets/series-logos/eb14.png"
+      "hero": "assets/series-logos/eb14.webp"
     },
     "eb15": {
       "booster": "assets/product-photos/eb15/booster.png",
       "display": "assets/product-photos/eb15/display.png",
       "etb": "assets/product-photos/eb15/etb.png",
-      "hero": "assets/series-logos/eb15.png"
+      "hero": "assets/series-logos/eb15.webp"
     },
     "eb16": {
       "booster": "assets/product-photos/eb16/booster.png",
       "display": "assets/product-photos/eb16/display.png",
       "etb": "assets/product-photos/eb16/etb.png",
-      "hero": "assets/series-logos/eb16.png"
+      "hero": "assets/series-logos/eb16.webp"
     },
     "eb17": {
       "booster": "assets/product-photos/eb17/booster.png",
       "display": "assets/product-photos/eb17/display.png",
       "etb": "assets/product-photos/eb17/etb.png",
-      "hero": "assets/series-logos/eb17.png"
+      "hero": "assets/series-logos/eb17.webp"
     },
     "ec02": {
       "booster": "assets/product-photos/ec02/booster.png",
@@ -334,97 +417,97 @@
       "booster": "assets/product-photos/ev01/booster.png",
       "display": "assets/product-photos/ev01/display.png",
       "etb": "assets/product-photos/ev01/etb.png",
-      "hero": "assets/series-logos/ev01.png"
+      "hero": "assets/series-logos/ev01.webp"
     },
     "ev02": {
       "booster": "assets/product-photos/ev02/booster.png",
       "display": "assets/product-photos/ev02/display.png",
       "etb": "assets/product-photos/ev02/etb.png",
-      "hero": "assets/series-logos/ev02.png"
+      "hero": "assets/series-logos/ev02.webp"
     },
     "ev03": {
       "booster": "assets/product-photos/ev03/booster.png",
       "display": "assets/product-photos/ev03/display.png",
       "etb": "assets/product-photos/ev03/etb.png",
-      "hero": "assets/series-logos/ev03.png"
+      "hero": "assets/series-logos/ev03.webp"
     },
     "ev04": {
       "booster": "assets/product-photos/ev04/booster.png",
       "display": "assets/product-photos/ev04/display.png",
       "etb": "assets/product-photos/ev04/etb.png",
-      "hero": "assets/series-logos/ev04.png"
+      "hero": "assets/series-logos/ev04.webp"
     },
     "ev045": {
       "booster": "assets/product-photos/ev045/booster.png",
       "display": "assets/product-photos/ev045/display.png",
       "etb": "assets/product-photos/ev045/etb.png",
-      "hero": "assets/series-logos/ev045.png"
+      "hero": "assets/series-logos/ev045.webp"
     },
     "ev05": {
       "booster": "assets/product-photos/ev05/booster.png",
       "display": "assets/product-photos/ev05/display.png",
       "etb": "assets/product-photos/ev05/etb.png",
-      "hero": "assets/series-logos/ev05.png"
+      "hero": "assets/series-logos/ev05.webp"
     },
     "ev06": {
       "booster": "assets/product-photos/ev06/booster.png",
       "display": "assets/product-photos/ev06/display.png",
       "etb": "assets/product-photos/ev06/etb.png",
-      "hero": "assets/series-logos/ev06.png"
+      "hero": "assets/series-logos/ev06.webp"
     },
     "ev065": {
       "booster": "assets/product-photos/ev065/booster.png",
       "display": "assets/product-photos/ev065/display.png",
       "etb": "assets/product-photos/ev065/etb.png",
-      "hero": "assets/series-logos/ev065.png"
+      "hero": "assets/series-logos/ev065.webp"
     },
     "ev07": {
       "booster": "assets/product-photos/ev07/booster.png",
       "display": "assets/product-photos/ev07/display.png",
       "etb": "assets/product-photos/ev07/etb.png",
-      "hero": "assets/series-logos/ev07.png"
+      "hero": "assets/series-logos/ev07.webp"
     },
     "ev08": {
       "booster": "assets/product-photos/ev08/booster.png",
       "display": "assets/product-photos/ev08/display.png",
       "etb": "assets/product-photos/ev08/etb.png",
-      "hero": "assets/series-logos/ev08.png"
+      "hero": "assets/series-logos/ev08.webp"
     },
     "ev085": {
       "booster": "assets/product-photos/ev085/booster.png",
       "display": "assets/product-photos/ev085/display.png",
       "etb": "assets/product-photos/ev085/etb.png",
-      "hero": "assets/series-logos/ev085.png"
+      "hero": "assets/series-logos/ev085.webp"
     },
     "ev09": {
       "booster": "assets/product-photos/ev09/booster.png",
       "display": "assets/product-photos/ev09/display.png",
       "etb": "assets/product-photos/ev09/etb.png",
-      "hero": "assets/series-logos/ev09.png"
+      "hero": "assets/series-logos/ev09.webp"
     },
     "ev10": {
       "booster": "assets/product-photos/ev10/booster.png",
       "display": "assets/product-photos/ev10/display.png",
       "etb": "assets/product-photos/ev10/etb.png",
-      "hero": "assets/series-logos/ev10.png"
+      "hero": "assets/series-logos/ev10.webp"
     },
     "ev105a": {
       "booster": "assets/product-photos/ev105a/booster.png",
       "display": "assets/product-photos/ev105a/display.png",
       "etb": "assets/product-photos/ev105a/etb.png",
-      "hero": "assets/product-photos/ev105a/booster.png"
+      "hero": "assets/series-logos/ev105a.webp"
     },
     "ev105b": {
       "booster": "assets/product-photos/ev105b/booster.png",
       "display": "assets/product-photos/ev105b/display.png",
       "etb": "assets/product-photos/ev105b/etb.png",
-      "hero": "assets/product-photos/ev105b/booster.png"
+      "hero": "assets/series-logos/ev105b.webp"
     },
     "ev151": {
       "booster": "assets/product-photos/ev151/booster.jpg",
       "display": "assets/product-photos/ev151/display.png",
       "etb": "assets/product-photos/ev151/etb.png",
-      "hero": "assets/series-logos/ev151.png"
+      "hero": "assets/series-logos/ev151.webp"
     },
     "ex01": {
       "booster": "assets/product-photos/ex01/booster.jpg",
@@ -434,312 +517,312 @@
     "ex02": {
       "booster": "assets/product-photos/ex02/booster.jpg",
       "display": "assets/product-photos/ex02/display.png",
-      "hero": "assets/series-logos/ex02.png"
+      "hero": "assets/series-logos/ex02.webp"
     },
     "ex03": {
       "booster": "assets/product-photos/ex03/booster.png",
       "display": "assets/product-photos/ex03/display.png",
-      "hero": "assets/series-logos/ex03.png"
+      "hero": "assets/series-logos/ex03.webp"
     },
     "ex04": {
       "booster": "assets/product-photos/ex04/booster.png",
       "display": "assets/product-photos/ex04/display.jpg",
-      "hero": "assets/series-logos/ex04.png"
+      "hero": "assets/series-logos/ex04.webp"
     },
     "ex05": {
       "booster": "assets/product-photos/ex05/booster.png",
       "display": "assets/product-photos/ex05/display.png",
-      "hero": "assets/series-logos/ex05.png"
+      "hero": "assets/series-logos/ex05.webp"
     },
     "ex06": {
       "booster": "assets/product-photos/ex06/booster.jpg",
       "display": "assets/product-photos/ex06/display.png",
-      "hero": "assets/series-logos/ex06.png"
+      "hero": "assets/series-logos/ex06.webp"
     },
     "ex07": {
       "booster": "assets/product-photos/ex07/booster.jpg",
       "display": "assets/product-photos/ex07/display.png",
-      "hero": "assets/series-logos/ex07.png"
+      "hero": "assets/series-logos/ex07.webp"
     },
     "ex08": {
       "booster": "assets/product-photos/ex08/booster.jpg",
       "display": "assets/product-photos/ex08/display.png",
-      "hero": "assets/series-logos/ex08.png"
+      "hero": "assets/series-logos/ex08.webp"
     },
     "ex09": {
       "booster": "assets/product-photos/ex09/booster.jpg",
       "display": "assets/product-photos/ex09/display.png",
-      "hero": "assets/series-logos/ex09.png"
+      "hero": "assets/series-logos/ex09.webp"
     },
     "ex10": {
       "booster": "assets/product-photos/ex10/booster.png",
       "display": "assets/product-photos/ex10/display.png",
-      "hero": "assets/series-logos/ex10.png"
+      "hero": "assets/series-logos/ex10.webp"
     },
     "ex11": {
       "booster": "assets/product-photos/ex11/booster.png",
       "display": "assets/product-photos/ex11/display.png",
-      "hero": "assets/series-logos/ex11.png"
+      "hero": "assets/series-logos/ex11.webp"
     },
     "ex12": {
       "booster": "assets/product-photos/ex12/booster.jpg",
       "display": "assets/product-photos/ex12/display.png",
-      "hero": "assets/series-logos/ex12.png"
+      "hero": "assets/series-logos/ex12.webp"
     },
     "ex13": {
       "booster": "assets/product-photos/ex13/booster.png",
       "display": "assets/product-photos/ex13/display.jpg",
-      "hero": "assets/series-logos/ex13.png"
+      "hero": "assets/series-logos/ex13.webp"
     },
     "ex14": {
       "booster": "assets/product-photos/ex14/booster.jpg",
       "display": "assets/product-photos/ex14/display.png",
-      "hero": "assets/series-logos/ex14.png"
+      "hero": "assets/series-logos/ex14.webp"
     },
     "ex15": {
       "booster": "assets/product-photos/ex15/booster.png",
       "display": "assets/product-photos/ex15/display.png",
-      "hero": "assets/series-logos/ex15.png"
+      "hero": "assets/series-logos/ex15.webp"
     },
     "hs01": {
       "booster": "assets/product-photos/hs01/booster.png",
       "display": "assets/product-photos/hs01/display.png",
       "etb": "assets/product-photos/hs01/etb.png",
-      "hero": "assets/series-logos/hs01.png"
+      "hero": "assets/series-logos/hs01.webp"
     },
     "hs02": {
       "booster": "assets/product-photos/hs02/booster.jpg",
       "display": "assets/product-photos/hs02/display.png",
       "etb": "assets/product-photos/hs02/etb.png",
-      "hero": "assets/series-logos/hs02.png"
+      "hero": "assets/series-logos/hs02.webp"
     },
     "hs03": {
       "booster": "assets/product-photos/hs03/booster.png",
       "display": "assets/product-photos/hs03/display.png",
       "etb": "assets/product-photos/hs03/etb.png",
-      "hero": "assets/series-logos/hs03.png"
+      "hero": "assets/series-logos/hs03.webp"
     },
     "hs04": {
       "booster": "assets/product-photos/hs04/booster.jpg",
       "display": "assets/product-photos/hs04/display.png",
       "etb": "assets/product-photos/hs04/etb.png",
-      "hero": "assets/series-logos/hs04.png"
+      "hero": "assets/series-logos/hs04.webp"
     },
     "hs05": {
       "booster": "assets/product-photos/hs05/booster.png",
       "display": "assets/product-photos/hs05/display.png",
       "etb": "assets/product-photos/hs05/etb.png",
-      "hero": "assets/series-logos/hs05.png"
+      "hero": "assets/series-logos/hs05.webp"
     },
     "me01": {
       "booster": "assets/product-photos/me01/booster.png",
       "display": "assets/product-photos/me01/display.png",
       "etb": "assets/product-photos/me01/etb.png",
-      "hero": "assets/series-logos/me01.png"
+      "hero": "assets/series-logos/me01.webp"
     },
     "me02": {
       "booster": "assets/product-photos/me02/booster.png",
       "display": "assets/product-photos/me02/display.png",
       "etb": "assets/product-photos/me02/etb.png",
-      "hero": "assets/series-logos/me02.png"
+      "hero": "assets/series-logos/me02.webp"
     },
     "me025": {
       "booster": "assets/product-photos/me025/booster.jpg",
       "display": "assets/product-photos/me025/display.png",
       "etb": "assets/product-photos/me025/etb.png",
-      "hero": "assets/product-photos/me025/booster.jpg"
+      "hero": "assets/series-logos/me025.webp"
     },
     "me03": {
       "booster": "assets/product-photos/me03/booster.png",
       "display": "assets/product-photos/me03/display.png",
       "etb": "assets/product-photos/me03/etb.png",
-      "hero": "assets/product-photos/me03/booster.png"
+      "hero": "assets/series-logos/me03.webp"
     },
     "me04": {
       "booster": "assets/product-photos/me04/booster.png",
       "display": "assets/product-photos/me04/display.png",
       "etb": "assets/product-photos/me04/etb.png",
-      "hero": "assets/product-photos/me04/booster.png"
+      "hero": "assets/series-logos/me04.webp"
     },
     "me05": {
       "booster": "assets/product-photos/me05/booster.png",
       "display": "assets/product-photos/me05/display.png",
       "etb": "assets/product-photos/me05/etb.png",
-      "hero": "assets/product-photos/me05/booster.png"
+      "hero": "assets/series-logos/me05.webp"
     },
     "nb01": {
       "booster": "assets/product-photos/nb01/booster.jpg",
       "display": "assets/product-photos/nb01/display.png",
       "etb": "assets/product-photos/nb01/etb.png",
-      "hero": "assets/series-logos/nb01.png"
+      "hero": "assets/series-logos/nb01.webp"
     },
     "nb02": {
       "booster": "assets/product-photos/nb02/booster.png",
       "display": "assets/product-photos/nb02/display.png",
       "etb": "assets/product-photos/nb02/etb.png",
-      "hero": "assets/series-logos/nb02.png"
+      "hero": "assets/series-logos/nb02.webp"
     },
     "nb03": {
       "booster": "assets/product-photos/nb03/booster.jpg",
       "display": "assets/product-photos/nb03/display.png",
       "etb": "assets/product-photos/nb03/etb.png",
-      "hero": "assets/series-logos/nb03.png"
+      "hero": "assets/series-logos/nb03.webp"
     },
     "nb04": {
       "booster": "assets/product-photos/nb04/booster.png",
       "display": "assets/product-photos/nb04/display.png",
       "etb": "assets/product-photos/nb04/etb.png",
-      "hero": "assets/series-logos/nb04.png"
+      "hero": "assets/series-logos/nb04.webp"
     },
     "nb05": {
       "booster": "assets/product-photos/nb05/booster.png",
       "display": "assets/product-photos/nb05/display.png",
       "etb": "assets/product-photos/nb05/etb.png",
-      "hero": "assets/series-logos/nb05.png"
+      "hero": "assets/series-logos/nb05.webp"
     },
     "nb06": {
       "booster": "assets/product-photos/nb06/booster.jpg",
       "display": "assets/product-photos/nb06/display.png",
       "etb": "assets/product-photos/nb06/etb.png",
-      "hero": "assets/series-logos/nb06.png"
+      "hero": "assets/series-logos/nb06.webp"
     },
     "nb07": {
       "booster": "assets/product-photos/nb07/booster.jpg",
       "display": "assets/product-photos/nb07/display.png",
       "etb": "assets/product-photos/nb07/etb.png",
-      "hero": "assets/series-logos/nb07.png"
+      "hero": "assets/series-logos/nb07.webp"
     },
     "nb08": {
       "booster": "assets/product-photos/nb08/booster.jpg",
       "display": "assets/product-photos/nb08/display.png",
       "etb": "assets/product-photos/nb08/etb.png",
-      "hero": "assets/series-logos/nb08.png"
+      "hero": "assets/series-logos/nb08.webp"
     },
     "nb09": {
       "booster": "assets/product-photos/nb09/booster.png",
       "display": "assets/product-photos/nb09/display.png",
       "etb": "assets/product-photos/nb09/etb.png",
-      "hero": "assets/series-logos/nb09.png"
+      "hero": "assets/series-logos/nb09.webp"
     },
     "nb10": {
       "booster": "assets/product-photos/nb10/booster.png",
       "display": "assets/product-photos/nb10/display.png",
       "etb": "assets/product-photos/nb10/etb.png",
-      "hero": "assets/series-logos/nb10.png"
+      "hero": "assets/series-logos/nb10.webp"
     },
     "pl01": {
       "booster": "assets/product-photos/pl01/booster.png",
       "display": "assets/product-photos/pl01/display.png",
       "etb": "assets/product-photos/pl01/etb.png",
-      "hero": "assets/series-logos/pl01.png"
+      "hero": "assets/series-logos/pl01.webp"
     },
     "pl02": {
       "booster": "assets/product-photos/pl02/booster.jpg",
       "display": "assets/product-photos/pl02/display.png",
       "etb": "assets/product-photos/pl02/etb.png",
-      "hero": "assets/series-logos/pl02.png"
+      "hero": "assets/series-logos/pl02.webp"
     },
     "pl03": {
       "booster": "assets/product-photos/pl03/booster.png",
       "display": "assets/product-photos/pl03/display.png",
       "etb": "assets/product-photos/pl03/etb.png",
-      "hero": "assets/series-logos/pl03.png"
+      "hero": "assets/series-logos/pl03.webp"
     },
     "sl01": {
       "booster": "assets/product-photos/sl01/booster.png",
       "display": "assets/product-photos/sl01/display.png",
       "etb": "assets/product-photos/sl01/etb.png",
-      "hero": "assets/series-logos/sl01.png"
+      "hero": "assets/series-logos/sl01.webp"
     },
     "sl02": {
       "booster": "assets/product-photos/sl02/booster.png",
       "display": "assets/product-photos/sl02/display.png",
       "etb": "assets/product-photos/sl02/etb.png",
-      "hero": "assets/series-logos/sl02.png"
+      "hero": "assets/series-logos/sl02.webp"
     },
     "sl03": {
       "booster": "assets/product-photos/sl03/booster.png",
       "display": "assets/product-photos/sl03/display.png",
       "etb": "assets/product-photos/sl03/etb.png",
-      "hero": "assets/series-logos/sl03.png"
+      "hero": "assets/series-logos/sl03.webp"
     },
     "sl04": {
       "booster": "assets/product-photos/sl04/booster.png",
       "display": "assets/product-photos/sl04/display.png",
       "etb": "assets/product-photos/sl04/etb.png",
-      "hero": "assets/series-logos/sl04.png"
+      "hero": "assets/series-logos/sl04.webp"
     },
     "sl05": {
       "booster": "assets/product-photos/sl05/booster.png",
       "display": "assets/product-photos/sl05/display.png",
       "etb": "assets/product-photos/sl05/etb.png",
-      "hero": "assets/series-logos/sl05.png"
+      "hero": "assets/series-logos/sl05.webp"
     },
     "sl06": {
       "booster": "assets/product-photos/sl06/booster.png",
       "display": "assets/product-photos/sl06/display.png",
       "etb": "assets/product-photos/sl06/etb.png",
-      "hero": "assets/series-logos/sl06.png"
+      "hero": "assets/series-logos/sl06.webp"
     },
     "sl07": {
       "booster": "assets/product-photos/sl07/booster.png",
       "display": "assets/product-photos/sl07/display.png",
       "etb": "assets/product-photos/sl07/etb.png",
-      "hero": "assets/series-logos/sl07.png"
+      "hero": "assets/series-logos/sl07.webp"
     },
     "sl08": {
       "booster": "assets/product-photos/sl08/booster.png",
       "display": "assets/product-photos/sl08/display.png",
       "etb": "assets/product-photos/sl08/etb.png",
-      "hero": "assets/series-logos/sl08.png"
+      "hero": "assets/series-logos/sl08.webp"
     },
     "sl09": {
       "booster": "assets/product-photos/sl09/booster.png",
       "display": "assets/product-photos/sl09/display.png",
       "etb": "assets/product-photos/sl09/etb.png",
-      "hero": "assets/series-logos/sl09.png"
+      "hero": "assets/series-logos/sl09.webp"
     },
     "sl10": {
       "booster": "assets/product-photos/sl10/booster.png",
       "display": "assets/product-photos/sl10/display.png",
       "etb": "assets/product-photos/sl10/etb.png",
-      "hero": "assets/series-logos/sl10.png"
+      "hero": "assets/series-logos/sl10.webp"
     },
     "sl11": {
       "booster": "assets/product-photos/sl11/booster.png",
       "display": "assets/product-photos/sl11/display.png",
       "etb": "assets/product-photos/sl11/etb.png",
-      "hero": "assets/series-logos/sl11.png"
+      "hero": "assets/series-logos/sl11.webp"
     },
     "sl12": {
       "booster": "assets/product-photos/sl12/booster.png",
       "display": "assets/product-photos/sl12/display.png",
       "etb": "assets/product-photos/sl12/etb.png",
-      "hero": "assets/series-logos/sl12.png"
+      "hero": "assets/series-logos/sl12.webp"
     },
     "sl13": {
       "booster": "assets/product-photos/sl13/booster.png",
       "display": "assets/product-photos/sl13/display.png",
       "etb": "assets/product-photos/sl13/etb.png",
-      "hero": "assets/series-logos/sl13.png"
+      "hero": "assets/series-logos/sl13.webp"
     },
     "sl14": {
       "booster": "assets/product-photos/sl14/booster.png",
       "display": "assets/product-photos/sl14/display.png",
       "etb": "assets/product-photos/sl14/etb.png",
-      "hero": "assets/series-logos/sl14.png"
+      "hero": "assets/series-logos/sl14.webp"
     },
     "sl15": {
       "booster": "assets/product-photos/sl15/booster.png",
       "display": "assets/product-photos/sl15/display.png",
       "etb": "assets/product-photos/sl15/etb.png",
-      "hero": "assets/series-logos/sl15.png"
+      "hero": "assets/series-logos/sl15.webp"
     },
     "sl16": {
       "booster": "assets/product-photos/sl16/booster.png",
       "display": "assets/product-photos/sl16/display.png",
       "etb": "assets/product-photos/sl16/etb.png",
-      "hero": "assets/series-logos/sl16.png"
+      "hero": "assets/series-logos/sl16.webp"
     },
     "wiz01": {
       "booster": "assets/product-photos/wiz01/booster.png",
@@ -793,79 +876,79 @@
       "booster": "assets/product-photos/xy01/booster.png",
       "display": "assets/product-photos/xy01/display.png",
       "etb": "assets/product-photos/xy01/etb.png",
-      "hero": "assets/series-logos/xy01.png"
+      "hero": "assets/series-logos/xy01.webp"
     },
     "xy02": {
       "booster": "assets/product-photos/xy02/booster.jpg",
       "display": "assets/product-photos/xy02/display.png",
       "etb": "assets/product-photos/xy02/etb.png",
-      "hero": "assets/series-logos/xy02.png"
+      "hero": "assets/series-logos/xy02.webp"
     },
     "xy03": {
       "booster": "assets/product-photos/xy03/booster.png",
       "display": "assets/product-photos/xy03/display.png",
       "etb": "assets/product-photos/xy03/etb.png",
-      "hero": "assets/series-logos/xy03.png"
+      "hero": "assets/series-logos/xy03.webp"
     },
     "xy04": {
       "booster": "assets/product-photos/xy04/booster.jpg",
       "display": "assets/product-photos/xy04/display.png",
       "etb": "assets/product-photos/xy04/etb.png",
-      "hero": "assets/series-logos/xy04.png"
+      "hero": "assets/series-logos/xy04.webp"
     },
     "xy05": {
       "booster": "assets/product-photos/xy05/booster.png",
       "display": "assets/product-photos/xy05/display.png",
       "etb": "assets/product-photos/xy05/etb.png",
-      "hero": "assets/series-logos/xy05.png"
+      "hero": "assets/series-logos/xy05.webp"
     },
     "xy06": {
       "booster": "assets/product-photos/xy06/booster.png",
       "display": "assets/product-photos/xy06/display.png",
       "etb": "assets/product-photos/xy06/etb.png",
-      "hero": "assets/series-logos/xy06.png"
+      "hero": "assets/series-logos/xy06.webp"
     },
     "xy07": {
       "booster": "assets/product-photos/xy07/booster.png",
       "display": "assets/product-photos/xy07/display.png",
       "etb": "assets/product-photos/xy07/etb.png",
-      "hero": "assets/series-logos/xy07.png"
+      "hero": "assets/series-logos/xy07.webp"
     },
     "xy08": {
       "booster": "assets/product-photos/xy08/booster.png",
       "display": "assets/product-photos/xy08/display.png",
       "etb": "assets/product-photos/xy08/etb.png",
-      "hero": "assets/series-logos/xy08.png"
+      "hero": "assets/series-logos/xy08.webp"
     },
     "xy09": {
       "booster": "assets/product-photos/xy09/booster.png",
       "display": "assets/product-photos/xy09/display.png",
       "etb": "assets/product-photos/xy09/etb.png",
-      "hero": "assets/series-logos/xy09.png"
+      "hero": "assets/series-logos/xy09.webp"
     },
     "xy10": {
       "booster": "assets/product-photos/xy10/booster.png",
       "display": "assets/product-photos/xy10/display.png",
       "etb": "assets/product-photos/xy10/etb.png",
-      "hero": "assets/series-logos/xy10.png"
+      "hero": "assets/series-logos/xy10.webp"
     },
     "xy11": {
       "booster": "assets/product-photos/xy11/booster.png",
       "display": "assets/product-photos/xy11/display.png",
       "etb": "assets/product-photos/xy11/etb.png",
-      "hero": "assets/series-logos/xy11.png"
+      "hero": "assets/series-logos/xy11.webp"
     },
     "xy12": {
       "booster": "assets/product-photos/xy12/booster.png",
       "display": "assets/product-photos/xy12/display.png",
       "etb": "assets/product-photos/xy12/etb.png",
-      "hero": "assets/series-logos/xy12.png"
+      "hero": "assets/series-logos/xy12.webp"
     },
     "xy13": {
       "booster": "assets/product-photos/xy13/booster.png",
       "display": "assets/product-photos/xy13/display.png",
       "etb": "assets/product-photos/xy13/etb.png",
-      "hero": "assets/series-logos/xy13.png"
+      "hero": "assets/series-logos/xy13.webp"
     }
   }
 }

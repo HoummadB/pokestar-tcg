@@ -41,7 +41,7 @@ Point d'entrée déploiement : **`index.html`** à la racine du site.
 ## Fonctionnement
 
 - **Cote Pokestar** : prix communautaires / admin, stockés Firestore `pokestar_state/main`.
-- **Logos de série** : Firestore `pokestar_logos` (base64). **Photos produit** : manifest local `assets/product-photos/manifest.json`, puis Firestore manuel et Scrydex en secours.
+- **Logos de série** : Firestore `pokestar_logos` (base64). **Photos produit** : manifest local `assets/product-photos/manifest.json`, puis Firestore manuel et Scrydex en secours. Les héros de 107 séries sont des visuels français récupérés depuis [PkmCards](https://www.pkmcards.fr/series/) et stockés dans `assets/series-logos/`; 11 séries historiques gardent le CDN Pokémon TCG API faute de visuel PkmCards correspondant.
 - **Prix Cardmarket UE** : guide officiel JSON (maj ~1×/jour), embarqué `CM_MARKET_SEED` + fichier `cm-market-cache.json`. Le guide n'est pas un prix France-only.
 - **eBay vendu** : pas d'API — lien externe seulement.
 - **UI** : hero logo série + tuiles Booster / Display / ETB (photo → logo → icône).
@@ -117,10 +117,10 @@ Après modification de `index.html` ou des prix CM :
   références heuristiques ont été retirées du manifest le 2026-07-10. Le rendu
   affiche donc le glyphe ETB neutre jusqu'à validation d'une source dédiée.
 - Les logos hero Firestore ne sont pas nécessaires pour le catalogue de base :
-  les 118 séries ont désormais un hero local dans le manifest. 112 utilisent
-  un logo du catalogue Pokémon TCG API ; six séries récentes utilisent leur
-  booster local faute de logo publié. Vérifier les droits d'usage avant toute
-  nouvelle série ou usage commercial élargi.
+  les 118 séries ont désormais un hero local dans le manifest. 107 utilisent
+  un visuel de série français PkmCards et 11 gardent un logo du catalogue
+  Pokémon TCG API faute de visuel PkmCards correspondant. Vérifier les droits
+  d'usage avant toute nouvelle série ou usage commercial élargi.
 
 ## Périmètre des prix
 
