@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-10T01:35:00.000Z",
+  "updatedAt": "2026-07-10T01:40:00.000Z",
   "resolved": {
     "me01:display": {
       "resolvedAt": "2026-07-10T01:30:00.000Z",
@@ -39,7 +39,11 @@
     "sl06:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
     "sl06:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
     "sl07:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "sl07:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" }
+    "sl07:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
+    "sl13:display": { "resolvedAt": "2026-07-10T01:40:00.000Z", "manifestVersion": "20260710-local-v7", "action": "swap-local-path" },
+    "sl13:etb": { "resolvedAt": "2026-07-10T01:40:00.000Z", "manifestVersion": "20260710-local-v7", "action": "swap-local-path" },
+    "sl15:display": { "resolvedAt": "2026-07-10T01:40:00.000Z", "manifestVersion": "20260710-local-v7", "action": "swap-local-path" },
+    "sl15:etb": { "resolvedAt": "2026-07-10T01:40:00.000Z", "manifestVersion": "20260710-local-v7", "action": "swap-local-path" }
   },
   "decisions": {
     "ev01:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Contrôle visuel du 2026-07-09 : booster Écarlate et Violet cohérent." },
