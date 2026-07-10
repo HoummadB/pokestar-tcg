@@ -1562,15 +1562,46 @@
     background:var(--surface-2);
     border:1px solid var(--line);
     border-radius:10px;
-    padding:10px 12px;
+    padding:0;
+    overflow:hidden;
     cursor:pointer;
     color:var(--cream);
     font-family:var(--body);
     transition:border-color .15s, background .15s;
   }
   .search-block-btn:hover{border-color:var(--violet);background:rgba(124,47,196,0.12);}
-  .search-block-btn strong{display:block;font-size:13px;line-height:1.25;margin-bottom:3px;}
-  .search-block-btn span{font-size:11px;color:var(--muted);}
+  .search-block-thumb{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:52px;
+    background:radial-gradient(ellipse 90% 80% at 50% 40%, hsl(var(--h,280) 38% 20%), rgba(20,16,30,0.9));
+    border-bottom:1px solid rgba(61,51,80,0.5);
+  }
+  .search-block-thumb img{
+    max-height:42px;
+    max-width:88%;
+    object-fit:contain;
+    filter:drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+  }
+  .search-block-thumb svg{width:22px;height:22px;opacity:0.75;color:hsl(var(--h,280) 70% 72%);}
+  .search-block-text{padding:8px 10px 10px;}
+  .search-block-text strong{display:block;font-size:13px;line-height:1.25;margin-bottom:3px;}
+  .search-block-text span{font-size:11px;color:var(--muted);}
+  .search-pick-thumb{
+    flex-shrink:0;
+    width:42px;
+    height:42px;
+    border-radius:8px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:radial-gradient(ellipse 90% 80% at 50% 40%, hsl(var(--h,280) 38% 20%), rgba(20,16,30,0.95));
+    border:1px solid rgba(61,51,80,0.55);
+  }
+  .search-pick-thumb img{width:100%;height:100%;object-fit:contain;padding:3px;}
+  .search-pick-thumb svg{width:20px;height:20px;opacity:0.8;color:hsl(var(--h,280) 70% 72%);}
   .search-year-grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(72px,1fr));
@@ -1644,8 +1675,10 @@
     .search-modal-hint{font-size:11px;}
     .search-modal-search input[type=search]{min-width:0;order:0;}
     .search-block-grid{grid-template-columns:1fr 1fr;gap:8px;}
-    .search-block-btn{padding:9px 10px;}
-    .search-block-btn strong{font-size:12px;}
+    .search-block-text{padding:7px 8px 9px;}
+    .search-block-text strong{font-size:12px;}
+    .search-block-thumb{height:46px;}
+    .search-pick-thumb{width:38px;height:38px;}
   }
 
   .confirm-message{
@@ -3457,9 +3490,45 @@ function entryYearMatches(entry, q){
   return y != null && String(y).includes(q);
 }
 
+function blockRepresentativeEntry(block, entries){
+  const inBlock = entries.filter(e=> e.block === block);
+  if(!inBlock.length) return null;
+  const withLogo = inBlock.filter(e=> e.logo);
+  if(withLogo.length){
+    const eponymous = withLogo.find(e=> e.name.replace(/&/g,"et").trim().toLowerCase() === block.replace(/&/g,"et").trim().toLowerCase());
+    return eponymous || withLogo[0];
+  }
+  const withHero = inBlock.find(e=> localProductPhotoUrl(e, "hero"));
+  if(withHero) return withHero;
+  return inBlock.sort((a,b)=> new Date(b.date||0) - new Date(a.date||0))[0];
+}
+
+function searchSeriesThumbHtml(entry){
+  const hue = entry.hue ?? 280;
+  const hero = entry.logo || localProductPhotoUrl(entry, "hero");
+  if(hero){
+    return `<span class="search-pick-thumb has-img" style="--h:${hue}"><img src="${hero}" alt="" loading="lazy" decoding="async"></span>`;
+  }
+  const path = ICONS[entry.icon] || ICONS.orb;
+  return `<span class="search-pick-thumb has-icon" style="--h:${hue}"><svg viewBox="0 0 24 24">${path}</svg></span>`;
+}
+
+function searchBlockThumbHtml(block, entries){
+  const pick = blockRepresentativeEntry(block, entries);
+  if(!pick) return `<span class="search-block-thumb" style="--h:280"></span>`;
+  const hue = pick.hue ?? 280;
+  const hero = pick.logo || localProductPhotoUrl(pick, "hero");
+  if(hero){
+    return `<span class="search-block-thumb has-img" style="--h:${hue}"><img src="${hero}" alt="" loading="lazy" decoding="async"></span>`;
+  }
+  const path = ICONS[pick.icon] || ICONS.orb;
+  return `<span class="search-block-thumb has-icon" style="--h:${hue}"><svg viewBox="0 0 24 24">${path}</svg></span>`;
+}
+
 function searchPickItemHtml(entry){
   const y = seriesYear(entry);
   return `<button type="button" class="search-pick-item" data-series="${entry.id}">
+    ${searchSeriesThumbHtml(entry)}
     <div class="search-pick-main">
       <strong>${entry.name}</strong>
       <span>${entry.block}${entry.code ? " · " + entry.code : ""}</span>
@@ -3565,7 +3634,7 @@ function renderSearchModalBody(){
   CATALOG_BLOCKS.forEach(b=> blockCounts.set(b, 0));
   entries.forEach(e=> blockCounts.set(e.block, (blockCounts.get(e.block) || 0) + 1));
   body.innerHTML = `<p class="search-section-label">Bloc TCG (ère)</p><div class="search-block-grid">${CATALOG_BLOCKS.filter(b=> blockCounts.get(b)).map(b=>
-    `<button type="button" class="search-block-btn" data-pick-block="${b}"><strong>${b}</strong><span>${blockCounts.get(b)} extension${blockCounts.get(b)>1?"s":""}</span></button>`
+    `<button type="button" class="search-block-btn" data-pick-block="${b}">${searchBlockThumbHtml(b, entries)}<span class="search-block-text"><strong>${b}</strong><span>${blockCounts.get(b)} extension${blockCounts.get(b)>1?"s":""}</span></span></button>`
   ).join("")}</div>`;
   body.querySelectorAll("[data-pick-block]").forEach(btn=>{
     btn.addEventListener("click", ()=>{
