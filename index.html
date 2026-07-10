@@ -2121,6 +2121,11 @@
       font-weight:600;
     }
     .mobile-tab.active svg{stroke-width:2.1;}
+    .tab-home-icon-top,.tab-home-label-top{display:none;}
+    .mobile-tab.scroll-top-mode .tab-home-icon-home,
+    .mobile-tab.scroll-top-mode .tab-home-label-home{display:none;}
+    .mobile-tab.scroll-top-mode .tab-home-icon-top,
+    .mobile-tab.scroll-top-mode .tab-home-label-top{display:block;}
     .mobile-menu-panel{
       bottom:calc(52px + env(safe-area-inset-bottom));
       border-radius:16px 16px 0 0;
@@ -2921,8 +2926,10 @@
   <div class="mobile-tabbar-inner">
     <div class="mobile-tabbar-group">
       <button type="button" class="mobile-tab active" id="tabHome" aria-label="Accueil">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>
-        <span>Accueil</span>
+        <svg class="tab-home-icon tab-home-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>
+        <svg class="tab-home-icon tab-home-icon-top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+        <span class="tab-home-label tab-home-label-home">Accueil</span>
+        <span class="tab-home-label tab-home-label-top">Haut</span>
       </button>
       <button type="button" class="mobile-tab" id="tabSearch" aria-label="Rechercher" aria-controls="searchOverlay">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
@@ -5070,6 +5077,8 @@ function closeNavMenu(){
   if(toggle) toggle.setAttribute("aria-expanded", "false");
 }
 
+const TAB_HOME_SCROLL_TOP_Y = 96;
+
 function syncMobileTabs(which){
   const map = { home:"tabHome", search:"tabSearch", menu:"tabMenu", distrib:"tabDistrib" };
   document.querySelectorAll(".mobile-tab").forEach(el=> el.classList.remove("active"));
@@ -5078,6 +5087,30 @@ function syncMobileTabs(which){
     const tab = document.getElementById(id);
     if(tab) tab.classList.add("active");
   }
+  updateTabHomeScrollMode();
+}
+
+function tabHomeScrollTopEligible(){
+  if(!window.matchMedia("(max-width:768px)").matches) return false;
+  const view = (location.hash || "#catalog").replace(/^#/, "") || "catalog";
+  return view === "catalog" || view === "profile";
+}
+
+function updateTabHomeScrollMode(){
+  const tab = document.getElementById("tabHome");
+  if(!tab) return;
+  const scrollTopMode = tabHomeScrollTopEligible() && window.scrollY > TAB_HOME_SCROLL_TOP_Y;
+  tab.classList.toggle("scroll-top-mode", scrollTopMode);
+  tab.setAttribute("aria-label", scrollTopMode ? "Remonter en haut" : "Accueil");
+}
+
+let tabHomeScrollRaf = 0;
+function scheduleTabHomeScrollMode(){
+  if(tabHomeScrollRaf) return;
+  tabHomeScrollRaf = requestAnimationFrame(()=>{
+    tabHomeScrollRaf = 0;
+    updateTabHomeScrollMode();
+  });
 }
 
 function closeMobileMenu(){
@@ -5190,6 +5223,7 @@ function setView(view, opts){
   closeMobileMenu();
   syncMobileTabs(mobileTabForView(view));
   if(opts.scroll !== false) window.scrollTo(0, 0);
+  updateTabHomeScrollMode();
   if(opts.hash !== false){
     const next = "#" + (view || "catalog");
     if(location.hash !== next) history.pushState({ view: view || "catalog" }, "", next);
@@ -5516,8 +5550,14 @@ document.getElementById("searchToggle").addEventListener("click", e=>{
 });
 document.getElementById("tabHome").addEventListener("click", ()=>{
   closeMobileMenu();
+  if(tabHomeScrollTopEligible() && window.scrollY > TAB_HOME_SCROLL_TOP_Y){
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
   setView("catalog");
 });
+window.addEventListener("scroll", scheduleTabHomeScrollMode, { passive: true });
+window.addEventListener("resize", scheduleTabHomeScrollMode);
 document.getElementById("tabSearch").addEventListener("click", ()=>{
   toggleSearchModal();
 });
@@ -5670,7 +5710,7 @@ document.getElementById("loginSubmit").addEventListener("click", async ()=>{
 
 auth.onAuthStateChanged(()=>{ updateAccountUI(); });
 
-loadLocalProductPhotos().then(()=>loadState()).then(()=>{ loadCmMarket(); routeFromHash(); });
+loadLocalProductPhotos().then(()=>loadState()).then(()=>{ loadCmMarket(); routeFromHash(); updateTabHomeScrollMode(); });
 
 
 if("serviceWorker" in navigator){
