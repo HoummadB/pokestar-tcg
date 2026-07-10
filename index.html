@@ -4086,19 +4086,39 @@ function renderSearchModalBody(){
   });
 }
 
+function scrollToSeriesCard(id){
+  const run = (triesLeft)=>{
+    const el = document.getElementById("card-" + id);
+    if(!el){
+      if(triesLeft > 0) requestAnimationFrame(()=> run(triesLeft - 1));
+      return;
+    }
+    const rect = el.getBoundingClientRect();
+    const top = rect.top + window.scrollY;
+    const target = Math.max(0, top - window.innerHeight * 0.22);
+    const delta = Math.abs(target - window.scrollY);
+    const behavior = delta > window.innerHeight * 1.15 ? "auto" : "smooth";
+    window.scrollTo({ top: target, behavior });
+    el.classList.add("jump-highlight");
+    setTimeout(()=> el.classList.remove("jump-highlight"), 1200);
+  };
+  requestAnimationFrame(()=> run(4));
+}
+
 function jumpToSeries(id){
   closeSearchModal();
-  setView("catalog");
+  const entry = getAllEntries().find(e=> e.id === id);
+  let blockExpanded = false;
+  if(entry && collapsedBlocks.has(entry.block)){
+    collapsedBlocks.delete(entry.block);
+    blockExpanded = true;
+  }
+  const hadSearch = !!searchQuery;
   searchQuery = "";
-  render();
-  requestAnimationFrame(()=>{
-    const el = document.getElementById("card-" + id);
-    if(el){
-      el.scrollIntoView({ behavior:"smooth", block:"center" });
-      el.classList.add("jump-highlight");
-      setTimeout(()=> el.classList.remove("jump-highlight"), 1200);
-    }
-  });
+  const cardExists = !!document.getElementById("card-" + id);
+  setView("catalog", { scroll: false, hash: false });
+  if(hadSearch || blockExpanded || !cardExists) render();
+  scrollToSeriesCard(id);
 }
 
 function resetSearchModalState(){
