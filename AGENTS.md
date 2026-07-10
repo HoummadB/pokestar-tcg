@@ -74,7 +74,9 @@ python3 -m http.server 8765
 
 Le helper photo fonctionne dans tout navigateur moderne. Pour un mauvais
 visuel : copier la recherche proposée ou ouvrir Google Images depuis la tuile,
-coller une image ou son URL,
+coller une image ou son URL, ou glisser un fichier dans la zone de collage.
+Le helper affiche « Image jointe — incluse dans le JSON » quand le fichier est
+réellement embarqué ; un simple commentaire de nom de fichier ne suffit pas.
 ajouter une note, puis utiliser **Copier le JSON** ou **Exporter le JSON**. Le
 glisser-déposer d'une grande photo sur une autre prépare une interversion : les
 deux emplacements entrent ensemble dans le panier. Le

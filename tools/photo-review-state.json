@@ -1,19 +1,20 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-10T01:30:00.000Z",
+  "updatedAt": "2026-07-10T01:35:00.000Z",
   "resolved": {
     "me01:display": {
-      "resolvedAt": "2026-07-10T01:25:00.000Z",
-      "manifestVersion": "20260710-local-v4",
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v6",
       "action": "swap-local-path",
       "note": "Le display ME01 a reçu le fichier display vérifié depuis l'ancien etb.png."
     },
     "me01:etb": {
-      "resolvedAt": "2026-07-10T01:25:00.000Z",
-      "manifestVersion": "20260710-local-v4",
+      "resolvedAt": "2026-07-10T01:35:00.000Z",
+      "manifestVersion": "20260710-local-v6",
       "action": "replace-image",
-      "source": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCHVHaWMs-07Y6y-P8b84YEvJvgssSaAn_0VhBh9YUnw&s=10",
-      "note": "ETB Mega-Évolution vérifié visuellement depuis l'image fournie dans le panier."
+      "source": "local attachment: Image 2.png",
+      "sha256": "5848c4a3509cf4b57da4643ccbb0e743984922a606aa6077596638899cce4ad4",
+      "note": "ETB ME01 remplacé par l'image jointe fournie par Hoummad."
     },
     "eb08:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
     "eb08:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },

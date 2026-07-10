@@ -229,6 +229,7 @@
     padding:8px;border:1px dashed #654d79;border-radius:11px;background:#100d16;cursor:text
   }
   .paste-zone:hover,.paste-zone:focus{border-color:var(--violet);background:#15101d;outline:0}
+  .paste-zone.file-drop-target{border-color:var(--cyan);background:rgba(100,217,235,.09);box-shadow:0 0 0 2px rgba(100,217,235,.15)}
   .paste-preview{display:grid;place-items:center;width:52px;height:50px;overflow:hidden;border:1px solid #3f324b;border-radius:8px;background:#0b0910}
   .paste-preview img{width:100%;height:100%;object-fit:contain}
   .paste-preview span{color:var(--muted);font:900 17px var(--mono)}
@@ -581,6 +582,9 @@
           <input class="hidden" data-role="file" type="file" accept="image/png,image/jpeg,image/webp,image/avif">
           ${hasDraft?`<button class="button danger" data-action="remove" type="button">Retirer du panier</button>`:""}
         </div>
+        ${draft.imageId?`<div class="draft-hint attachment">Image jointe : <strong>${escapeHtml(draft.imageName || "fichier image")}</strong> · incluse dans le JSON.</div>`:""}
+        ${!draft.imageId && draft.imageUrl?`<div class="draft-hint attachment">Lien image renseigné · il sera transmis dans le JSON.</div>`:""}
+        ${draft.comment?.trim() && !draft.imageId && !draft.imageUrl && !draft.swapWith && !draft.reusePath?`<div class="draft-hint warning">Commentaire seul : aucune image jointe.</div>`:""}
         ${draft.swapWith?`<div class="draft-hint">Interversion liée avec <strong>${escapeHtml(draft.swapWith)}</strong> · les deux lignes seront exportées ensemble.</div>`:""}
         ${hasDraft?`<div class="draft-hint">Sauvegardé dans ce navigateur · ${escapeHtml(new Date(draft.updatedAt).toLocaleString("fr-FR"))}</div>`:""}
       </div>
@@ -763,6 +767,7 @@
 
   function cleanupDragUi(){
     document.querySelectorAll(".image-stage.dragging,.image-stage.drop-target").forEach((stage)=>stage.classList.remove("dragging","drop-target"));
+    document.querySelectorAll(".paste-zone.file-drop-target").forEach((zone)=>zone.classList.remove("file-drop-target"));
     draggedKey="";
   }
 
@@ -821,6 +826,10 @@
   }
 
   function onDragOver(event){
+    const zone=event.target.closest('[data-action="paste-zone"]');
+    if(zone && [...(event.dataTransfer?.types || [])].includes("Files")){
+      event.preventDefault();zone.classList.add("file-drop-target");return;
+    }
     const stage=event.target.closest('.image-stage[data-drag-key]');
     if(!stage || !draggedKey || stage.dataset.dragKey===draggedKey) return;
     event.preventDefault();event.dataTransfer.dropEffect="move";
@@ -829,11 +838,20 @@
   }
 
   function onDragLeave(event){
+    const zone=event.target.closest(".paste-zone.file-drop-target");
+    if(zone && !zone.contains(event.relatedTarget)) zone.classList.remove("file-drop-target");
     const stage=event.target.closest(".image-stage.drop-target");
     if(stage && !stage.contains(event.relatedTarget)) stage.classList.remove("drop-target");
   }
 
   async function onDrop(event){
+    const zone=event.target.closest('[data-action="paste-zone"]');
+    const file=event.dataTransfer?.files?.[0];
+    if(zone && file){
+      event.preventDefault();zone.classList.remove("file-drop-target");
+      const slot=slotFrom(zone);if(slot) await storeImage(slot,file);
+      return;
+    }
     const stage=event.target.closest('.image-stage[data-drag-key]');
     if(!stage) return;
     event.preventDefault();
@@ -895,11 +913,17 @@
         key,seriesId:draft.seriesId,seriesCode:draft.seriesCode,seriesName:draft.seriesName,block:draft.block,
         field:draft.field,expected:draft.expected,currentPath:draft.currentPath,imageUrl:draft.imageUrl || "",
         action:draft.action || "replace-image",reusePath:draft.reusePath || "",swapWith:draft.swapWith || "",
-        comment:draft.comment || "",updatedAt:draft.updatedAt,manifestVersion:draft.manifestVersion || ""
+        comment:draft.comment || "",imageName:draft.imageName || "",imageType:draft.imageType || "",imageEmbedded:false,
+        updatedAt:draft.updatedAt,manifestVersion:draft.manifestVersion || ""
       };
       if(draft.imageId){
         const stored=await dbGet(draft.imageId);
-        if(stored?.blob) item.image={name:stored.name || draft.imageName,type:stored.type || draft.imageType,dataUrl:await blobToDataUrl(stored.blob)};
+        if(stored?.blob){
+          item.imageEmbedded=true;
+          item.imageName=stored.name || draft.imageName || "image";
+          item.imageType=stored.type || draft.imageType || "";
+          item.image={name:item.imageName,type:item.imageType,dataUrl:await blobToDataUrl(stored.blob)};
+        }
       }
       items.push(item);
     }
