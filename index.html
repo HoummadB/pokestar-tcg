@@ -2035,6 +2035,7 @@
     .search-overlay{
       bottom:calc(50px + env(safe-area-inset-bottom));
       align-items:stretch;
+      z-index:230;
     }
     .search-overlay .search-modal{
       height:100%;
@@ -2053,6 +2054,7 @@
       border-radius:16px;
       padding:8px;
     }
+    body.search-modal-open{overflow:hidden;}
     .mobile-tabbar{
       display:block;
       position:fixed;
@@ -4166,7 +4168,7 @@ function jumpToSeries(id){
   const hadSearch = !!searchQuery;
   searchQuery = "";
   const cardExists = !!document.getElementById("card-" + id);
-  setView("catalog", { scroll: false, hash: false });
+  setView("catalog", { scroll: false, hash: true });
   if(hadSearch || blockExpanded || !cardExists) render();
   scrollToSeriesCard(id);
 }
@@ -5206,6 +5208,7 @@ function closeSearchModal(){
   const btn = document.getElementById("searchToggle");
   if(overlay) overlay.classList.remove("open");
   if(btn){ btn.classList.remove("active"); btn.setAttribute("aria-expanded", "false"); }
+  document.body.classList.remove("search-modal-open");
   const activeView = (location.hash || "#catalog").replace(/^#/, "") || "catalog";
   syncMobileTabs(mobileTabForView(activeView === "profile" ? "catalog" : activeView));
 }
@@ -5219,6 +5222,7 @@ function openSearchModal(){
   const btn = document.getElementById("searchToggle");
   if(overlay) overlay.classList.add("open");
   if(btn){ btn.classList.add("active"); btn.setAttribute("aria-expanded", "true"); }
+  document.body.classList.add("search-modal-open");
   renderSearchModalBody();
   syncMobileTabs("search");
 }
@@ -5239,9 +5243,12 @@ function openAccountMenu(){
   if(btn) btn.setAttribute("aria-expanded", "true");
 }
 
+function isSearchModalOpen(){
+  return !!document.getElementById("searchOverlay")?.classList.contains("open");
+}
+
 function toggleSearchModal(){
-  const overlay = document.getElementById("searchOverlay");
-  if(overlay && overlay.classList.contains("open")) closeSearchModal();
+  if(isSearchModalOpen()) closeSearchModal();
   else openSearchModal();
 }
 
@@ -5266,10 +5273,10 @@ function setView(view, opts){
     el.classList.toggle("active", el.dataset.navView === navView);
   });
   closeNavMenu();
-  closeSearchModal();
+  if(!opts.keepSearch) closeSearchModal();
   closeAccountMenu();
   closeMobileMenu();
-  syncMobileTabs(mobileTabForView(view));
+  if(!isSearchModalOpen()) syncMobileTabs(mobileTabForView(view));
   if(opts.scroll !== false){
     resetPageScroll();
     setTimeout(resetPageScroll, 0);
@@ -5617,7 +5624,9 @@ document.getElementById("tabHome").addEventListener("click", ()=>{
 });
 window.addEventListener("scroll", scheduleTabHomeScrollMode, { passive: true });
 window.addEventListener("resize", scheduleTabHomeScrollMode);
-document.getElementById("tabSearch").addEventListener("click", ()=>{
+document.getElementById("tabSearch").addEventListener("click", e=>{
+  e.stopPropagation();
+  closeMobileMenu();
   toggleSearchModal();
 });
 document.getElementById("tabMenu").addEventListener("click", ()=>{
