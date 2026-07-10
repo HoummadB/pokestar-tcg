@@ -1622,12 +1622,12 @@
   }
   .search-pick-thumb.is-large{
     width:100%;
-    height:68px;
+    height:88px;
     border:none;
     border-radius:8px;
   }
   .search-pick-thumb img{width:100%;height:100%;object-fit:contain;padding:3px;}
-  .search-pick-thumb.is-large img{padding:6px;max-height:64px;}
+  .search-pick-thumb.is-large img{padding:4px;max-height:84px;}
   .search-pick-thumb svg{width:20px;height:20px;opacity:0.8;color:hsl(var(--h,280) 70% 72%);}
   .search-year-grid{
     display:grid;
@@ -1649,12 +1649,17 @@
   }
   .search-year-btn:hover{border-color:var(--violet);background:rgba(124,47,196,0.12);}
   .search-year-btn small{display:block;font-size:9px;color:var(--muted);font-weight:500;margin-top:2px;}
-  .search-pick-list{display:flex;flex-direction:column;gap:6px;}
+  .search-pick-list{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:8px;
+  }
   .search-pick-item{
     display:flex;
     align-items:center;
     gap:10px;
     width:100%;
+    min-width:0;
     text-align:left;
     background:var(--surface-2);
     border:1px solid var(--line);
@@ -1671,12 +1676,24 @@
     flex-direction:column;
     align-items:stretch;
     gap:0;
-    padding:6px 8px 8px;
+    padding:4px 4px 6px;
+    aspect-ratio:4/3;
+    justify-content:center;
+  }
+  .search-pick-item--visual .search-pick-thumb.is-large{
+    flex:1;
+    height:auto;
+    min-height:0;
+  }
+  .search-pick-item--visual .search-pick-thumb.is-large img{
+    max-height:100%;
+    height:100%;
+    object-fit:contain;
   }
   .search-pick-code{
     position:absolute;
-    right:10px;
-    bottom:8px;
+    right:6px;
+    bottom:5px;
     font-family:var(--mono);
     font-size:9px;
     color:var(--muted);
@@ -1717,8 +1734,9 @@
     .search-block-thumb{height:46px;}
     .search-block-btn--visual .search-block-thumb{height:72px;}
     .search-block-btn--visual .search-block-thumb img{max-height:64px;}
+    .search-pick-list{gap:6px;}
     .search-pick-thumb{width:38px;height:38px;}
-    .search-pick-thumb.is-large{height:62px;}
+    .search-pick-item--visual{aspect-ratio:5/4;}
   }
 
   .confirm-message{
