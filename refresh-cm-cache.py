@@ -200,10 +200,10 @@ def build_cache(text: str) -> dict:
             g = prices.get(prod["idProduct"])
             if not g:
                 continue
-            low, trend = g.get("low"), g.get("trend")
-            if low is None and trend is None:
+            low, trend, avg = g.get("low"), g.get("trend"), g.get("avg")
+            if low is None and trend is None and avg is None:
                 continue
-            row[kind] = {"low": low, "trend": trend}
+            row[kind] = {"low": low, "trend": trend, "avg": avg}
         if row:
             cache["series"][entry_id] = row
     return cache
