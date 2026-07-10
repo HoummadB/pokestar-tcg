@@ -201,9 +201,22 @@
       linear-gradient(45deg,rgba(255,255,255,.018) 25%,transparent 25% 75%,rgba(255,255,255,.018) 75%),#100d16;
     background-size:20px 20px;background-position:0 0,10px 10px
   }
+  .image-stage[draggable="true"]{cursor:grab}
+  .image-stage[draggable="true"]:active{cursor:grabbing}
+  .image-stage.dragging{opacity:.42;transform:scale(.985)}
+  .image-stage.drop-target{
+    border-color:var(--cyan);background-color:rgba(100,217,235,.08);
+    box-shadow:0 0 0 2px rgba(100,217,235,.18),0 0 26px rgba(100,217,235,.12)
+  }
   .image-stage img{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:contain;filter:drop-shadow(0 8px 11px rgba(0,0,0,.5))}
+  .drag-hint{
+    position:absolute;right:7px;bottom:7px;z-index:2;padding:5px 7px;border:1px solid rgba(100,217,235,.35);
+    border-radius:7px;background:rgba(12,10,16,.86);color:#a9eef8;font:700 8px var(--mono);pointer-events:none
+  }
+  .drag-hint.swap{border-color:rgba(179,92,242,.55);color:#e4bafc}
   .empty-image{text-align:center;color:var(--muted);font:10px/1.5 var(--mono);padding:20px}
   .image-meta{min-height:28px;color:#9f91af;font:9px/1.45 var(--mono);word-break:break-all}
+  .image-meta strong{display:block;margin-top:2px;color:var(--cyan);font-weight:700}
 
   .google-search{width:100%;margin:8px 0 10px}
   .correction-box{display:grid;gap:7px;padding-top:10px;border-top:1px dashed #41334f}
@@ -290,7 +303,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Recherche et collecte</p>
         <h1>Trouve. Colle. Envoie.</h1>
-        <p>Pour chaque mauvais visuel, ouvre Google Images, colle l’image ou son lien, ajoute une note si nécessaire. Le JSON contient uniquement ton panier de corrections.</p>
+        <p>Glisse une photo sur une autre pour les intervertir. Pour un nouveau visuel, ouvre Google Images, colle l’image ou son lien, puis envoie uniquement ton panier de corrections.</p>
       </div>
       <div class="hero-cart"><b id="heroCartCount">0</b><span>correction dans le panier</span></div>
     </section>
@@ -353,6 +366,7 @@
   let toastTimer=null;
   let inputTimer=null;
   let dbPromise=null;
+  let draggedKey="";
   const el=(id)=>document.getElementById(id);
 
   function escapeHtml(value){
@@ -418,9 +432,10 @@
   function keyFor(id,field){return `${id}:${field}`;}
   function photoPath(id,field){return manifest.photos?.[id]?.[field] || "";}
   function heroPath(id){return manifest.photos?.[id]?.hero || "";}
+  function assetUrl(path){return path ? `${ROOT}/${path}${path.includes("?")?"&":"?"}v=${encodeURIComponent(manifest.version || "review")}` : "";}
   function decisionStatus(key){return review.decisions?.[key]?.status || "";}
   function isTreated(key){return ["valid","not-applicable"].includes(decisionStatus(key));}
-  function draftHasContent(draft){return !!(draft && (draft.imageId || draft.imageUrl?.trim() || draft.comment?.trim()));}
+  function draftHasContent(draft){return !!(draft && (draft.imageId || draft.imageUrl?.trim() || draft.comment?.trim() || draft.reusePath?.trim() || draft.swapWith));}
 
   function loadDrafts(){
     try{drafts=JSON.parse(localStorage.getItem(DRAFT_KEY) || "{}") || {};}catch(_error){drafts={};}
@@ -432,7 +447,7 @@
     for(const [key,draft] of Object.entries({...drafts})){
       const resolvedAt=Date.parse(resolved[key]?.resolvedAt || 0);
       const draftAt=Date.parse(draft.updatedAt || 0);
-      if(resolvedAt && resolvedAt>=draftAt) await removeDraft(key,false);
+      if(resolvedAt && resolvedAt>=draftAt) await removeDraft(key,false,false);
     }
   }
 
@@ -518,22 +533,29 @@
     const hasDraft=draftHasContent(draft);
     const treated=isTreated(key);
     const current=photoPath(item.id,field);
-    const currentSrc=current ? `${ROOT}/${current}${current.includes("?")?"&":"?"}v=${encodeURIComponent(manifest.version || "review")}` : "";
-    const pastedSrc=imageUrls.get(key) || draft.imageUrl || "";
+    const shownPath=draft.reusePath || current;
+    const currentSrc=assetUrl(shownPath);
+    const pastedSrc=imageUrls.get(key) || draft.imageUrl || assetUrl(draft.reusePath);
     let pill="À examiner",pillClass="";
     if(hasDraft){pill="Dans le panier";pillClass="cart";}
     else if(treated){pill="Déjà traité";pillClass="treated";}
     else if(!current){pill="Sans image";pillClass="missing";}
-    const currentImage=currentSrc?`<img src="${escapeHtml(currentSrc)}" alt="${escapeHtml(meta.label)} ${escapeHtml(item.name)}" loading="lazy" decoding="async">`:`<div class="empty-image">Aucune image publiée</div>`;
+    const currentImage=currentSrc?`<img src="${escapeHtml(currentSrc)}" alt="${escapeHtml(meta.label)} ${escapeHtml(item.name)}" loading="lazy" decoding="async" draggable="false">`:`<div class="empty-image">Aucune image publiée</div>`;
     const pastePreview=pastedSrc?`<img src="${escapeHtml(pastedSrc)}" alt="Correction proposée">`:`<span>⌘V</span>`;
+    const imageMeta=draft.reusePath
+      ? `${escapeHtml(current || "Aucun fichier dans le manifest")}<strong>→ ${escapeHtml(draft.reusePath)}</strong>`
+      : escapeHtml(current || "Aucun fichier dans le manifest");
+    const dragHint=draft.swapWith
+      ? `<span class="drag-hint swap">Interverti avec ${escapeHtml(draft.swapWith)}</span>`
+      : current ? '<span class="drag-hint">Glisse pour intervertir</span>' : "";
 
     return `<article class="slot ${hasDraft?"in-cart":""} ${treated?"treated":""}" data-id="${item.id}" data-field="${field}">
       <div class="slot-head">
         <div class="slot-title"><span class="slot-kicker">${meta.label}</span><strong>${meta.expected}</strong></div>
         <span class="status-pill ${pillClass}">${pill}</span>
       </div>
-      <div class="image-stage">${currentImage}</div>
-      <div class="image-meta">${escapeHtml(current || "Aucun fichier dans le manifest")}</div>
+      <div class="image-stage" data-drag-key="${key}" draggable="${current && !draft.swapWith ? "true" : "false"}">${currentImage}${dragHint}</div>
+      <div class="image-meta">${imageMeta}</div>
       <a class="button google google-search" href="${googleUrl(item,field)}" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
         Rechercher sur Google Images
@@ -551,6 +573,7 @@
           <input class="hidden" data-role="file" type="file" accept="image/png,image/jpeg,image/webp,image/avif">
           ${hasDraft?`<button class="button danger" data-action="remove" type="button">Retirer du panier</button>`:""}
         </div>
+        ${draft.swapWith?`<div class="draft-hint">Interversion liée avec <strong>${escapeHtml(draft.swapWith)}</strong> · les deux lignes seront exportées ensemble.</div>`:""}
         ${hasDraft?`<div class="draft-hint">Sauvegardé dans ce navigateur · ${escapeHtml(new Date(draft.updatedAt).toLocaleString("fr-FR"))}</div>`:""}
       </div>
     </article>`;
@@ -592,14 +615,23 @@
   function renderPreservingScroll(){const y=scrollY;render();requestAnimationFrame(()=>scrollTo(0,y));}
   function slotFrom(target){return target.closest(".slot");}
 
-  function baseDraft(slot){
-    const {id,field}=slot.dataset;
+  function splitKey(key){
+    const separator=key.lastIndexOf(":");
+    return {id:key.slice(0,separator),field:key.slice(separator+1)};
+  }
+
+  function baseDraftFor(id,field){
     const item=catalog.find((entry)=>entry.id===id);
     return {
       seriesId:id,seriesName:item?.name || id,seriesCode:item?.code || id,block:item?.block || "",
       field,expected:FIELD_META[field].expected,currentPath:photoPath(id,field),manifestVersion:manifest.version || "",
       imageUrl:"",comment:"",updatedAt:new Date().toISOString()
     };
+  }
+
+  function baseDraft(slot){
+    const {id,field}=slot.dataset;
+    return baseDraftFor(id,field);
   }
 
   function saveTextDraft(slot,persist=true){
@@ -632,7 +664,7 @@
       else pill.textContent="À examiner";
     }
     const preview=slot.querySelector(".paste-preview");
-    const src=imageUrls.get(key) || draft.imageUrl || "";
+    const src=imageUrls.get(key) || draft.imageUrl || assetUrl(draft.reusePath);
     if(preview){
       preview.replaceChildren();
       if(src){const img=document.createElement("img");img.src=src;img.alt="Correction proposée";preview.appendChild(img);}
@@ -706,12 +738,54 @@
     }
   }
 
-  async function removeDraft(key,rerender=true){
+  async function discardDraft(key){
     const draft=drafts[key];
     if(draft?.imageId) await dbDelete(draft.imageId).catch(()=>{});
     const url=imageUrls.get(key);if(url) URL.revokeObjectURL(url);
-    imageUrls.delete(key);delete drafts[key];saveDrafts();
+    imageUrls.delete(key);delete drafts[key];
+  }
+
+  async function removeDraft(key,rerender=true,removePair=true){
+    const pairKey=removePair && drafts[key]?.swapWith;
+    await discardDraft(key);
+    if(pairKey && drafts[pairKey]?.swapWith===key) await discardDraft(pairKey);
+    saveDrafts();
     if(rerender) renderPreservingScroll();
+  }
+
+  function cleanupDragUi(){
+    document.querySelectorAll(".image-stage.dragging,.image-stage.drop-target").forEach((stage)=>stage.classList.remove("dragging","drop-target"));
+    draggedKey="";
+  }
+
+  function swapLabel(key){
+    const {id,field}=splitKey(key),item=catalog.find((entry)=>entry.id===id);
+    return `${item?.code || id} · ${FIELD_META[field]?.label || field}`;
+  }
+
+  async function swapSlots(sourceKey,targetKey){
+    if(!sourceKey || !targetKey || sourceKey===targetKey) return;
+    flushVisibleInputs();
+    const source=splitKey(sourceKey),target=splitKey(targetKey);
+    const sourcePath=photoPath(source.id,source.field),targetPath=photoPath(target.id,target.field);
+    if(!sourcePath || !targetPath) return toast("Il faut deux images publiées pour les intervertir.","error");
+    if(sourcePath===targetPath) return toast("Ces deux emplacements utilisent déjà le même fichier.","error");
+
+    const affected=new Set([sourceKey,targetKey]);
+    for(const key of [sourceKey,targetKey]) if(drafts[key]?.swapWith) affected.add(drafts[key].swapWith);
+    if([...affected].some((key)=>draftHasContent(drafts[key])) && !confirm("Cette interversion remplacera les corrections déjà préparées pour ces emplacements. Continuer ?")) return;
+    for(const key of affected) await discardDraft(key);
+
+    const updatedAt=new Date().toISOString();
+    drafts[sourceKey]={
+      ...baseDraftFor(source.id,source.field),action:"swap-local-path",reusePath:targetPath,swapWith:targetKey,
+      comment:`Intervertir avec ${swapLabel(targetKey)}.`,updatedAt
+    };
+    drafts[targetKey]={
+      ...baseDraftFor(target.id,target.field),action:"swap-local-path",reusePath:sourcePath,swapWith:sourceKey,
+      comment:`Intervertir avec ${swapLabel(sourceKey)}.`,updatedAt
+    };
+    saveDrafts();renderPreservingScroll();toast("Les deux photos ont été interverties et ajoutées au panier.","success");
   }
 
   function bindEvents(){
@@ -722,6 +796,42 @@
     el("catalog").addEventListener("input",onInput);
     el("catalog").addEventListener("change",onChange);
     el("catalog").addEventListener("paste",onPaste);
+    el("catalog").addEventListener("dragstart",onDragStart);
+    el("catalog").addEventListener("dragover",onDragOver);
+    el("catalog").addEventListener("dragleave",onDragLeave);
+    el("catalog").addEventListener("drop",onDrop);
+    el("catalog").addEventListener("dragend",cleanupDragUi);
+  }
+
+  function onDragStart(event){
+    const stage=event.target.closest('.image-stage[data-drag-key]');
+    if(!stage || stage.getAttribute("draggable")!=="true") return;
+    draggedKey=stage.dataset.dragKey;
+    event.dataTransfer.effectAllowed="move";
+    event.dataTransfer.setData("text/plain",draggedKey);
+    requestAnimationFrame(()=>stage.classList.add("dragging"));
+  }
+
+  function onDragOver(event){
+    const stage=event.target.closest('.image-stage[data-drag-key]');
+    if(!stage || !draggedKey || stage.dataset.dragKey===draggedKey) return;
+    event.preventDefault();event.dataTransfer.dropEffect="move";
+    document.querySelectorAll(".image-stage.drop-target").forEach((node)=>node.classList.remove("drop-target"));
+    stage.classList.add("drop-target");
+  }
+
+  function onDragLeave(event){
+    const stage=event.target.closest(".image-stage.drop-target");
+    if(stage && !stage.contains(event.relatedTarget)) stage.classList.remove("drop-target");
+  }
+
+  async function onDrop(event){
+    const stage=event.target.closest('.image-stage[data-drag-key]');
+    if(!stage) return;
+    event.preventDefault();
+    const sourceKey=draggedKey || event.dataTransfer.getData("text/plain"),targetKey=stage.dataset.dragKey;
+    cleanupDragUi();
+    await swapSlots(sourceKey,targetKey);
   }
 
   function onInput(event){
@@ -763,6 +873,7 @@
       const item={
         key,seriesId:draft.seriesId,seriesCode:draft.seriesCode,seriesName:draft.seriesName,block:draft.block,
         field:draft.field,expected:draft.expected,currentPath:draft.currentPath,imageUrl:draft.imageUrl || "",
+        action:draft.action || "replace-image",reusePath:draft.reusePath || "",swapWith:draft.swapWith || "",
         comment:draft.comment || "",updatedAt:draft.updatedAt,manifestVersion:draft.manifestVersion || ""
       };
       if(draft.imageId){

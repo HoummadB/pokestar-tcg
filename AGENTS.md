@@ -75,6 +75,8 @@ python3 -m http.server 8765
 Le helper photo fonctionne dans tout navigateur moderne. Pour un mauvais
 visuel : ouvrir Google Images depuis la tuile, coller une image ou son URL,
 ajouter une note, puis utiliser **Copier le JSON** ou **Exporter le JSON**. Le
+glisser-déposer d'une grande photo sur une autre prépare une interversion : les
+deux emplacements entrent ensemble dans le panier. Le
 panier reste local jusqu'à traitement par un agent. Après application des
 fichiers dans le repo, l'agent met à jour `tools/photo-review-state.json`
 (`resolved`) afin que les lignes traitées quittent automatiquement le panier.
@@ -123,7 +125,7 @@ Après modification de `index.html` ou des prix CM :
 | Prix CM pas affichés | Lancer `refresh-cm-cache.py`, vérifier mapping slug CM |
 | Logo série | Mode admin (pseudo `admin`) → upload hero ; stocké Firestore |
 | Préparer une correction photo | `tools/photo-review.html` → rechercher, coller image/lien, commenter, exporter le JSON |
-| Appliquer un panier photo | Lire le JSON, vérifier la source, écrire l'image et le manifest, puis marquer la clé dans `photo-review-state.json.resolved` |
+| Appliquer un panier photo | Lire le JSON, vérifier la source, écrire l'image et le manifest, puis marquer la clé dans `photo-review-state.json.resolved`. Pour `swap-local-path`, sauvegarder les deux sources avant toute écriture et appliquer la paire atomiquement. |
 | Override photo ponctuel | Admin → survol vignette produit → `+` (Firestore, pas le catalogue local canonique) |
 | UI / UX | Modifier CSS + fonctions `cardHero`, `productThumb`, `priceCell` dans `index.html` |
 | Mentions légales / footer | Section `#legalView` et `<footer>` dans `index.html` |
