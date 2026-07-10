@@ -151,7 +151,7 @@ def fetch_json(url: str) -> dict:
         return json.load(res)
 
 
-def build_cache(text: str) -> dict:
+def build_cache(text: str, old: dict | None = None) -> dict:
     entries = re.findall(
         r'\{id:"([^"]+)", name:"[^"]+", block:"[^"]+", date:"[^"]*", booster:[^,]+, display:[^,]+, etb:[^,]+, cm:CM\("([^"]+)"\)',
         text,
@@ -203,7 +203,13 @@ def build_cache(text: str) -> dict:
             low, trend, avg = g.get("low"), g.get("trend"), g.get("avg")
             if low is None and trend is None and avg is None:
                 continue
-            row[kind] = {"low": low, "trend": trend, "avg": avg}
+            cell = {"low": low, "trend": trend, "avg": avg}
+            if old:
+                prev_row = old.get("series", {}).get(entry_id, {}).get(kind, {})
+                old_trend = prev_row.get("trend")
+                if old_trend is not None:
+                    cell["prevTrend"] = old_trend
+            row[kind] = cell
         if row:
             cache["series"][entry_id] = row
     return cache
@@ -223,7 +229,10 @@ def main() -> int:
         return 1
 
     text = HTML.read_text(encoding="utf-8")
-    cache = build_cache(text)
+    old_cache = {}
+    if OUT.exists():
+        old_cache = json.loads(OUT.read_text(encoding="utf-8"))
+    cache = build_cache(text, old_cache)
     OUT.write_text(json.dumps(cache, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     HTML.write_text(patch_html_seed(text, cache), encoding="utf-8")
     print(f"OK {OUT.name} + index.html — {len(cache['series'])} séries — {cache['updatedAt']}")
