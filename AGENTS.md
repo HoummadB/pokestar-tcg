@@ -73,7 +73,8 @@ python3 -m http.server 8765
 ```
 
 Le helper photo fonctionne dans tout navigateur moderne. Pour un mauvais
-visuel : ouvrir Google Images depuis la tuile, coller une image ou son URL,
+visuel : copier la recherche proposée ou ouvrir Google Images depuis la tuile,
+coller une image ou son URL,
 ajouter une note, puis utiliser **Copier le JSON** ou **Exporter le JSON**. Le
 glisser-déposer d'une grande photo sur une autre prépare une interversion : les
 deux emplacements entrent ensemble dans le panier. Le

@@ -219,6 +219,9 @@
   .image-meta strong{display:block;margin-top:2px;color:var(--cyan);font-weight:700}
 
   .google-search{width:100%;margin:8px 0 10px}
+  .search-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;align-items:stretch}
+  .search-actions .google-search,.search-actions .copy-query{margin:8px 0 10px}
+  .copy-query{border-color:rgba(100,217,235,.35);background:rgba(100,217,235,.06);color:#a9eef8;white-space:nowrap}
   .correction-box{display:grid;gap:7px;padding-top:10px;border-top:1px dashed #41334f}
   .paste-zone{
     display:grid;grid-template-columns:52px 1fr auto;gap:9px;align-items:center;min-height:66px;
@@ -521,10 +524,8 @@
     });
   }
 
-  function googleUrl(item,field){
-    const query=`Pokémon ${item.code || ""} ${item.name} ${FIELD_META[field].query}`;
-    return `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}`;
-  }
+  function googleQuery(item,field){return `Pokémon ${item.code || ""} ${item.name} ${FIELD_META[field].query}`.replace(/\s+/g," ").trim();}
+  function googleUrl(item,field){return `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(googleQuery(item,field))}`;}
 
   function slotHtml(item,field){
     const key=keyFor(item.id,field);
@@ -556,10 +557,16 @@
       </div>
       <div class="image-stage" data-drag-key="${key}" draggable="${current && !draft.swapWith ? "true" : "false"}">${currentImage}${dragHint}</div>
       <div class="image-meta">${imageMeta}</div>
-      <a class="button google google-search" href="${googleUrl(item,field)}" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-        Rechercher sur Google Images
-      </a>
+      <div class="search-actions">
+        <a class="button google google-search" href="${googleUrl(item,field)}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          Rechercher sur Google Images
+        </a>
+        <button class="button copy-query" data-action="copy-query" data-query="${escapeHtml(googleQuery(item,field))}" type="button" title="Copier le texte de la recherche">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+          Copier la recherche
+        </button>
+      </div>
       <div class="correction-box">
         <div class="paste-zone" tabindex="0" data-action="paste-zone" title="Clique puis colle avec Cmd+V">
           <div class="paste-preview">${pastePreview}</div>
@@ -853,9 +860,22 @@
     event.preventDefault();await handlePaste(slot,event.clipboardData);
   }
 
+  async function copyText(text){
+    if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);return;}
+    const area=document.createElement("textarea");
+    area.value=text;area.setAttribute("readonly","");area.style.position="fixed";area.style.opacity="0";
+    document.body.appendChild(area);area.select();
+    const copied=document.execCommand?.("copy");area.remove();
+    if(!copied) throw new Error("Presse-papiers indisponible");
+  }
+
   async function onClick(event){
     const action=event.target.closest("[data-action]");if(!action) return;
     const slot=slotFrom(action);if(!slot) return;
+    if(action.dataset.action==="copy-query"){
+      try{await copyText(action.dataset.query || "");toast("Recherche copiée dans le presse-papiers.","success");}
+      catch(error){toast(`Copie impossible (${error.message}).`,"error");}
+    }
     if(action.dataset.action==="file") slot.querySelector('[data-role="file"]').click();
     if(action.dataset.action==="clipboard") await readClipboard(slot);
     if(action.dataset.action==="remove") await removeDraft(keyFor(slot.dataset.id,slot.dataset.field));
