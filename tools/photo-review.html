@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0c0a13">
-<title>Pokestar — Contrôle des photos produit</title>
+<title>Pokestar — Panier de corrections photos</title>
 <style>
   :root{
     color-scheme:dark;
@@ -18,7 +18,6 @@
     --cream:#f5f1ff;
     --muted:#aa9cba;
     --violet:#b35cf2;
-    --violet-deep:#7c2fc4;
     --cyan:#64d9eb;
     --gold:#efb53c;
     --green:#63d793;
@@ -50,35 +49,21 @@
   .topbar{
     position:sticky;
     top:0;
-    z-index:40;
+    z-index:50;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:18px;
     padding:12px clamp(16px,3vw,36px);
     border-bottom:1px solid rgba(179,92,242,.35);
-    background:rgba(12,10,19,.92);
+    background:rgba(12,10,19,.94);
     backdrop-filter:blur(18px);
     box-shadow:0 10px 30px rgba(0,0,0,.24);
   }
   .brand{display:flex;align-items:center;gap:12px;min-width:0}
-  .brand img{
-    width:42px;height:42px;object-fit:cover;border-radius:11px;
-    box-shadow:0 0 24px rgba(179,92,242,.35)
-  }
-  .brand-copy{min-width:0}
-  .brand strong{
-    display:block;
-    font-family:var(--display);
-    font-size:14px;
-    line-height:1;
-    letter-spacing:.02em;
-    text-transform:uppercase;
-  }
-  .brand small{
-    display:block;margin-top:5px;color:var(--muted);font:10px var(--mono);
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis
-  }
+  .brand img{width:42px;height:42px;object-fit:cover;border-radius:11px;box-shadow:0 0 24px rgba(179,92,242,.35)}
+  .brand strong{display:block;font:900 14px/1 var(--display);letter-spacing:.02em;text-transform:uppercase}
+  .brand small{display:block;margin-top:5px;color:var(--muted);font:10px var(--mono)}
   .top-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
 
   .button{
@@ -86,93 +71,89 @@
     align-items:center;
     justify-content:center;
     gap:7px;
-    min-height:36px;
+    min-height:37px;
     padding:8px 12px;
     border:1px solid var(--line);
     border-radius:10px;
     background:var(--surface-2);
     color:var(--cream);
     cursor:pointer;
-    font-weight:750;
-    font-size:12px;
+    font-weight:800;
+    font-size:11px;
     text-decoration:none;
     transition:transform .15s ease,border-color .15s ease,background .15s ease;
   }
   .button:hover{transform:translateY(-1px);border-color:var(--line-strong);background:var(--surface-3)}
-  .button.primary{border-color:rgba(179,92,242,.65);background:linear-gradient(135deg,#8c35ca,#b55cef)}
-  .button.good{border-color:rgba(99,215,147,.45);background:rgba(99,215,147,.11);color:#b9f5d1}
-  .button.warn{border-color:rgba(239,181,60,.42);background:rgba(239,181,60,.10);color:#ffe3a1}
-  .button.danger{border-color:rgba(255,110,130,.42);background:rgba(255,110,130,.10);color:#ffc2cb}
-  .button[disabled]{opacity:.42;cursor:not-allowed;transform:none}
+  .button.primary{border-color:rgba(179,92,242,.7);background:linear-gradient(135deg,#8c35ca,#b55cef)}
+  .button.google{border-color:rgba(100,217,235,.45);background:rgba(100,217,235,.09);color:#a9eef8}
+  .button.danger{border-color:rgba(255,110,130,.42);background:rgba(255,110,130,.09);color:#ffc2cb}
+  .button[disabled]{opacity:.4;cursor:not-allowed;transform:none}
   .button svg{width:15px;height:15px;flex:none}
 
-  .page{width:min(1560px,100%);margin:0 auto;padding:28px clamp(14px,3vw,38px) 80px}
-  .hero{
-    display:grid;
-    grid-template-columns:minmax(0,1.4fr) minmax(270px,.6fr);
-    gap:18px;
-    align-items:stretch;
-    margin-bottom:18px;
+  .cart-count{
+    display:inline-grid;place-items:center;min-width:21px;height:21px;padding:0 6px;
+    border-radius:999px;background:var(--gold);color:#221400;font:900 10px var(--mono)
   }
-  .hero-copy,.ledger{
+
+  .page{width:min(1560px,100%);margin:0 auto;padding:26px clamp(14px,3vw,38px) 80px}
+  .hero{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    margin-bottom:16px;
+    padding:25px clamp(20px,4vw,42px);
     border:1px solid var(--line);
-    background:linear-gradient(145deg,rgba(34,26,44,.92),rgba(20,15,27,.92));
+    border-radius:22px;
+    background:linear-gradient(145deg,rgba(34,26,44,.94),rgba(20,15,27,.94));
     box-shadow:var(--shadow);
   }
-  .hero-copy{position:relative;overflow:hidden;padding:26px clamp(20px,4vw,42px);border-radius:22px}
-  .hero-copy::after{
-    content:"EV • XY • EX • NB • SL";
-    position:absolute;right:-10px;bottom:-9px;
-    font:900 clamp(40px,7vw,92px)/.9 var(--display);
-    color:rgba(179,92,242,.055);
-    white-space:nowrap;pointer-events:none
+  .hero::after{
+    content:"⌘V";
+    position:absolute;right:3%;bottom:-24px;
+    color:rgba(179,92,242,.07);font:900 clamp(100px,17vw,240px)/1 var(--display);pointer-events:none
   }
-  .eyebrow{margin:0 0 10px;color:var(--gold);font:700 10px var(--mono);letter-spacing:.22em;text-transform:uppercase}
-  h1{margin:0;max-width:850px;font:900 clamp(28px,4.6vw,58px)/.98 var(--display);letter-spacing:-.045em;text-transform:uppercase}
-  .hero-copy>p:last-child{position:relative;z-index:1;max-width:760px;margin:15px 0 0;color:#cbbfd7;font-size:14px;line-height:1.65}
-  .ledger{border-radius:22px;padding:21px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .metric{min-height:78px;padding:13px;border:1px solid rgba(103,82,120,.55);border-radius:14px;background:rgba(12,10,19,.36)}
-  .metric b{display:block;font:800 24px var(--mono);color:var(--cream)}
-  .metric span{display:block;margin-top:5px;color:var(--muted);font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em}
-  .metric.accent b{color:var(--cyan)}
-  .metric.good b{color:var(--green)}
-  .metric.alert b{color:var(--orange)}
+  .eyebrow{margin:0 0 9px;color:var(--gold);font:700 10px var(--mono);letter-spacing:.22em;text-transform:uppercase}
+  h1{position:relative;z-index:1;margin:0;font:900 clamp(30px,5vw,64px)/.98 var(--display);letter-spacing:-.05em;text-transform:uppercase}
+  .hero-copy{position:relative;z-index:1;max-width:920px}
+  .hero-copy p:last-child{max-width:760px;margin:13px 0 0;color:#cbbfd7;font-size:14px;line-height:1.6}
+  .hero-cart{position:relative;z-index:1;flex:none;min-width:170px;text-align:right}
+  .hero-cart b{display:block;color:var(--cyan);font:900 clamp(35px,5vw,62px)/1 var(--mono)}
+  .hero-cart span{display:block;margin-top:7px;color:var(--muted);font:700 9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
 
-  .workspace-note{
-    display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
-    margin:0 0 16px;padding:13px 15px;border:1px dashed var(--line-strong);border-radius:14px;
+  .flow-note{
+    display:flex;align-items:center;justify-content:space-between;gap:15px;
+    margin-bottom:16px;padding:13px 15px;border:1px dashed var(--line-strong);border-radius:14px;
     color:#cdbfd9;background:rgba(34,26,44,.52);font-size:12px;line-height:1.5
   }
-  .workspace-note strong{color:var(--cream)}
-  .workspace-state{flex:none;color:var(--gold);font:700 10px var(--mono);text-transform:uppercase;letter-spacing:.08em}
-  .workspace-state.ready{color:var(--green)}
+  .flow-note strong{color:var(--cream)}
+  .flow-note code{color:var(--cyan);font:10px var(--mono)}
 
   .toolbar{
     position:sticky;
     top:67px;
-    z-index:30;
+    z-index:40;
     display:grid;
-    grid-template-columns:minmax(220px,1.5fr) repeat(3,minmax(145px,.55fr)) auto;
+    grid-template-columns:minmax(220px,1.5fr) repeat(3,minmax(145px,.55fr));
     gap:9px;
     margin-bottom:22px;
     padding:11px;
     border:1px solid var(--line);
     border-radius:16px;
-    background:rgba(24,19,31,.94);
+    background:rgba(24,19,31,.95);
     backdrop-filter:blur(16px);
     box-shadow:0 14px 36px rgba(0,0,0,.26)
   }
   .control{display:flex;align-items:center;gap:8px;min-width:0;padding:0 10px;border:1px solid #3a2e48;border-radius:10px;background:#100d16}
   .control svg{width:15px;height:15px;color:var(--muted);flex:none}
-  .control input,.control select{
-    width:100%;min-width:0;height:40px;border:0;outline:0;background:transparent;color:var(--cream);font-size:12px
-  }
+  .control input,.control select{width:100%;min-width:0;height:40px;border:0;outline:0;background:transparent;color:var(--cream);font-size:12px}
   .control select{cursor:pointer}
-  .toolbar .button{min-height:42px}
 
   .block{margin:0 0 28px}
   .block-heading{display:flex;align-items:center;gap:12px;margin:0 0 11px}
-  .block-heading h2{margin:0;font:900 15px var(--display);text-transform:uppercase;letter-spacing:.015em}
+  .block-heading h2{margin:0;font:900 15px var(--display);text-transform:uppercase}
   .block-heading .rule{height:1px;flex:1;background:linear-gradient(90deg,var(--line),transparent)}
   .block-heading .count{color:var(--muted);font:10px var(--mono)}
 
@@ -181,7 +162,6 @@
     position:relative;
     display:grid;
     grid-template-columns:145px minmax(0,1fr);
-    min-height:312px;
     margin-bottom:12px;
     overflow:hidden;
     border:1px solid var(--line);
@@ -191,100 +171,72 @@
   }
   .series-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:hsl(var(--series-hue) 74% 60%)}
   .series-identity{
-    position:relative;
-    display:flex;flex-direction:column;justify-content:space-between;
-    padding:16px 15px 15px 18px;
-    border-right:1px solid var(--line);
+    position:relative;display:flex;flex-direction:column;justify-content:space-between;
+    padding:16px 15px 15px 18px;border-right:1px solid var(--line);
     background:radial-gradient(circle at 30% 0%,hsl(var(--series-hue) 70% 45% / .17),transparent 70%)
   }
   .series-hero{width:100%;height:108px;object-fit:contain;filter:drop-shadow(0 7px 13px rgba(0,0,0,.38))}
-  .series-hero.placeholder{object-fit:cover;opacity:.35;border-radius:11px;background:var(--surface-3)}
   .series-code{margin-top:12px;color:hsl(var(--series-hue) 78% 72%);font:900 25px/.9 var(--mono);letter-spacing:-.07em;text-transform:uppercase}
   .series-name{margin-top:8px;font-weight:850;font-size:13px;line-height:1.18}
   .series-meta{margin-top:9px;color:var(--muted);font:9px/1.45 var(--mono)}
-  .series-links{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
-  .series-links a{color:#c9b4db;font:9px var(--mono);text-decoration:none;border-bottom:1px solid rgba(201,180,219,.3)}
-  .series-links a:hover{color:var(--cyan)}
 
-  .slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
-  .slot{
-    min-width:0;
-    padding:15px;
-    border-right:1px solid var(--line);
-    transition:background .15s ease
-  }
+  .slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .slot{min-width:0;padding:15px;border-right:1px solid var(--line)}
   .slot:last-child{border-right:0}
-  .slot[data-status="valid"]{background:linear-gradient(180deg,rgba(99,215,147,.055),transparent 48%)}
-  .slot[data-status="wrong"]{background:linear-gradient(180deg,rgba(255,110,130,.07),transparent 48%)}
-  .slot[data-status="not-applicable"]{background:linear-gradient(180deg,rgba(170,156,186,.055),transparent 48%)}
-  .slot[data-status="review"]{background:linear-gradient(180deg,rgba(239,181,60,.06),transparent 48%)}
+  .slot.in-cart{background:linear-gradient(180deg,rgba(179,92,242,.10),transparent 48%)}
+  .slot.treated{background:linear-gradient(180deg,rgba(99,215,147,.055),transparent 48%)}
   .slot-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
-  .slot-title{min-width:0}
   .slot-kicker{display:block;color:var(--muted);font:800 9px var(--mono);letter-spacing:.11em;text-transform:uppercase}
   .slot-title strong{display:block;margin-top:3px;font-size:12px}
-  .status-pill{flex:none;max-width:128px;padding:4px 7px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font:700 8px var(--mono);text-transform:uppercase;letter-spacing:.045em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .status-pill.valid{border-color:rgba(99,215,147,.42);background:rgba(99,215,147,.11);color:#a8edc3}
-  .status-pill.wrong{border-color:rgba(255,110,130,.42);background:rgba(255,110,130,.10);color:#ffb7c2}
-  .status-pill.not-applicable{border-color:rgba(170,156,186,.35);background:rgba(170,156,186,.08);color:#cabfd4}
-  .status-pill.review{border-color:rgba(239,181,60,.4);background:rgba(239,181,60,.09);color:#f8d68d}
+  .status-pill{flex:none;padding:4px 7px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font:700 8px var(--mono);text-transform:uppercase;white-space:nowrap}
+  .status-pill.cart{border-color:rgba(179,92,242,.58);background:rgba(179,92,242,.13);color:#e4bafc}
+  .status-pill.treated{border-color:rgba(99,215,147,.42);background:rgba(99,215,147,.10);color:#a8edc3}
+  .status-pill.missing{border-color:rgba(255,150,85,.45);background:rgba(255,150,85,.09);color:#ffc093}
 
   .image-stage{
-    position:relative;
-    display:grid;
-    place-items:center;
-    height:162px;
-    margin-bottom:10px;
-    overflow:hidden;
-    border:1px solid #41334f;
-    border-radius:13px;
+    position:relative;display:grid;place-items:center;height:162px;margin-bottom:9px;overflow:hidden;
+    border:1px solid #41334f;border-radius:13px;
     background:
       linear-gradient(45deg,rgba(255,255,255,.018) 25%,transparent 25% 75%,rgba(255,255,255,.018) 75%),
-      linear-gradient(45deg,rgba(255,255,255,.018) 25%,transparent 25% 75%,rgba(255,255,255,.018) 75%),
-      #100d16;
+      linear-gradient(45deg,rgba(255,255,255,.018) 25%,transparent 25% 75%,rgba(255,255,255,.018) 75%),#100d16;
     background-size:20px 20px;background-position:0 0,10px 10px
   }
   .image-stage img{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:contain;filter:drop-shadow(0 8px 11px rgba(0,0,0,.5))}
-  .image-stage img.pending{background:rgba(100,217,235,.05)}
-  .empty-image{text-align:center;color:var(--muted);font:10px/1.55 var(--mono);padding:20px}
-  .empty-image svg{display:block;width:31px;height:31px;margin:0 auto 8px;opacity:.55}
-  .image-tag{position:absolute;top:7px;left:7px;padding:4px 6px;border:1px solid rgba(100,217,235,.38);border-radius:7px;background:rgba(12,10,19,.84);color:var(--cyan);font:700 8px var(--mono);text-transform:uppercase}
-  .duplicate-tag{position:absolute;top:7px;right:7px;padding:4px 6px;border:1px solid rgba(255,150,85,.48);border-radius:7px;background:rgba(12,10,19,.86);color:#ffc093;font:700 8px var(--mono);text-transform:uppercase}
-  .image-meta{min-height:29px;color:#9f91af;font:9px/1.45 var(--mono);word-break:break-all}
+  .empty-image{text-align:center;color:var(--muted);font:10px/1.5 var(--mono);padding:20px}
+  .image-meta{min-height:28px;color:#9f91af;font:9px/1.45 var(--mono);word-break:break-all}
 
-  .verdicts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px 0}
-  .verdict{
-    min-height:31px;padding:6px 7px;border:1px solid #443652;border-radius:8px;background:#17121e;color:#c8bacf;cursor:pointer;font-size:9px;font-weight:800
+  .google-search{width:100%;margin:8px 0 10px}
+  .correction-box{display:grid;gap:7px;padding-top:10px;border-top:1px dashed #41334f}
+  .paste-zone{
+    display:grid;grid-template-columns:52px 1fr auto;gap:9px;align-items:center;min-height:66px;
+    padding:8px;border:1px dashed #654d79;border-radius:11px;background:#100d16;cursor:text
   }
-  .verdict:hover{border-color:var(--line-strong);background:#211927}
-  .verdict.active[data-status="valid"]{border-color:var(--green);background:rgba(99,215,147,.13);color:#b9f5d1}
-  .verdict.active[data-status="review"]{border-color:var(--gold);background:rgba(239,181,60,.12);color:#ffe3a1}
-  .verdict.active[data-status="wrong"]{border-color:var(--red);background:rgba(255,110,130,.12);color:#ffc2cb}
-  .verdict.active[data-status="not-applicable"]{border-color:var(--muted);background:rgba(170,156,186,.11);color:#e0d7e8}
+  .paste-zone:hover,.paste-zone:focus{border-color:var(--violet);background:#15101d;outline:0}
+  .paste-preview{display:grid;place-items:center;width:52px;height:50px;overflow:hidden;border:1px solid #3f324b;border-radius:8px;background:#0b0910}
+  .paste-preview img{width:100%;height:100%;object-fit:contain}
+  .paste-preview span{color:var(--muted);font:900 17px var(--mono)}
+  .paste-copy strong{display:block;font-size:10px}
+  .paste-copy small{display:block;margin-top:4px;color:var(--muted);font:9px/1.35 var(--mono)}
+  .paste-zone .button{min-height:31px;padding:6px 8px;font-size:9px}
 
-  .reference-fields{display:grid;gap:6px;margin-top:8px}
-  .reference-fields input,.reference-fields textarea{
-    width:100%;border:1px solid #3b2f47;border-radius:8px;background:#100d16;color:var(--cream);font:10px var(--body)
+  .correction-box input,.correction-box textarea{
+    width:100%;border:1px solid #3b2f47;border-radius:9px;background:#100d16;color:var(--cream);font-size:10px
   }
-  .reference-fields input{height:31px;padding:0 9px}
-  .reference-fields textarea{height:47px;padding:8px 9px;resize:vertical;line-height:1.35}
-  .slot-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-  .slot-actions .button{min-height:31px;padding:6px 8px;font-size:9px;flex:1 1 auto}
-  .reference-links{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:9px}
-  .reference-links a{color:var(--cyan);font:9px var(--mono);text-decoration:none}
-  .reference-links a:hover{text-decoration:underline}
+  .correction-box input{height:34px;padding:0 9px}
+  .correction-box textarea{height:58px;padding:9px;resize:vertical;line-height:1.4}
+  .correction-actions{display:flex;gap:7px;flex-wrap:wrap}
+  .correction-actions .button{min-height:32px;padding:6px 9px;font-size:9px;flex:1 1 auto}
+  .draft-hint{color:#c7b8d2;font:9px/1.45 var(--mono)}
 
   .empty-page{padding:55px 20px;border:1px dashed var(--line-strong);border-radius:18px;text-align:center;color:var(--muted)}
   .empty-page strong{display:block;margin-bottom:8px;color:var(--cream)}
   .loading{display:grid;place-items:center;min-height:45vh;color:var(--muted);font:11px var(--mono)}
   .spinner{width:25px;height:25px;margin-bottom:12px;border:2px solid var(--line);border-top-color:var(--violet);border-radius:50%;animation:spin .8s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
-
   .toast{
-    position:fixed;right:18px;bottom:18px;z-index:80;
-    width:min(410px,calc(100vw - 36px));padding:13px 15px;
+    position:fixed;right:18px;bottom:18px;z-index:80;width:min(430px,calc(100vw - 36px));padding:13px 15px;
     border:1px solid var(--line-strong);border-radius:12px;background:#211927;box-shadow:var(--shadow);
-    color:var(--cream);font-size:12px;line-height:1.45;
-    opacity:0;transform:translateY(12px);pointer-events:none;transition:.2s ease
+    color:var(--cream);font-size:12px;line-height:1.45;opacity:0;transform:translateY(12px);pointer-events:none;transition:.2s ease
   }
   .toast.show{opacity:1;transform:translateY(0)}
   .toast.error{border-color:rgba(255,110,130,.65)}
@@ -292,8 +244,6 @@
   .hidden{display:none!important}
 
   @media(max-width:1050px){
-    .toolbar{grid-template-columns:1.4fr repeat(2,1fr);top:66px}
-    .toolbar>*:nth-child(4){grid-column:1/2}
     .series-card{grid-template-columns:125px minmax(0,1fr)}
     .slots{grid-template-columns:1fr}
     .slot{border-right:0;border-bottom:1px solid var(--line)}
@@ -303,22 +253,20 @@
   @media(max-width:760px){
     .topbar{position:relative;align-items:flex-start;flex-direction:column}
     .top-actions{justify-content:flex-start}
-    .page{padding-top:16px}
-    .hero{grid-template-columns:1fr}
+    .hero{align-items:flex-start;flex-direction:column}
+    .hero-cart{text-align:left}
     .toolbar{position:relative;top:auto;grid-template-columns:1fr 1fr}
     .toolbar .search{grid-column:1/-1}
     .series-card{grid-template-columns:1fr}
     .series-identity{border-right:0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:90px 1fr;gap:13px;align-items:center}
     .series-hero{height:76px;grid-row:1/4}
-    .series-code{margin:0}
-    .series-name,.series-meta{margin-top:0}
-    .series-links{grid-column:1/-1;margin-top:0}
+    .series-code,.series-name,.series-meta{margin-top:0}
   }
   @media(max-width:480px){
     .toolbar{grid-template-columns:1fr}
-    .toolbar .search,.toolbar>*:nth-child(4){grid-column:auto}
-    .ledger{grid-template-columns:1fr 1fr}
-    .hero-copy{padding:22px 18px}
+    .toolbar .search{grid-column:auto}
+    .paste-zone{grid-template-columns:45px 1fr}
+    .paste-zone>.button{grid-column:1/-1}
   }
   @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
@@ -327,41 +275,28 @@
   <header class="topbar">
     <div class="brand">
       <img src="../assets/brand-logo.jpg" alt="Pokestar">
-      <div class="brand-copy">
-        <strong>Pokestar Photo Check</strong>
-        <small>Contrôle Booster · Display · ETB</small>
-      </div>
+      <div><strong>Pokestar Photo Check</strong><small>Panier de corrections produit</small></div>
     </div>
     <div class="top-actions">
-      <button class="button primary" id="chooseRoot" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h6l2 2h10v10H3z"/><path d="M3 7V5h7l2 2"/></svg>
-        Ouvrir le dossier Pokestar
+      <button class="button primary" id="copyJson" type="button" disabled>
+        Copier le JSON <span class="cart-count" id="copyCount">0</span>
       </button>
-      <button class="button" id="saveReview" type="button" disabled>Enregistrer l’audit</button>
-      <button class="button" id="exportReview" type="button">Exporter JSON</button>
-      <button class="button" id="importReview" type="button">Importer JSON</button>
-      <input class="hidden" id="importFile" type="file" accept="application/json,.json">
+      <button class="button" id="exportJson" type="button" disabled>Exporter le JSON</button>
     </div>
   </header>
 
   <main class="page">
-    <section class="hero" aria-labelledby="pageTitle">
+    <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Mur de vérité produit</p>
-        <h1 id="pageTitle">Une série. Trois produits. Zéro fausse correspondance.</h1>
-        <p>Compare les images actuellement publiées avec le vrai produit attendu. Valide, signale un mauvais type, indique qu’un produit n’existe pas, ou dépose un remplacement au bon emplacement sans supprimer l’ancien fichier.</p>
+        <p class="eyebrow">Recherche et collecte</p>
+        <h1>Trouve. Colle. Envoie.</h1>
+        <p>Pour chaque mauvais visuel, ouvre Google Images, colle l’image ou son lien, ajoute une note si nécessaire. Le JSON contient uniquement ton panier de corrections.</p>
       </div>
-      <div class="ledger" aria-label="Résumé de l’audit">
-        <div class="metric accent"><b id="metricPublished">—</b><span>photos publiées</span></div>
-        <div class="metric"><b id="metricTotal">—</b><span>emplacements</span></div>
-        <div class="metric good"><b id="metricValid">—</b><span>validés</span></div>
-        <div class="metric alert"><b id="metricRemaining">—</b><span>à contrôler</span></div>
-      </div>
+      <div class="hero-cart"><b id="heroCartCount">0</b><span>correction dans le panier</span></div>
     </section>
 
-    <div class="workspace-note">
-      <div><strong>Lecture seule par défaut.</strong> Sélectionne la racine <code>NEWMETA/Pokestar</code> uniquement pour inclure une image, retirer une référence du manifest ou enregistrer l’audit. Aucun fichier image n’est supprimé par cet outil.</div>
-      <span class="workspace-state" id="workspaceState">Dossier non ouvert</span>
+    <div class="flow-note">
+      <div><strong>Le panier ne se vide pas à l’export.</strong> Envoie-moi le JSON ; après application dans Pokestar, je marque chaque ligne traitée dans <code>photo-review-state.json</code>. Au prochain chargement, ces lignes quittent automatiquement ton panier.</div>
     </div>
 
     <section class="toolbar" aria-label="Filtres">
@@ -369,30 +304,21 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
         <input id="searchInput" type="search" placeholder="Série, code ou bloc…" autocomplete="off">
       </label>
-      <label class="control">
-        <select id="blockFilter" aria-label="Filtrer par bloc"><option value="">Tous les blocs</option></select>
-      </label>
+      <label class="control"><select id="blockFilter" aria-label="Filtrer par bloc"><option value="">Tous les blocs</option></select></label>
       <label class="control">
         <select id="fieldFilter" aria-label="Filtrer par produit">
-          <option value="">Tous les produits</option>
-          <option value="booster">Booster</option>
-          <option value="display">Display</option>
-          <option value="etb">ETB</option>
+          <option value="">Tous les produits</option><option value="booster">Booster</option><option value="display">Display</option><option value="etb">ETB</option>
         </select>
       </label>
       <label class="control">
-        <select id="statusFilter" aria-label="Filtrer par statut">
-          <option value="">Tous les statuts</option>
-          <option value="pending">À contrôler</option>
-          <option value="valid">Correct</option>
-          <option value="review">À revoir</option>
-          <option value="wrong">Mauvais produit</option>
-          <option value="not-applicable">N’existe pas</option>
+        <select id="viewFilter" aria-label="Filtrer la liste">
+          <option value="open">À examiner</option>
+          <option value="cart">Mon panier</option>
           <option value="missing">Sans image publiée</option>
-          <option value="duplicate">Doublon détecté</option>
+          <option value="treated">Déjà traités</option>
+          <option value="all">Tous les emplacements</option>
         </select>
       </label>
-      <button class="button warn" id="scanDuplicates" type="button">Analyser les doublons</button>
     </section>
 
     <div id="catalog" class="loading" aria-live="polite"><div><div class="spinner"></div>Chargement du catalogue Pokestar…</div></div>
@@ -408,567 +334,468 @@
   const MANIFEST_URL = `${ROOT}/assets/product-photos/manifest.json`;
   const CATALOG_URL = `${ROOT}/index.html`;
   const REVIEW_URL = "./photo-review-state.json";
-  const LOCAL_KEY = "pokestar-photo-review-v1";
-  const FIELDS = ["booster", "display", "etb"];
+  const DRAFT_KEY = "pokestar-photo-correction-drafts-v2";
+  const DB_NAME = "pokestar-photo-corrections";
+  const DB_STORE = "images";
+  const FIELDS = ["booster","display","etb"];
   const FIELD_META = {
-    booster: { label:"Booster", expected:"Booster unitaire", query:"booster unitaire français" },
-    display: { label:"Display", expected:"Display scellé 36 boosters", query:"display 36 boosters français" },
-    etb: { label:"ETB", expected:"Coffret Dresseur d’Élite", query:"ETB coffret dresseur élite français" }
-  };
-  const STATUS_META = {
-    pending: { label:"À contrôler" },
-    valid: { label:"Correct" },
-    review: { label:"À revoir" },
-    wrong: { label:"Mauvais produit" },
-    "not-applicable": { label:"N’existe pas" }
+    booster:{label:"Booster",expected:"Booster unitaire",query:"booster unitaire français"},
+    display:{label:"Display",expected:"Display scellé 36 boosters",query:"display 36 boosters français"},
+    etb:{label:"ETB",expected:"Coffret Dresseur d’Élite",query:"ETB coffret dresseur élite français"}
   };
   const BLOCK_ORDER = ["Méga-Évolution","Écarlate et Violet","Épée et Bouclier","Soleil et Lune","XY","Noir et Blanc","HeartGold SoulSilver","Platine","Diamant et Perle","EX","e-Card","Wizards","Autre"];
 
-  let catalog = [];
-  let manifest = { photos:{} };
-  let review = { version:1, updatedAt:null, decisions:{} };
-  let rootHandle = null;
-  let pendingFiles = new Map();
-  let duplicateGroups = new Map();
-  let toastTimer = null;
-  let scanRunning = false;
-
-  const el = (id) => document.getElementById(id);
+  let catalog=[];
+  let manifest={photos:{}};
+  let review={decisions:{},resolved:{}};
+  let drafts={};
+  let imageUrls=new Map();
+  let toastTimer=null;
+  let inputTimer=null;
+  let dbPromise=null;
+  const el=(id)=>document.getElementById(id);
 
   function escapeHtml(value){
-    return String(value ?? "").replace(/[&<>'"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
+    return String(value ?? "").replace(/[&<>'"]/g,(c)=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
   }
 
-  function toast(message, type=""){
-    const node = el("toast");
-    node.textContent = message;
-    node.className = `toast show ${type}`.trim();
+  function toast(message,type=""){
+    const node=el("toast");
+    node.textContent=message;
+    node.className=`toast show ${type}`.trim();
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => { node.className = "toast"; }, 4200);
+    toastTimer=setTimeout(()=>{node.className="toast";},4300);
   }
 
-  async function fetchJson(url, optional=false){
-    const res = await fetch(`${url}${url.includes("?") ? "&" : "?"}t=${Date.now()}`, { cache:"no-store" });
-    if(optional && res.status === 404) return null;
+  async function fetchJson(url,optional=false){
+    const res=await fetch(`${url}?t=${Date.now()}`,{cache:"no-store"});
+    if(optional && res.status===404) return null;
     if(!res.ok) throw new Error(`${url} : HTTP ${res.status}`);
     return res.json();
   }
 
   function parseCatalog(html){
-    const match = html.match(/const BASE_DATA = (\[[\s\S]*?\n\]);\n\nconst STORAGE_KEY/);
+    const match=html.match(/const BASE_DATA = (\[[\s\S]*?\n\]);\n\nconst STORAGE_KEY/);
     if(!match) throw new Error("BASE_DATA introuvable dans index.html");
-    const CM = (slug) => `https://www.cardmarket.com/fr/Pokemon/Expansions/${slug}`;
-    return Function("CM", `"use strict";return (${match[1]});`)(CM);
+    const CM=(slug)=>`https://www.cardmarket.com/fr/Pokemon/Expansions/${slug}`;
+    return Function("CM",`"use strict";return (${match[1]});`)(CM);
   }
 
-  function normalizeReview(value){
-    const safe = value && typeof value === "object" ? value : {};
-    return {
-      version:1,
-      updatedAt:safe.updatedAt || null,
-      decisions:safe.decisions && typeof safe.decisions === "object" ? safe.decisions : {}
-    };
+  function openDb(){
+    if(dbPromise) return dbPromise;
+    dbPromise=new Promise((resolve,reject)=>{
+      const req=indexedDB.open(DB_NAME,1);
+      req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains(DB_STORE)) req.result.createObjectStore(DB_STORE);};
+      req.onsuccess=()=>resolve(req.result);
+      req.onerror=()=>reject(req.error);
+    });
+    return dbPromise;
   }
 
-  function mergeReview(base, local){
-    const a = normalizeReview(base);
-    const b = normalizeReview(local);
-    return {
-      version:1,
-      updatedAt:b.updatedAt || a.updatedAt,
-      decisions:{...a.decisions,...b.decisions}
-    };
+  async function dbSet(key,value){
+    const db=await openDb();
+    await new Promise((resolve,reject)=>{
+      const tx=db.transaction(DB_STORE,"readwrite");
+      tx.objectStore(DB_STORE).put(value,key);
+      tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);
+    });
+  }
+  async function dbGet(key){
+    const db=await openDb();
+    return new Promise((resolve,reject)=>{
+      const req=db.transaction(DB_STORE,"readonly").objectStore(DB_STORE).get(key);
+      req.onsuccess=()=>resolve(req.result || null);req.onerror=()=>reject(req.error);
+    });
+  }
+  async function dbDelete(key){
+    const db=await openDb();
+    await new Promise((resolve,reject)=>{
+      const tx=db.transaction(DB_STORE,"readwrite");tx.objectStore(DB_STORE).delete(key);
+      tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);
+    });
+  }
+
+  function keyFor(id,field){return `${id}:${field}`;}
+  function photoPath(id,field){return manifest.photos?.[id]?.[field] || "";}
+  function heroPath(id){return manifest.photos?.[id]?.hero || "";}
+  function decisionStatus(key){return review.decisions?.[key]?.status || "";}
+  function isTreated(key){return ["valid","not-applicable"].includes(decisionStatus(key));}
+  function draftHasContent(draft){return !!(draft && (draft.imageId || draft.imageUrl?.trim() || draft.comment?.trim()));}
+
+  function loadDrafts(){
+    try{drafts=JSON.parse(localStorage.getItem(DRAFT_KEY) || "{}") || {};}catch(_error){drafts={};}
+  }
+  function saveDrafts(){localStorage.setItem(DRAFT_KEY,JSON.stringify(drafts));updateCartUi();}
+
+  async function reconcileResolved(){
+    const resolved=review.resolved || {};
+    for(const [key,draft] of Object.entries({...drafts})){
+      const resolvedAt=Date.parse(resolved[key]?.resolvedAt || 0);
+      const draftAt=Date.parse(draft.updatedAt || 0);
+      if(resolvedAt && resolvedAt>=draftAt) await removeDraft(key,false);
+    }
+  }
+
+  async function hydrateImageUrls(){
+    for(const [key,draft] of Object.entries(drafts)){
+      if(!draft.imageId) continue;
+      const stored=await dbGet(draft.imageId).catch(()=>null);
+      if(stored?.blob) imageUrls.set(key,URL.createObjectURL(stored.blob));
+    }
   }
 
   async function loadAll(){
     try{
-      const [manifestData, catalogResponse, reviewFile] = await Promise.all([
+      const [manifestData,catalogRes,reviewData]=await Promise.all([
         fetchJson(MANIFEST_URL),
-        fetch(`${CATALOG_URL}?t=${Date.now()}`, { cache:"no-store" }),
-        fetchJson(REVIEW_URL, true)
+        fetch(`${CATALOG_URL}?t=${Date.now()}`,{cache:"no-store"}),
+        fetchJson(REVIEW_URL,true)
       ]);
-      if(!catalogResponse.ok) throw new Error(`index.html : HTTP ${catalogResponse.status}`);
-      manifest = manifestData;
-      catalog = parseCatalog(await catalogResponse.text());
-      let local = null;
-      try{ local = JSON.parse(localStorage.getItem(LOCAL_KEY) || "null"); }catch(_e){ local = null; }
-      review = mergeReview(reviewFile, local);
-      populateBlockFilter();
-      bindEvents();
-      render();
+      if(!catalogRes.ok) throw new Error(`index.html : HTTP ${catalogRes.status}`);
+      manifest=manifestData;
+      catalog=parseCatalog(await catalogRes.text());
+      review={decisions:reviewData?.decisions || {},resolved:reviewData?.resolved || {}};
+      loadDrafts();
+      await reconcileResolved();
+      await hydrateImageUrls();
+      populateBlocks();bindEvents();render();
     }catch(error){
       console.error(error);
-      el("catalog").className = "empty-page";
-      el("catalog").innerHTML = `<strong>Le helper n’a pas pu charger Pokestar.</strong>${escapeHtml(error.message)}<br><br>Lance-le depuis un serveur local à la racine du projet.`;
+      el("catalog").className="empty-page";
+      el("catalog").innerHTML=`<strong>Le helper n’a pas pu charger Pokestar.</strong>${escapeHtml(error.message)}`;
     }
   }
 
-  function populateBlockFilter(){
-    const found = [...new Set(catalog.map((item) => item.block))];
-    found.sort((a,b) => BLOCK_ORDER.indexOf(a) - BLOCK_ORDER.indexOf(b));
-    el("blockFilter").insertAdjacentHTML("beforeend", found.map((block) => `<option value="${escapeHtml(block)}">${escapeHtml(block)}</option>`).join(""));
+  function populateBlocks(){
+    const blocks=[...new Set(catalog.map((item)=>item.block))].sort((a,b)=>BLOCK_ORDER.indexOf(a)-BLOCK_ORDER.indexOf(b));
+    el("blockFilter").insertAdjacentHTML("beforeend",blocks.map((block)=>`<option value="${escapeHtml(block)}">${escapeHtml(block)}</option>`).join(""));
   }
 
-  function decisionKey(id, field){ return `${id}:${field}`; }
-  function getDecision(id, field){ return review.decisions[decisionKey(id,field)] || { status:"pending" }; }
-  function photoPath(id, field){ return manifest.photos?.[id]?.[field] || ""; }
-  function heroPath(id){ return manifest.photos?.[id]?.hero || ""; }
-  function pendingKey(id,field){ return `${id}:${field}`; }
-
-  function setDecision(id, field, patch, rerender=true){
-    const key = decisionKey(id,field);
-    review.decisions[key] = {
-      ...getDecision(id,field),
-      ...patch,
-      reviewedAt:new Date().toISOString()
-    };
-    review.updatedAt = new Date().toISOString();
-    localStorage.setItem(LOCAL_KEY, JSON.stringify(review));
-    if(rerender) renderPreservingScroll();
-  }
-
-  function statusFor(id,field){ return getDecision(id,field).status || "pending"; }
-
-  function metrics(){
-    const total = catalog.length * FIELDS.length;
-    let published=0,valid=0,reviewed=0;
-    for(const item of catalog){
-      for(const field of FIELDS){
-        if(photoPath(item.id,field)) published++;
-        const status = statusFor(item.id,field);
-        if(status !== "pending") reviewed++;
-        if(status === "valid") valid++;
-      }
-    }
-    return {total,published,valid,remaining:total-reviewed};
-  }
-
-  function updateMetrics(){
-    const m = metrics();
-    el("metricPublished").textContent = m.published;
-    el("metricTotal").textContent = m.total;
-    el("metricValid").textContent = m.valid;
-    el("metricRemaining").textContent = m.remaining;
+  function updateCartUi(){
+    const count=Object.values(drafts).filter(draftHasContent).length;
+    el("copyCount").textContent=count;
+    el("heroCartCount").textContent=count;
+    el("copyJson").disabled=!count;
+    el("exportJson").disabled=!count;
+    el("heroCartCount").nextElementSibling.textContent=`correction${count>1?"s":""} dans le panier`;
   }
 
   function filteredCatalog(){
-    const query = el("searchInput").value.trim().toLowerCase();
-    const block = el("blockFilter").value;
-    return catalog.filter((item) => {
-      if(block && item.block !== block) return false;
-      if(!query) return true;
-      return `${item.id} ${item.code || ""} ${item.name} ${item.block}`.toLowerCase().includes(query);
+    const query=el("searchInput").value.trim().toLowerCase();
+    const block=el("blockFilter").value;
+    return catalog.filter((item)=>{
+      if(block && item.block!==block) return false;
+      return !query || `${item.id} ${item.code || ""} ${item.name} ${item.block}`.toLowerCase().includes(query);
     });
   }
 
   function visibleFields(item){
-    const fieldFilter = el("fieldFilter").value;
-    const statusFilter = el("statusFilter").value;
-    return FIELDS.filter((field) => {
-      if(fieldFilter && field !== fieldFilter) return false;
-      const path = photoPath(item.id,field);
-      const status = statusFor(item.id,field);
-      if(!statusFilter) return true;
-      if(statusFilter === "missing") return !path;
-      if(statusFilter === "duplicate") return duplicateGroups.has(path);
-      return status === statusFilter;
+    const fieldFilter=el("fieldFilter").value;
+    const view=el("viewFilter").value;
+    return FIELDS.filter((field)=>{
+      if(fieldFilter && field!==fieldFilter) return false;
+      const key=keyFor(item.id,field);
+      const hasDraft=draftHasContent(drafts[key]);
+      const treated=isTreated(key);
+      const missing=!photoPath(item.id,field);
+      if(view==="cart") return hasDraft;
+      if(view==="missing") return missing;
+      if(view==="treated") return treated;
+      if(view==="open") return !treated || hasDraft;
+      return true;
     });
   }
 
-  function referenceLinks(item,field){
-    const terms = `Pokémon ${item.name} ${FIELD_META[field].query}`;
-    const google = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(terms)}`;
-    const ebay = `https://www.ebay.fr/sch/i.html?_nkw=${encodeURIComponent(terms)}&LH_Sold=1&LH_Complete=1`;
-    return `<div class="reference-links">
-      ${item.cm ? `<a href="${escapeHtml(item.cm)}" target="_blank" rel="noopener">Cardmarket ↗</a>` : ""}
-      <a href="${google}" target="_blank" rel="noopener">Images web ↗</a>
-      <a href="${ebay}" target="_blank" rel="noopener">eBay vendu ↗</a>
-    </div>`;
+  function googleUrl(item,field){
+    const query=`Pokémon ${item.code || ""} ${item.name} ${FIELD_META[field].query}`;
+    return `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}`;
   }
 
   function slotHtml(item,field){
-    const meta = FIELD_META[field];
-    const decision = getDecision(item.id,field);
-    const status = decision.status || "pending";
-    const currentPath = photoPath(item.id,field);
-    const pending = pendingFiles.get(pendingKey(item.id,field));
-    const versionedPath = currentPath ? `${ROOT}/${currentPath}${currentPath.includes("?") ? "&" : "?"}v=${encodeURIComponent(manifest.version || "review")}` : "";
-    const shownSrc = pending ? pending.url : versionedPath;
-    const duplicate = currentPath ? duplicateGroups.get(currentPath) : null;
-    const statusLabel = STATUS_META[status]?.label || STATUS_META.pending.label;
-    const source = decision.source || "";
-    const note = decision.note || "";
-    const fileLabel = pending ? `Nouveau : ${pending.file.name}` : (currentPath || "Aucun fichier dans le manifest");
-    const image = shownSrc
-      ? `<img class="${pending ? "pending" : ""}" src="${escapeHtml(shownSrc)}" alt="${escapeHtml(meta.label)} ${escapeHtml(item.name)}" loading="lazy" decoding="async">`
-      : `<div class="empty-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m4 17 5-5 4 4 2-2 5 5"/><circle cx="8" cy="8" r="1.5"/></svg>Pas d’image publiée</div>`;
+    const key=keyFor(item.id,field);
+    const meta=FIELD_META[field];
+    const draft=drafts[key] || {};
+    const hasDraft=draftHasContent(draft);
+    const treated=isTreated(key);
+    const current=photoPath(item.id,field);
+    const currentSrc=current ? `${ROOT}/${current}${current.includes("?")?"&":"?"}v=${encodeURIComponent(manifest.version || "review")}` : "";
+    const pastedSrc=imageUrls.get(key) || draft.imageUrl || "";
+    let pill="À examiner",pillClass="";
+    if(hasDraft){pill="Dans le panier";pillClass="cart";}
+    else if(treated){pill="Déjà traité";pillClass="treated";}
+    else if(!current){pill="Sans image";pillClass="missing";}
+    const currentImage=currentSrc?`<img src="${escapeHtml(currentSrc)}" alt="${escapeHtml(meta.label)} ${escapeHtml(item.name)}" loading="lazy" decoding="async">`:`<div class="empty-image">Aucune image publiée</div>`;
+    const pastePreview=pastedSrc?`<img src="${escapeHtml(pastedSrc)}" alt="Correction proposée">`:`<span>⌘V</span>`;
 
-    return `<article class="slot" data-id="${item.id}" data-field="${field}" data-status="${status}">
+    return `<article class="slot ${hasDraft?"in-cart":""} ${treated?"treated":""}" data-id="${item.id}" data-field="${field}">
       <div class="slot-head">
         <div class="slot-title"><span class="slot-kicker">${meta.label}</span><strong>${meta.expected}</strong></div>
-        <span class="status-pill ${status}">${statusLabel}</span>
+        <span class="status-pill ${pillClass}">${pill}</span>
       </div>
-      <div class="image-stage">
-        ${image}
-        ${pending ? `<span class="image-tag">Aperçu local</span>` : ""}
-        ${duplicate ? `<span class="duplicate-tag" title="${escapeHtml(duplicate.join(" · "))}">Doublon ×${duplicate.length}</span>` : ""}
-      </div>
-      <div class="image-meta">${escapeHtml(fileLabel)}</div>
-      <div class="verdicts" aria-label="Verdict ${meta.label}">
-        <button class="verdict ${status === "valid" ? "active" : ""}" data-action="status" data-status="valid" type="button">✓ Correct</button>
-        <button class="verdict ${status === "review" ? "active" : ""}" data-action="status" data-status="review" type="button">? À revoir</button>
-        <button class="verdict ${status === "wrong" ? "active" : ""}" data-action="status" data-status="wrong" type="button">✕ Mauvais type</button>
-        <button class="verdict ${status === "not-applicable" ? "active" : ""}" data-action="status" data-status="not-applicable" type="button">Ø N’existe pas</button>
-      </div>
-      <div class="reference-fields">
-        <input data-role="source" type="url" value="${escapeHtml(source)}" placeholder="URL de la source vérifiée">
-        <textarea data-role="note" placeholder="Note courte : version, langue, réserve…">${escapeHtml(note)}</textarea>
-      </div>
-      ${referenceLinks(item,field)}
-      <div class="slot-actions">
-        <button class="button" data-action="pick" type="button">Choisir une image</button>
-        <input class="hidden" data-role="file" type="file" accept="image/png,image/jpeg,image/webp,image/avif">
-        ${pending ? `<button class="button good" data-action="apply" type="button" ${rootHandle ? "" : "disabled"}>Inclure dans Pokestar</button><button class="button" data-action="cancel" type="button">Annuler</button>` : ""}
-        ${currentPath ? `<button class="button danger" data-action="unpublish" type="button" ${rootHandle ? "" : "disabled"}>Retirer du manifest</button>` : ""}
+      <div class="image-stage">${currentImage}</div>
+      <div class="image-meta">${escapeHtml(current || "Aucun fichier dans le manifest")}</div>
+      <a class="button google google-search" href="${googleUrl(item,field)}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        Rechercher sur Google Images
+      </a>
+      <div class="correction-box">
+        <div class="paste-zone" tabindex="0" data-action="paste-zone" title="Clique puis colle avec Cmd+V">
+          <div class="paste-preview">${pastePreview}</div>
+          <div class="paste-copy"><strong>Colle une image ou un lien</strong><small>Clique ici puis utilise ⌘V, ou choisis un fichier.</small></div>
+          <button class="button" data-action="clipboard" type="button">Coller</button>
+        </div>
+        <input data-role="url" type="url" value="${escapeHtml(draft.imageUrl || "")}" placeholder="Ou colle directement le lien de l’image">
+        <textarea data-role="comment" placeholder="Commentaire pour la modification…">${escapeHtml(draft.comment || "")}</textarea>
+        <div class="correction-actions">
+          <button class="button" data-action="file" type="button">Choisir une image</button>
+          <input class="hidden" data-role="file" type="file" accept="image/png,image/jpeg,image/webp,image/avif">
+          ${hasDraft?`<button class="button danger" data-action="remove" type="button">Retirer du panier</button>`:""}
+        </div>
+        ${hasDraft?`<div class="draft-hint">Sauvegardé dans ce navigateur · ${escapeHtml(new Date(draft.updatedAt).toLocaleString("fr-FR"))}</div>`:""}
       </div>
     </article>`;
   }
 
   function seriesHtml(item,fields){
-    const hero = heroPath(item.id);
-    const heroImg = hero ? `<img class="series-hero" src="${ROOT}/${escapeHtml(hero)}" alt="${escapeHtml(item.name)}" loading="lazy">` : `<div class="series-hero placeholder"></div>`;
+    const hero=heroPath(item.id);
     return `<article class="series-card" style="--series-hue:${Number(item.hue || 280)}">
       <aside class="series-identity">
-        ${heroImg}
-        <div>
-          <div class="series-code">${escapeHtml(item.code || item.id)}</div>
-          <div class="series-name">${escapeHtml(item.name)}</div>
-          <div class="series-meta">${escapeHtml(item.block)}<br>${escapeHtml(item.date || "Date inconnue")}</div>
-        </div>
-        <div class="series-links"><a href="${ROOT}/index.html#catalog" target="_blank">Ouvrir le catalogue ↗</a></div>
+        ${hero?`<img class="series-hero" src="${ROOT}/${escapeHtml(hero)}" alt="${escapeHtml(item.name)}" loading="lazy">`:""}
+        <div><div class="series-code">${escapeHtml(item.code || item.id)}</div><div class="series-name">${escapeHtml(item.name)}</div><div class="series-meta">${escapeHtml(item.block)}<br>${escapeHtml(item.date || "Date inconnue")}</div></div>
       </aside>
-      <div class="slots" style="grid-template-columns:repeat(${fields.length},minmax(0,1fr))">${fields.map((field) => slotHtml(item,field)).join("")}</div>
+      <div class="slots" style="grid-template-columns:repeat(${fields.length},minmax(0,1fr))">${fields.map((field)=>slotHtml(item,field)).join("")}</div>
     </article>`;
   }
 
   function render(){
-    updateMetrics();
-    const entries = filteredCatalog();
-    const grouped = new Map();
-    for(const item of entries){
-      const fields = visibleFields(item);
+    updateCartUi();
+    const groups=new Map();
+    for(const item of filteredCatalog()){
+      const fields=visibleFields(item);
       if(!fields.length) continue;
-      if(!grouped.has(item.block)) grouped.set(item.block,[]);
-      grouped.get(item.block).push({item,fields});
+      if(!groups.has(item.block)) groups.set(item.block,[]);
+      groups.get(item.block).push({item,fields});
     }
-
-    const blocks = [...grouped.keys()].sort((a,b) => BLOCK_ORDER.indexOf(a) - BLOCK_ORDER.indexOf(b));
+    const blocks=[...groups.keys()].sort((a,b)=>BLOCK_ORDER.indexOf(a)-BLOCK_ORDER.indexOf(b));
     if(!blocks.length){
-      el("catalog").className = "empty-page";
-      el("catalog").innerHTML = "<strong>Aucun emplacement ne correspond aux filtres.</strong>Modifie la recherche, le produit ou le statut.";
+      el("catalog").className="empty-page";
+      el("catalog").innerHTML='<strong>Rien à afficher ici.</strong>Ton panier est peut-être vide, ou les filtres sont trop précis.';
       return;
     }
-
-    el("catalog").className = "";
-    el("catalog").innerHTML = blocks.map((block) => {
-      const rows = grouped.get(block);
-      return `<section class="block"><div class="block-heading"><h2>${escapeHtml(block)}</h2><span class="rule"></span><span class="count">${rows.length} série${rows.length > 1 ? "s" : ""}</span></div>${rows.map(({item,fields}) => seriesHtml(item,fields)).join("")}</section>`;
+    el("catalog").className="";
+    el("catalog").innerHTML=blocks.map((block)=>{
+      const rows=groups.get(block);
+      return `<section class="block"><div class="block-heading"><h2>${escapeHtml(block)}</h2><span class="rule"></span><span class="count">${rows.length} série${rows.length>1?"s":""}</span></div>${rows.map(({item,fields})=>seriesHtml(item,fields)).join("")}</section>`;
     }).join("");
   }
 
-  function renderPreservingScroll(){
-    const y = window.scrollY;
-    render();
-    requestAnimationFrame(() => window.scrollTo(0,y));
-  }
+  function renderPreservingScroll(){const y=scrollY;render();requestAnimationFrame(()=>scrollTo(0,y));}
+  function slotFrom(target){return target.closest(".slot");}
 
-  function slotFromTarget(target){ return target.closest(".slot"); }
-  function captureTextFields(slot){
+  function baseDraft(slot){
+    const {id,field}=slot.dataset;
+    const item=catalog.find((entry)=>entry.id===id);
     return {
-      source:slot.querySelector('[data-role="source"]')?.value.trim() || "",
-      note:slot.querySelector('[data-role="note"]')?.value.trim() || ""
+      seriesId:id,seriesName:item?.name || id,seriesCode:item?.code || id,block:item?.block || "",
+      field,expected:FIELD_META[field].expected,currentPath:photoPath(id,field),manifestVersion:manifest.version || "",
+      imageUrl:"",comment:"",updatedAt:new Date().toISOString()
     };
   }
 
+  function saveTextDraft(slot,persist=true){
+    const key=keyFor(slot.dataset.id,slot.dataset.field);
+    const previous=drafts[key] || baseDraft(slot);
+    const next={
+      ...previous,
+      imageUrl:slot.querySelector('[data-role="url"]')?.value.trim() || "",
+      comment:slot.querySelector('[data-role="comment"]')?.value.trim() || "",
+      updatedAt:new Date().toISOString()
+    };
+    if(draftHasContent(next)) drafts[key]=next;
+    else delete drafts[key];
+    if(persist) saveDrafts();
+    updateSlotState(slot,key);
+  }
+
+  function updateSlotState(slot,key){
+    const draft=drafts[key] || {};
+    const hasDraft=draftHasContent(draft);
+    const treated=isTreated(key);
+    const missing=!photoPath(slot.dataset.id,slot.dataset.field);
+    slot.classList.toggle("in-cart",hasDraft);
+    const pill=slot.querySelector(".status-pill");
+    if(pill){
+      pill.className="status-pill";
+      if(hasDraft){pill.textContent="Dans le panier";pill.classList.add("cart");}
+      else if(treated){pill.textContent="Déjà traité";pill.classList.add("treated");}
+      else if(missing){pill.textContent="Sans image";pill.classList.add("missing");}
+      else pill.textContent="À examiner";
+    }
+    const preview=slot.querySelector(".paste-preview");
+    const src=imageUrls.get(key) || draft.imageUrl || "";
+    if(preview){
+      preview.replaceChildren();
+      if(src){const img=document.createElement("img");img.src=src;img.alt="Correction proposée";preview.appendChild(img);}
+      else{const label=document.createElement("span");label.textContent="⌘V";preview.appendChild(label);}
+    }
+    const actions=slot.querySelector(".correction-actions");
+    let remove=actions?.querySelector('[data-action="remove"]');
+    if(hasDraft && actions && !remove){
+      remove=document.createElement("button");remove.type="button";remove.className="button danger";remove.dataset.action="remove";remove.textContent="Retirer du panier";actions.appendChild(remove);
+    }else if(!hasDraft && remove) remove.remove();
+  }
+
+  function flushVisibleInputs(){
+    clearTimeout(inputTimer);
+    document.querySelectorAll(".slot").forEach((slot)=>saveTextDraft(slot,false));
+    saveDrafts();
+  }
+
+  async function storeImage(slot,file){
+    if(!/^image\/(png|jpeg|webp|avif)$/.test(file.type)) return toast("Utilise une image PNG, JPG, WebP ou AVIF.","error");
+    const key=keyFor(slot.dataset.id,slot.dataset.field);
+    const previous=drafts[key] || baseDraft(slot);
+    const imageId=`${key}:${Date.now()}`;
+    try{await dbSet(imageId,{blob:file,name:file.name || `${slot.dataset.field}.png`,type:file.type});}
+    catch(error){toast(`Image non enregistrée : ${error.message}`,"error");return;}
+    if(previous.imageId) await dbDelete(previous.imageId).catch(()=>{});
+    const oldUrl=imageUrls.get(key);if(oldUrl) URL.revokeObjectURL(oldUrl);
+    imageUrls.set(key,URL.createObjectURL(file));
+    drafts[key]={...previous,imageId,imageName:file.name || `${slot.dataset.field}.png`,imageType:file.type,updatedAt:new Date().toISOString()};
+    saveDrafts();renderPreservingScroll();toast("Image ajoutée au panier.","success");
+  }
+
+  async function handlePaste(slot,clipboardData){
+    const items=[...(clipboardData?.items || [])];
+    const imageItem=items.find((item)=>item.type.startsWith("image/"));
+    if(imageItem){
+      const file=imageItem.getAsFile();
+      if(file) await storeImage(slot,file);
+      return true;
+    }
+    const text=clipboardData?.getData("text/plain")?.trim();
+    if(text){
+      if(/^https?:\/\//i.test(text)) slot.querySelector('[data-role="url"]').value=text;
+      else slot.querySelector('[data-role="comment"]').value=[slot.querySelector('[data-role="comment"]').value,text].filter(Boolean).join("\n");
+      saveTextDraft(slot);renderPreservingScroll();toast("Contenu ajouté au panier.","success");
+      return true;
+    }
+    return false;
+  }
+
+  async function readClipboard(slot){
+    try{
+      if(navigator.clipboard?.read){
+        const entries=await navigator.clipboard.read();
+        for(const entry of entries){
+          const imageType=entry.types.find((type)=>type.startsWith("image/"));
+          if(imageType){
+            const blob=await entry.getType(imageType);
+            await storeImage(slot,new File([blob],`${slot.dataset.id}-${slot.dataset.field}.${imageType.split("/")[1] || "png"}`,{type:imageType}));
+            return;
+          }
+        }
+      }
+      const text=await navigator.clipboard.readText();
+      if(!text) throw new Error("Presse-papiers vide");
+      if(/^https?:\/\//i.test(text.trim())) slot.querySelector('[data-role="url"]').value=text.trim();
+      else slot.querySelector('[data-role="comment"]').value=[slot.querySelector('[data-role="comment"]').value,text.trim()].filter(Boolean).join("\n");
+      saveTextDraft(slot);renderPreservingScroll();toast("Contenu collé dans le panier.","success");
+    }catch(_error){
+      toast("Clique dans la zone puis utilise ⌘V pour coller.","error");
+    }
+  }
+
+  async function removeDraft(key,rerender=true){
+    const draft=drafts[key];
+    if(draft?.imageId) await dbDelete(draft.imageId).catch(()=>{});
+    const url=imageUrls.get(key);if(url) URL.revokeObjectURL(url);
+    imageUrls.delete(key);delete drafts[key];saveDrafts();
+    if(rerender) renderPreservingScroll();
+  }
+
   function bindEvents(){
-    ["searchInput","blockFilter","fieldFilter","statusFilter"].forEach((id) => {
-      el(id).addEventListener(id === "searchInput" ? "input" : "change", render);
-    });
-    el("chooseRoot").addEventListener("click", chooseRoot);
-    el("saveReview").addEventListener("click", () => saveReviewToRepo(false));
-    el("exportReview").addEventListener("click", exportReview);
-    el("importReview").addEventListener("click", () => el("importFile").click());
-    el("importFile").addEventListener("change", importReviewFile);
-    el("scanDuplicates").addEventListener("click", scanDuplicates);
-    el("catalog").addEventListener("click", onCatalogClick);
-    el("catalog").addEventListener("change", onCatalogChange);
-    el("catalog").addEventListener("focusout", onCatalogFocusOut);
+    ["searchInput","blockFilter","fieldFilter","viewFilter"].forEach((id)=>el(id).addEventListener(id==="searchInput"?"input":"change",render));
+    el("copyJson").addEventListener("click",copyJson);
+    el("exportJson").addEventListener("click",exportJson);
+    el("catalog").addEventListener("click",onClick);
+    el("catalog").addEventListener("input",onInput);
+    el("catalog").addEventListener("change",onChange);
+    el("catalog").addEventListener("paste",onPaste);
   }
 
-  function onCatalogFocusOut(event){
-    if(!event.target.matches('[data-role="source"],[data-role="note"]')) return;
-    const slot = slotFromTarget(event.target);
-    if(!slot) return;
-    setDecision(slot.dataset.id,slot.dataset.field,captureTextFields(slot),false);
+  function onInput(event){
+    if(!event.target.matches('[data-role="url"],[data-role="comment"]')) return;
+    const slot=slotFrom(event.target);if(!slot) return;
+    clearTimeout(inputTimer);inputTimer=setTimeout(()=>saveTextDraft(slot),180);
   }
 
-  function onCatalogClick(event){
-    const button = event.target.closest("[data-action]");
-    if(!button) return;
-    const slot = slotFromTarget(button);
-    if(!slot) return;
-    const { id,field } = slot.dataset;
-    const action = button.dataset.action;
-    if(action === "status"){
-      setDecision(id,field,{...captureTextFields(slot),status:button.dataset.status});
-    }else if(action === "pick"){
-      slot.querySelector('[data-role="file"]').click();
-    }else if(action === "cancel"){
-      const key = pendingKey(id,field);
-      const pending = pendingFiles.get(key);
-      if(pending) URL.revokeObjectURL(pending.url);
-      pendingFiles.delete(key);
-      renderPreservingScroll();
-    }else if(action === "apply"){
-      applyCandidate(id,field,slot);
-    }else if(action === "unpublish"){
-      unpublishPhoto(id,field,slot);
-    }
-  }
-
-  function onCatalogChange(event){
+  async function onChange(event){
     if(!event.target.matches('[data-role="file"]')) return;
-    const slot = slotFromTarget(event.target);
-    const file = event.target.files?.[0];
-    if(!slot || !file) return;
-    if(!/^image\/(png|jpeg|webp|avif)$/.test(file.type)){
-      toast("Format refusé : utilise PNG, JPG, WebP ou AVIF.","error");
-      return;
-    }
-    const key = pendingKey(slot.dataset.id,slot.dataset.field);
-    const old = pendingFiles.get(key);
-    if(old) URL.revokeObjectURL(old.url);
-    pendingFiles.set(key,{file,url:URL.createObjectURL(file)});
-    renderPreservingScroll();
+    const slot=slotFrom(event.target),file=event.target.files?.[0];
+    if(slot && file) await storeImage(slot,file);
   }
 
-  async function chooseRoot(){
-    if(!window.showDirectoryPicker){
-      toast("L’écriture locale demande Chrome ou Edge sur localhost.","error");
-      return;
-    }
-    try{
-      const handle = await window.showDirectoryPicker({ mode:"readwrite" });
-      const indexHandle = await handle.getFileHandle("index.html");
-      const assets = await handle.getDirectoryHandle("assets");
-      const photos = await assets.getDirectoryHandle("product-photos");
-      const manifestHandle = await photos.getFileHandle("manifest.json");
-      const diskManifest = JSON.parse(await (await manifestHandle.getFile()).text());
-      if(!diskManifest.photos || !(await indexHandle.getFile()).size) throw new Error("Structure Pokestar invalide");
-      rootHandle = handle;
-      manifest = diskManifest;
-      el("workspaceState").textContent = `Ouvert : ${handle.name}`;
-      el("workspaceState").classList.add("ready");
-      el("saveReview").disabled = false;
-      toast("Dossier Pokestar prêt pour les écritures locales.","success");
-      renderPreservingScroll();
-    }catch(error){
-      if(error.name !== "AbortError") toast(`Dossier refusé : ${error.message}`,"error");
-    }
+  async function onPaste(event){
+    const zone=event.target.closest('[data-action="paste-zone"]');
+    if(!zone) return;
+    const slot=slotFrom(zone);if(!slot) return;
+    event.preventDefault();await handlePaste(slot,event.clipboardData);
   }
 
-  async function nestedDirectory(root,parts,create=false){
-    let handle = root;
-    for(const part of parts) handle = await handle.getDirectoryHandle(part,{create});
-    return handle;
+  async function onClick(event){
+    const action=event.target.closest("[data-action]");if(!action) return;
+    const slot=slotFrom(action);if(!slot) return;
+    if(action.dataset.action==="file") slot.querySelector('[data-role="file"]').click();
+    if(action.dataset.action==="clipboard") await readClipboard(slot);
+    if(action.dataset.action==="remove") await removeDraft(keyFor(slot.dataset.id,slot.dataset.field));
+    if(action.dataset.action==="paste-zone") action.focus();
   }
 
-  async function writeFileAt(root,parts,data){
-    const dir = await nestedDirectory(root,parts.slice(0,-1),true);
-    const file = await dir.getFileHandle(parts.at(-1),{create:true});
-    const writer = await file.createWritable();
-    await writer.write(data);
-    await writer.close();
+  function blobToDataUrl(blob){
+    return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(reader.error);reader.readAsDataURL(blob);});
   }
 
-  async function readTextAt(root,parts){
-    const dir = await nestedDirectory(root,parts.slice(0,-1),false);
-    const file = await dir.getFileHandle(parts.at(-1));
-    return (await file.getFile()).text();
-  }
-
-  function extensionFor(file){
-    return ({"image/png":"png","image/jpeg":"jpg","image/webp":"webp","image/avif":"avif"})[file.type] || "png";
-  }
-
-  function recountManifest(){
-    let count=0;
-    for(const row of Object.values(manifest.photos || {})) for(const field of FIELDS) if(row[field]) count++;
-    manifest.count = count;
-  }
-
-  function cacheToken(){
-    const d = new Date();
-    const pad = (n) => String(n).padStart(2,"0");
-    return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}-review`;
-  }
-
-  async function prepareIndexUpdate(token){
-    const html = await readTextAt(rootHandle,["index.html"]);
-    const re = /const PRODUCT_PHOTOS_VERSION = "[^"]+";/;
-    if(!re.test(html)) throw new Error("PRODUCT_PHOTOS_VERSION introuvable dans index.html");
-    return html.replace(re,`const PRODUCT_PHOTOS_VERSION = "${token}";`);
-  }
-
-  async function persistManifestAndIndex(){
-    const token = cacheToken();
-    const updatedIndex = await prepareIndexUpdate(token);
-    recountManifest();
-    manifest.generatedAt = new Date().toISOString().slice(0,10);
-    manifest.version = token;
-    await writeFileAt(rootHandle,["assets","product-photos","manifest.json"],`${JSON.stringify(manifest,null,2)}\n`);
-    await writeFileAt(rootHandle,["index.html"],updatedIndex);
-  }
-
-  async function applyCandidate(id,field,slot){
-    if(!rootHandle) return toast("Ouvre d’abord le dossier Pokestar.","error");
-    const pending = pendingFiles.get(pendingKey(id,field));
-    if(!pending) return;
-    const text = captureTextFields(slot);
-    try{
-      const ext = extensionFor(pending.file);
-      const relative = `assets/product-photos/${id}/${field}.${ext}`;
-      await prepareIndexUpdate(cacheToken());
-      await writeFileAt(rootHandle,["assets","product-photos",id,`${field}.${ext}`],pending.file);
-      manifest.photos ||= {};
-      manifest.photos[id] ||= {};
-      manifest.photos[id][field] = relative;
-      setDecision(id,field,{...text,status:"valid",includedFile:relative},false);
-      await persistManifestAndIndex();
-      await saveReviewToRepo(true);
-      URL.revokeObjectURL(pending.url);
-      pendingFiles.delete(pendingKey(id,field));
-      duplicateGroups.clear();
-      toast(`${FIELD_META[field].label} ${id} inclus et cache Pokestar actualisé.`,"success");
-      renderPreservingScroll();
-    }catch(error){
-      console.error(error);
-      toast(`Écriture impossible : ${error.message}`,"error");
-    }
-  }
-
-  async function unpublishPhoto(id,field,slot){
-    if(!rootHandle) return toast("Ouvre d’abord le dossier Pokestar.","error");
-    const current = photoPath(id,field);
-    if(!current) return;
-    if(!confirm(`Retirer ${id}/${field} du manifest ? Le fichier ${current} restera intact sur le disque.`)) return;
-    try{
-      delete manifest.photos[id][field];
-      setDecision(id,field,{...captureTextFields(slot),status:statusFor(id,field) === "valid" ? "review" : statusFor(id,field),unpublishedFile:current},false);
-      await persistManifestAndIndex();
-      await saveReviewToRepo(true);
-      duplicateGroups.clear();
-      toast(`${id}/${field} retiré du manifest. Le fichier n’a pas été supprimé.`,"success");
-      renderPreservingScroll();
-    }catch(error){
-      console.error(error);
-      toast(`Retrait impossible : ${error.message}`,"error");
-    }
-  }
-
-  async function saveReviewToRepo(silent=false){
-    if(!rootHandle){
-      if(!silent) toast("Ouvre d’abord le dossier Pokestar.","error");
-      return;
-    }
-    try{
-      review.updatedAt = new Date().toISOString();
-      await writeFileAt(rootHandle,["tools","photo-review-state.json"],`${JSON.stringify(review,null,2)}\n`);
-      localStorage.setItem(LOCAL_KEY,JSON.stringify(review));
-      if(!silent) toast("Audit enregistré dans tools/photo-review-state.json.","success");
-    }catch(error){
-      if(!silent) toast(`Audit non enregistré : ${error.message}`,"error");
-    }
-  }
-
-  function exportReview(){
-    review.updatedAt = new Date().toISOString();
-    const blob = new Blob([`${JSON.stringify(review,null,2)}\n`],{type:"application/json"});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `pokestar-photo-review-${new Date().toISOString().slice(0,10)}.json`;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url),1000);
-  }
-
-  async function importReviewFile(event){
-    const file = event.target.files?.[0];
-    if(!file) return;
-    try{
-      const incoming = normalizeReview(JSON.parse(await file.text()));
-      review = mergeReview(review,incoming);
-      localStorage.setItem(LOCAL_KEY,JSON.stringify(review));
-      toast(`${Object.keys(incoming.decisions).length} décisions importées.`,"success");
-      render();
-    }catch(error){
-      toast(`JSON invalide : ${error.message}`,"error");
-    }finally{
-      event.target.value = "";
-    }
-  }
-
-  async function sha256(buffer){
-    const hash = await crypto.subtle.digest("SHA-256",buffer);
-    return [...new Uint8Array(hash)].map((b) => b.toString(16).padStart(2,"0")).join("");
-  }
-
-  async function mapLimit(items,limit,worker,onProgress){
-    let cursor=0,done=0;
-    const runners = Array.from({length:Math.min(limit,items.length)},async() => {
-      while(cursor < items.length){
-        const index = cursor++;
-        await worker(items[index],index);
-        done++;
-        onProgress?.(done,items.length);
+  async function buildPayload(){
+    const items=[];
+    for(const [key,draft] of Object.entries(drafts)){
+      if(!draftHasContent(draft)) continue;
+      const item={
+        key,seriesId:draft.seriesId,seriesCode:draft.seriesCode,seriesName:draft.seriesName,block:draft.block,
+        field:draft.field,expected:draft.expected,currentPath:draft.currentPath,imageUrl:draft.imageUrl || "",
+        comment:draft.comment || "",updatedAt:draft.updatedAt,manifestVersion:draft.manifestVersion || ""
+      };
+      if(draft.imageId){
+        const stored=await dbGet(draft.imageId);
+        if(stored?.blob) item.image={name:stored.name || draft.imageName,type:stored.type || draft.imageType,dataUrl:await blobToDataUrl(stored.blob)};
       }
-    });
-    await Promise.all(runners);
+      items.push(item);
+    }
+    items.sort((a,b)=>a.key.localeCompare(b.key));
+    return {type:"pokestar-photo-corrections-v1",generatedAt:new Date().toISOString(),manifestVersion:manifest.version || "",items};
   }
 
-  async function scanDuplicates(){
-    if(scanRunning) return;
-    const paths=[];
-    for(const item of catalog) for(const field of FIELDS){
-      const path=photoPath(item.id,field);
-      if(path) paths.push({path,label:`${item.id}/${field}`});
-    }
-    const button=el("scanDuplicates");
-    scanRunning=true;button.disabled=true;
-    const byHash=new Map();
+  async function copyJson(){
     try{
-      await mapLimit(paths,6,async(row) => {
-        const sep=row.path.includes("?")?"&":"?";
-        const res=await fetch(`${ROOT}/${row.path}${sep}v=${encodeURIComponent(manifest.version || "review")}`,{cache:"force-cache"});
-        if(!res.ok) return;
-        const hash=await sha256(await res.arrayBuffer());
-        if(!byHash.has(hash)) byHash.set(hash,[]);
-        byHash.get(hash).push(row);
-      },(done,total) => { button.textContent=`Analyse ${done}/${total}`; });
-      duplicateGroups.clear();
-      for(const group of byHash.values()){
-        if(group.length<2) continue;
-        const labels=group.map((row)=>row.label);
-        for(const row of group) duplicateGroups.set(row.path,labels);
-      }
-      const groups=[...byHash.values()].filter((group)=>group.length>1).length;
-      toast(`${groups} groupe${groups>1?"s":""} de fichiers identiques détecté${groups>1?"s":""}.`,groups ? "" : "success");
-      renderPreservingScroll();
+      flushVisibleInputs();
+      const text=JSON.stringify(await buildPayload(),null,2);
+      await navigator.clipboard.writeText(text);
+      toast("JSON copié. Colle-le dans notre conversation.","success");
     }catch(error){
-      toast(`Analyse interrompue : ${error.message}`,"error");
-    }finally{
-      scanRunning=false;button.disabled=false;button.textContent="Analyser les doublons";
+      toast(`Copie impossible (${error.message}). Utilise Exporter le JSON.`,"error");
     }
+  }
+
+  async function exportJson(){
+    try{
+      flushVisibleInputs();
+      const payload=await buildPayload();
+      const blob=new Blob([`${JSON.stringify(payload,null,2)}\n`],{type:"application/json"});
+      const url=URL.createObjectURL(blob),link=document.createElement("a");
+      link.href=url;link.download=`pokestar-corrections-photos-${new Date().toISOString().slice(0,10)}.json`;link.click();
+      setTimeout(()=>URL.revokeObjectURL(url),1000);
+      toast("JSON exporté. Le panier reste sauvegardé.","success");
+    }catch(error){toast(`Export impossible : ${error.message}`,"error");}
   }
 
   loadAll();

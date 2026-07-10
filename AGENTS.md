@@ -23,8 +23,8 @@ NEWMETA/Pokestar/
 ├── cm-market-cache.json   # prix Cardmarket (maj quotidienne)
 ├── refresh-cm-cache.py    # sync CM → json + seed HTML
 ├── tools/
-│   ├── photo-review.html       # contrôle/import local Booster-Display-ETB
-│   └── photo-review-state.json # décisions de validation versionnées
+│   ├── photo-review.html       # panier corrections Booster-Display-ETB
+│   └── photo-review-state.json # décisions et paniers résolus versionnés
 ├── manifest.json          # PWA
 ├── sw.js                  # service worker (shell + cache CM)
 ├── favicon.ico            # favicon navigateur
@@ -72,13 +72,14 @@ python3 -m http.server 8765
 # → http://localhost:8765/tools/photo-review.html
 ```
 
-Le helper photo fonctionne en lecture seule dans tout navigateur moderne. Pour
-inclure une image, retirer une référence du manifest ou enregistrer l'audit,
-l'ouvrir dans Chrome/Edge via `localhost`, cliquer **Ouvrir le dossier
-Pokestar**, puis sélectionner la racine de ce repo. Il écrit le fichier au bon
-chemin, met à jour `assets/product-photos/manifest.json` et change le
-cache-buster `PRODUCT_PHOTOS_VERSION` dans `index.html`. Un retrait du manifest
-ne supprime jamais le fichier image du disque.
+Le helper photo fonctionne dans tout navigateur moderne. Pour un mauvais
+visuel : ouvrir Google Images depuis la tuile, coller une image ou son URL,
+ajouter une note, puis utiliser **Copier le JSON** ou **Exporter le JSON**. Le
+panier reste local jusqu'à traitement par un agent. Après application des
+fichiers dans le repo, l'agent met à jour `tools/photo-review-state.json`
+(`resolved`) afin que les lignes traitées quittent automatiquement le panier.
+Chaque résolution utilise la clé `<serie-id>:<field>` et au minimum
+`{"resolvedAt":"<ISO>","manifestVersion":"<version>"}`.
 
 Cron recommandé (Hetzner ou Mac) : `refresh-cm-cache.py` 1×/jour puis redeploy des fichiers statiques.
 
@@ -121,7 +122,8 @@ Après modification de `index.html` ou des prix CM :
 | Nouvelle série TCG | Ajouter entrée `BASE_DATA` dans `index.html`, puis `refresh-cm-cache.py` |
 | Prix CM pas affichés | Lancer `refresh-cm-cache.py`, vérifier mapping slug CM |
 | Logo série | Mode admin (pseudo `admin`) → upload hero ; stocké Firestore |
-| Audit/import photo booster/display/ETB | `tools/photo-review.html` → valider, sourcer ou inclure le fichier local |
+| Préparer une correction photo | `tools/photo-review.html` → rechercher, coller image/lien, commenter, exporter le JSON |
+| Appliquer un panier photo | Lire le JSON, vérifier la source, écrire l'image et le manifest, puis marquer la clé dans `photo-review-state.json.resolved` |
 | Override photo ponctuel | Admin → survol vignette produit → `+` (Firestore, pas le catalogue local canonique) |
 | UI / UX | Modifier CSS + fonctions `cardHero`, `productThumb`, `priceCell` dans `index.html` |
 | Mentions légales / footer | Section `#legalView` et `<footer>` dans `index.html` |
@@ -133,10 +135,11 @@ Après modification de `index.html` ou des prix CM :
   vérifié ou à revoir est porté par `tools/photo-review-state.json`.
 - Toute nouvelle entrée ou tout remplacement dans le manifest doit utiliser un
   visuel dont le type produit et la série ont été vérifiés.
-- `tools/photo-review.html` est le flux canonique pour contrôler les 354 slots,
-  détecter les fichiers identiques et inclure un remplacement local. Les
-  décisions acquises sont dans `tools/photo-review-state.json` ; ne pas les
-  dupliquer dans une autre note active.
+- `tools/photo-review.html` est le flux canonique pour préparer les corrections
+  des 354 slots. Il ne modifie pas directement le catalogue : il produit un
+  JSON borné à transmettre à l'agent. Les décisions acquises et paniers résolus
+  sont dans `tools/photo-review-state.json` ; ne pas les dupliquer dans une
+  autre note active.
 - Le bloc EX (`ex01` à `ex15`) n'a pas d'ETB historique vérifiable : ses 15
   références heuristiques ont été retirées du manifest le 2026-07-10. Le rendu
   affiche donc le glyphe ETB neutre jusqu'à validation d'une source dédiée.

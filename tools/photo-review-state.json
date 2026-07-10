@@ -1,6 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "updatedAt": "2026-07-10T00:00:00.000Z",
+  "resolved": {},
   "decisions": {
     "ev01:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Contrôle visuel du 2026-07-09 : booster Écarlate et Violet cohérent." },
     "ev01:display": { "status": "valid", "confidence": "high", "source": "", "note": "Contrôle visuel du 2026-07-09 : display Écarlate et Violet cohérent." },
