@@ -110,7 +110,7 @@
   .tick-chip.up{background:rgba(95,212,138,0.18);color:#5fd48a;}
   .tick-chip.down{background:rgba(229,56,74,0.18);color:var(--scarlet);}
   .tick-item{color:var(--muted);}
-  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @keyframes scroll{from{transform:translateX(-50%);}to{transform:translateX(0);}}
 
   /* ---------- Hero ---------- */
   header.hero{
@@ -717,8 +717,8 @@
     .collections-band:hover .collections-track{animation-play-state:paused;}
   }
   @keyframes collections-scroll{
-    from{transform:translate3d(0,0,0);}
-    to{transform:translate3d(-50%,0,0);}
+    from{transform:translate3d(-50%,0,0);}
+    to{transform:translate3d(0,0,0);}
   }
   .logo-nav-btn{
     display:inline-block;
