@@ -3251,7 +3251,10 @@ async function loadLocalProductPhotos(){
 
 function localProductPhotoUrl(entry, field){
   const row = localProductPhotos[entry.id];
-  return row && row[field] ? row[field] : null;
+  const path = row && row[field] ? row[field] : null;
+  if(!path) return null;
+  const sep = path.includes("?") ? "&" : "?";
+  return `${path}${sep}v=${encodeURIComponent(PRODUCT_PHOTOS_VERSION)}`;
 }
 
 function scrydexProductUrl(entry, field){

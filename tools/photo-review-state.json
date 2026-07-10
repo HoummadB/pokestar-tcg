@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-10T00:00:00.000Z",
+  "decisions": {
+    "ev01:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Contrôle visuel du 2026-07-09 : booster Écarlate et Violet cohérent." },
+    "ev01:display": { "status": "valid", "confidence": "high", "source": "", "note": "Contrôle visuel du 2026-07-09 : display Écarlate et Violet cohérent." },
+
+    "me02:booster": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/phantasmal-flames/", "note": "Pack Flammes Fantasmagoriques vérifié visuellement." },
+    "me02:display": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/phantasmal-flames/", "note": "Présentoir 36 boosters vérifié visuellement." },
+    "me02:etb": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/phantasmal-flames/", "note": "Coffret Dresseur d’Élite vérifié visuellement." },
+
+    "me03:booster": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/perfect-order/", "note": "Booster Équilibre Parfait vérifié visuellement." },
+    "me03:display": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/perfect-order/", "note": "Correction officielle Pokémon : display, pas blister." },
+    "me03:etb": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/perfect-order/", "note": "Correction officielle Pokémon : ETB, pas blister." },
+
+    "me04:booster": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/chaos-rising/", "note": "Booster Chaos Ascendant vérifié visuellement." },
+    "me04:display": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/chaos-rising/", "note": "Display Chaos Ascendant vérifié visuellement." },
+    "me04:etb": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/chaos-rising/", "note": "Correction officielle Pokémon : ETB, pas blister." },
+
+    "me05:booster": { "status": "wrong", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/", "note": "L’image actuelle montre un lot de 6 boosters, pas un booster unitaire." },
+    "me05:display": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/", "note": "Display Nuit Noire issu de la source officielle Pokémon." },
+    "me05:etb": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/", "note": "ETB Nuit Noire issu de la source officielle Pokémon." },
+
+    "ex01:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex01:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex01:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
+
+    "ex02:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex02:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex02:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un blister Carvanha." },
+
+    "ex03:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex03:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex03:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
+
+    "ex04:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex04:display": { "status": "valid", "confidence": "medium", "source": "", "note": "Le carton Team Magma VS Team Aqua est correct mais l’image est très basse résolution." },
+    "ex04:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien visuel était un pack Rubis & Saphir." },
+
+    "ex05:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex05:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex05:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un blister Jirachi." },
+
+    "ex06:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex06:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex06:etb": { "status": "not-applicable", "confidence": "medium", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck." },
+
+    "ex07:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex07:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex07:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
+
+    "ex08:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex08:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex08:etb": { "status": "not-applicable", "confidence": "medium", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck Deoxys." },
+
+    "ex09:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex09:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex09:etb": { "status": "not-applicable", "confidence": "medium", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un produit unitaire." },
+
+    "ex10:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex10:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex10:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
+
+    "ex11:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex11:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex11:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
+
+    "ex12:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex12:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex12:etb": { "status": "not-applicable", "confidence": "medium", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck Latias." },
+
+    "ex13:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex13:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : carton display crédible." },
+    "ex13:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck." },
+
+    "ex14:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex14:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
+    "ex14:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
+
+    "ex15:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
+    "ex15:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : carton display crédible." },
+    "ex15:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un blister multipack." }
+  }
+}

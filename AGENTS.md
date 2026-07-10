@@ -22,6 +22,9 @@ NEWMETA/Pokestar/
 ├── index.html             # app complète (source unique)
 ├── cm-market-cache.json   # prix Cardmarket (maj quotidienne)
 ├── refresh-cm-cache.py    # sync CM → json + seed HTML
+├── tools/
+│   ├── photo-review.html       # contrôle/import local Booster-Display-ETB
+│   └── photo-review-state.json # décisions de validation versionnées
 ├── manifest.json          # PWA
 ├── sw.js                  # service worker (shell + cache CM)
 ├── favicon.ico            # favicon navigateur
@@ -64,7 +67,18 @@ node -e "const fs=require('fs');const h=fs.readFileSync('index.html','utf8');con
 # Servir en local
 python3 -m http.server 8765
 # → http://localhost:8765/
+
+# Contrôler et inclure les photos produit
+# → http://localhost:8765/tools/photo-review.html
 ```
+
+Le helper photo fonctionne en lecture seule dans tout navigateur moderne. Pour
+inclure une image, retirer une référence du manifest ou enregistrer l'audit,
+l'ouvrir dans Chrome/Edge via `localhost`, cliquer **Ouvrir le dossier
+Pokestar**, puis sélectionner la racine de ce repo. Il écrit le fichier au bon
+chemin, met à jour `assets/product-photos/manifest.json` et change le
+cache-buster `PRODUCT_PHOTOS_VERSION` dans `index.html`. Un retrait du manifest
+ne supprime jamais le fichier image du disque.
 
 Cron recommandé (Hetzner ou Mac) : `refresh-cm-cache.py` 1×/jour puis redeploy des fichiers statiques.
 
@@ -86,6 +100,8 @@ Fichiers à publier ensemble :
 - `icon-192.png`, `icon-512.png`
 - `robots.txt`, `vercel.json`
 - `assets/brand-logo.jpg`
+- `assets/product-photos/manifest.json` et les photos qu'il référence
+- `assets/series-logos/`
 
 Après modification de `index.html` ou des prix CM :
 
@@ -105,14 +121,22 @@ Après modification de `index.html` ou des prix CM :
 | Nouvelle série TCG | Ajouter entrée `BASE_DATA` dans `index.html`, puis `refresh-cm-cache.py` |
 | Prix CM pas affichés | Lancer `refresh-cm-cache.py`, vérifier mapping slug CM |
 | Logo série | Mode admin (pseudo `admin`) → upload hero ; stocké Firestore |
-| Photo booster/display/ETB | Admin → survol vignette produit → `+` |
+| Audit/import photo booster/display/ETB | `tools/photo-review.html` → valider, sourcer ou inclure le fichier local |
+| Override photo ponctuel | Admin → survol vignette produit → `+` (Firestore, pas le catalogue local canonique) |
 | UI / UX | Modifier CSS + fonctions `cardHero`, `productThumb`, `priceCell` dans `index.html` |
 | Mentions légales / footer | Section `#legalView` et `<footer>` dans `index.html` |
 
 ## Qualité des photos produit
 
-- Le manifest local ne doit référencer que des visuels dont le type produit et
-  la série sont vérifiés.
+- La présence d'un fichier dans le manifest ne vaut pas validation visuelle :
+  la collecte bulk initiale a utilisé des slots Scrydex heuristiques. Le statut
+  vérifié ou à revoir est porté par `tools/photo-review-state.json`.
+- Toute nouvelle entrée ou tout remplacement dans le manifest doit utiliser un
+  visuel dont le type produit et la série ont été vérifiés.
+- `tools/photo-review.html` est le flux canonique pour contrôler les 354 slots,
+  détecter les fichiers identiques et inclure un remplacement local. Les
+  décisions acquises sont dans `tools/photo-review-state.json` ; ne pas les
+  dupliquer dans une autre note active.
 - Le bloc EX (`ex01` à `ex15`) n'a pas d'ETB historique vérifiable : ses 15
   références heuristiques ont été retirées du manifest le 2026-07-10. Le rendu
   affiche donc le glyphe ETB neutre jusqu'à validation d'une source dédiée.
