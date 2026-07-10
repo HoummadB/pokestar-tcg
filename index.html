@@ -2012,15 +2012,35 @@
     .site-nav-toggle{display:none !important;}
     .site-header-actions{gap:6px;margin-left:auto;}
     .site-header-actions .btn-header-icon{display:none;}
-    .site-header-actions .btn-header-account span{display:none;}
-    .site-header-actions .btn-header-account{padding:8px 12px;}
+    .site-header-actions .header-account-wrap{display:none;}
+    .search-overlay{
+      bottom:calc(50px + env(safe-area-inset-bottom));
+      align-items:stretch;
+    }
+    .search-overlay .search-modal{
+      height:100%;
+      max-height:100%;
+      border-radius:16px 16px 0 0;
+      padding-bottom:12px;
+    }
+    .account-menu.open{
+      position:fixed;
+      left:12px;
+      right:12px;
+      top:auto;
+      bottom:calc(52px + env(safe-area-inset-bottom));
+      min-width:0;
+      z-index:215;
+      border-radius:16px;
+      padding:8px;
+    }
     .mobile-tabbar{
       display:block;
       position:fixed;
       left:0;
       right:0;
       bottom:0;
-      z-index:35;
+      z-index:220;
       background:rgba(18,14,28,0.78);
       backdrop-filter:blur(22px) saturate(165%);
       -webkit-backdrop-filter:blur(22px) saturate(165%);
@@ -2056,12 +2076,12 @@
       gap:3px;
       flex:1;
       min-width:0;
-      max-width:140px;
+      max-width:96px;
       padding:6px 4px 4px;
       border:none;
       background:none;
       color:rgba(210,198,228,0.52);
-      font-size:10px;
+      font-size:9.5px;
       font-weight:500;
       letter-spacing:0.01em;
       border-radius:0;
@@ -2785,6 +2805,10 @@
       <button type="button" class="mobile-tab" id="tabMenu" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenuSheet">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>
         <span>Menu</span>
+      </button>
+      <button type="button" class="mobile-tab" id="tabAccount" aria-label="Compte" aria-haspopup="true" aria-expanded="false" aria-controls="accountMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <span id="tabAccountLabel">Compte</span>
       </button>
     </div>
   </div>
@@ -4844,7 +4868,7 @@ function closeNavMenu(){
 }
 
 function syncMobileTabs(which){
-  const map = { home:"tabHome", search:"tabSearch", menu:"tabMenu" };
+  const map = { home:"tabHome", search:"tabSearch", menu:"tabMenu", account:"tabAccount" };
   document.querySelectorAll(".mobile-tab").forEach(el=> el.classList.remove("active"));
   const id = map[which];
   if(id){
@@ -4877,8 +4901,27 @@ function toggleMobileMenu(){
 }
 
 function mobileTabForView(view){
+  if(view === "profile") return "account";
   if(view === "help" || view === "distrib" || view === "legal") return "menu";
   return "home";
+}
+
+function handleAccountAction(){
+  const realUser = auth.currentUser && !auth.currentUser.isAnonymous;
+  if(state.isAdmin || realUser){
+    const menu = document.getElementById("accountMenu");
+    if(menu && menu.classList.contains("open")){
+      closeAccountMenu();
+      const activeView = (location.hash || "#catalog").replace(/^#/, "") || "catalog";
+      syncMobileTabs(mobileTabForView(activeView === "profile" ? "profile" : activeView));
+    } else {
+      openAccountMenu();
+    }
+  } else {
+    closeMobileMenu();
+    syncMobileTabs("account");
+    openAuth();
+  }
 }
 
 function closeSearchModal(){
@@ -4906,16 +4949,22 @@ function openSearchModal(){
 function closeAccountMenu(){
   const menu = document.getElementById("accountMenu");
   const btn = document.getElementById("accountBtn");
+  const tab = document.getElementById("tabAccount");
   if(menu){ menu.classList.remove("open"); menu.hidden = true; }
   if(btn) btn.setAttribute("aria-expanded", "false");
+  if(tab) tab.setAttribute("aria-expanded", "false");
 }
 
 function openAccountMenu(){
   closeSearchModal();
+  closeMobileMenu();
   const menu = document.getElementById("accountMenu");
   const btn = document.getElementById("accountBtn");
+  const tab = document.getElementById("tabAccount");
   if(menu){ menu.classList.add("open"); menu.hidden = false; }
   if(btn) btn.setAttribute("aria-expanded", "true");
+  if(tab) tab.setAttribute("aria-expanded", "true");
+  syncMobileTabs("account");
 }
 
 function toggleSearchModal(){
@@ -5180,6 +5229,7 @@ function updateAccountUI(){
   const menu = document.getElementById("accountMenu");
   const favBtn = document.getElementById("favChip");
   const menuFavBtn = document.getElementById("menuFavChip");
+  const tabAccountLabel = document.getElementById("tabAccountLabel");
   const menuProfile = document.getElementById("menuProfile");
   const menuLogout = document.getElementById("menuLogout");
   const controlsBar = document.getElementById("controlsBar");
@@ -5187,16 +5237,21 @@ function updateAccountUI(){
   const realUser = currentUser && !currentUser.isAnonymous;
   const hasSession = !!realUser || !!state.isAdmin;
 
+  let shortName = "Compte";
   if(state.isAdmin){
     label.textContent = "Admin";
+    shortName = "Admin";
     btn.classList.add("logged-in");
   } else if(realUser){
-    label.textContent = currentUser.email ? currentUser.email.split("@")[0] : "Connecté";
+    shortName = currentUser.email ? currentUser.email.split("@")[0] : "Compte";
+    label.textContent = shortName;
     btn.classList.add("logged-in");
   } else {
     label.textContent = "Connexion";
+    shortName = "Compte";
     btn.classList.remove("logged-in");
   }
+  if(tabAccountLabel) tabAccountLabel.textContent = shortName.length > 9 ? shortName.slice(0, 8) + "…" : shortName;
 
   if(menu){
     if(favBtn) favBtn.style.display = realUser ? "" : "none";
@@ -5246,18 +5301,16 @@ function logoutSession(){
 
 document.getElementById("accountBtn").addEventListener("click", e=>{
   e.stopPropagation();
-  const realUser = auth.currentUser && !auth.currentUser.isAnonymous;
-  if(state.isAdmin || realUser){
-    const menu = document.getElementById("accountMenu");
-    if(menu && menu.classList.contains("open")) closeAccountMenu();
-    else openAccountMenu();
-  } else {
-    openAuth();
-  }
+  handleAccountAction();
+});
+document.getElementById("tabAccount").addEventListener("click", e=>{
+  e.stopPropagation();
+  handleAccountAction();
 });
 document.getElementById("menuProfile").addEventListener("click", ()=>{
   closeAccountMenu();
   showProfile();
+  syncMobileTabs("account");
 });
 document.getElementById("menuLogout").addEventListener("click", ()=>{
   closeAccountMenu();
@@ -5311,7 +5364,13 @@ document.querySelectorAll(".search-tab").forEach(tab=>{
   });
 });
 document.addEventListener("click", e=>{
-  if(!e.target.closest("#accountMenuWrap")) closeAccountMenu();
+  if(!e.target.closest("#accountMenuWrap") && !e.target.closest("#tabAccount")){
+    if(document.getElementById("accountMenu")?.classList.contains("open")){
+      closeAccountMenu();
+      const activeView = (location.hash || "#catalog").replace(/^#/, "") || "catalog";
+      syncMobileTabs(mobileTabForView(activeView === "profile" ? "profile" : activeView));
+    }
+  }
 });
 document.addEventListener("keydown", e=>{
   if(e.key === "Escape"){
@@ -5321,7 +5380,12 @@ document.addEventListener("keydown", e=>{
     else if(menuOpen){
       closeMobileMenu();
       const activeView = (location.hash || "#catalog").replace(/^#/, "") || "catalog";
-      syncMobileTabs(mobileTabForView(activeView === "profile" ? "catalog" : activeView));
+      syncMobileTabs(mobileTabForView(activeView === "profile" ? "profile" : activeView));
+    }
+    else if(document.getElementById("accountMenu")?.classList.contains("open")){
+      closeAccountMenu();
+      const activeView = (location.hash || "#catalog").replace(/^#/, "") || "catalog";
+      syncMobileTabs(mobileTabForView(activeView === "profile" ? "profile" : activeView));
     }
     else closeAccountMenu();
   }
