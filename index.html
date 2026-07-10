@@ -1439,7 +1439,11 @@
     overflow:hidden;
   }
   .search-overlay.open{align-items:flex-end;}
-  .search-modal-head{margin:0 36px 12px 0;}
+  .search-modal-head{
+    flex:0 0 auto;
+    flex-shrink:0;
+    margin:0 36px 12px 0;
+  }
   .search-modal-head h2{
     margin:0;
     font-size:18px;
@@ -1452,9 +1456,40 @@
     color:var(--muted);
     line-height:1.45;
   }
-  .search-modal-search{margin-bottom:10px;}
-  .search-modal-search .header-search-field{min-height:44px;}
+  .search-modal-search{
+    flex:0 0 auto;
+    flex-shrink:0;
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    min-height:44px;
+    max-height:44px;
+    margin-bottom:10px;
+    padding:0 14px;
+    border-radius:12px;
+    background:rgba(37,31,51,0.75);
+    border:1px solid var(--line);
+    box-sizing:border-box;
+  }
+  .search-modal-search:focus-within{border-color:rgba(168,85,232,0.55);}
+  .search-modal-search svg{flex-shrink:0;color:var(--muted);}
+  .search-modal-search input[type=search]{
+    flex:1;
+    min-width:0;
+    width:auto;
+    order:0;
+    border:none;
+    background:transparent;
+    padding:10px 0;
+    border-radius:0;
+    box-shadow:none;
+    font-size:15px;
+  }
+  .search-modal-search input[type=search]:focus{outline:none;border:none;box-shadow:none;}
   .search-modal-crumb{
+    flex:0 0 auto;
+    flex-shrink:0;
     display:flex;
     flex-wrap:wrap;
     align-items:center;
@@ -1478,6 +1513,8 @@
   .search-crumb-sep{color:var(--muted);font-size:11px;}
   .search-crumb-current{color:var(--cream);font-weight:600;padding:4px 6px;}
   .search-modal-tabs{
+    flex:0 0 auto;
+    flex-shrink:0;
     display:flex;
     gap:6px;
     margin-bottom:12px;
@@ -1500,7 +1537,8 @@
   }
   .search-tab.active{background:var(--violet);color:#fff;}
   .search-modal-body{
-    flex:1;
+    flex:1 1 auto;
+    min-height:0;
     overflow-y:auto;
     -webkit-overflow-scrolling:touch;
     padding-right:2px;
@@ -1603,6 +1641,11 @@
       padding-top:max(18px, env(safe-area-inset-top));
       padding-bottom:max(12px, env(safe-area-inset-bottom));
     }
+    .search-modal-hint{font-size:11px;}
+    .search-modal-search input[type=search]{min-width:0;order:0;}
+    .search-block-grid{grid-template-columns:1fr 1fr;gap:8px;}
+    .search-block-btn{padding:9px 10px;}
+    .search-block-btn strong{font-size:12px;}
   }
 
   .confirm-message{
@@ -2609,7 +2652,7 @@
       <h2 id="searchModalTitle">Trouver une extension</h2>
       <p class="search-modal-hint">Choisis un <strong>bloc</strong> (ère TCG) puis l’<strong>extension</strong>, ou filtre par <strong>année</strong> de sortie.</p>
     </div>
-    <label class="search-modal-search header-search-field" for="searchModalInput">
+    <label class="search-modal-search" for="searchModalInput">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
       <input type="search" id="searchModalInput" placeholder="Nom, code, bloc ou année…" autocomplete="off" aria-label="Rechercher une extension" enterkeyhint="search">
     </label>
