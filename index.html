@@ -1424,6 +1424,187 @@
     text-align:center;
   }
 
+  .search-overlay{align-items:flex-end;padding:0;}
+  .search-modal{
+    position:relative;
+    width:min(560px,100%);
+    max-height:min(88vh,720px);
+    display:flex;
+    flex-direction:column;
+    background:var(--surface);
+    border:1px solid var(--violet);
+    border-radius:18px 18px 0 0;
+    padding:22px 20px 16px;
+    box-shadow:0 -8px 40px rgba(0,0,0,0.45), 0 0 40px rgba(168,85,232,0.2);
+    overflow:hidden;
+  }
+  .search-overlay.open{align-items:flex-end;}
+  .search-modal-head{margin:0 36px 12px 0;}
+  .search-modal-head h2{
+    margin:0;
+    font-size:18px;
+    font-weight:800;
+    color:var(--cream);
+  }
+  .search-modal-hint{
+    margin:6px 0 0;
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.45;
+  }
+  .search-modal-search{margin-bottom:10px;}
+  .search-modal-search .header-search-field{min-height:44px;}
+  .search-modal-crumb{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:4px;
+    margin:0 0 10px;
+    font-size:12px;
+  }
+  .search-modal-crumb[hidden]{display:none;}
+  .search-crumb-btn{
+    background:none;
+    border:none;
+    color:var(--violet-light);
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+    padding:4px 6px;
+    border-radius:6px;
+    font-family:var(--body);
+  }
+  .search-crumb-btn:hover{background:rgba(168,85,232,0.12);}
+  .search-crumb-sep{color:var(--muted);font-size:11px;}
+  .search-crumb-current{color:var(--cream);font-weight:600;padding:4px 6px;}
+  .search-modal-tabs{
+    display:flex;
+    gap:6px;
+    margin-bottom:12px;
+    background:var(--surface-2);
+    border-radius:10px;
+    padding:4px;
+  }
+  .search-modal-tabs[hidden]{display:none;}
+  .search-tab{
+    flex:1;
+    background:none;
+    border:none;
+    color:var(--muted);
+    padding:9px 10px;
+    border-radius:8px;
+    font-size:12.5px;
+    font-weight:600;
+    cursor:pointer;
+    font-family:var(--body);
+  }
+  .search-tab.active{background:var(--violet);color:#fff;}
+  .search-modal-body{
+    flex:1;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-right:2px;
+  }
+  .search-section-label{
+    font-family:var(--mono);
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.6px;
+    color:var(--muted);
+    margin:0 0 8px;
+  }
+  .search-block-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .search-block-btn{
+    text-align:left;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px 12px;
+    cursor:pointer;
+    color:var(--cream);
+    font-family:var(--body);
+    transition:border-color .15s, background .15s;
+  }
+  .search-block-btn:hover{border-color:var(--violet);background:rgba(124,47,196,0.12);}
+  .search-block-btn strong{display:block;font-size:13px;line-height:1.25;margin-bottom:3px;}
+  .search-block-btn span{font-size:11px;color:var(--muted);}
+  .search-year-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(72px,1fr));
+    gap:8px;
+    margin-bottom:4px;
+  }
+  .search-year-btn{
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px 8px;
+    cursor:pointer;
+    color:var(--cream);
+    font-family:var(--mono);
+    font-size:13px;
+    font-weight:700;
+    transition:border-color .15s, background .15s;
+  }
+  .search-year-btn:hover{border-color:var(--violet);background:rgba(124,47,196,0.12);}
+  .search-year-btn small{display:block;font-size:9px;color:var(--muted);font-weight:500;margin-top:2px;}
+  .search-pick-list{display:flex;flex-direction:column;gap:6px;}
+  .search-pick-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    text-align:left;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px 12px;
+    cursor:pointer;
+    color:var(--cream);
+    font-family:var(--body);
+    transition:border-color .15s, background .15s;
+  }
+  .search-pick-item:hover{border-color:var(--violet);background:rgba(124,47,196,0.1);}
+  .search-pick-main{flex:1;min-width:0;}
+  .search-pick-main strong{display:block;font-size:14px;line-height:1.25;}
+  .search-pick-main span{display:block;font-size:11px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .search-pick-meta{
+    flex-shrink:0;
+    font-family:var(--mono);
+    font-size:10px;
+    color:var(--muted);
+    text-align:right;
+    line-height:1.35;
+  }
+  .search-empty{
+    color:var(--muted);
+    font-size:13px;
+    text-align:center;
+    padding:24px 12px;
+  }
+  @media(min-width:641px){
+    .search-overlay{align-items:center;padding:20px;}
+    .search-modal{border-radius:16px;max-height:min(85vh,680px);}
+  }
+  @media(max-width:640px){
+    .search-overlay.open{align-items:stretch;}
+    .search-modal{
+      width:100%;
+      max-height:100%;
+      height:100%;
+      border-radius:0;
+      border:none;
+      padding:18px 16px 12px;
+      padding-top:max(18px, env(safe-area-inset-top));
+      padding-bottom:max(12px, env(safe-area-inset-bottom));
+    }
+  }
+
   .confirm-message{
     color:var(--cream);
     font-size:14px;
@@ -2312,7 +2493,7 @@
       <a class="site-nav-link nav-ebay" href="https://www.ebay.fr/sch/i.html?_ssn=pokestartcg" target="_blank" rel="noopener" role="menuitem">Boutique eBay</a>
     </div>
     <div class="site-header-actions">
-      <button type="button" class="btn-header-icon" id="searchToggle" aria-expanded="false" aria-controls="searchPanel" aria-label="Rechercher une série">
+      <button type="button" class="btn-header-icon" id="searchToggle" aria-expanded="false" aria-controls="searchOverlay" aria-label="Rechercher une série">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         <span class="hdr-btn-label">Rechercher</span>
       </button>
@@ -2332,17 +2513,6 @@
       </div>
       <button type="button" class="site-nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Ouvrir le menu">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </div>
-  <div class="header-search-panel" id="searchPanel" role="search">
-    <div class="header-search-inner">
-      <label class="header-search-field" for="search">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        <input type="search" id="search" placeholder="Rechercher une série…" autocomplete="off" aria-label="Rechercher une série" enterkeyhint="search">
-      </label>
-      <button type="button" class="header-search-close" id="searchClose" aria-label="Fermer la recherche">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
   </div>
@@ -2429,6 +2599,28 @@
 </div>
 
 <main id="main"></main>
+
+<div id="searchOverlay" class="auth-overlay search-overlay">
+  <div class="search-modal" role="dialog" aria-labelledby="searchModalTitle" aria-modal="true">
+    <button type="button" id="searchModalClose" class="auth-close" title="Fermer" aria-label="Fermer la recherche">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="search-modal-head">
+      <h2 id="searchModalTitle">Trouver une extension</h2>
+      <p class="search-modal-hint">Choisis un <strong>bloc</strong> (ère TCG) puis l’<strong>extension</strong>, ou filtre par <strong>année</strong> de sortie.</p>
+    </div>
+    <label class="search-modal-search header-search-field" for="searchModalInput">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" id="searchModalInput" placeholder="Nom, code, bloc ou année…" autocomplete="off" aria-label="Rechercher une extension" enterkeyhint="search">
+    </label>
+    <nav class="search-modal-crumb" id="searchModalCrumb" hidden></nav>
+    <div class="search-modal-tabs" id="searchModalTabs">
+      <button type="button" class="search-tab active" data-stab="block">Par bloc</button>
+      <button type="button" class="search-tab" data-stab="year">Par année</button>
+    </div>
+    <div class="search-modal-body" id="searchModalBody"></div>
+  </div>
+</div>
 
 <div id="proposeOverlay" class="auth-overlay">
   <div class="auth-modal">
@@ -3189,6 +3381,183 @@ let searchQuery = "";
 let sortMode = "date";
 let collapsedBlocks = new Set();
 
+const CATALOG_BLOCKS = ["Méga-Évolution","Écarlate et Violet","Épée et Bouclier","Soleil et Lune","XY","Noir et Blanc","HeartGold SoulSilver","Platine","Diamant et Perle","EX","e-Card","Wizards","Autre"];
+let searchModalTab = "block";
+let searchModalPick = null;
+let searchModalQuery = "";
+
+function seriesYear(entry){
+  if(!entry || !entry.date) return null;
+  const y = new Date(entry.date).getFullYear();
+  return isNaN(y) ? null : y;
+}
+
+function fmtSeriesDate(entry){
+  if(!entry || !entry.date) return "";
+  const d = new Date(entry.date);
+  return isNaN(d) ? "" : d.toLocaleDateString("fr-FR", {day:"2-digit", month:"short", year:"numeric"});
+}
+
+function filterSeriesEntries(query){
+  const q = (query || "").trim().toLowerCase();
+  if(!q) return [];
+  return getAllEntries().filter(e =>
+    e.name.toLowerCase().includes(q) ||
+    e.block.toLowerCase().includes(q) ||
+    (e.code && String(e.code).toLowerCase().includes(q)) ||
+    (entryYearMatches(e, q))
+  ).sort((a,b)=> new Date(b.date||0) - new Date(a.date||0));
+}
+
+function entryYearMatches(entry, q){
+  const y = seriesYear(entry);
+  return y != null && String(y).includes(q);
+}
+
+function searchPickItemHtml(entry){
+  const y = seriesYear(entry);
+  return `<button type="button" class="search-pick-item" data-series="${entry.id}">
+    <div class="search-pick-main">
+      <strong>${entry.name}</strong>
+      <span>${entry.block}${entry.code ? " · " + entry.code : ""}</span>
+    </div>
+    <div class="search-pick-meta">${y || "—"}<br>${fmtSeriesDate(entry) || ""}</div>
+  </button>`;
+}
+
+function bindSearchPickItems(root){
+  (root || document).querySelectorAll("[data-series]").forEach(btn=>{
+    btn.addEventListener("click", ()=> jumpToSeries(btn.dataset.series));
+  });
+}
+
+function renderSearchModalBody(){
+  const body = document.getElementById("searchModalBody");
+  const tabs = document.getElementById("searchModalTabs");
+  const crumb = document.getElementById("searchModalCrumb");
+  if(!body) return;
+
+  const q = searchModalQuery.trim();
+  if(q){
+    if(tabs) tabs.hidden = true;
+    if(crumb) crumb.hidden = true;
+    const hits = filterSeriesEntries(q);
+    body.innerHTML = hits.length
+      ? `<p class="search-section-label">Résultats (${hits.length})</p><div class="search-pick-list">${hits.map(searchPickItemHtml).join("")}</div>`
+      : `<div class="search-empty">Aucune extension ne correspond.</div>`;
+    bindSearchPickItems(body);
+    return;
+  }
+
+  if(searchModalPick){
+    if(tabs) tabs.hidden = true;
+    if(crumb){
+      crumb.hidden = false;
+      const label = searchModalPick.type === "block" ? searchModalPick.value : String(searchModalPick.value);
+      crumb.innerHTML = `<button type="button" class="search-crumb-btn" data-search-back>Tout</button><span class="search-crumb-sep">›</span><span class="search-crumb-current">${label}</span>`;
+      crumb.querySelector("[data-search-back]").addEventListener("click", ()=>{
+        searchModalPick = null;
+        renderSearchModalBody();
+      });
+    }
+    let list = getAllEntries();
+    if(searchModalPick.type === "block") list = list.filter(e=> e.block === searchModalPick.value);
+    else list = list.filter(e=> seriesYear(e) === searchModalPick.value);
+    list.sort((a,b)=> new Date(b.date||0) - new Date(a.date||0));
+    if(!list.length){
+      body.innerHTML = `<div class="search-empty">Aucune extension dans cette sélection.</div>`;
+      return;
+    }
+    if(searchModalPick.type === "block"){
+      const byYear = new Map();
+      list.forEach(e=>{
+        const y = seriesYear(e) || 0;
+        if(!byYear.has(y)) byYear.set(y, []);
+        byYear.get(y).push(e);
+      });
+      const years = [...byYear.keys()].sort((a,b)=> b - a);
+      body.innerHTML = years.map(y=>{
+        const items = byYear.get(y);
+        return `<p class="search-section-label">${y || "Date inconnue"}</p><div class="search-pick-list">${items.map(searchPickItemHtml).join("")}</div>`;
+      }).join("");
+    } else {
+      const byBlock = new Map();
+      list.forEach(e=>{
+        if(!byBlock.has(e.block)) byBlock.set(e.block, []);
+        byBlock.get(e.block).push(e);
+      });
+      body.innerHTML = [...byBlock.entries()].map(([block, items]) =>
+        `<p class="search-section-label">${block}</p><div class="search-pick-list">${items.map(searchPickItemHtml).join("")}</div>`
+      ).join("");
+    }
+    bindSearchPickItems(body);
+    return;
+  }
+
+  if(tabs) tabs.hidden = false;
+  if(crumb) crumb.hidden = true;
+  const entries = getAllEntries();
+
+  if(searchModalTab === "year"){
+    const yearCounts = new Map();
+    entries.forEach(e=>{
+      const y = seriesYear(e);
+      if(y == null) return;
+      yearCounts.set(y, (yearCounts.get(y) || 0) + 1);
+    });
+    const years = [...yearCounts.keys()].sort((a,b)=> b - a);
+    body.innerHTML = `<p class="search-section-label">Année de sortie</p><div class="search-year-grid">${years.map(y=>
+      `<button type="button" class="search-year-btn" data-pick-year="${y}">${y}<small>${yearCounts.get(y)} ext.</small></button>`
+    ).join("")}</div>`;
+    body.querySelectorAll("[data-pick-year]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        searchModalPick = { type:"year", value: Number(btn.dataset.pickYear) };
+        renderSearchModalBody();
+      });
+    });
+    return;
+  }
+
+  const blockCounts = new Map();
+  CATALOG_BLOCKS.forEach(b=> blockCounts.set(b, 0));
+  entries.forEach(e=> blockCounts.set(e.block, (blockCounts.get(e.block) || 0) + 1));
+  body.innerHTML = `<p class="search-section-label">Bloc TCG (ère)</p><div class="search-block-grid">${CATALOG_BLOCKS.filter(b=> blockCounts.get(b)).map(b=>
+    `<button type="button" class="search-block-btn" data-pick-block="${b}"><strong>${b}</strong><span>${blockCounts.get(b)} extension${blockCounts.get(b)>1?"s":""}</span></button>`
+  ).join("")}</div>`;
+  body.querySelectorAll("[data-pick-block]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      searchModalPick = { type:"block", value: btn.dataset.pickBlock };
+      renderSearchModalBody();
+    });
+  });
+}
+
+function jumpToSeries(id){
+  closeSearchModal();
+  setView("catalog");
+  searchQuery = "";
+  render();
+  requestAnimationFrame(()=>{
+    const el = document.getElementById("card-" + id);
+    if(el){
+      el.scrollIntoView({ behavior:"smooth", block:"center" });
+      el.classList.add("jump-highlight");
+      setTimeout(()=> el.classList.remove("jump-highlight"), 1200);
+    }
+  });
+}
+
+function resetSearchModalState(){
+  searchModalTab = "block";
+  searchModalPick = null;
+  searchModalQuery = "";
+  const input = document.getElementById("searchModalInput");
+  if(input) input.value = "";
+  document.querySelectorAll(".search-tab").forEach(t=>{
+    t.classList.toggle("active", t.dataset.stab === "block");
+  });
+}
+
 const ICONS = {
   spark:   `<path d="M12 2 L14 10 L21 12 L14 14 L12 22 L10 14 L3 12 L10 10 Z"/>`,
   leaf:    `<path d="M4 20C4 10 12 4 20 4C20 12 14 20 4 20Z"/><path d="M4 20C8 16 12 12 20 4" fill="none" stroke="currentColor" stroke-width="1.4"/>`,
@@ -3469,7 +3838,7 @@ function consensusHint(entry, field){
 function renderLogoNav(entries){
   const nav = document.getElementById("logoNav");
   const band = document.getElementById("collectionsBand");
-  const blocks = ["Méga-Évolution","Écarlate et Violet","Épée et Bouclier","Soleil et Lune","XY","Noir et Blanc","HeartGold SoulSilver","Platine","Diamant et Perle","EX","e-Card","Wizards","Autre"];
+  const blocks = CATALOG_BLOCKS;
   const picks = [];
   blocks.forEach(block=>{
     const inBlock = entries.filter(e=>e.block===block && e.logo);
@@ -3535,7 +3904,7 @@ function render(){
 
   renderLogoNav(entries);
 
-  const blocks = ["Méga-Évolution","Écarlate et Violet","Épée et Bouclier","Soleil et Lune","XY","Noir et Blanc","HeartGold SoulSilver","Platine","Diamant et Perle","EX","e-Card","Wizards","Autre"];
+  const blocks = CATALOG_BLOCKS;
   const main = document.getElementById("main");
 
   if(entries.length === 0){
@@ -4090,10 +4459,6 @@ document.getElementById("logoNav").addEventListener("click", e=>{
     setTimeout(()=>target.classList.remove("jump-highlight"), 1200);
   }
 });
-document.getElementById("search").addEventListener("input", e=>{
-  searchQuery = (e.target.value || "").trim().toLowerCase();
-  render();
-});
 document.getElementById("footerCatalogLink").addEventListener("click", e=>{
   e.preventDefault();
   setView("catalog");
@@ -4110,7 +4475,7 @@ document.addEventListener("keydown", e=>{
   const modalOpen = document.querySelector(".auth-overlay.open");
   if(e.key === "/" && tag !== "INPUT" && tag !== "TEXTAREA" && tag !== "SELECT" && !modalOpen){
     e.preventDefault();
-    openSearchPanel();
+    openSearchModal();
   }
 });
 
@@ -4123,22 +4488,24 @@ function closeNavMenu(){
   if(toggle) toggle.setAttribute("aria-expanded", "false");
 }
 
-function closeSearchPanel(){
-  const panel = document.getElementById("searchPanel");
+function closeSearchModal(){
+  const overlay = document.getElementById("searchOverlay");
   const btn = document.getElementById("searchToggle");
-  if(panel) panel.classList.remove("open");
-  if(btn) btn.classList.remove("active");
-  if(btn) btn.setAttribute("aria-expanded", "false");
+  if(overlay) overlay.classList.remove("open");
+  if(btn){ btn.classList.remove("active"); btn.setAttribute("aria-expanded", "false"); }
 }
 
-function openSearchPanel(){
+function openSearchModal(){
   closeAccountMenu();
-  const panel = document.getElementById("searchPanel");
+  closeNavMenu();
+  resetSearchModalState();
+  const overlay = document.getElementById("searchOverlay");
   const btn = document.getElementById("searchToggle");
-  const input = document.getElementById("search");
-  if(panel) panel.classList.add("open");
+  const input = document.getElementById("searchModalInput");
+  if(overlay) overlay.classList.add("open");
   if(btn){ btn.classList.add("active"); btn.setAttribute("aria-expanded", "true"); }
-  if(input) setTimeout(()=>input.focus(), 50);
+  renderSearchModalBody();
+  if(input) setTimeout(()=> input.focus(), 50);
 }
 
 function closeAccountMenu(){
@@ -4149,17 +4516,17 @@ function closeAccountMenu(){
 }
 
 function openAccountMenu(){
-  closeSearchPanel();
+  closeSearchModal();
   const menu = document.getElementById("accountMenu");
   const btn = document.getElementById("accountBtn");
   if(menu){ menu.classList.add("open"); menu.hidden = false; }
   if(btn) btn.setAttribute("aria-expanded", "true");
 }
 
-function toggleSearchPanel(){
-  const panel = document.getElementById("searchPanel");
-  if(panel && panel.classList.contains("open")) closeSearchPanel();
-  else openSearchPanel();
+function toggleSearchModal(){
+  const overlay = document.getElementById("searchOverlay");
+  if(overlay && overlay.classList.contains("open")) closeSearchModal();
+  else openSearchModal();
 }
 
 function setView(view, opts){
@@ -4177,7 +4544,7 @@ function setView(view, opts){
     el.classList.toggle("active", el.dataset.navView === navView);
   });
   closeNavMenu();
-  closeSearchPanel();
+  closeSearchModal();
   closeAccountMenu();
   if(opts.scroll !== false) window.scrollTo(0, 0);
   if(opts.hash !== false){
@@ -4220,7 +4587,7 @@ document.getElementById("heroGoHelp").addEventListener("click", ()=> setView("he
 document.getElementById("heroScrollCatalog").addEventListener("click", ()=>{
   const main = document.getElementById("main");
   if(main) main.scrollIntoView({ behavior: "smooth", block: "start" });
-  else document.getElementById("search").focus();
+  else openSearchModal();
 });
 document.getElementById("showDistrib").addEventListener("click", ()=>{ setView("distrib"); setupDistribPins(); });
 document.getElementById("navToggle").addEventListener("click", ()=>{
@@ -4498,17 +4865,35 @@ document.getElementById("menuLogout").addEventListener("click", ()=>{
 });
 document.getElementById("searchToggle").addEventListener("click", e=>{
   e.stopPropagation();
-  toggleSearchPanel();
+  toggleSearchModal();
 });
-document.getElementById("searchClose").addEventListener("click", ()=> closeSearchPanel());
+document.getElementById("searchModalClose").addEventListener("click", ()=> closeSearchModal());
+document.getElementById("searchOverlay").addEventListener("click", e=>{
+  if(e.target.id === "searchOverlay") closeSearchModal();
+});
+document.getElementById("searchModalInput").addEventListener("input", e=>{
+  searchModalQuery = e.target.value || "";
+  searchModalPick = null;
+  renderSearchModalBody();
+});
+document.querySelectorAll(".search-tab").forEach(tab=>{
+  tab.addEventListener("click", ()=>{
+    searchModalTab = tab.dataset.stab || "block";
+    searchModalPick = null;
+    document.querySelectorAll(".search-tab").forEach(t=>{
+      t.classList.toggle("active", t.dataset.stab === searchModalTab);
+    });
+    renderSearchModalBody();
+  });
+});
 document.addEventListener("click", e=>{
   if(!e.target.closest("#accountMenuWrap")) closeAccountMenu();
-  if(!e.target.closest("#searchPanel") && !e.target.closest("#searchToggle")) closeSearchPanel();
 });
 document.addEventListener("keydown", e=>{
   if(e.key === "Escape"){
-    closeSearchPanel();
-    closeAccountMenu();
+    const searchOpen = document.getElementById("searchOverlay")?.classList.contains("open");
+    if(searchOpen) closeSearchModal();
+    else closeAccountMenu();
   }
 });
 document.getElementById("authClose").addEventListener("click", closeAuth);
