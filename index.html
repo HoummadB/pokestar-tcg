@@ -2522,7 +2522,7 @@
 </div>
 
 <footer>
-  <strong>À propos des prix :</strong> la cote Pokestar est vérifiée par l'équipe ou confirmée par consensus communautaire (3 propositions à 60 %+). Les repères <strong>Cardmarket</strong> (moyenne / tendance) sont injectés depuis le guide des prix officiel, mis à jour quotidiennement — affichés directement sur chaque carte. <strong>eBay vendu</strong> n'a pas d'API publique fiable : utilise le lien discret pour consulter les ventes terminées et proposer ta cote. <span class="cm-market-note" id="cmMarketUpdated"></span>
+  <strong>À propos des prix :</strong> la cote Pokestar est vérifiée par l'équipe ou confirmée par consensus communautaire (3 propositions à 60 %+). Sans cote communautaire, le prix affiché repose sur la tendance <strong>Cardmarket</strong> UE (guide officiel, maj quotidienne). <strong>eBay vendu</strong> n'a pas d'API publique fiable : utilise le lien discret pour consulter les ventes terminées et proposer ta cote. <span class="cm-market-note" id="cmMarketUpdated"></span>
 </footer>
 
 <div class="copyright">© Pokestar — TCG &amp; Distributeurs · <button id="showLegal" class="legal-link">Mentions légales &amp; Confidentialité</button></div>
@@ -2564,7 +2564,7 @@
     <div class="legal-content">
       <h2>Comprendre les prix affichés</h2>
       <p><strong>Cote Pokestar</strong> : prix vérifié par l'équipe ou confirmé par la communauté (au moins 3 propositions avec 60 % d'accord).</p>
-      <p><strong>Repère Cardmarket UE</strong> : moyenne et tendance issues du guide officiel, mis à jour quotidiennement. Ce repère couvre le marché UE, pas uniquement les vendeurs français.</p>
+      <p><strong>Repère Cardmarket UE</strong> : tendance issue du guide officiel, mise à jour quotidiennement. Ce repère couvre le marché UE, pas uniquement les vendeurs français.</p>
       <p><strong>eBay vendu</strong> : lien externe vers les ventes terminées — pas d'API fiable, à consulter avant de proposer ta cote.</p>
     </div>
   </div>
@@ -3420,7 +3420,6 @@ function priceCell(entry, field, label){
         <span class="product-price-main">${shownTxt}<span class="euro">€</span></span>
         ${trend}
       </div>
-      ${cmRefLine(entry, field, { trendShown: !!shown.source })}
       <button class="propose-btn" data-propose="${entry.id}" data-proposefield="${field}" title="Proposer un prix">Proposer</button>
       ${consensusHint(entry, field)}
     </div>
