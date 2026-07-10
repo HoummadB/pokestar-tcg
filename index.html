@@ -4679,11 +4679,9 @@ function openSearchModal(){
   resetSearchModalState();
   const overlay = document.getElementById("searchOverlay");
   const btn = document.getElementById("searchToggle");
-  const input = document.getElementById("searchModalInput");
   if(overlay) overlay.classList.add("open");
   if(btn){ btn.classList.add("active"); btn.setAttribute("aria-expanded", "true"); }
   renderSearchModalBody();
-  if(input) setTimeout(()=> input.focus(), 50);
 }
 
 function closeAccountMenu(){
