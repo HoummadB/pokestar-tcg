@@ -3108,7 +3108,7 @@
 </div>
 
 <footer>
-  <strong>À propos des prix :</strong> la cote Pokestar est vérifiée par l'équipe ou confirmée par consensus communautaire (3 propositions à 60 %+). Sans cote communautaire, le prix affiché repose sur la tendance <strong>Cardmarket</strong> UE (guide officiel, maj quotidienne). <strong>eBay vendu</strong> n'a pas d'API publique fiable : utilise le lien discret pour consulter les ventes terminées et proposer ta cote. <span class="cm-market-note" id="cmMarketUpdated"></span>
+  <strong>À propos des prix :</strong> la cote Pokestar est vérifiée par l'équipe ou confirmée par consensus communautaire (3 propositions à 60 %+). Sans cote communautaire, le prix affiché repose sur la tendance <strong>Cardmarket</strong> UE ; la <strong>moyenne</strong> CM est indiquée sous chaque carte (guide officiel, maj quotidienne). <strong>eBay vendu</strong> n'a pas d'API publique fiable : utilise le lien discret pour consulter les ventes terminées et proposer ta cote. <span class="cm-market-note" id="cmMarketUpdated"></span>
 </footer>
 
 <div class="copyright">© Pokestar — TCG &amp; Distributeurs · <button id="showLegal" class="legal-link">Mentions légales &amp; Confidentialité</button></div>
@@ -3244,7 +3244,7 @@
     <div class="legal-content">
       <h2>Comprendre les prix affichés</h2>
       <p><strong>Cote Pokestar</strong> : prix vérifié par l'équipe ou confirmé par la communauté (au moins 3 propositions avec 60 % d'accord).</p>
-      <p><strong>Repère Cardmarket UE</strong> : tendance issue du guide officiel, mise à jour quotidiennement. Ce repère couvre le marché UE, pas uniquement les vendeurs français.</p>
+      <p><strong>Repère Cardmarket UE</strong> : tendance en prix principal, moyenne affichée en repère secondaire — guide officiel, mis à jour quotidiennement. Ce repère couvre le marché UE, pas uniquement les vendeurs français.</p>
       <p><strong>eBay vendu</strong> : lien externe vers les ventes terminées — pas d'API fiable, à consulter avant de proposer ta cote.</p>
     </div>
   </div>
@@ -3553,12 +3553,9 @@ function cmRefLine(entry, field, opts){
   opts = opts || {};
   const ref = cmFieldRef(entry, field);
   if(!ref) return "";
-  const bits = [];
   const avgVal = ref.avg != null ? ref.avg : (!opts.trendShown && ref.trend != null ? ref.trend : null);
-  if(avgVal != null) bits.push("moy. " + fmtEur(avgVal) + " €");
-  if(ref.trend != null && !opts.trendShown && ref.avg != null) bits.push("tend. " + fmtEur(ref.trend) + " €");
-  if(!bits.length) return "";
-  return `<div class="cm-ref" title="Cardmarket — repère marché UE (maj quotidienne)"><span class="cm-ref-tag">CM UE</span>${bits.join(" · ")}</div>`;
+  if(avgVal == null) return "";
+  return `<div class="cm-ref" title="Cardmarket — moyenne marché UE (maj quotidienne)"><span class="cm-ref-tag">CM UE</span>moy. ${fmtEur(avgVal)} €</div>`;
 }
 
 function cmDisplayPrice(entry, field, communityVal){
@@ -4416,6 +4413,7 @@ function priceCell(entry, field, label){
         <span class="product-price-main">${shownTxt}<span class="euro">€</span></span>
         ${trend}
       </div>
+      ${cmRefLine(entry, field, { trendShown: !!shown.source })}
       <button class="propose-btn" data-propose="${entry.id}" data-proposefield="${field}" title="Proposer un prix">Proposer</button>
       ${consensusHint(entry, field)}
     </div>
