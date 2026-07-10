@@ -10,6 +10,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta name="description" content="Pokestar — boutique et cote de référence des boosters Pokémon TCG par série.">
 
 <meta property="og:type" content="website">
@@ -2023,23 +2024,6 @@
     }
     .site-header-actions .btn-header-account #accountLabel{display:none;}
     .distrib-wrap{padding:16px 16px 48px;}
-    .distrib-loc-block{
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-      margin:12px 0 28px;
-    }
-    .loc-grid{grid-template-columns:1fr;}
-    .loc-card{position:relative;z-index:1;}
-    .distrib-loc-block .france-map{
-      width:100%;
-      max-width:100%;
-      margin:0 auto;
-      overflow:hidden;
-      border-radius:12px;
-      background:var(--surface);
-      isolation:isolate;
-    }
     .find-us .france-map{animation:none;}
 
     .machines{grid-template-columns:1fr;gap:12px;}
@@ -2368,16 +2352,27 @@
     margin:30px 0 50px;
   }
   .distrib-loc-block{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(220px,340px);
+    display:flex;
+    flex-direction:column;
     gap:20px;
-    align-items:start;
     margin:8px 0 36px;
   }
   .loc-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    display:flex;
+    flex-direction:column;
     gap:12px;
+    width:100%;
+  }
+  @media(min-width:769px){
+    .distrib-loc-block{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(220px,340px);
+      align-items:start;
+    }
+    .loc-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    }
   }
   .loc-card{
     background:linear-gradient(145deg, rgba(37,31,51,0.9), rgba(20,16,30,0.95));
@@ -2419,7 +2414,15 @@
     border-radius:999px;
     padding:4px 10px;
   }
-  .distrib-loc-block .france-map{margin:0;max-width:none;}
+  .distrib-loc-block .france-map{
+    margin:0;
+    max-width:none;
+    width:100%;
+    overflow:hidden;
+    border-radius:12px;
+    background:var(--surface);
+    isolation:isolate;
+  }
   .machine-card{
     background:var(--surface);
     border:1px solid var(--line);
@@ -5249,10 +5252,14 @@ function setView(view, opts){
   syncMobileTabs(mobileTabForView(view));
   if(opts.scroll !== false){
     resetPageScroll();
+    setTimeout(resetPageScroll, 0);
     requestAnimationFrame(()=>{
       resetPageScroll();
       requestAnimationFrame(resetPageScroll);
     });
+    if(view === "distrib"){
+      setTimeout(resetPageScroll, 60);
+    }
   }
   updateTabHomeScrollMode();
   if(opts.hash !== false){
