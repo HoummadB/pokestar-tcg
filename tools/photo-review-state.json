@@ -65,6 +65,10 @@
     "me05:display": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/", "note": "Display Nuit Noire issu de la source officielle Pokémon." },
     "me05:etb": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/", "note": "ETB Nuit Noire issu de la source officielle Pokémon." },
 
+    "sl16:booster": { "status": "valid", "confidence": "medium", "source": "", "note": "Pack Détective Pikachu de 2 cartes : visuel cohérent avec le format Booster retenu par le catalogue." },
+    "sl16:display": { "status": "wrong", "confidence": "high", "source": "", "note": "Le fichier montre un pack de 4 cartes, pas un display Détective Pikachu." },
+    "sl16:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Le fichier montre une Case File Détective Pikachu, pas un Coffret Dresseur d’Élite." },
+
     "ex01:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
     "ex01:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
     "ex01:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },

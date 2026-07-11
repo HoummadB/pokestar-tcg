@@ -457,8 +457,8 @@
   function heroPath(id){return manifest.photos?.[id]?.hero || "";}
   function assetUrl(path){return path ? `${ROOT}/${path}${path.includes("?")?"&":"?"}v=${encodeURIComponent(manifest.version || "review")}` : "";}
   function decisionStatus(key){return review.decisions?.[key]?.status || "";}
-  function isTreated(key){return ["valid","not-applicable"].includes(decisionStatus(key));}
-  function draftHasContent(draft){return !!(draft && (draft.imageId || draft.imageUrl?.trim() || draft.comment?.trim() || draft.reusePath?.trim() || draft.swapWith));}
+  function isTreated(key){return ["valid","wrong","not-applicable"].includes(decisionStatus(key));}
+  function draftHasContent(draft){return !!(draft && (draft.action==="mark-wrong" || draft.imageId || draft.imageUrl?.trim() || draft.comment?.trim() || draft.reusePath?.trim() || draft.swapWith));}
 
   function loadDrafts(){
     try{drafts=JSON.parse(localStorage.getItem(DRAFT_KEY) || "{}") || {};}catch(_error){drafts={};}
@@ -557,13 +557,14 @@
     const meta=FIELD_META[field];
     const draft=drafts[key] || {};
     const hasDraft=draftHasContent(draft);
+    const wrongDraft=draft.action==="mark-wrong";
     const treated=isTreated(key);
     const current=photoPath(item.id,field);
     const shownPath=draft.reusePath || current;
     const currentSrc=assetUrl(shownPath);
     const pastedSrc=imageUrls.get(key) || draft.imageUrl || assetUrl(draft.reusePath);
     let pill="À examiner",pillClass="";
-    if(hasDraft){pill="Dans le panier";pillClass="cart";}
+    if(hasDraft){pill=wrongDraft?"À retirer":"Dans le panier";pillClass="cart";}
     else if(treated){pill="Déjà traité";pillClass="treated";}
     else if(!current){pill="Sans image";pillClass="missing";}
     const currentImage=currentSrc?`<img src="${escapeHtml(currentSrc)}" alt="${escapeHtml(meta.label)} ${escapeHtml(item.name)}" loading="lazy" decoding="async" draggable="false">`:`<div class="empty-image">Aucune image publiée</div>`;
@@ -603,7 +604,8 @@
         <div class="correction-actions">
           <button class="button" data-action="file" type="button">Choisir une image</button>
           <input class="hidden" data-role="file" type="file" accept="image/png,image/jpeg,image/webp,image/avif">
-          ${hasDraft?`<button class="button danger" data-action="remove" type="button">Retirer du panier</button>`:""}
+          <button class="button danger" data-action="${wrongDraft?"unmark-wrong":"mark-wrong"}" type="button" title="Marque ce visuel comme non lié : il sera retiré jusqu’à son remplacement">${wrongDraft?"↶ Annuler le retrait":"✕ Mauvais visuel"}</button>
+          ${hasDraft&&!wrongDraft?`<button class="button danger" data-action="remove" type="button">Retirer du panier</button>`:""}
         </div>
         ${draft.imageId?`<div class="draft-hint attachment">Image jointe : <strong>${escapeHtml(draft.imageName || "fichier image")}</strong> · incluse dans le JSON.</div>`:""}
         ${!draft.imageId && draft.imageUrl?`<div class="draft-hint attachment">Lien image renseigné · il sera transmis dans le JSON.</div>`:""}
@@ -692,13 +694,14 @@
   function updateSlotState(slot,key){
     const draft=drafts[key] || {};
     const hasDraft=draftHasContent(draft);
+    const wrongDraft=draft.action==="mark-wrong";
     const treated=isTreated(key);
     const missing=!photoPath(slot.dataset.id,slot.dataset.field);
     slot.classList.toggle("in-cart",hasDraft);
     const pill=slot.querySelector(".status-pill");
     if(pill){
       pill.className="status-pill";
-      if(hasDraft){pill.textContent="Dans le panier";pill.classList.add("cart");}
+      if(hasDraft){pill.textContent=wrongDraft?"À retirer":"Dans le panier";pill.classList.add("cart");}
       else if(treated){pill.textContent="Déjà traité";pill.classList.add("treated");}
       else if(missing){pill.textContent="Sans image";pill.classList.add("missing");}
       else pill.textContent="À examiner";
@@ -791,6 +794,18 @@
     if(pairKey && drafts[pairKey]?.swapWith===key) await discardDraft(pairKey);
     saveDrafts();
     if(rerender) renderPreservingScroll();
+  }
+
+  async function toggleWrongDraft(slot){
+    const key=keyFor(slot.dataset.id,slot.dataset.field);
+    if(drafts[key]?.action==="mark-wrong"){
+      await removeDraft(key);
+      toast("Retrait annulé : le visuel reste à examiner.","success");
+      return;
+    }
+    const previous=drafts[key] || baseDraft(slot);
+    drafts[key]={...previous,action:"mark-wrong",comment:previous.comment || "Visuel non lié — à retirer jusqu’à correction.",updatedAt:new Date().toISOString()};
+    saveDrafts();renderPreservingScroll();toast("Visuel marqué comme mauvais : il sera retiré à l’application du panier.","success");
   }
 
   function cleanupDragUi(){
@@ -926,6 +941,7 @@
     if(action.dataset.action==="file") slot.querySelector('[data-role="file"]').click();
     if(action.dataset.action==="clipboard") await readClipboard(slot);
     if(action.dataset.action==="remove") await removeDraft(keyFor(slot.dataset.id,slot.dataset.field));
+    if(action.dataset.action==="mark-wrong" || action.dataset.action==="unmark-wrong") await toggleWrongDraft(slot);
     if(action.dataset.action==="paste-zone") action.focus();
   }
 
