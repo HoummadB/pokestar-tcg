@@ -1,13 +1,13 @@
 {
-  "version": "20260710-local-v8",
-  "generatedAt": "2026-07-10",
+  "version": "20260711-local-v9",
+  "generatedAt": "2026-07-11",
   "basePath": "assets/product-photos",
   "fields": [
     "booster",
     "display",
     "etb"
   ],
-  "count": 339,
+  "count": 285,
   "notes": "Les 15 références ETB du bloc EX ont été retirées après audit visuel : aucun n'est un ETB vérifiable.",
   "excluded": {
     "etb": [
@@ -260,19 +260,16 @@
     "dp01": {
       "booster": "assets/product-photos/dp01/booster.jpg",
       "display": "assets/product-photos/dp01/display.png",
-      "etb": "assets/product-photos/dp01/etb.png",
       "hero": "assets/series-logos/dp01.webp"
     },
     "dp02": {
       "booster": "assets/product-photos/dp02/booster.png",
       "display": "assets/product-photos/dp02/display.png",
-      "etb": "assets/product-photos/dp02/etb.png",
       "hero": "assets/series-logos/dp02.webp"
     },
     "dp03": {
       "booster": "assets/product-photos/dp03/booster.png",
       "display": "assets/product-photos/dp03/display.jpg",
-      "etb": "assets/product-photos/dp03/etb.jpg",
       "hero": "assets/series-logos/dp03.webp"
     },
     "dp04": {
@@ -290,13 +287,11 @@
     "dp06": {
       "booster": "assets/product-photos/dp06/booster.png",
       "display": "assets/product-photos/dp06/display.jpg",
-      "etb": "assets/product-photos/dp06/etb.jpg",
       "hero": "assets/series-logos/dp06.webp"
     },
     "dp07": {
       "booster": "assets/product-photos/dp07/booster.jpg",
       "display": "assets/product-photos/dp07/display.png",
-      "etb": "assets/product-photos/dp07/etb.jpg",
       "hero": "assets/series-logos/dp07.webp"
     },
     "eb01": {
@@ -342,9 +337,8 @@
       "hero": "assets/series-logos/eb07.webp"
     },
     "eb08": {
-      "booster": "assets/product-photos/eb08/booster.png",
-      "display": "assets/product-photos/eb08/display.png",
-      "etb": "assets/product-photos/eb08/etb.png",
+      "booster": "assets/product-photos/eb08/etb.png",
+      "etb": "assets/product-photos/eb08/booster.png",
       "hero": "assets/series-logos/eb08.webp"
     },
     "eb09": {
@@ -379,26 +373,23 @@
     },
     "eb14": {
       "booster": "assets/product-photos/eb14/booster.png",
-      "display": "assets/product-photos/eb14/display.png",
       "etb": "assets/product-photos/eb14/etb.png",
       "hero": "assets/series-logos/eb14.webp"
     },
     "eb15": {
       "booster": "assets/product-photos/eb15/booster.png",
-      "display": "assets/product-photos/eb15/display.png",
       "etb": "assets/product-photos/eb15/etb.png",
       "hero": "assets/series-logos/eb15.webp"
     },
     "eb16": {
       "booster": "assets/product-photos/eb16/booster.png",
-      "display": "assets/product-photos/eb16/display.png",
       "etb": "assets/product-photos/eb16/etb.png",
       "hero": "assets/series-logos/eb16.webp"
     },
     "eb17": {
       "booster": "assets/product-photos/eb17/booster.png",
-      "display": "assets/product-photos/eb17/display.png",
-      "etb": "assets/product-photos/eb17/etb.png",
+      "display": "assets/product-photos/eb17/etb.png",
+      "etb": "assets/product-photos/eb17/display.png",
       "hero": "assets/series-logos/eb17.webp"
     },
     "ec02": {
@@ -439,7 +430,6 @@
     },
     "ev045": {
       "booster": "assets/product-photos/ev045/booster.png",
-      "display": "assets/product-photos/ev045/display.png",
       "etb": "assets/product-photos/ev045/etb.png",
       "hero": "assets/series-logos/ev045.webp"
     },
@@ -457,7 +447,6 @@
     },
     "ev065": {
       "booster": "assets/product-photos/ev065/booster.png",
-      "display": "assets/product-photos/ev065/display.png",
       "etb": "assets/product-photos/ev065/etb.png",
       "hero": "assets/series-logos/ev065.webp"
     },
@@ -475,14 +464,11 @@
     },
     "ev085": {
       "booster": "assets/product-photos/ev085/booster.png",
-      "display": "assets/product-photos/ev085/display.png",
-      "etb": "assets/product-photos/ev085/etb.png",
       "hero": "assets/series-logos/ev085.webp"
     },
     "ev09": {
       "booster": "assets/product-photos/ev09/booster.png",
       "display": "assets/product-photos/ev09/display.png",
-      "etb": "assets/product-photos/ev09/etb.png",
       "hero": "assets/series-logos/ev09.webp"
     },
     "ev10": {
@@ -493,19 +479,16 @@
     },
     "ev105a": {
       "booster": "assets/product-photos/ev105a/booster.png",
-      "display": "assets/product-photos/ev105a/display.png",
       "etb": "assets/product-photos/ev105a/etb.png",
       "hero": "assets/series-logos/ev105a.webp"
     },
     "ev105b": {
       "booster": "assets/product-photos/ev105b/booster.png",
-      "display": "assets/product-photos/ev105b/display.png",
       "etb": "assets/product-photos/ev105b/etb.png",
       "hero": "assets/series-logos/ev105b.webp"
     },
     "ev151": {
       "booster": "assets/product-photos/ev151/booster.jpg",
-      "display": "assets/product-photos/ev151/display.png",
       "etb": "assets/product-photos/ev151/etb.png",
       "hero": "assets/series-logos/ev151.webp"
     },
@@ -587,31 +570,26 @@
     "hs01": {
       "booster": "assets/product-photos/hs01/booster.png",
       "display": "assets/product-photos/hs01/display.png",
-      "etb": "assets/product-photos/hs01/etb.png",
       "hero": "assets/series-logos/hs01.webp"
     },
     "hs02": {
       "booster": "assets/product-photos/hs02/booster.jpg",
       "display": "assets/product-photos/hs02/display.png",
-      "etb": "assets/product-photos/hs02/etb.png",
       "hero": "assets/series-logos/hs02.webp"
     },
     "hs03": {
       "booster": "assets/product-photos/hs03/booster.png",
       "display": "assets/product-photos/hs03/display.png",
-      "etb": "assets/product-photos/hs03/etb.png",
       "hero": "assets/series-logos/hs03.webp"
     },
     "hs04": {
       "booster": "assets/product-photos/hs04/booster.jpg",
       "display": "assets/product-photos/hs04/display.png",
-      "etb": "assets/product-photos/hs04/etb.png",
       "hero": "assets/series-logos/hs04.webp"
     },
     "hs05": {
       "booster": "assets/product-photos/hs05/booster.png",
       "display": "assets/product-photos/hs05/display.png",
-      "etb": "assets/product-photos/hs05/etb.png",
       "hero": "assets/series-logos/hs05.webp"
     },
     "me01": {
@@ -628,7 +606,6 @@
     },
     "me025": {
       "booster": "assets/product-photos/me025/booster.jpg",
-      "display": "assets/product-photos/me025/display.png",
       "etb": "assets/product-photos/me025/etb.png",
       "hero": "assets/series-logos/me025.webp"
     },
@@ -640,12 +617,10 @@
     },
     "me04": {
       "booster": "assets/product-photos/me04/booster.png",
-      "display": "assets/product-photos/me04/display.png",
       "etb": "assets/product-photos/me04/etb.png",
       "hero": "assets/series-logos/me04.webp"
     },
     "me05": {
-      "booster": "assets/product-photos/me05/booster.png",
       "display": "assets/product-photos/me05/display.png",
       "etb": "assets/product-photos/me05/etb.png",
       "hero": "assets/series-logos/me05.webp"
@@ -653,79 +628,66 @@
     "nb01": {
       "booster": "assets/product-photos/nb01/booster.jpg",
       "display": "assets/product-photos/nb01/display.png",
-      "etb": "assets/product-photos/nb01/etb.png",
       "hero": "assets/series-logos/nb01.webp"
     },
     "nb02": {
       "booster": "assets/product-photos/nb02/booster.png",
-      "display": "assets/product-photos/nb02/display.png",
-      "etb": "assets/product-photos/nb02/etb.png",
       "hero": "assets/series-logos/nb02.webp"
     },
     "nb03": {
       "booster": "assets/product-photos/nb03/booster.jpg",
       "display": "assets/product-photos/nb03/display.png",
-      "etb": "assets/product-photos/nb03/etb.png",
       "hero": "assets/series-logos/nb03.webp"
     },
     "nb04": {
       "booster": "assets/product-photos/nb04/booster.png",
       "display": "assets/product-photos/nb04/display.png",
-      "etb": "assets/product-photos/nb04/etb.png",
       "hero": "assets/series-logos/nb04.webp"
     },
     "nb05": {
       "booster": "assets/product-photos/nb05/booster.png",
       "display": "assets/product-photos/nb05/display.png",
-      "etb": "assets/product-photos/nb05/etb.png",
       "hero": "assets/series-logos/nb05.webp"
     },
     "nb06": {
       "booster": "assets/product-photos/nb06/booster.jpg",
       "display": "assets/product-photos/nb06/display.png",
-      "etb": "assets/product-photos/nb06/etb.png",
       "hero": "assets/series-logos/nb06.webp"
     },
     "nb07": {
       "booster": "assets/product-photos/nb07/booster.jpg",
       "display": "assets/product-photos/nb07/display.png",
-      "etb": "assets/product-photos/nb07/etb.png",
       "hero": "assets/series-logos/nb07.webp"
     },
     "nb08": {
       "booster": "assets/product-photos/nb08/booster.jpg",
-      "display": "assets/product-photos/nb08/display.png",
-      "etb": "assets/product-photos/nb08/etb.png",
+      "display": "assets/product-photos/nb08/etb.png",
+      "etb": "assets/product-photos/nb08/display.png",
       "hero": "assets/series-logos/nb08.webp"
     },
     "nb09": {
       "booster": "assets/product-photos/nb09/booster.png",
       "display": "assets/product-photos/nb09/display.png",
-      "etb": "assets/product-photos/nb09/etb.png",
       "hero": "assets/series-logos/nb09.webp"
     },
     "nb10": {
       "booster": "assets/product-photos/nb10/booster.png",
       "display": "assets/product-photos/nb10/display.png",
-      "etb": "assets/product-photos/nb10/etb.png",
       "hero": "assets/series-logos/nb10.webp"
     },
     "pl01": {
       "booster": "assets/product-photos/pl01/booster.png",
       "display": "assets/product-photos/pl01/display.png",
-      "etb": "assets/product-photos/pl01/etb.png",
       "hero": "assets/series-logos/pl01.webp"
     },
     "pl02": {
       "booster": "assets/product-photos/pl02/booster.jpg",
       "display": "assets/product-photos/pl02/display.png",
-      "etb": "assets/product-photos/pl02/etb.png",
       "hero": "assets/series-logos/pl02.webp"
     },
     "pl03": {
       "booster": "assets/product-photos/pl03/booster.png",
       "display": "assets/product-photos/pl03/display.png",
-      "etb": "assets/product-photos/pl03/etb.png",
       "hero": "assets/series-logos/pl03.webp"
     },
     "sl01": {
@@ -772,8 +734,6 @@
     },
     "sl08": {
       "booster": "assets/product-photos/sl08/booster.png",
-      "display": "assets/product-photos/sl08/display.png",
-      "etb": "assets/product-photos/sl08/etb.png",
       "hero": "assets/series-logos/sl08.webp"
     },
     "sl09": {
@@ -802,7 +762,6 @@
     },
     "sl13": {
       "booster": "assets/product-photos/sl13/booster.png",
-      "display": "assets/product-photos/sl13/display.png",
       "etb": "assets/product-photos/sl13/etb.png",
       "hero": "assets/series-logos/sl13.webp"
     },
@@ -814,14 +773,12 @@
     },
     "sl15": {
       "booster": "assets/product-photos/sl15/booster.png",
-      "display": "assets/product-photos/sl15/display.png",
       "etb": "assets/product-photos/sl15/etb.png",
       "hero": "assets/series-logos/sl15.webp"
     },
     "sl16": {
-      "booster": "assets/product-photos/sl16/booster.png",
-      "display": "assets/product-photos/sl16/display.png",
-      "etb": "assets/product-photos/sl16/etb.png",
+      "booster": "assets/product-photos/sl16/display.png",
+      "display": "assets/product-photos/sl16/booster.png",
       "hero": "assets/series-logos/sl16.webp"
     },
     "wiz01": {
@@ -845,19 +802,16 @@
     "wiz04": {
       "booster": "assets/product-photos/wiz04/booster.png",
       "display": "assets/product-photos/wiz04/display.png",
-      "etb": "assets/product-photos/wiz04/etb.png",
       "hero": "assets/series-logos/wiz04.png"
     },
     "wiz05": {
       "booster": "assets/product-photos/wiz05/booster.png",
       "display": "assets/product-photos/wiz05/display.png",
-      "etb": "assets/product-photos/wiz05/etb.png",
       "hero": "assets/series-logos/wiz05.png"
     },
     "wiz06": {
       "booster": "assets/product-photos/wiz06/booster.png",
       "display": "assets/product-photos/wiz06/display.png",
-      "etb": "assets/product-photos/wiz06/etb.png",
       "hero": "assets/series-logos/wiz06.png"
     },
     "wiz07": {
@@ -869,13 +823,11 @@
     "wiz08": {
       "booster": "assets/product-photos/wiz08/booster.png",
       "display": "assets/product-photos/wiz08/display.png",
-      "etb": "assets/product-photos/wiz08/etb.jpg",
       "hero": "assets/series-logos/wiz08.png"
     },
     "xy01": {
       "booster": "assets/product-photos/xy01/booster.png",
       "display": "assets/product-photos/xy01/display.png",
-      "etb": "assets/product-photos/xy01/etb.png",
       "hero": "assets/series-logos/xy01.webp"
     },
     "xy02": {
@@ -886,44 +838,39 @@
     },
     "xy03": {
       "booster": "assets/product-photos/xy03/booster.png",
-      "display": "assets/product-photos/xy03/display.png",
-      "etb": "assets/product-photos/xy03/etb.png",
+      "display": "assets/product-photos/xy03/etb.png",
+      "etb": "assets/product-photos/xy03/display.png",
       "hero": "assets/series-logos/xy03.webp"
     },
     "xy04": {
       "booster": "assets/product-photos/xy04/booster.jpg",
-      "display": "assets/product-photos/xy04/display.png",
-      "etb": "assets/product-photos/xy04/etb.png",
+      "display": "assets/product-photos/xy04/etb.png",
+      "etb": "assets/product-photos/xy04/display.png",
       "hero": "assets/series-logos/xy04.webp"
     },
     "xy05": {
       "booster": "assets/product-photos/xy05/booster.png",
       "display": "assets/product-photos/xy05/display.png",
-      "etb": "assets/product-photos/xy05/etb.png",
       "hero": "assets/series-logos/xy05.webp"
     },
     "xy06": {
       "booster": "assets/product-photos/xy06/booster.png",
       "display": "assets/product-photos/xy06/display.png",
-      "etb": "assets/product-photos/xy06/etb.png",
       "hero": "assets/series-logos/xy06.webp"
     },
     "xy07": {
       "booster": "assets/product-photos/xy07/booster.png",
       "display": "assets/product-photos/xy07/display.png",
-      "etb": "assets/product-photos/xy07/etb.png",
       "hero": "assets/series-logos/xy07.webp"
     },
     "xy08": {
       "booster": "assets/product-photos/xy08/booster.png",
       "display": "assets/product-photos/xy08/display.png",
-      "etb": "assets/product-photos/xy08/etb.png",
       "hero": "assets/series-logos/xy08.webp"
     },
     "xy09": {
       "booster": "assets/product-photos/xy09/booster.png",
       "display": "assets/product-photos/xy09/display.png",
-      "etb": "assets/product-photos/xy09/etb.png",
       "hero": "assets/series-logos/xy09.webp"
     },
     "xy10": {
@@ -935,7 +882,6 @@
     "xy11": {
       "booster": "assets/product-photos/xy11/booster.png",
       "display": "assets/product-photos/xy11/display.png",
-      "etb": "assets/product-photos/xy11/etb.png",
       "hero": "assets/series-logos/xy11.webp"
     },
     "xy12": {
@@ -946,8 +892,8 @@
     },
     "xy13": {
       "booster": "assets/product-photos/xy13/booster.png",
-      "display": "assets/product-photos/xy13/display.png",
-      "etb": "assets/product-photos/xy13/etb.png",
+      "display": "assets/product-photos/xy13/etb.png",
+      "etb": "assets/product-photos/xy13/display.png",
       "hero": "assets/series-logos/xy13.webp"
     }
   }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-10T01:45:00.000Z",
+  "updatedAt": "2026-07-11T19:55:09.926Z",
   "resolved": {
     "me01:display": {
       "resolvedAt": "2026-07-10T01:30:00.000Z",
@@ -16,117 +16,907 @@
       "sha256": "5848c4a3509cf4b57da4643ccbb0e743984922a606aa6077596638899cce4ad4",
       "note": "ETB ME01 remplacé par l'image jointe fournie par Hoummad."
     },
-    "eb08:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "eb08:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "eb09:etb": { "resolvedAt": "2026-07-10T01:45:00.000Z", "manifestVersion": "20260710-local-v8", "action": "replace-image", "source": "local attachment: Image 4.png", "sha256": "f68cd976558adee139d94023e5a44720e18b013b68982059daf60b2e9c61e928" },
-    "eb12:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "replace-image", "source": "https://image.darty.com/darty?type=image&source=/market/2023/02/03/19156027_3723_1.jpg&height=603" },
-    "eb15:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "eb15:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "eb16:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "eb16:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "ev065:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "ev065:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "ev085:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "ev085:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "ev105b:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "ev105b:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "ev151:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "ev151:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "me02:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "me02:etb": { "resolvedAt": "2026-07-10T01:45:00.000Z", "manifestVersion": "20260710-local-v8", "action": "replace-image", "source": "local attachment: Image 3.png", "sha256": "eebf6bd4ee6b934ae2d81ccc4104e77a23e11f5418a42ac1b4cd0901789c66cf" },
-    "sl02:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "sl02:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "sl06:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "sl06:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "sl07:display": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "sl07:etb": { "resolvedAt": "2026-07-10T01:30:00.000Z", "manifestVersion": "20260710-local-v5", "action": "swap-local-path" },
-    "sl13:display": { "resolvedAt": "2026-07-10T01:40:00.000Z", "manifestVersion": "20260710-local-v7", "action": "swap-local-path" },
-    "sl13:etb": { "resolvedAt": "2026-07-10T01:40:00.000Z", "manifestVersion": "20260710-local-v7", "action": "swap-local-path" },
-    "sl15:display": { "resolvedAt": "2026-07-10T01:40:00.000Z", "manifestVersion": "20260710-local-v7", "action": "swap-local-path" },
-    "sl15:etb": { "resolvedAt": "2026-07-10T01:40:00.000Z", "manifestVersion": "20260710-local-v7", "action": "swap-local-path" }
+    "eb08:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "eb08:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec eb08:booster."
+    },
+    "eb09:etb": {
+      "resolvedAt": "2026-07-10T01:45:00.000Z",
+      "manifestVersion": "20260710-local-v8",
+      "action": "replace-image",
+      "source": "local attachment: Image 4.png",
+      "sha256": "f68cd976558adee139d94023e5a44720e18b013b68982059daf60b2e9c61e928"
+    },
+    "eb12:etb": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "replace-image",
+      "source": "https://image.darty.com/darty?type=image&source=/market/2023/02/03/19156027_3723_1.jpg&height=603"
+    },
+    "eb15:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "eb15:etb": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "eb16:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "eb16:etb": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "ev065:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ev065:etb": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "ev085:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ev085:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ev105b:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ev105b:etb": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "ev151:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ev151:etb": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "me02:display": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "me02:etb": {
+      "resolvedAt": "2026-07-10T01:45:00.000Z",
+      "manifestVersion": "20260710-local-v8",
+      "action": "replace-image",
+      "source": "local attachment: Image 3.png",
+      "sha256": "eebf6bd4ee6b934ae2d81ccc4104e77a23e11f5418a42ac1b4cd0901789c66cf"
+    },
+    "sl02:display": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "sl02:etb": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "sl06:display": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "sl06:etb": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "sl07:display": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "sl07:etb": {
+      "resolvedAt": "2026-07-10T01:30:00.000Z",
+      "manifestVersion": "20260710-local-v5",
+      "action": "swap-local-path"
+    },
+    "sl13:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "sl13:etb": {
+      "resolvedAt": "2026-07-10T01:40:00.000Z",
+      "manifestVersion": "20260710-local-v7",
+      "action": "swap-local-path"
+    },
+    "sl15:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "sl15:etb": {
+      "resolvedAt": "2026-07-10T01:40:00.000Z",
+      "manifestVersion": "20260710-local-v7",
+      "action": "swap-local-path"
+    },
+    "dp01:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "dp02:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "dp03:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "dp06:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "dp07:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "eb14:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ev045:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ev09:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ev105a:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ex01:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ex02:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ex03:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ex04:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "ex05:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "hs01:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "hs02:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "hs03:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "hs04:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "hs05:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "me025:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "me04:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "me05:booster": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "nb01:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "nb02:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "nb02:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "nb03:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "nb04:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "nb05:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "nb06:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "nb07:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "nb09:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "nb10:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "pl01:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "pl02:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "pl03:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "sl08:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "sl08:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "sl16:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "wiz04:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "wiz05:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "wiz06:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "wiz08:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "xy01:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "xy05:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "xy06:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "xy07:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "xy08:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "xy09:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "xy11:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "mark-wrong",
+      "note": "Visuel non lié retiré du manifest jusqu’à correction."
+    },
+    "eb08:booster": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec eb08:etb."
+    },
+    "eb17:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec eb17:etb."
+    },
+    "eb17:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec eb17:display."
+    },
+    "nb08:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec nb08:etb."
+    },
+    "nb08:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec nb08:display."
+    },
+    "sl16:booster": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec sl16:display."
+    },
+    "sl16:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec sl16:booster."
+    },
+    "xy03:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec xy03:etb."
+    },
+    "xy03:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec xy03:display."
+    },
+    "xy04:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec xy04:etb."
+    },
+    "xy04:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec xy04:display."
+    },
+    "xy13:display": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec xy13:etb."
+    },
+    "xy13:etb": {
+      "resolvedAt": "2026-07-11T19:55:09.926Z",
+      "manifestVersion": "20260711-local-v9",
+      "action": "swap-local-path",
+      "note": "Échange atomique appliqué avec xy13:display."
+    }
   },
   "decisions": {
-    "ev01:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Contrôle visuel du 2026-07-09 : booster Écarlate et Violet cohérent." },
-    "ev01:display": { "status": "valid", "confidence": "high", "source": "", "note": "Contrôle visuel du 2026-07-09 : display Écarlate et Violet cohérent." },
-
-    "me02:booster": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/phantasmal-flames/", "note": "Pack Flammes Fantasmagoriques vérifié visuellement." },
-    "me02:display": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/phantasmal-flames/", "note": "Présentoir 36 boosters vérifié visuellement." },
-    "me02:etb": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/phantasmal-flames/", "note": "Coffret Dresseur d’Élite vérifié visuellement." },
-
-    "me03:booster": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/perfect-order/", "note": "Booster Équilibre Parfait vérifié visuellement." },
-    "me03:display": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/perfect-order/", "note": "Correction officielle Pokémon : display, pas blister." },
-    "me03:etb": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/perfect-order/", "note": "Correction officielle Pokémon : ETB, pas blister." },
-
-    "me04:booster": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/chaos-rising/", "note": "Booster Chaos Ascendant vérifié visuellement." },
-    "me04:display": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/chaos-rising/", "note": "Display Chaos Ascendant vérifié visuellement." },
-    "me04:etb": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/chaos-rising/", "note": "Correction officielle Pokémon : ETB, pas blister." },
-
-    "me05:booster": { "status": "wrong", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/", "note": "L’image actuelle montre un lot de 6 boosters, pas un booster unitaire." },
-    "me05:display": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/", "note": "Display Nuit Noire issu de la source officielle Pokémon." },
-    "me05:etb": { "status": "valid", "confidence": "high", "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/", "note": "ETB Nuit Noire issu de la source officielle Pokémon." },
-
-    "sl16:booster": { "status": "valid", "confidence": "medium", "source": "", "note": "Pack Détective Pikachu de 2 cartes : visuel cohérent avec le format Booster retenu par le catalogue." },
-    "sl16:display": { "status": "wrong", "confidence": "high", "source": "", "note": "Le fichier montre un pack de 4 cartes, pas un display Détective Pikachu." },
-    "sl16:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Le fichier montre une Case File Détective Pikachu, pas un Coffret Dresseur d’Élite." },
-
-    "ex01:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex01:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex01:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
-
-    "ex02:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex02:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex02:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un blister Carvanha." },
-
-    "ex03:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex03:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex03:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
-
-    "ex04:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex04:display": { "status": "valid", "confidence": "medium", "source": "", "note": "Le carton Team Magma VS Team Aqua est correct mais l’image est très basse résolution." },
-    "ex04:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien visuel était un pack Rubis & Saphir." },
-
-    "ex05:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex05:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex05:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un blister Jirachi." },
-
-    "ex06:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex06:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex06:etb": { "status": "not-applicable", "confidence": "medium", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck." },
-
-    "ex07:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex07:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex07:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
-
-    "ex08:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex08:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex08:etb": { "status": "not-applicable", "confidence": "medium", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck Deoxys." },
-
-    "ex09:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex09:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex09:etb": { "status": "not-applicable", "confidence": "medium", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un produit unitaire." },
-
-    "ex10:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex10:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex10:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
-
-    "ex11:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex11:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex11:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
-
-    "ex12:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex12:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex12:etb": { "status": "not-applicable", "confidence": "medium", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck Latias." },
-
-    "ex13:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex13:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : carton display crédible." },
-    "ex13:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck." },
-
-    "ex14:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex14:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : display cohérent." },
-    "ex14:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte." },
-
-    "ex15:booster": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent." },
-    "ex15:display": { "status": "valid", "confidence": "high", "source": "", "note": "Audit visuel EX du 2026-07-10 : carton display crédible." },
-    "ex15:etb": { "status": "not-applicable", "confidence": "high", "source": "", "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un blister multipack." }
+    "ev01:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Contrôle visuel du 2026-07-09 : booster Écarlate et Violet cohérent."
+    },
+    "ev01:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Contrôle visuel du 2026-07-09 : display Écarlate et Violet cohérent."
+    },
+    "me02:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/phantasmal-flames/",
+      "note": "Pack Flammes Fantasmagoriques vérifié visuellement."
+    },
+    "me02:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/phantasmal-flames/",
+      "note": "Présentoir 36 boosters vérifié visuellement."
+    },
+    "me02:etb": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/phantasmal-flames/",
+      "note": "Coffret Dresseur d’Élite vérifié visuellement."
+    },
+    "me03:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/perfect-order/",
+      "note": "Booster Équilibre Parfait vérifié visuellement."
+    },
+    "me03:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/perfect-order/",
+      "note": "Correction officielle Pokémon : display, pas blister."
+    },
+    "me03:etb": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/perfect-order/",
+      "note": "Correction officielle Pokémon : ETB, pas blister."
+    },
+    "me04:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/chaos-rising/",
+      "note": "Booster Chaos Ascendant vérifié visuellement."
+    },
+    "me04:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/chaos-rising/",
+      "note": "Display Chaos Ascendant vérifié visuellement."
+    },
+    "me04:etb": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/chaos-rising/",
+      "note": "Correction officielle Pokémon : ETB, pas blister."
+    },
+    "me05:booster": {
+      "status": "wrong",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/",
+      "note": "L’image actuelle montre un lot de 6 boosters, pas un booster unitaire."
+    },
+    "me05:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/",
+      "note": "Display Nuit Noire issu de la source officielle Pokémon."
+    },
+    "me05:etb": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "https://tcg.pokemon.com/fr-fr/expansions/pitch-black/",
+      "note": "ETB Nuit Noire issu de la source officielle Pokémon."
+    },
+    "sl16:booster": {
+      "status": "valid",
+      "confidence": "medium",
+      "source": "",
+      "note": "Pack Détective Pikachu de 2 cartes : visuel cohérent avec le format Booster retenu par le catalogue."
+    },
+    "sl16:display": {
+      "status": "wrong",
+      "confidence": "high",
+      "source": "",
+      "note": "Le fichier montre un pack de 4 cartes, pas un display Détective Pikachu."
+    },
+    "sl16:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Le fichier montre une Case File Détective Pikachu, pas un Coffret Dresseur d’Élite."
+    },
+    "ex01:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex01:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex01:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte."
+    },
+    "ex02:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex02:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex02:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un blister Carvanha."
+    },
+    "ex03:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex03:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex03:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte."
+    },
+    "ex04:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex04:display": {
+      "status": "valid",
+      "confidence": "medium",
+      "source": "",
+      "note": "Le carton Team Magma VS Team Aqua est correct mais l’image est très basse résolution."
+    },
+    "ex04:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien visuel était un pack Rubis & Saphir."
+    },
+    "ex05:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex05:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex05:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un blister Jirachi."
+    },
+    "ex06:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex06:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex06:etb": {
+      "status": "not-applicable",
+      "confidence": "medium",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck."
+    },
+    "ex07:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex07:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex07:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte."
+    },
+    "ex08:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex08:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex08:etb": {
+      "status": "not-applicable",
+      "confidence": "medium",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck Deoxys."
+    },
+    "ex09:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex09:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex09:etb": {
+      "status": "not-applicable",
+      "confidence": "medium",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un produit unitaire."
+    },
+    "ex10:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex10:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex10:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte."
+    },
+    "ex11:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex11:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex11:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte."
+    },
+    "ex12:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex12:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex12:etb": {
+      "status": "not-applicable",
+      "confidence": "medium",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck Latias."
+    },
+    "ex13:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex13:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : carton display crédible."
+    },
+    "ex13:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était une boîte ou un deck."
+    },
+    "ex14:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex14:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : display cohérent."
+    },
+    "ex14:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un dos de carte."
+    },
+    "ex15:booster": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : booster unitaire cohérent."
+    },
+    "ex15:display": {
+      "status": "valid",
+      "confidence": "high",
+      "source": "",
+      "note": "Audit visuel EX du 2026-07-10 : carton display crédible."
+    },
+    "ex15:etb": {
+      "status": "not-applicable",
+      "confidence": "high",
+      "source": "",
+      "note": "Aucun ETB historique vérifiable ; l’ancien fichier était un blister multipack."
+    }
   }
 }
