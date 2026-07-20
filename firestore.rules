@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Local proposed deny-by-default skeleton (P0 review2) - NOT deployed.
+    // This is NOT the live rules from the Firebase console.
+    // Current live rules control production and must be audited separately.
+    //
+    // NOTE: saveState() writes the shared pokestar_state/main doc.
+    // Public community proposals (applyProposal) use this path + submissions + consensus.
+    // Deploying this file as-is would block proposals (write: false).
+    // Client writes should be restricted (e.g. via claims, security rules on submissions, or Cloud Functions).
+
+    match /{document=**} {
+      allow read: if true;  // public read for catalogue
+      allow write: if false; // default deny; tighten per collection below
+    }
+
+    // Example tighter rules (to be set live):
+    // match /pokestar_state/{doc} {
+    //   allow read: if true;
+    //   allow write: if request.auth != null && request.auth.token.admin == true; // or specific UID
+    // }
+    // Similar for pokestar_logos (admin only for logos/photos)
+    // Community proposals may use a submissions subfield or separate collection with rate limits.
+  }
+}

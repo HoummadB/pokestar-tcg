@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!-- P0 baseline locale (à confirmer live) : commit 384a66b (main) au moment de l'audit.
+     Preuve live à fournir par screenshot dashboard Vercel / curl ou équivalent sur pokestar-tcg.com.
+     Cette V1 sert de rollback cible jusqu'au cutover V2. Ne pas confondre avec NEWMETA/Pokestar (V2).
+-->
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -1903,6 +1907,26 @@
     font-weight:700;
     letter-spacing:0.4px;
   }
+  .ebay-ref{
+    margin-top:3px;
+    font-family:var(--mono);
+    font-size:9px;
+    line-height:1.35;
+    color:#c9a8ff;
+    display:flex;
+    flex-wrap:wrap;
+    gap:4px;
+    align-items:center;
+  }
+  .ebay-ref-tag{
+    display:inline-block;
+    padding:1px 5px;
+    border-radius:4px;
+    background:rgba(168,85,232,0.2);
+    color:#ddb8ff;
+    font-weight:700;
+    letter-spacing:0.4px;
+  }
   .cm-src{
     font-family:var(--mono);
     font-size:8px;
@@ -2786,6 +2810,7 @@
   .product-price-main{font-family:var(--mono);font-size:20px;font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums;color:var(--cream);}
   .product-price-main .euro{font-size:12px;color:var(--muted);font-weight:600;margin-left:1px;}
   .product-tile .cm-ref{margin-top:3px;font-size:8.5px;}
+  .product-tile .ebay-ref{margin-top:2px;font-size:8.5px;}
   .product-tile .propose-btn{margin-top:6px;padding:6px 8px;font-size:9.5px;border-radius:7px;}
   .product-tile .consensus-hint{margin-top:4px;}
   .product-tile input[type=number]{font-size:16px;}
@@ -3063,19 +3088,7 @@
 
 <div id="catalogView">
 <div class="controls" id="controlsBar">
-  <div class="controls-row controls-admin" id="adminControlsRow">
-    <span id="adminControls" class="admin-controls">
-      <span class="admin-divider">Admin</span>
-      <button class="btn-ghost" id="startCheck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:5px"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>Tout vérifier</button>
-      <button class="btn-ghost" id="resetAllPrices"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:5px"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg>Réinitialiser tous les prix</button>
-      <button class="btn-add" id="toggleAdd">+ Ajouter une série</button>
-      <label class="btn-ghost" id="bulkLogoLabel" style="cursor:pointer;">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:5px"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Import logos (masse)
-        <input type="file" accept="image/*" multiple id="bulkLogoInput" style="display:none;">
-      </label>
-    </span>
-  </div>
+  <!-- P0: entire admin controls row removed (secret backdoor + privileged actions excised from public HTML/JS) -->
 </div>
 
 <div class="collections-band is-empty" id="collectionsBand" aria-label="Collections Pokémon TCG">
@@ -3084,35 +3097,7 @@
   </div>
 </div>
 
-<div id="addForm">
-  <div class="form-grid">
-    <div>
-      <label>Nom de la série</label>
-      <input type="text" id="f-name" placeholder="Ex : Nuit Noire (ME05)">
-    </div>
-    <div>
-      <label>Bloc</label>
-      <select id="f-block">
-        <option>Écarlate et Violet</option>
-        <option>Méga-Évolution</option>
-        <option>Autre</option>
-      </select>
-    </div>
-    <div>
-      <label>Booster (€)</label>
-      <input type="number" step="0.01" id="f-booster" placeholder="5.50">
-    </div>
-    <div>
-      <label>Display (€)</label>
-      <input type="number" step="0.01" id="f-display" placeholder="170">
-    </div>
-    <div>
-      <label>ETB (€)</label>
-      <input type="number" step="0.01" id="f-etb" placeholder="49.90">
-    </div>
-    <button id="f-submit">Ajouter</button>
-  </div>
-</div>
+<!-- addForm (admin "Ajouter une série") removed P0 -->
 
 <main id="main"></main>
 
@@ -3187,21 +3172,7 @@
   </div>
 </div>
 
-<div id="checkPanel" class="check-panel">
-  <div class="check-head">
-    <span id="checkProgress">1/1</span>
-    <button id="checkClose" title="Fermer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  </div>
-  <div class="check-name" id="checkName">—</div>
-  <a id="checkLink" class="check-open" target="_blank" rel="noopener">Ouvrir les ventes réussies eBay ↗</a>
-  <div class="check-row">
-    <input type="number" step="0.01" id="checkPrice" placeholder="Nouveau prix booster (€)">
-    <button id="checkSave">Enregistrer</button>
-  </div>
-  <div class="check-nav">
-    <button id="checkSkip">Passer →</button>
-  </div>
-</div>
+<!-- checkPanel (admin verification UI) removed P0: dead admin code excised -->
 
 <div id="authOverlay" class="auth-overlay">
   <div class="auth-modal">
@@ -3305,12 +3276,12 @@
       <h2>1. Édition du site</h2>
       <p>Le site <strong>pokestar-tcg.com</strong> est édité par :</p>
       <ul>
-        <li><strong>Nom / Raison sociale :</strong> [À COMPLÉTER]</li>
-        <li><strong>Statut juridique :</strong> [À COMPLÉTER]</li>
-        <li><strong>Numéro SIRET :</strong> [À COMPLÉTER]</li>
-        <li><strong>Adresse du siège :</strong> [À COMPLÉTER]</li>
+        <li><strong>Nom / Raison sociale :</strong> [À COMPLÉTER — à valider Hoummad]</li>
+        <li><strong>Statut juridique :</strong> [À COMPLÉTER — à valider Hoummad]</li>
+        <li><strong>Numéro SIRET :</strong> [À COMPLÉTER — à valider Hoummad]</li>
+        <li><strong>Adresse du siège :</strong> [À COMPLÉTER — à valider Hoummad]</li>
         <li><strong>Email de contact :</strong> pokestar.store@gmail.com</li>
-        <li><strong>Directeur de la publication :</strong> [À COMPLÉTER]</li>
+        <li><strong>Directeur de la publication :</strong> [À COMPLÉTER — à valider Hoummad]</li>
       </ul>
 
       <h2>2. Hébergement</h2>
@@ -3333,8 +3304,9 @@
 
       <h2>Politique de confidentialité (RGPD)</h2>
       <p><strong>Données collectées :</strong> email et pseudo (création de compte), nom/email/téléphone/message (formulaire distributeurs), prix proposés (participation au consensus).</p>
-      <p><strong>Hébergement :</strong> Google Firebase. <strong>Durée de conservation :</strong> [À COMPLÉTER].</p>
+      <p><strong>Hébergement :</strong> Google Firebase (Irlande) + Vercel (US). <strong>Durée de conservation :</strong> [À COMPLÉTER — à valider avec Hoummad].</p>
       <p><strong>Tes droits :</strong> accès, rectification, suppression de tes données, en écrivant à <strong>pokestar.store@gmail.com</strong>.</p>
+      <p><strong>Suppression de compte :</strong> Pour demander la suppression de votre compte et de vos données associées (propositions de prix, favoris), contactez pokestar.store@gmail.com avec votre pseudo ou email. Nous traiterons la demande dans les meilleurs délais (pas de suppression auto via l'interface pour le moment).</p>
       <p><strong>Cookies :</strong> le site utilise le stockage local du navigateur pour mémoriser tes favoris et ton statut de connexion — aucun cookie tiers publicitaire n'est utilisé.</p>
 
       <p class="legal-disclaimer">Ce document est un modèle de base et n'a pas été relu par un professionnel du droit. Pokestar recommande une vérification juridique avant toute utilisation commerciale à grande échelle.</p>
@@ -3521,13 +3493,7 @@
       </div>
     </div>
 
-    <div class="admin-only leads-panel" id="leadsPanel">
-      <button class="btn-ghost" id="showLeads">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:5px"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
-        Voir les demandes reçues
-      </button>
-      <div id="leadsList" class="leads-list" style="display:none;"></div>
-    </div>
+<!-- admin-only leads-panel (showLeads read all) removed P0 review2 -->
   </div>
 </div>
 
@@ -3567,6 +3533,7 @@ const CM = (slug) => `https://www.cardmarket.com/fr/Pokemon/Expansions/${slug}`;
 const CM_FALLBACK = "https://www.cardmarket.com/fr/Pokemon/Expansions";
 const CM_MARKET_SEED = {"updatedAt":"2026-07-10T02:42:30+0200","series":{"ev01":{"booster":{"low":3.39,"trend":5.8,"avg":5.57},"display":{"low":145,"trend":191.91,"avg":192.73},"etb":{"low":60,"trend":93.92,"avg":87.64}},"ev02":{"booster":{"low":3.4,"trend":7.07,"avg":7.18},"display":{"low":150,"trend":265.23,"avg":273.45},"etb":{"low":90,"trend":146.42,"avg":157.26}},"ev03":{"booster":{"low":3.85,"trend":6.88,"avg":6.09},"display":{"low":175,"trend":224.48,"avg":226.3},"etb":{"low":140,"trend":223.02,"avg":199.71}},"ev151":{"booster":{"low":16.95,"trend":23.11,"avg":24.54},"etb":{"low":345,"trend":429.37,"avg":409.73}},"ev04":{"booster":{"low":3.5,"trend":4.71,"avg":4.91},"display":{"low":84.99,"trend":230.89,"avg":216.46},"etb":{"low":57.9,"trend":81.25,"avg":77.81}},"ev045":{"booster":{"low":7.5,"trend":17.7,"avg":23.6},"etb":{"low":120,"trend":218.46,"avg":215.56}},"ev05":{"booster":{"low":3.79,"trend":6.48,"avg":6.15},"display":{"low":150,"trend":226.74,"avg":224.95},"etb":{"low":59,"trend":88.55,"avg":83.29}},"ev06":{"booster":{"low":3.8,"trend":6.02,"avg":6.04},"display":{"low":170,"trend":297.6,"avg":281.89},"etb":{"low":44.5,"trend":66,"avg":70.02}},"ev065":{"booster":{"low":3.5,"trend":6.6,"avg":5.47},"etb":{"low":48,"trend":66.81,"avg":61.5}},"ev07":{"booster":{"low":3.6,"trend":6.69,"avg":6.55},"display":{"low":150,"trend":257.05,"avg":225.38},"etb":{"low":50,"trend":93.11,"avg":86.08}},"ev08":{"booster":{"low":3.9,"trend":6.76,"avg":6.32},"display":{"low":154,"trend":232.7,"avg":240.71},"etb":{"low":89.99,"trend":126.46,"avg":122.87}},"ev085":{"booster":{"low":4.5,"trend":13.5,"avg":10.92},"etb":{"low":78,"trend":154.88,"avg":169.41}},"ev09":{"booster":{"low":3,"trend":4.93,"avg":5.16},"display":{"low":134,"trend":183.3,"avg":178.32},"etb":{"low":45,"trend":86.33,"avg":80.57}},"ev10":{"booster":{"low":3.5,"trend":7.85,"avg":6.95},"display":{"low":153.75,"trend":303.99,"avg":301.38},"etb":{"low":108.9,"trend":153.96,"avg":163.94}},"ev105a":{"booster":{"low":5.5,"trend":10.97,"avg":9.83},"etb":{"low":52,"trend":104.94,"avg":102.87}},"ev105b":{"booster":{"low":4.99,"trend":10.26,"avg":9.39},"etb":{"low":45,"trend":99.92,"avg":97.37}},"me01":{"booster":{"low":3.93,"trend":6.5,"avg":6.09},"display":{"low":150,"trend":217.34,"avg":244.63}},"me02":{"booster":{"low":3.97,"trend":7.8,"avg":7.87},"display":{"low":150,"trend":322.09,"avg":301.94},"etb":{"low":55,"trend":80.85,"avg":93.11}},"me025":{"booster":{"low":5.29,"trend":11.5,"avg":12.13},"etb":{"low":64,"trend":129.52,"avg":128.25}},"me03":{"booster":{"low":2.95,"trend":4.31,"avg":4.76},"display":{"low":120,"trend":164.23,"avg":168.12},"etb":{"low":34.9,"trend":61.59,"avg":61.22}},"me04":{"booster":{"low":3.5,"trend":4.92,"avg":5.21},"display":{"low":130,"trend":180.39,"avg":185.02},"etb":{"low":41,"trend":64.76,"avg":66.23}},"me05":{"booster":{"low":5.9,"trend":7.2,"avg":7.74},"display":{"low":174.99,"trend":233.53,"avg":207.91},"etb":{"low":59,"trend":90.62,"avg":90.65}},"wiz01":{"booster":{"low":220,"trend":595.38,"avg":609.66},"display":{"low":5000,"trend":12705.69,"avg":null}},"wiz02":{"booster":{"low":180,"trend":538.88,"avg":454.8},"display":{"low":13000,"trend":10089.68,"avg":null}},"wiz03":{"booster":{"low":250,"trend":490.41,"avg":391.88},"display":{"low":14000,"trend":9431.9,"avg":10700}},"wiz04":{"booster":{"low":290,"trend":503.51,"avg":544.56},"display":{"low":22990.9,"trend":8780,"avg":14900}},"wiz05":{"booster":{"low":375,"trend":658.5,"avg":859.99},"display":{"low":360000,"trend":8812.38,"avg":null}},"wiz06":{"booster":{"low":490,"trend":499.52,"avg":586},"display":{"low":null,"trend":99.99,"avg":99.99}},"wiz07":{"booster":{"low":350,"trend":480.25,"avg":500},"display":{"low":40000,"trend":2620.82,"avg":null}},"wiz08":{"booster":{"low":832,"trend":950.41,"avg":1066.33},"display":{"low":49999,"trend":99.99,"avg":99.99}},"ec02":{"booster":{"low":920,"trend":572.52,"avg":null},"display":{"low":null,"trend":100,"avg":null}},"ec03":{"booster":{"low":795,"trend":960.32,"avg":949.5},"display":{"low":null,"trend":907.23,"avg":11000}},"ex01":{"booster":{"low":50,"trend":261.47,"avg":50},"display":{"low":null,"trend":3623.09,"avg":3200}},"ex02":{"booster":{"low":390,"trend":381.51,"avg":549.99},"display":{"low":null,"trend":14656.89,"avg":15000}},"ex03":{"booster":{"low":499.99,"trend":523.61,"avg":629.99},"display":{"low":null,"trend":85,"avg":null}},"ex04":{"booster":{"low":300,"trend":369.03,"avg":550},"display":{"low":null,"trend":1496.18,"avg":null}},"ex05":{"booster":{"low":630,"trend":1184.16,"avg":4350},"display":{"low":23000,"trend":1468.22,"avg":130}},"ex06":{"booster":{"low":370,"trend":324.69,"avg":449.67},"display":{"low":null,"trend":0.02,"avg":69.95}},"ex07":{"booster":{"low":799,"trend":769.19,"avg":4000},"display":{"low":50000,"trend":null,"avg":null}},"ex08":{"booster":{"low":169,"trend":253.58,"avg":264.5},"display":{"low":20000,"trend":15263.96,"avg":19999.95}},"ex09":{"booster":{"low":490,"trend":606.31,"avg":750}},"ex10":{"booster":{"low":800,"trend":567.32,"avg":700},"display":{"low":90000,"trend":274.04,"avg":null}},"ex11":{"booster":{"low":49.9,"trend":261.1,"avg":462.06},"display":{"low":null,"trend":3067.31,"avg":4999.99}},"ex12":{"booster":{"low":799.99,"trend":1286.83,"avg":976.25},"display":{"low":1700,"trend":2709.45,"avg":4999.99}},"ex13":{"booster":{"low":1625,"trend":687.52,"avg":910},"display":{"low":null,"trend":null,"avg":99.95}},"ex14":{"booster":{"low":1299,"trend":1468.86,"avg":1400},"display":{"low":null,"trend":40,"avg":99.95}},"ex15":{"booster":{"low":800,"trend":862.41,"avg":384.98},"display":{"low":250,"trend":7733.02,"avg":79.95}},"dp01":{"booster":{"low":140,"trend":170.49,"avg":177.77},"display":{"low":990,"trend":682.27,"avg":1200}},"dp02":{"booster":{"low":210,"trend":181.15,"avg":200},"display":{"low":990,"trend":780.4,"avg":1100}},"dp03":{"booster":{"low":135,"trend":335.41,"avg":205},"display":{"low":22000,"trend":5455.23,"avg":null}},"dp04":{"booster":{"low":195,"trend":163.21,"avg":19.95},"display":{"low":29500,"trend":1497.06,"avg":null}},"dp05":{"booster":{"low":269,"trend":299.57,"avg":245.55}},"dp06":{"booster":{"low":180,"trend":273.15,"avg":197.5},"display":{"low":16000,"trend":null,"avg":null}},"dp07":{"booster":{"low":9.95,"trend":182.82,"avg":141.67},"display":{"low":null,"trend":1500,"avg":null}},"pl01":{"booster":{"low":160,"trend":262.21,"avg":194.98},"display":{"low":27500,"trend":627.1,"avg":null}},"pl02":{"booster":{"low":119.9,"trend":199.22,"avg":189.95},"display":{"low":29500,"trend":2466.28,"avg":3200}},"pl03":{"booster":{"low":140,"trend":313.04,"avg":157.86},"display":{"low":15000,"trend":8046.96,"avg":8550}},"hs01":{"booster":{"low":44.59,"trend":490.68,"avg":579.69},"display":{"low":1400,"trend":3203.31,"avg":4100}},"hs02":{"booster":{"low":79.95,"trend":141.21,"avg":70.2},"display":{"low":15000,"trend":2201.32,"avg":4999}},"hs03":{"booster":{"low":85,"trend":152.12,"avg":80.53},"display":{"low":5500,"trend":3955.13,"avg":4000}},"hs04":{"booster":{"low":79.95,"trend":111.25,"avg":80.96},"display":{"low":5900,"trend":3820.32,"avg":6500}},"hs05":{"booster":{"low":245,"trend":524.5,"avg":564},"display":{"low":14500,"trend":9991.63,"avg":19550}},"nb01":{"booster":{"low":44.99,"trend":69.46,"avg":67.16},"display":{"low":7500,"trend":1757.92,"avg":3500}},"nb02":{"booster":{"low":39,"trend":103.56,"avg":34.96},"display":{"low":10900,"trend":3365.08,"avg":5000}},"nb03":{"booster":{"low":35,"trend":152.06,"avg":195},"display":{"low":3000,"trend":4182.03,"avg":6000}},"nb04":{"booster":{"low":40,"trend":254.62,"avg":166.99},"display":{"low":25000,"trend":1876.75,"avg":null}},"nb05":{"booster":{"low":49.99,"trend":181.85,"avg":47.3},"display":{"low":20000,"trend":3999.95,"avg":null}},"nb06":{"booster":{"low":84.9,"trend":203.78,"avg":83.13},"display":{"low":null,"trend":346.43,"avg":null}},"nb07":{"booster":{"low":24.9,"trend":85.78,"avg":112.45},"display":{"low":16750,"trend":1929.73,"avg":null}},"nb08":{"booster":{"low":80,"trend":391.88,"avg":79},"display":{"low":34999.99,"trend":121.34,"avg":null},"etb":{"low":39999,"trend":2176.66,"avg":2000}},"nb09":{"booster":{"low":59,"trend":157.67,"avg":87.09},"display":{"low":30000,"trend":8628.81,"avg":10000}},"nb10":{"booster":{"low":55,"trend":132.7,"avg":74.96},"display":{"low":4250,"trend":4349.24,"avg":8250},"etb":{"low":8000,"trend":844.73,"avg":1500}},"xy01":{"booster":{"low":22,"trend":43.07,"avg":49.98},"display":{"low":4500,"trend":2751.87,"avg":3400},"etb":{"low":null,"trend":2920.45,"avg":3500}},"xy02":{"booster":{"low":23,"trend":46.25,"avg":30.54},"display":{"low":11000,"trend":4742.92,"avg":7500}},"xy03":{"booster":{"low":24.49,"trend":89.2,"avg":115.58},"display":{"low":3500,"trend":1861.62,"avg":2566.33},"etb":{"low":7800,"trend":962.7,"avg":3599}},"xy04":{"booster":{"low":85,"trend":383.38,"avg":549.95},"display":{"low":16500,"trend":2239.24,"avg":2103},"etb":{"low":7500,"trend":3351.11,"avg":5000}},"xy05":{"booster":{"low":69.99,"trend":89.13,"avg":80},"display":{"low":3700,"trend":2416.42,"avg":2725},"etb":{"low":null,"trend":1500.45,"avg":1500}},"xy06":{"booster":{"low":24.89,"trend":68.92,"avg":66.64},"display":{"low":4000,"trend":3829.44,"avg":4500},"etb":{"low":null,"trend":1256.76,"avg":1600}},"xy07":{"booster":{"low":50,"trend":90.24,"avg":80.83},"display":{"low":1999,"trend":2615.41,"avg":3600},"etb":{"low":2350,"trend":1724.8,"avg":3300}},"xy08":{"booster":{"low":20,"trend":50.52,"avg":36.92},"display":{"low":2600,"trend":2689.64,"avg":2275},"etb":{"low":899,"trend":1055.23,"avg":1100}},"xy09":{"booster":{"low":18,"trend":51.52,"avg":48.52},"display":{"low":4750,"trend":2219.66,"avg":3000},"etb":{"low":974.98,"trend":922.09,"avg":1600}},"xy10":{"booster":{"low":38,"trend":48.73,"avg":49.83},"display":{"low":2500,"trend":2577.79,"avg":2400},"etb":{"low":970,"trend":703.4,"avg":900}},"xy11":{"booster":{"low":21.95,"trend":28.4,"avg":25.77},"display":{"low":1550,"trend":1218.4,"avg":1313.33},"etb":{"low":3200,"trend":1135.85,"avg":2450}},"xy12":{"booster":{"low":45,"trend":57.87,"avg":59.93},"display":{"low":1999.99,"trend":2400.17,"avg":1999.75},"etb":{"low":542,"trend":597.9,"avg":650}},"xy13":{"booster":{"low":130,"trend":358.19,"avg":313.99},"etb":{"low":2500,"trend":1877.28,"avg":2700}},"sl01":{"booster":{"low":8,"trend":18.8,"avg":18.01},"display":{"low":690,"trend":884.66,"avg":989},"etb":{"low":260,"trend":274.79,"avg":267.99}},"sl02":{"booster":{"low":8.5,"trend":21.01,"avg":20.19},"display":{"low":750,"trend":1007.07,"avg":998.33},"etb":{"low":400,"trend":510.2,"avg":600}},"sl03":{"booster":{"low":13.99,"trend":19.45,"avg":15.82},"display":{"low":499,"trend":784.21,"avg":602.16},"etb":{"low":350,"trend":415.98,"avg":465}},"sl04":{"booster":{"low":5.94,"trend":17.18,"avg":17.83},"display":{"low":349.99,"trend":502.1,"avg":484.4},"etb":{"low":250,"trend":273.73,"avg":296.45}},"sl05":{"booster":{"low":15,"trend":35.3,"avg":35.29},"display":{"low":900,"trend":2024.69,"avg":1570},"etb":{"low":400,"trend":681.26,"avg":1067}},"sl06":{"booster":{"low":11.99,"trend":23.18,"avg":21.78},"display":{"low":1250,"trend":1872.82,"avg":3775},"etb":{"low":450,"trend":698.53,"avg":660}},"sl07":{"booster":{"low":15.99,"trend":53.25,"avg":47.08},"display":{"low":625,"trend":1442.96,"avg":924},"etb":{"low":460,"trend":897.03,"avg":1750}},"sl08":{"booster":{"low":15,"trend":93.26,"avg":140.8},"etb":{"low":579.9,"trend":575.77,"avg":null}},"sl09":{"booster":{"low":9.49,"trend":44.02,"avg":34.13},"display":{"low":625,"trend":1263.98,"avg":1160},"etb":{"low":450,"trend":598.01,"avg":587.5}},"sl10":{"booster":{"low":45,"trend":354.69,"avg":258.4},"display":{"low":1799.99,"trend":4500.15,"avg":3350},"etb":{"low":480,"trend":1983.74,"avg":3000}},"sl11":{"booster":{"low":33,"trend":58.51,"avg":59.49},"display":{"low":1300,"trend":2114.08,"avg":1875},"etb":{"low":514,"trend":1248.21,"avg":1450}},"sl12":{"booster":{"low":21,"trend":39.52,"avg":39.99},"display":{"low":2199.99,"trend":3085.45,"avg":2500},"etb":{"low":500,"trend":1521.03,"avg":999.99}},"sl13":{"booster":{"low":22,"trend":30.12,"avg":27.27},"etb":{"low":299,"trend":366.34,"avg":363.85}},"sl14":{"booster":{"low":19.9,"trend":52.64,"avg":51.94},"display":{"low":2498.99,"trend":2972.06,"avg":null},"etb":{"low":599,"trend":1035.86,"avg":820}},"sl15":{"booster":{"low":22.99,"trend":47.87,"avg":39.1},"etb":{"low":300,"trend":892.66,"avg":1057.86}},"sl16":{"booster":{"low":10.95,"trend":18.45,"avg":21.04}},"eb01":{"booster":{"low":7,"trend":13.06,"avg":10.18},"display":{"low":309,"trend":405.7,"avg":299},"etb":{"low":209,"trend":275.3,"avg":240.61}},"eb02":{"booster":{"low":4.49,"trend":8.37,"avg":8.71},"display":{"low":400,"trend":685.82,"avg":526},"etb":{"low":159,"trend":293.26,"avg":303.75}},"eb03":{"booster":{"low":5,"trend":11.59,"avg":9.8},"display":{"low":319.9,"trend":331.1,"avg":335},"etb":{"low":90,"trend":98.14,"avg":100.44}},"eb04":{"booster":{"low":5,"trend":8.55,"avg":7.12},"display":{"low":179,"trend":262.89,"avg":260.63},"etb":{"low":94,"trend":107.25,"avg":105.55}},"eb05":{"booster":{"low":5.8,"trend":7.14,"avg":6.99},"display":{"low":218.99,"trend":254.24,"avg":252.57},"etb":{"low":125,"trend":143.55,"avg":121}},"eb06":{"booster":{"low":6,"trend":7.47,"avg":7.64},"display":{"low":299,"trend":382.32,"avg":399.9},"etb":{"low":90,"trend":126.38,"avg":119.06}},"eb07":{"booster":{"low":16.49,"trend":31.17,"avg":29.23},"display":{"low":55,"trend":1698.06,"avg":1742.12},"etb":{"low":389,"trend":447.27,"avg":453.5}},"eb08":{"booster":{"low":21,"trend":28.52,"avg":27.43},"etb":{"low":279,"trend":340.17,"avg":303.37}},"eb09":{"booster":{"low":8,"trend":10.45,"avg":12.58},"display":{"low":499,"trend":742.3,"avg":736.21},"etb":{"low":234.99,"trend":280.31,"avg":288.2}},"eb10":{"booster":{"low":5.49,"trend":8.5,"avg":9.07},"display":{"low":310,"trend":328.44,"avg":529.68},"etb":{"low":125,"trend":191.61,"avg":201.49}},"eb11":{"booster":{"low":4.5,"trend":8,"avg":7.66},"display":{"low":186,"trend":320.75,"avg":331.33},"etb":{"low":69,"trend":94.62,"avg":95.49}},"eb12":{"booster":{"low":7,"trend":10.37,"avg":10.3},"display":{"low":279,"trend":409.48,"avg":426.17},"etb":{"low":139.9,"trend":204.08,"avg":205.23}},"eb13":{"booster":{"low":5.4,"trend":7.9,"avg":8.73},"display":{"low":184.95,"trend":343.89,"avg":340.88},"etb":{"low":99.95,"trend":127.11,"avg":127.39}},"eb14":{"booster":{"low":12,"trend":23.96,"avg":21.9},"etb":{"low":184.5,"trend":257.84,"avg":245.6}},"eb15":{"booster":{"low":11,"trend":13.88,"avg":14.46},"etb":{"low":120,"trend":149.26,"avg":159.99}},"eb16":{"booster":{"low":8.9,"trend":11.56,"avg":12.35},"etb":{"low":98,"trend":111.18,"avg":117.51}},"eb17":{"booster":{"low":7,"trend":9.37,"avg":7.94},"etb":{"low":99,"trend":108.87,"avg":112.61}}}};
 let cmMarket = CM_MARKET_SEED;
+let ebaySoldMarket = { updatedAt: null, series: {} };
 
 function cmFieldRef(entry, field){
   const row = cmMarket.series && cmMarket.series[entry.id];
@@ -3585,6 +3552,28 @@ function cmRefLine(entry, field, opts){
   const avgVal = ref.avg != null ? ref.avg : (!opts.trendShown && ref.trend != null ? ref.trend : null);
   if(avgVal == null) return "";
   return `<div class="cm-ref" title="Cardmarket — moyenne marché UE (maj quotidienne)"><span class="cm-ref-tag">CM UE</span>moy. ${fmtEur(avgVal)} €</div>`;
+}
+
+function ebayFieldRef(entry, field){
+  const row = ebaySoldMarket.series && ebaySoldMarket.series[entry.id];
+  return row && row[field] ? row[field] : null;
+}
+
+function fmtShortDate(iso){
+  if(!iso) return "";
+  const dt = new Date(iso);
+  if(isNaN(dt)) return "";
+  return dt.toLocaleDateString("fr-FR", {day:"2-digit", month:"short"});
+}
+
+function ebayRefLine(entry, field){
+  const ref = ebayFieldRef(entry, field);
+  if(!ref || ref.lastPrice == null || ref.lastPrice <= 0) return "";
+  const when = ref.lastSoldAt ? ` · ${fmtShortDate(ref.lastSoldAt)}` : "";
+  const windowDays = ebaySoldMarket.windowDays || 90;
+  const median = ref.median != null ? ref.median : ref.avg;
+  const extra = median != null && ref.count >= 3 ? ` · méd. ${fmtEur(median)} € (${ref.count})` : "";
+  return `<div class="ebay-ref" title="eBay vendu FR — dernière vente terminée (${windowDays} j)"><span class="ebay-ref-tag">eBay FR</span>dernière ${fmtEur(ref.lastPrice)} €${when}${extra}</div>`;
 }
 
 function cmDisplayPrice(entry, field, communityVal){
@@ -3619,6 +3608,28 @@ async function loadCmMarket(){
   if(note && cmMarket.updatedAt){
     const d = new Date(cmMarket.updatedAt);
     note.textContent = isNaN(d) ? cmMarket.updatedAt : ("Cardmarket UE : maj " + d.toLocaleDateString("fr-FR", {day:"2-digit", month:"short", year:"numeric"}));
+  }
+  render();
+}
+
+async function loadEbaySoldMarket(){
+  try{
+    const res = await fetch("ebay-sold-cache.json", { cache: "no-cache" });
+    if(res.ok){
+      const data = await res.json();
+      if(data && data.series) ebaySoldMarket = data;
+    }
+  }catch(e){}
+  if(firebaseReady){
+    try{
+      const doc = await db.collection("pokestar_market").doc("ebay_sold").get();
+      if(doc.exists){
+        const data = doc.data();
+        if(data && data.series && data.updatedAt && (!ebaySoldMarket.updatedAt || data.updatedAt >= ebaySoldMarket.updatedAt)){
+          ebaySoldMarket = data;
+        }
+      }
+    }catch(e){ console.warn("eBay Firestore", e); }
   }
   render();
 }
@@ -3781,10 +3792,7 @@ let unsubscribeState = null;
 let unsubscribeLogos = null;
 
 async function loadState(){
-  // Données locales à cet appareil (jamais partagées) : mode admin et favoris
-  try{
-    state.isAdmin = localStorage.getItem("pokestar_isAdmin") === "1";
-  }catch(e){ state.isAdmin = false; }
+  // Données locales à cet appareil (jamais partagées) : favoris (admin mode retiré P0)
   try{
     state.favorites = JSON.parse(localStorage.getItem("pokestar_favorites") || "[]");
   }catch(e){ state.favorites = []; }
@@ -3885,42 +3893,12 @@ async function saveState(retrying){
 
 function saveLocalPrefs(){
   try{
-    localStorage.setItem("pokestar_isAdmin", state.isAdmin ? "1" : "0");
+    // P0: plus de persistance isAdmin (backdoor retiré). Seuls favoris.
     localStorage.setItem("pokestar_favorites", JSON.stringify(state.favorites || []));
   }catch(e){ /* stockage local indisponible (navigation privée par ex.) */ }
 }
 
-async function saveLogo(id, dataUrl){
-  try{
-    await db.collection("pokestar_logos").doc(id).set({ data: dataUrl }, { merge: true });
-    return true;
-  }catch(e){
-    console.error("Erreur de sauvegarde du logo", e);
-    showToast("⚠️ Cette image est trop lourde ou la sauvegarde a échoué. Essaie une image plus légère.");
-    return false;
-  }
-}
-
-async function saveItemPhoto(id, field, dataUrl){
-  try{
-    await db.collection("pokestar_logos").doc(id).set({ ["photo_"+field]: dataUrl }, { merge: true });
-    return true;
-  }catch(e){
-    console.error("Erreur de sauvegarde de la photo", e);
-    showToast("⚠️ Cette image est trop lourde ou la sauvegarde a échoué. Essaie une image plus légère.");
-    return false;
-  }
-}
-
-async function deleteItemPhoto(id, field){
-  try{
-    await db.collection("pokestar_logos").doc(id).update({ ["photo_"+field]: firebase.firestore.FieldValue.delete() });
-  }catch(e){ /* déjà absent */ }
-}
-
-async function deleteLogo(id){
-  try{ await db.collection("pokestar_logos").doc(id).delete(); }catch(e){ /* déjà absent */ }
-}
+// P0: saveLogo, deleteLogo, saveItemPhoto, deleteItemPhoto removed (admin-only privileged writes to logos/photos excised from public bundle)
 
 function compressImage(file, maxDim, quality){
   return new Promise((resolve, reject) => {
@@ -4323,7 +4301,6 @@ function scrydexProductUrl(entry, field){
 function cardHero(entry, upcoming){
   const hue = entry.hue ?? 280;
   const path = ICONS[entry.icon] || ICONS.orb;
-  const isAdmin = !!state.isAdmin;
   const localHero = localProductPhotoUrl(entry, "hero");
   const metaBadges = `
     <span class="badge ${badgeClass(entry.block)}">${entry.block}</span>
@@ -4336,30 +4313,17 @@ function cardHero(entry, upcoming){
     <div class="card-hero has-logo" style="--h:${hue}">
       <img class="card-hero-img" src="${heroSrc}" alt="${entry.name}" />
       ${overlay}
-      ${isAdmin ? `<button class="logo-clear" data-clearlogo="${entry.id}" title="Retirer le logo"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></button>` : ""}
-    </div>`;
-  }
-  if(!isAdmin){
-    return `
-    <div class="card-hero icon-mode" style="--h:${hue};--s:${entry.iconScale || 1}">
-      <svg class="hero-glyph" viewBox="0 0 24 24">${path}</svg>
-      ${overlay}
+      <!-- admin logo-clear removed P0 -->
     </div>`;
   }
   return `
   <div class="card-hero icon-mode" style="--h:${hue};--s:${entry.iconScale || 1}">
     <svg class="hero-glyph" viewBox="0 0 24 24">${path}</svg>
     ${overlay}
-    <label class="logo-add-btn" title="Ajouter le logo de la série">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Logo série</span>
-      <input type="file" accept="image/*" data-setlogo="${entry.id}" data-custom="${entry._custom?1:0}">
-    </label>
   </div>`;
 }
 
 function productThumb(entry, field, label){
-  const isAdmin = !!state.isAdmin;
   const manualPhoto = entry.photos && entry.photos[field];
   const localPhoto = localProductPhotoUrl(entry, field);
   const photo = localPhoto || manualPhoto;
@@ -4381,14 +4345,7 @@ function productThumb(entry, field, label){
     cls = 'has-logo';
     inner = `<img src="${entry.logo}" alt="${label}">`;
   }
-  const admin = isAdmin ? `
-    <div class="thumb-admin">
-      ${manualPhoto ? `<button type="button" class="thumb-clear" data-clearitemphoto="${entry.id}" data-photofield="${field}" title="Retirer la photo manuelle">×</button>` : ''}
-      <label class="thumb-add" title="Photo ${label}">+
-        <input type="file" accept="image/*" data-setitemphoto="${entry.id}" data-photofield="${field}">
-      </label>
-    </div>` : '';
-  return `<div class="product-thumb ${cls}" style="--h:${hue}">${inner}${admin}</div>`;
+  return `<div class="product-thumb ${cls}" style="--h:${hue}">${inner}</div>`;
 }
 
 function priceSourceBadge(entry, field, communityVal){
@@ -4427,30 +4384,12 @@ function cardActions(entry){
 function priceCell(entry, field, label){
   const val = entry[field];
   const display = (val && val > 0) ? val : "";
-  const isAdmin = !!state.isAdmin;
   let trend = "";
   if(field === "booster" && entry.prevBooster != null && entry.prevBooster !== val){
     const diff = val - entry.prevBooster;
     const arrow = diff > 0 ? "▲" : "▼";
     const cls = diff > 0 ? "up" : "down";
     trend = `<span class="trend ${cls}" title="Précédent : ${entry.prevBooster.toFixed(2)} €">${arrow} ${Math.abs(diff).toFixed(2)}</span>`;
-  }
-
-  if(isAdmin){
-    return `
-    <article class="product-tile" data-field="${field}">
-      ${productThumb(entry, field, label)}
-      <div class="product-body">
-        <div class="product-head"><span class="product-kind">${label}</span>${productSubLabel(field)} ${priceSourceBadge(entry, field, display)}</div>
-        <div class="product-price-row">
-          <input type="number" step="0.01" placeholder="—" value="${display}"
-            data-id="${entry.id}" data-field="${field}" data-custom="${entry._custom?1:0}">
-          <span class="euro">€</span>${trend}
-        </div>
-        ${cmRefLine(entry, field)}
-        ${consensusHint(entry, field)}
-      </div>
-    </article>`;
   }
 
   const shown = cmDisplayPrice(entry, field, display);
@@ -4468,6 +4407,7 @@ function priceCell(entry, field, label){
         ${trend}
       </div>
       ${cmRefLine(entry, field, { trendShown: !!shown.source })}
+      ${ebayRefLine(entry, field)}
       <button class="propose-btn" data-propose="${entry.id}" data-proposefield="${field}" title="Proposer un prix">Proposer</button>
       ${consensusHint(entry, field)}
     </div>
@@ -4503,14 +4443,7 @@ function consensusHint(entry, field){
   Object.entries(counts).forEach(([p,c])=>{ if(c > bestCount){ bestCount = c; bestPrice = p; } });
   const pct = Math.round((bestCount/total)*100);
   return `<div class="consensus-hint">${total} proposition${total>1?"s":""} · ${pct}% pour ${Number(bestPrice).toFixed(2)}€
-    ${state.isAdmin ? `
-      <button class="approvesubs-btn" data-approvesubs="${entry.id}" data-approvefield="${field}" data-approveprice="${bestPrice}" title="Valider ce prix dès maintenant">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg>
-      </button>
-      <button class="resetsubs-btn" data-resetsubs="${entry.id}" data-resetfield="${field}" title="Invalider ces propositions">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    ` : ""}
+    <!-- P0: admin approve/reset subs buttons removed -->
   </div>`;
 }
 
@@ -4613,7 +4546,7 @@ function render(){
               <span class="verif-badge ${e.verified ? 'ok' : 'todo'}" title="${e.verified ? (e.verifiedBy==='community' ? 'Confirmé par la communauté' : 'Confirmé par Pokestar') : ''}">${e.verified ? '<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align:-1px;margin-right:2px"><path d="M4 12l6 6L20 6"/></svg>Vérifié' : 'Estimé'}</span>
               ${e.updatedAt ? `<span class="updated">maj ${fmtDate(e.updatedAt)}</span>` : ""}
               ${isStale(e) ? `<span class="stale-badge">à revérifier</span>` : ""}
-              ${(e.verified && !e._custom && state.isAdmin) ? `<button class="reset-btn" data-reset="${e.id}" title="Revenir au prix par défaut"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg></button>` : ""}
+              <!-- reset-btn admin only removed in P0 security pass -->
             </div>
             <div class="product-shelf">
               ${priceCell(e,"booster","Booster")}
@@ -4629,27 +4562,6 @@ function render(){
     main.innerHTML = html;
   }
 
-  main.querySelectorAll("input[data-field]").forEach(inp=>{
-    inp.addEventListener("change", onPriceChange);
-  });
-  main.querySelectorAll("[data-del]").forEach(btn=>{
-    btn.addEventListener("click", onDelete);
-  });
-  main.querySelectorAll("input[data-setlogo]").forEach(inp=>{
-    inp.addEventListener("change", onLogoUpload);
-  });
-  main.querySelectorAll("[data-clearlogo]").forEach(btn=>{
-    btn.addEventListener("click", onLogoClear);
-  });
-  main.querySelectorAll("input[data-setitemphoto]").forEach(inp=>{
-    inp.addEventListener("change", onItemPhotoUpload);
-  });
-  main.querySelectorAll("[data-clearitemphoto]").forEach(btn=>{
-    btn.addEventListener("click", onItemPhotoClear);
-  });
-  main.querySelectorAll("[data-reset]").forEach(btn=>{
-    btn.addEventListener("click", onResetPrice);
-  });
   main.querySelectorAll("[data-fav]").forEach(btn=>{
     btn.addEventListener("click", onToggleFav);
   });
@@ -4659,12 +4571,7 @@ function render(){
   main.querySelectorAll("[data-propose]").forEach(btn=>{
     btn.addEventListener("click", onProposePrice);
   });
-  main.querySelectorAll("[data-resetsubs]").forEach(btn=>{
-    btn.addEventListener("click", onResetSubmissions);
-  });
-  main.querySelectorAll("[data-approvesubs]").forEach(btn=>{
-    btn.addEventListener("click", onApproveSubmission);
-  });
+  // P0 review2: all admin data- listeners (data-field, del, setlogo, clearlogo, setitemphoto, clearitemphoto, reset, resetsubs, approvesubs) removed; no remaining calls to deleted admin funcs
 
   renderTicker(entries);
 }
@@ -4760,66 +4667,9 @@ function applyProposal(id, field, val){
   render();
 }
 
-function onResetAllPrices(){
-  confirmAction("Réinitialiser le prix de TOUTES les séries (les 120) à zéro ? Cette action efface aussi les propositions communautaires en cours.", ()=>{
-    getAllEntries().forEach(entry=>{
-      if(entry._custom){
-        const item = state.custom.find(c=>c.id===entry.id);
-        if(item){
-          item.booster = 0; item.display = 0; item.etb = 0;
-          delete item.verified; delete item.verifiedBy; delete item.updatedAt; delete item.prevBooster; delete item.submissions;
-        }
-      } else {
-        state.overrides[entry.id] = state.overrides[entry.id] || {};
-        state.overrides[entry.id].booster = 0;
-        state.overrides[entry.id].display = 0;
-        state.overrides[entry.id].etb = 0;
-        delete state.overrides[entry.id].verified;
-        delete state.overrides[entry.id].verifiedBy;
-        delete state.overrides[entry.id].updatedAt;
-        delete state.overrides[entry.id].prevBooster;
-        delete state.overrides[entry.id].submissions;
-      }
-    });
-    saveState();
-    render();
-    showToast("Tous les prix ont été remis à zéro");
-  });
-}
+// P0: onResetAllPrices removed (dead admin bulk reset)
 
-function onResetSubmissions(e){
-  const id = e.currentTarget.dataset.resetsubs;
-  const field = e.currentTarget.dataset.resetfield;
-  confirmAction("Invalider toutes les propositions des utilisateurs pour ce champ ? Aucun prix ne sera appliqué.", ()=>{
-    const item = state.custom.find(c=>c.id===id);
-    if(item && item.submissions){ delete item.submissions[field]; }
-    if(state.overrides[id] && state.overrides[id].submissions){ delete state.overrides[id].submissions[field]; }
-    saveState();
-    render();
-    showToast("Propositions invalidées");
-  });
-}
-
-function onApproveSubmission(e){
-  const id = e.currentTarget.dataset.approvesubs;
-  const field = e.currentTarget.dataset.approvefield;
-  const price = parseFloat(e.currentTarget.dataset.approveprice);
-  const current = getAllEntries().find(x=>x.id===id);
-  confirmAction(`Valider ${price.toFixed(2)} € comme prix officiel pour "${current ? current.name : id}" dès maintenant ?`, ()=>{
-    const item = state.custom.find(c=>c.id===id);
-    const target = item || (state.overrides[id] = state.overrides[id] || {});
-    const prevVal = field === "booster" && current && current.booster > 0 && current.booster !== price ? current.booster : null;
-    target[field] = price;
-    target.verified = true;
-    target.verifiedBy = "admin";
-    target.updatedAt = new Date().toISOString();
-    if(prevVal != null) target.prevBooster = prevVal;
-    if(target.submissions) delete target.submissions[field];
-    saveState();
-    render();
-    showToast(`Prix validé : ${price.toFixed(2)} €`);
-  });
-}
+// P0 review2: onResetSubmissions + onApproveSubmission removed (dead admin privileged code)
 
 function showToast(msg){
   const existing = document.querySelector(".toast");
@@ -4846,119 +4696,11 @@ function confirmAction(message, onConfirm){
 }
 
 // --- Vérification guidée série par série ---
-let checkQueue = [];
-let checkIndex = 0;
+// P0: checkQueue / startCheck / renderCheckStep / checkAdvance removed (dead admin verification code)
 
-function startCheck(){
-  checkQueue = getAllEntries()
-    .filter(e => e.booster > 0)
-    .sort((a,b)=> new Date(a.updatedAt||0) - new Date(b.updatedAt||0)); // les moins récemment vérifiées en premier
-  if(checkQueue.length === 0){
-    showToast("Aucune série à vérifier pour l'instant.");
-    return;
-  }
-  checkIndex = 0;
-  document.getElementById("checkPanel").classList.add("open");
-  renderCheckStep();
-}
+// P0: all remaining check* listeners and handler removed (checkPanel and admin check code excised)
 
-function renderCheckStep(){
-  const entry = checkQueue[checkIndex];
-  document.getElementById("checkProgress").textContent = `${checkIndex+1}/${checkQueue.length}`;
-  document.getElementById("checkName").textContent = entry.name;
-  document.getElementById("checkLink").href = `https://www.ebay.fr/sch/i.html?_nkw=${encodeURIComponent('pokemon booster '+entry.name)}&LH_Sold=1&LH_Complete=1`;
-  const priceInput = document.getElementById("checkPrice");
-  priceInput.value = "";
-  priceInput.placeholder = `Actuel : ${entry.booster.toFixed(2)} €`;
-  priceInput.dataset.id = entry.id;
-  priceInput.dataset.custom = entry._custom ? "1" : "0";
-}
-
-function checkAdvance(){
-  checkIndex++;
-  if(checkIndex >= checkQueue.length){
-    document.getElementById("checkPanel").classList.remove("open");
-    showToast("Vérification terminée");
-    return;
-  }
-  renderCheckStep();
-}
-
-document.getElementById("startCheck").addEventListener("click", startCheck);
-document.getElementById("checkClose").addEventListener("click", ()=>{
-  document.getElementById("checkPanel").classList.remove("open");
-});
-document.getElementById("checkSkip").addEventListener("click", checkAdvance);
-document.getElementById("checkSave").addEventListener("click", ()=>{
-  const priceInput = document.getElementById("checkPrice");
-  const val = parseFloat(priceInput.value);
-  if(!val || val <= 0){ showToast("Entre un prix valide avant d'enregistrer."); return; }
-  const id = priceInput.dataset.id;
-  const isCustom = priceInput.dataset.custom === "1";
-  const now = new Date().toISOString();
-  const current = getAllEntries().find(x=>x.id===id);
-  const prevVal = (current && current.booster > 0 && current.booster !== val) ? current.booster : null;
-
-  if(isCustom){
-    const item = state.custom.find(c=>c.id===id);
-    if(item){ item.booster = val; item.verified = true; item.verifiedBy = "admin"; item.updatedAt = now; if(prevVal!=null) item.prevBooster = prevVal; }
-  } else {
-    state.overrides[id] = state.overrides[id] || {};
-    state.overrides[id].booster = val;
-    state.overrides[id].verified = true;
-    state.overrides[id].verifiedBy = "admin";
-    state.overrides[id].updatedAt = now;
-    if(prevVal!=null) state.overrides[id].prevBooster = prevVal;
-  }
-  saveState();
-  render();
-  checkAdvance();
-});
-
-function onPriceChange(e){
-  const id = e.target.dataset.id;
-  const field = e.target.dataset.field;
-  const isCustom = e.target.dataset.custom === "1";
-  const val = parseFloat(e.target.value) || 0;
-  const now = new Date().toISOString();
-  let prevVal = null;
-  if(field === "booster"){
-    const current = getAllEntries().find(x=>x.id===id);
-    if(current && current.booster > 0 && current.booster !== val) prevVal = current.booster;
-  }
-
-  if(isCustom){
-    const item = state.custom.find(c=>c.id===id);
-    if(item){
-      item[field] = val; item.verified = true; item.verifiedBy = "admin"; item.updatedAt = now;
-      if(prevVal != null) item.prevBooster = prevVal;
-    }
-  } else {
-    state.overrides[id] = state.overrides[id] || {};
-    state.overrides[id][field] = val;
-    state.overrides[id].verified = true;
-    state.overrides[id].verifiedBy = "admin";
-    state.overrides[id].updatedAt = now;
-    if(prevVal != null) state.overrides[id].prevBooster = prevVal;
-  }
-  saveState();
-  render();
-}
-
-function onResetPrice(e){
-  const id = e.currentTarget.dataset.reset;
-  if(state.overrides[id]){
-    delete state.overrides[id].booster;
-    delete state.overrides[id].display;
-    delete state.overrides[id].etb;
-    delete state.overrides[id].verified;
-    delete state.overrides[id].verifiedBy;
-    delete state.overrides[id].updatedAt;
-    delete state.overrides[id].prevBooster;
-  }
-  saveState();
-  render();
-}
+// P0 review2: onPriceChange + onResetPrice removed (dead admin direct edit / reset code)
 
 function normalizeSlug(str){
   return str
@@ -4967,130 +4709,11 @@ function normalizeSlug(str){
     .replace(/[^a-z0-9]/g, ""); // retire tout sauf lettres/chiffres
 }
 
-async function onBulkLogoImport(e){
-  const files = Array.from(e.target.files || []);
-  if(files.length === 0) return;
-  const allEntries = getAllEntries();
-  let matched = 0;
-  const unmatched = [];
+// P0: onBulkLogoImport + finishBulkImport removed (dead admin bulk logo code)
 
-  for(const file of files){
-    const baseName = normalizeSlug(file.name.replace(/\.[^.]+$/, ""));
-    const entry = allEntries.find(en =>
-      normalizeSlug(en.id) === baseName ||
-      normalizeSlug(en.code || "") === baseName ||
-      normalizeSlug(en.name) === baseName ||
-      normalizeSlug(en.name).includes(baseName) ||
-      baseName.includes(normalizeSlug(en.id))
-    );
+// P0 review2: onLogoUpload + onLogoClear removed (dead admin logo upload/clear)
 
-    if(!entry){
-      unmatched.push(file.name);
-      continue;
-    }
-
-    try{
-      const dataUrl = await compressImage(file, 480, 0.82);
-      if(entry._custom){
-        const item = state.custom.find(c=>c.id===entry.id);
-        if(item) item.logo = dataUrl;
-      } else {
-        state.overrides[entry.id] = state.overrides[entry.id] || {};
-        state.overrides[entry.id].logo = dataUrl;
-      }
-      matched++;
-      saveLogo(entry.id, dataUrl);
-    }catch(err){
-      unmatched.push(file.name);
-    }
-  }
-  finishBulkImport(matched, unmatched);
-}
-
-function finishBulkImport(matched, unmatched){
-  saveState();
-  render();
-  if(unmatched.length === 0){
-    showToast(`${matched} logo(s) importé(s) avec succès !`);
-  } else {
-    showToast(`${matched} importé(s), ${unmatched.length} non reconnu(s) : ${unmatched.slice(0,3).join(", ")}${unmatched.length>3?"...":""}`);
-  }
-}
-
-async function onLogoUpload(e){
-  const id = e.target.dataset.setlogo;
-  const isCustom = e.target.dataset.custom === "1";
-  const file = e.target.files[0];
-  if(!file) return;
-
-  try{
-    const dataUrl = await compressImage(file, 480, 0.82);
-    // On affiche tout de suite, même si la sauvegarde échoue ensuite (l'utilisateur ne perd pas son upload à l'écran)
-    if(isCustom){
-      const item = state.custom.find(c=>c.id===id);
-      if(item) item.logo = dataUrl;
-    } else {
-      state.overrides[id] = state.overrides[id] || {};
-      state.overrides[id].logo = dataUrl;
-    }
-    render();
-    await saveLogo(id, dataUrl);
-  }catch(err){
-    console.error(err);
-    showToast("⚠️ Impossible de traiter cette image. Essaie un autre fichier.");
-  }
-}
-
-function onLogoClear(e){
-  const id = e.currentTarget.dataset.clearlogo;
-  const item = state.custom.find(c=>c.id===id);
-  if(item){ delete item.logo; }
-  if(state.overrides[id]){ delete state.overrides[id].logo; }
-  deleteLogo(id);
-  saveState();
-  render();
-}
-
-async function onItemPhotoUpload(e){
-  const id = e.target.dataset.setitemphoto;
-  const field = e.target.dataset.photofield;
-  const file = e.target.files[0];
-  if(!file) return;
-
-  try{
-    const dataUrl = await compressImage(file, 480, 0.82);
-    const item = state.custom.find(c=>c.id===id);
-    const target = item || (state.overrides[id] = state.overrides[id] || {});
-    target.photos = target.photos || {};
-    target.photos[field] = dataUrl;
-    render();
-    await saveItemPhoto(id, field, dataUrl);
-  }catch(err){
-    console.error(err);
-    showToast("⚠️ Impossible de traiter cette image. Essaie un autre fichier.");
-  }
-}
-
-function onItemPhotoClear(e){
-  const id = e.currentTarget.dataset.clearitemphoto;
-  const field = e.currentTarget.dataset.photofield;
-  const item = state.custom.find(c=>c.id===id);
-  if(item && item.photos){ delete item.photos[field]; }
-  if(state.overrides[id] && state.overrides[id].photos){ delete state.overrides[id].photos[field]; }
-  deleteItemPhoto(id, field);
-  render();
-}
-
-function onDelete(e){
-  const id = e.currentTarget.dataset.del;
-  const item = state.custom.find(c=>c.id===id);
-  const label = item ? item.name : "cette série";
-  confirmAction(`Supprimer "${label}" ? Cette action est définitive.`, ()=>{
-    state.custom = state.custom.filter(c=>c.id!==id);
-    saveState();
-    render();
-  });
-}
+// P0 review2: onItemPhotoUpload + onItemPhotoClear + onDelete removed (dead admin photo/custom delete code; no remaining calls to deleted saveItemPhoto/deleteItemPhoto)
 
 function tickerDelta(price, prev){
   if(price == null || prev == null || prev <= 0 || price === prev){
@@ -5280,7 +4903,7 @@ function mobileTabForView(view){
 
 function handleAccountAction(){
   const realUser = auth.currentUser && !auth.currentUser.isAnonymous;
-  if(state.isAdmin || realUser){
+  if(realUser){ // P0: admin removed, only authenticated real users
     const menu = document.getElementById("accountMenu");
     if(menu && menu.classList.contains("open")){
       closeAccountMenu();
@@ -5413,8 +5036,10 @@ function routeFromHash(){
 if("scrollRestoration" in history) history.scrollRestoration = "manual";
 window.addEventListener("popstate", routeFromHash);
 
-document.getElementById("bulkLogoInput").addEventListener("change", onBulkLogoImport);
-document.getElementById("resetAllPrices").addEventListener("click", onResetAllPrices);
+const bulkEl = document.getElementById("bulkLogoInput");
+if (bulkEl) bulkEl.addEventListener("change", onBulkLogoImport);
+const resetAllEl = document.getElementById("resetAllPrices");
+if (resetAllEl) resetAllEl.addEventListener("click", onResetAllPrices);
 document.getElementById("navHome").addEventListener("click", e=>{ e.preventDefault(); setView("catalog"); });
 document.getElementById("navCatalog").addEventListener("click", ()=> setView("catalog"));
 document.getElementById("navHelp").addEventListener("click", ()=> setView("help"));
@@ -5539,67 +5164,8 @@ document.getElementById("distribForm").addEventListener("submit", async function
     submitBtn.textContent = "Envoyer ma demande";
   }
 });
-document.getElementById("showLeads").addEventListener("click", async ()=>{
-  const list = document.getElementById("leadsList");
-  const btn = document.getElementById("showLeads");
-  if(list.style.display === "block"){
-    list.style.display = "none";
-    return;
-  }
-  list.style.display = "block";
-  list.innerHTML = `<p style="color:var(--muted);font-size:12px;">Chargement...</p>`;
-  try{
-    const snap = await db.collection("pokestar_leads").orderBy("createdAt", "desc").get();
-    if(snap.empty){
-      list.innerHTML = `<p style="color:var(--muted);font-size:12px;">Aucune demande reçue pour l'instant.</p>`;
-      return;
-    }
-    list.innerHTML = snap.docs.map(doc=>{
-      const d = doc.data();
-      const date = d.createdAt ? new Date(d.createdAt).toLocaleDateString('fr-FR', {day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'}) : "";
-      return `<div class="lead-card">
-        <div class="lead-top">
-          <span class="lead-name">${d.name || "—"}</span>
-          <span class="lead-date">${date}</span>
-        </div>
-        <div class="lead-detail">
-          <b>Email :</b> ${d.email || "—"}<br>
-          <b>Téléphone :</b> ${d.phone || "—"}<br>
-          <b>Modèle :</b> ${d.model || "—"}<br>
-          <b>Message :</b> ${d.message || "—"}
-        </div>
-      </div>`;
-    }).join("");
-  }catch(e){
-    console.error("Erreur de chargement des demandes", e);
-    list.innerHTML = `<p style="color:var(--scarlet);font-size:12px;">Impossible de charger les demandes.</p>`;
-  }
-});
-document.getElementById("toggleAdd").addEventListener("click", ()=>{
-  document.getElementById("addForm").classList.toggle("open");
-});
-document.getElementById("f-submit").addEventListener("click", ()=>{
-  const name = document.getElementById("f-name").value.trim();
-  if(!name) return;
-  const entry = {
-    id: "custom-" + Date.now(),
-    name,
-    block: document.getElementById("f-block").value,
-    date: new Date().toISOString().slice(0,10),
-    booster: parseFloat(document.getElementById("f-booster").value)||0,
-    display: parseFloat(document.getElementById("f-display").value)||0,
-    etb: parseFloat(document.getElementById("f-etb").value)||0,
-    _custom: true
-  };
-  state.custom.push(entry);
-  saveState();
-  document.getElementById("f-name").value="";
-  document.getElementById("f-booster").value="";
-  document.getElementById("f-display").value="";
-  document.getElementById("f-etb").value="";
-  document.getElementById("addForm").classList.remove("open");
-  render();
-});
+// P0 review2: showLeads listener removed (admin read-all leads)
+// P0 review2: toggleAdd/fSubmit/add custom fully excised (dead admin code)
 
 // --- Comptes client (interface prête à être branchée sur Firebase Auth) ---
 function openAuth(){
@@ -5628,14 +5194,10 @@ function updateAccountUI(){
   const controlsBar = document.getElementById("controlsBar");
   const currentUser = auth.currentUser;
   const realUser = currentUser && !currentUser.isAnonymous;
-  const hasSession = !!realUser || !!state.isAdmin;
+  const hasSession = !!realUser;
 
   let shortName = "Compte";
-  if(state.isAdmin){
-    label.textContent = "Admin";
-    shortName = "Admin";
-    btn.classList.add("logged-in");
-  } else if(realUser){
+  if(realUser){
     shortName = currentUser.email ? currentUser.email.split("@")[0] : "Compte";
     label.textContent = shortName;
     btn.classList.add("logged-in");
@@ -5648,7 +5210,7 @@ function updateAccountUI(){
     if(favBtn) favBtn.style.display = realUser ? "" : "none";
     if(menuProfile) menuProfile.style.display = realUser ? "" : "none";
     if(menuLogout){
-      menuLogout.textContent = state.isAdmin ? "Quitter le mode admin" : "Se déconnecter";
+      menuLogout.textContent = "Se déconnecter";
       menuLogout.style.display = hasSession ? "" : "none";
     }
     if(!hasSession) closeAccountMenu();
@@ -5660,28 +5222,15 @@ function updateAccountUI(){
   });
   if(menuFavBtn) menuFavBtn.style.display = realUser ? "" : "none";
 
-  document.getElementById("adminControls").classList.toggle("show", !!state.isAdmin);
-  const adminRow = document.getElementById("adminControlsRow");
-  if(adminRow) adminRow.classList.toggle("show", !!state.isAdmin);
-  if(controlsBar) controlsBar.classList.toggle("has-admin", !!state.isAdmin);
-  document.querySelectorAll(".admin-only").forEach(el=>{
-    el.classList.toggle("show", !!state.isAdmin);
-  });
+  // P0 admin UI toggles removed (controls row excised, no secret admin)
 }
 
-const ADMIN_CODE = "221183Aa";
+// P0 security: ADMIN_CODE and discrete admin backdoor removed from public JS.
+// Admin control no longer activatable via secret in client bundle.
+// isAdmin field retained in state for compatibility (always false; no privileged paths remain)
 
 function logoutSession(){
-  if(state.isAdmin){
-    state.isAdmin = false;
-    saveLocalPrefs();
-    if(auth.currentUser) auth.signOut();
-    onlyFavorites = false;
-    updateAccountUI();
-    render();
-    showToast("Mode admin désactivé");
-    return;
-  }
+  // P0: admin mode removed; always normal signOut
   auth.signOut().then(()=>{
     onlyFavorites = false;
     updateAccountUI();
@@ -5830,30 +5379,6 @@ document.getElementById("loginSubmit").addEventListener("click", async ()=>{
   const password = document.getElementById("loginPassword").value;
   const errorEl = document.getElementById("loginError");
 
-  // Accès admin discret : pseudo "admin" + code personnel
-  if(username.toLowerCase() === "admin"){
-    if(password === ADMIN_CODE){
-      try{
-        // Nécessaire pour que Firestore accepte les écritures (règles : request.auth != null)
-        console.log("Tentative de connexion Firebase anonyme...");
-        await auth.signInAnonymously();
-        console.log("Connexion Firebase anonyme réussie, UID :", auth.currentUser && auth.currentUser.uid);
-        state.isAdmin = true;
-        saveLocalPrefs();
-        updateAccountUI();
-        closeAuth();
-        render();
-        showToast("Mode admin activé");
-      }catch(e){
-        console.error("Connexion Firebase admin impossible", e.code, e.message);
-        errorEl.textContent = "Échec de connexion Firebase : " + (e.code || e.message) + " — les sauvegardes ne fonctionneront pas tant que ce n'est pas résolu.";
-      }
-    } else {
-      errorEl.textContent = "Pseudo ou mot de passe incorrect.";
-    }
-    return;
-  }
-
   errorEl.textContent = "";
   try{
     // Le pseudo saisi peut être un email direct, sinon on tente de le traiter comme identifiant simple
@@ -5870,7 +5395,7 @@ document.getElementById("loginSubmit").addEventListener("click", async ()=>{
 
 auth.onAuthStateChanged(()=>{ updateAccountUI(); });
 
-loadLocalProductPhotos().then(()=>loadState()).then(()=>{ loadCmMarket(); routeFromHash(); updateTabHomeScrollMode(); });
+loadLocalProductPhotos().then(()=>loadState()).then(()=>Promise.all([loadCmMarket(), loadEbaySoldMarket()])).then(()=>{ routeFromHash(); updateTabHomeScrollMode(); });
 
 
 if("serviceWorker" in navigator){

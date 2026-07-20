@@ -1,5 +1,5 @@
-const CACHE = "pokestar-shell-v6";
-const PRECACHE = [
+const CACHE = "pokestar-shell-v7";
+const CORE_PRECACHE = [
   "./manifest.json",
   "./robots.txt",
   "./favicon.ico",
@@ -9,9 +9,17 @@ const PRECACHE = [
   "./assets/brand-logo.jpg",
   "./cm-market-cache.json"
 ];
+const OPTIONAL_PRECACHE = [
+  "./ebay-sold-cache.json"
+];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
+  event.waitUntil(
+    caches.open(CACHE).then((c) =>
+      Promise.all(CORE_PRECACHE.map(p => c.add(p)))  // core must succeed visibly on error
+        .then(() => Promise.all(OPTIONAL_PRECACHE.map(p => c.add(p).catch(() => {/* ebay optional, may be absent in some deploys */}))))
+    ).then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener("activate", (event) => {
@@ -41,7 +49,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname.endsWith("cm-market-cache.json")) {
+  if (url.pathname.endsWith("cm-market-cache.json") || url.pathname.endsWith("ebay-sold-cache.json")) {
     event.respondWith(
       fetch(event.request)
         .then((res) => {

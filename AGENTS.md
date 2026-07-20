@@ -1,4 +1,4 @@
-# Pokestar — Instructions Agents
+# Pokestar V1 HTML — Instructions Agents
 
 Site communautaire **La Cote du TCG Pokémon** — repères de prix boosters / displays / ETB,
 boutique eBay affiliée, distributeurs automatiques.
@@ -6,22 +6,29 @@ boutique eBay affiliée, distributeurs automatiques.
 | Champ | Valeur |
 |-------|--------|
 | URL prod | https://pokestar-tcg.com |
-| Chemin | `NEWMETA/Pokestar/` |
-| Repo Git | https://github.com/HoummadB/pokestar-tcg |
+| Chemin | `NEWMETA/Pokestar-HTML/` |
+| Repo Git | https://github.com/HoummadB/pokestar-html |
 | Stack | SPA monolithique HTML/CSS/JS + Firebase Firestore/Auth |
 | Contact | pokestar.store@gmail.com |
 | Vendeur eBay | pokestartcg |
+| Statut | V1 en production, maintenance et stabilisation uniquement |
+
+La V2 vit dans `NEWMETA/Pokestar/` avec un repo Git distinct. Ne pas ajouter de
+nouveau chantier structurel dans cette V1 : corriger seulement la securite, le
+deploiement, le legal et les regressions necessaires jusqu'a la bascule.
 
 ---
 
 ## Structure
 
 ```text
-NEWMETA/Pokestar/
+NEWMETA/Pokestar-HTML/
 ├── AGENTS.md              # cette fiche
 ├── index.html             # app complète (source unique)
 ├── cm-market-cache.json   # prix Cardmarket (maj quotidienne)
+├── ebay-sold-cache.json   # repères eBay vendu FR (maj cron, vide tant que pas de clés)
 ├── refresh-cm-cache.py    # sync CM → json + seed HTML
+├── refresh-ebay-sold-cache.py  # sync eBay vendu → json (dry-run sans clés)
 ├── tools/
 │   ├── photo-review.html       # panier corrections Booster-Display-ETB
 │   └── photo-review-state.json # décisions et paniers résolus versionnés
@@ -46,7 +53,10 @@ Point d'entrée déploiement : **`index.html`** à la racine du site.
 - **Cote Pokestar** : prix communautaires / admin, stockés Firestore `pokestar_state/main`.
 - **Logos de série** : Firestore `pokestar_logos` (base64). **Photos produit** : manifest local `assets/product-photos/manifest.json`, puis Firestore manuel et Scrydex en secours. Les héros de 107 séries sont des visuels français récupérés depuis [PkmCards](https://www.pkmcards.fr/series/) et stockés dans `assets/series-logos/`; 11 séries historiques gardent le CDN Pokémon TCG API faute de visuel PkmCards correspondant.
 - **Prix Cardmarket UE** : guide officiel JSON (maj ~1×/jour), embarqué `CM_MARKET_SEED` + fichier `cm-market-cache.json`. Le guide n'est pas un prix France-only.
-- **eBay vendu** : pas d'API — lien externe seulement.
+- **eBay vendu** : lien externe + cache serveur `ebay-sold-cache.json` (phase en cours).
+  Sans clés eBay Developer, le cache ne contient que les requêtes ; la ligne
+  `eBay FR` affiche la **dernière vente** dès qu'une est trouvée (90 j). La
+  médiane n'apparaît qu'à partir de 3 ventes, en complément.
 - **UI** : hero logo série + tuiles Booster / Display / ETB (photo → logo → icône).
 
 Firebase projet : `pokestar-tcg` (config client dans `index.html`).
@@ -55,11 +65,15 @@ Firebase projet : `pokestar-tcg` (config client dans `index.html`).
 
 ## Commandes
 
-Depuis `NEWMETA/Pokestar/` :
+Depuis `NEWMETA/Pokestar-HTML/` :
 
 ```bash
 # Rafraîchir les prix Cardmarket (json + seed dans index.html)
 python3 refresh-cm-cache.py
+
+# Repères eBay vendu FR (dry-run sans clés ; live avec EBAY_APP_ID + EBAY_CERT_ID)
+python3 refresh-ebay-sold-cache.py
+EBAY_APP_ID=… EBAY_CERT_ID=… python3 refresh-ebay-sold-cache.py --live --limit 5
 
 # Vérifier syntaxe JS
 node -e "const fs=require('fs');const h=fs.readFileSync('index.html','utf8');const m=h.match(/<script>\\n([\\s\\S]*)<\\/script>\\s*<\\/body>/);new Function(m[1]);console.log('JS OK');"
@@ -90,7 +104,14 @@ Chaque résolution utilise la clé `<serie-id>:<field>` et au minimum
 
 Cron recommandé (Hetzner ou Mac) : `refresh-cm-cache.py` 1×/jour puis redeploy des fichiers statiques.
 
-Option Firestore : écrire le cache dans `pokestar_market/cardmarket` pour override sans redeploy HTML — le front lit ce doc si plus récent que le seed.
+Option Firestore : écrire le cache dans `pokestar_market/cardmarket` ou
+`pokestar_market/ebay_sold` pour override sans redeploy HTML — le front lit le
+doc le plus récent.
+
+Compte eBay Developer : **gratuit** sur developer.ebay.com → Application
+Production → `App ID` + `Cert ID` en variables d'environnement (jamais dans le
+front). Valider d'abord avec `--live --limit 5` avant cron complet (~354
+requêtes / jour si toutes les séries).
 
 ---
 
@@ -102,6 +123,7 @@ Fichiers à publier ensemble :
 
 - `index.html`
 - `cm-market-cache.json`
+- `ebay-sold-cache.json` (quand rempli)
 - `manifest.json`
 - `sw.js`
 - `favicon.ico`, `favicon-32.png`
@@ -115,7 +137,7 @@ Après modification de `index.html` ou des prix CM :
 
 1. `python3 refresh-cm-cache.py`
 2. Vérifier rendu local (`python3 -m http.server`)
-3. Deploy Vercel depuis `https://github.com/HoummadB/pokestar-tcg` (push `main` ou CLI)
+3. Deploy Vercel depuis `https://github.com/HoummadB/pokestar-html` (push `main` ou CLI)
 4. Commit local ChakmallOs si scope terminé
 
 **Push** : uniquement sur demande explicite de Hoummad.
@@ -182,4 +204,6 @@ Après modification de `index.html` ou des prix CM :
 
 ## Index NEWMETA
 
-Produit listé dans `NEWMETA/AGENTS.md` § outils actifs. Statut : **Production** (site live pokestar-tcg.com).
+Produit listé dans `NEWMETA/AGENTS.md` § outils actifs. Statut : **Production
+V1 en maintenance** (site live pokestar-tcg.com). La nouvelle version se
+prepare dans `NEWMETA/Pokestar/`.

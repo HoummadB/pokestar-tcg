@@ -1,0 +1,1305 @@
+{
+  "updatedAt": "2026-07-10T20:50:00Z",
+  "marketplace": "EBAY_FR",
+  "windowDays": 90,
+  "series": {
+    "ev01": {
+      "booster": {
+        "query": "pokemon booster Écarlate et Violet"
+      },
+      "display": {
+        "query": "pokemon display Écarlate et Violet"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Écarlate et Violet"
+      }
+    },
+    "ev02": {
+      "booster": {
+        "query": "pokemon booster Évolutions à Paldea"
+      },
+      "display": {
+        "query": "pokemon display Évolutions à Paldea"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Évolutions à Paldea"
+      }
+    },
+    "ev03": {
+      "booster": {
+        "query": "pokemon booster Flammes Obsidiennes"
+      },
+      "display": {
+        "query": "pokemon display Flammes Obsidiennes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Flammes Obsidiennes"
+      }
+    },
+    "ev151": {
+      "booster": {
+        "query": "pokemon booster 151"
+      },
+      "display": {
+        "query": "pokemon display 151"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur 151"
+      }
+    },
+    "ev04": {
+      "booster": {
+        "query": "pokemon booster Faille Paradoxe"
+      },
+      "display": {
+        "query": "pokemon display Faille Paradoxe"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Faille Paradoxe"
+      }
+    },
+    "ev045": {
+      "booster": {
+        "query": "pokemon booster Destinées de Paldea"
+      },
+      "display": {
+        "query": "pokemon display Destinées de Paldea"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Destinées de Paldea"
+      }
+    },
+    "ev05": {
+      "booster": {
+        "query": "pokemon booster Forces Temporelles"
+      },
+      "display": {
+        "query": "pokemon display Forces Temporelles"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Forces Temporelles"
+      }
+    },
+    "ev06": {
+      "booster": {
+        "query": "pokemon booster Mascarade Crépusculaire"
+      },
+      "display": {
+        "query": "pokemon display Mascarade Crépusculaire"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Mascarade Crépusculaire"
+      }
+    },
+    "ev065": {
+      "booster": {
+        "query": "pokemon booster Fable Nébuleuse"
+      },
+      "display": {
+        "query": "pokemon display Fable Nébuleuse"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Fable Nébuleuse"
+      }
+    },
+    "ev07": {
+      "booster": {
+        "query": "pokemon booster Couronne Stellaire"
+      },
+      "display": {
+        "query": "pokemon display Couronne Stellaire"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Couronne Stellaire"
+      }
+    },
+    "ev08": {
+      "booster": {
+        "query": "pokemon booster Étincelles Déferlantes"
+      },
+      "display": {
+        "query": "pokemon display Étincelles Déferlantes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Étincelles Déferlantes"
+      }
+    },
+    "ev085": {
+      "booster": {
+        "query": "pokemon booster Évolutions Prismatiques"
+      },
+      "display": {
+        "query": "pokemon display Évolutions Prismatiques"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Évolutions Prismatiques"
+      }
+    },
+    "ev09": {
+      "booster": {
+        "query": "pokemon booster Aventures Ensemble"
+      },
+      "display": {
+        "query": "pokemon display Aventures Ensemble"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Aventures Ensemble"
+      }
+    },
+    "ev10": {
+      "booster": {
+        "query": "pokemon booster Rivalités Destinées"
+      },
+      "display": {
+        "query": "pokemon display Rivalités Destinées"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Rivalités Destinées"
+      }
+    },
+    "ev105a": {
+      "booster": {
+        "query": "pokemon booster Foudre Noire"
+      },
+      "display": {
+        "query": "pokemon display Foudre Noire"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Foudre Noire"
+      }
+    },
+    "ev105b": {
+      "booster": {
+        "query": "pokemon booster Flamme Blanche"
+      },
+      "display": {
+        "query": "pokemon display Flamme Blanche"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Flamme Blanche"
+      }
+    },
+    "me01": {
+      "booster": {
+        "query": "pokemon booster Méga-Évolution"
+      },
+      "display": {
+        "query": "pokemon display Méga-Évolution"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Méga-Évolution"
+      }
+    },
+    "me02": {
+      "booster": {
+        "query": "pokemon booster Flammes Fantasmagoriques"
+      },
+      "display": {
+        "query": "pokemon display Flammes Fantasmagoriques"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Flammes Fantasmagoriques"
+      }
+    },
+    "me025": {
+      "booster": {
+        "query": "pokemon booster Héros Transcendants"
+      },
+      "display": {
+        "query": "pokemon display Héros Transcendants"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Héros Transcendants"
+      }
+    },
+    "me03": {
+      "booster": {
+        "query": "pokemon booster Équilibre Parfait"
+      },
+      "display": {
+        "query": "pokemon display Équilibre Parfait"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Équilibre Parfait"
+      }
+    },
+    "me04": {
+      "booster": {
+        "query": "pokemon booster Chaos Ascendant"
+      },
+      "display": {
+        "query": "pokemon display Chaos Ascendant"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Chaos Ascendant"
+      }
+    },
+    "me05": {
+      "booster": {
+        "query": "pokemon booster Nuit Noire"
+      },
+      "display": {
+        "query": "pokemon display Nuit Noire"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Nuit Noire"
+      }
+    },
+    "wiz01": {
+      "booster": {
+        "query": "pokemon booster Set de Base"
+      },
+      "display": {
+        "query": "pokemon display Set de Base"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Set de Base"
+      }
+    },
+    "wiz02": {
+      "booster": {
+        "query": "pokemon booster Jungle"
+      },
+      "display": {
+        "query": "pokemon display Jungle"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Jungle"
+      }
+    },
+    "wiz03": {
+      "booster": {
+        "query": "pokemon booster Fossile"
+      },
+      "display": {
+        "query": "pokemon display Fossile"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Fossile"
+      }
+    },
+    "wiz04": {
+      "booster": {
+        "query": "pokemon booster Team Rocket"
+      },
+      "display": {
+        "query": "pokemon display Team Rocket"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Team Rocket"
+      }
+    },
+    "wiz05": {
+      "booster": {
+        "query": "pokemon booster Neo Genesis"
+      },
+      "display": {
+        "query": "pokemon display Neo Genesis"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Neo Genesis"
+      }
+    },
+    "wiz06": {
+      "booster": {
+        "query": "pokemon booster Neo Discovery"
+      },
+      "display": {
+        "query": "pokemon display Neo Discovery"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Neo Discovery"
+      }
+    },
+    "wiz07": {
+      "booster": {
+        "query": "pokemon booster Neo Revelation"
+      },
+      "display": {
+        "query": "pokemon display Neo Revelation"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Neo Revelation"
+      }
+    },
+    "wiz08": {
+      "booster": {
+        "query": "pokemon booster Neo Destiny"
+      },
+      "display": {
+        "query": "pokemon display Neo Destiny"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Neo Destiny"
+      }
+    },
+    "ec02": {
+      "booster": {
+        "query": "pokemon booster Expédition"
+      },
+      "display": {
+        "query": "pokemon display Expédition"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Expédition"
+      }
+    },
+    "ec03": {
+      "booster": {
+        "query": "pokemon booster Aquapolis"
+      },
+      "display": {
+        "query": "pokemon display Aquapolis"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Aquapolis"
+      }
+    },
+    "ex01": {
+      "booster": {
+        "query": "pokemon booster Rubis & Saphir"
+      },
+      "display": {
+        "query": "pokemon display Rubis & Saphir"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Rubis & Saphir"
+      }
+    },
+    "ex02": {
+      "booster": {
+        "query": "pokemon booster Tempête de Sable"
+      },
+      "display": {
+        "query": "pokemon display Tempête de Sable"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Tempête de Sable"
+      }
+    },
+    "ex03": {
+      "booster": {
+        "query": "pokemon booster Dragon"
+      },
+      "display": {
+        "query": "pokemon display Dragon"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Dragon"
+      }
+    },
+    "ex04": {
+      "booster": {
+        "query": "pokemon booster Team Magma VS Team Aqua"
+      },
+      "display": {
+        "query": "pokemon display Team Magma VS Team Aqua"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Team Magma VS Team Aqua"
+      }
+    },
+    "ex05": {
+      "booster": {
+        "query": "pokemon booster Deoxys"
+      },
+      "display": {
+        "query": "pokemon display Deoxys"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Deoxys"
+      }
+    },
+    "ex06": {
+      "booster": {
+        "query": "pokemon booster Émeraude"
+      },
+      "display": {
+        "query": "pokemon display Émeraude"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Émeraude"
+      }
+    },
+    "ex07": {
+      "booster": {
+        "query": "pokemon booster Rouge Feu & Vert Feuille"
+      },
+      "display": {
+        "query": "pokemon display Rouge Feu & Vert Feuille"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Rouge Feu & Vert Feuille"
+      }
+    },
+    "ex08": {
+      "booster": {
+        "query": "pokemon booster Légendes Oubliées"
+      },
+      "display": {
+        "query": "pokemon display Légendes Oubliées"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Légendes Oubliées"
+      }
+    },
+    "ex09": {
+      "booster": {
+        "query": "pokemon booster Forces Cachées"
+      },
+      "display": {
+        "query": "pokemon display Forces Cachées"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Forces Cachées"
+      }
+    },
+    "ex10": {
+      "booster": {
+        "query": "pokemon booster Espèces Delta"
+      },
+      "display": {
+        "query": "pokemon display Espèces Delta"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Espèces Delta"
+      }
+    },
+    "ex11": {
+      "booster": {
+        "query": "pokemon booster Créateurs de Légendes"
+      },
+      "display": {
+        "query": "pokemon display Créateurs de Légendes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Créateurs de Légendes"
+      }
+    },
+    "ex12": {
+      "booster": {
+        "query": "pokemon booster Fantômes Holon"
+      },
+      "display": {
+        "query": "pokemon display Fantômes Holon"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Fantômes Holon"
+      }
+    },
+    "ex13": {
+      "booster": {
+        "query": "pokemon booster Gardiens de Cristal"
+      },
+      "display": {
+        "query": "pokemon display Gardiens de Cristal"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Gardiens de Cristal"
+      }
+    },
+    "ex14": {
+      "booster": {
+        "query": "pokemon booster Île des Dragons"
+      },
+      "display": {
+        "query": "pokemon display Île des Dragons"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Île des Dragons"
+      }
+    },
+    "ex15": {
+      "booster": {
+        "query": "pokemon booster Gardiens du Pouvoir"
+      },
+      "display": {
+        "query": "pokemon display Gardiens du Pouvoir"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Gardiens du Pouvoir"
+      }
+    },
+    "dp01": {
+      "booster": {
+        "query": "pokemon booster Diamant & Perle"
+      },
+      "display": {
+        "query": "pokemon display Diamant & Perle"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Diamant & Perle"
+      }
+    },
+    "dp02": {
+      "booster": {
+        "query": "pokemon booster Trésors Mystérieux"
+      },
+      "display": {
+        "query": "pokemon display Trésors Mystérieux"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Trésors Mystérieux"
+      }
+    },
+    "dp03": {
+      "booster": {
+        "query": "pokemon booster Merveilles Secrètes"
+      },
+      "display": {
+        "query": "pokemon display Merveilles Secrètes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Merveilles Secrètes"
+      }
+    },
+    "dp04": {
+      "booster": {
+        "query": "pokemon booster Duels au Sommet"
+      },
+      "display": {
+        "query": "pokemon display Duels au Sommet"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Duels au Sommet"
+      }
+    },
+    "dp05": {
+      "booster": {
+        "query": "pokemon booster Aube Majestueuse"
+      },
+      "display": {
+        "query": "pokemon display Aube Majestueuse"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Aube Majestueuse"
+      }
+    },
+    "dp06": {
+      "booster": {
+        "query": "pokemon booster Éveil des Légendes"
+      },
+      "display": {
+        "query": "pokemon display Éveil des Légendes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Éveil des Légendes"
+      }
+    },
+    "dp07": {
+      "booster": {
+        "query": "pokemon booster Tempête"
+      },
+      "display": {
+        "query": "pokemon display Tempête"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Tempête"
+      }
+    },
+    "pl01": {
+      "booster": {
+        "query": "pokemon booster Platine"
+      },
+      "display": {
+        "query": "pokemon display Platine"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Platine"
+      }
+    },
+    "pl02": {
+      "booster": {
+        "query": "pokemon booster Rivaux Émergeants"
+      },
+      "display": {
+        "query": "pokemon display Rivaux Émergeants"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Rivaux Émergeants"
+      }
+    },
+    "pl03": {
+      "booster": {
+        "query": "pokemon booster Vainqueurs Suprêmes"
+      },
+      "display": {
+        "query": "pokemon display Vainqueurs Suprêmes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Vainqueurs Suprêmes"
+      }
+    },
+    "hs01": {
+      "booster": {
+        "query": "pokemon booster HeartGold SoulSilver"
+      },
+      "display": {
+        "query": "pokemon display HeartGold SoulSilver"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur HeartGold SoulSilver"
+      }
+    },
+    "hs02": {
+      "booster": {
+        "query": "pokemon booster Déchaînement"
+      },
+      "display": {
+        "query": "pokemon display Déchaînement"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Déchaînement"
+      }
+    },
+    "hs03": {
+      "booster": {
+        "query": "pokemon booster Indomptable"
+      },
+      "display": {
+        "query": "pokemon display Indomptable"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Indomptable"
+      }
+    },
+    "hs04": {
+      "booster": {
+        "query": "pokemon booster Triomphe"
+      },
+      "display": {
+        "query": "pokemon display Triomphe"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Triomphe"
+      }
+    },
+    "hs05": {
+      "booster": {
+        "query": "pokemon booster L'Appel des Légendes"
+      },
+      "display": {
+        "query": "pokemon display L'Appel des Légendes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur L'Appel des Légendes"
+      }
+    },
+    "nb01": {
+      "booster": {
+        "query": "pokemon booster Noir et Blanc"
+      },
+      "display": {
+        "query": "pokemon display Noir et Blanc"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Noir et Blanc"
+      }
+    },
+    "nb02": {
+      "booster": {
+        "query": "pokemon booster Pouvoirs Émergents"
+      },
+      "display": {
+        "query": "pokemon display Pouvoirs Émergents"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Pouvoirs Émergents"
+      }
+    },
+    "nb03": {
+      "booster": {
+        "query": "pokemon booster Nobles Victoires"
+      },
+      "display": {
+        "query": "pokemon display Nobles Victoires"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Nobles Victoires"
+      }
+    },
+    "nb04": {
+      "booster": {
+        "query": "pokemon booster Destinées Futures"
+      },
+      "display": {
+        "query": "pokemon display Destinées Futures"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Destinées Futures"
+      }
+    },
+    "nb05": {
+      "booster": {
+        "query": "pokemon booster Explorateurs Obscurs"
+      },
+      "display": {
+        "query": "pokemon display Explorateurs Obscurs"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Explorateurs Obscurs"
+      }
+    },
+    "nb06": {
+      "booster": {
+        "query": "pokemon booster Dragons Exaltés"
+      },
+      "display": {
+        "query": "pokemon display Dragons Exaltés"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Dragons Exaltés"
+      }
+    },
+    "nb07": {
+      "booster": {
+        "query": "pokemon booster Frontières Franchies"
+      },
+      "display": {
+        "query": "pokemon display Frontières Franchies"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Frontières Franchies"
+      }
+    },
+    "nb08": {
+      "booster": {
+        "query": "pokemon booster Tempête Plasma"
+      },
+      "display": {
+        "query": "pokemon display Tempête Plasma"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Tempête Plasma"
+      }
+    },
+    "nb09": {
+      "booster": {
+        "query": "pokemon booster Glaciation Plasma"
+      },
+      "display": {
+        "query": "pokemon display Glaciation Plasma"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Glaciation Plasma"
+      }
+    },
+    "nb10": {
+      "booster": {
+        "query": "pokemon booster Explosion Plasma"
+      },
+      "display": {
+        "query": "pokemon display Explosion Plasma"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Explosion Plasma"
+      }
+    },
+    "xy01": {
+      "booster": {
+        "query": "pokemon booster XY"
+      },
+      "display": {
+        "query": "pokemon display XY"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur XY"
+      }
+    },
+    "xy02": {
+      "booster": {
+        "query": "pokemon booster Étincelles"
+      },
+      "display": {
+        "query": "pokemon display Étincelles"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Étincelles"
+      }
+    },
+    "xy03": {
+      "booster": {
+        "query": "pokemon booster Poings Furieux"
+      },
+      "display": {
+        "query": "pokemon display Poings Furieux"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Poings Furieux"
+      }
+    },
+    "xy04": {
+      "booster": {
+        "query": "pokemon booster Vigueur Spectrale"
+      },
+      "display": {
+        "query": "pokemon display Vigueur Spectrale"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Vigueur Spectrale"
+      }
+    },
+    "xy05": {
+      "booster": {
+        "query": "pokemon booster Primo-Choc"
+      },
+      "display": {
+        "query": "pokemon display Primo-Choc"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Primo-Choc"
+      }
+    },
+    "xy06": {
+      "booster": {
+        "query": "pokemon booster Ciel Rugissant"
+      },
+      "display": {
+        "query": "pokemon display Ciel Rugissant"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Ciel Rugissant"
+      }
+    },
+    "xy07": {
+      "booster": {
+        "query": "pokemon booster Origines Antiques"
+      },
+      "display": {
+        "query": "pokemon display Origines Antiques"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Origines Antiques"
+      }
+    },
+    "xy08": {
+      "booster": {
+        "query": "pokemon booster Rupture Turbo"
+      },
+      "display": {
+        "query": "pokemon display Rupture Turbo"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Rupture Turbo"
+      }
+    },
+    "xy09": {
+      "booster": {
+        "query": "pokemon booster Impulsion Turbo"
+      },
+      "display": {
+        "query": "pokemon display Impulsion Turbo"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Impulsion Turbo"
+      }
+    },
+    "xy10": {
+      "booster": {
+        "query": "pokemon booster Impact des Destins"
+      },
+      "display": {
+        "query": "pokemon display Impact des Destins"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Impact des Destins"
+      }
+    },
+    "xy11": {
+      "booster": {
+        "query": "pokemon booster Offensive Vapeur"
+      },
+      "display": {
+        "query": "pokemon display Offensive Vapeur"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Offensive Vapeur"
+      }
+    },
+    "xy12": {
+      "booster": {
+        "query": "pokemon booster Évolutions"
+      },
+      "display": {
+        "query": "pokemon display Évolutions"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Évolutions"
+      }
+    },
+    "xy13": {
+      "booster": {
+        "query": "pokemon booster Générations"
+      },
+      "display": {
+        "query": "pokemon display Générations"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Générations"
+      }
+    },
+    "sl01": {
+      "booster": {
+        "query": "pokemon booster Soleil et Lune"
+      },
+      "display": {
+        "query": "pokemon display Soleil et Lune"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Soleil et Lune"
+      }
+    },
+    "sl02": {
+      "booster": {
+        "query": "pokemon booster Gardiens Ascendants"
+      },
+      "display": {
+        "query": "pokemon display Gardiens Ascendants"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Gardiens Ascendants"
+      }
+    },
+    "sl03": {
+      "booster": {
+        "query": "pokemon booster Ombres Ardentes"
+      },
+      "display": {
+        "query": "pokemon display Ombres Ardentes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Ombres Ardentes"
+      }
+    },
+    "sl04": {
+      "booster": {
+        "query": "pokemon booster Invasion Carmin"
+      },
+      "display": {
+        "query": "pokemon display Invasion Carmin"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Invasion Carmin"
+      }
+    },
+    "sl05": {
+      "booster": {
+        "query": "pokemon booster Ultra-Prisme"
+      },
+      "display": {
+        "query": "pokemon display Ultra-Prisme"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Ultra-Prisme"
+      }
+    },
+    "sl06": {
+      "booster": {
+        "query": "pokemon booster Lumière Interdite"
+      },
+      "display": {
+        "query": "pokemon display Lumière Interdite"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Lumière Interdite"
+      }
+    },
+    "sl07": {
+      "booster": {
+        "query": "pokemon booster Tempête Céleste"
+      },
+      "display": {
+        "query": "pokemon display Tempête Céleste"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Tempête Céleste"
+      }
+    },
+    "sl08": {
+      "booster": {
+        "query": "pokemon booster Majesté des Dragons"
+      },
+      "display": {
+        "query": "pokemon display Majesté des Dragons"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Majesté des Dragons"
+      }
+    },
+    "sl09": {
+      "booster": {
+        "query": "pokemon booster Tonnerre Perdu"
+      },
+      "display": {
+        "query": "pokemon display Tonnerre Perdu"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Tonnerre Perdu"
+      }
+    },
+    "sl10": {
+      "booster": {
+        "query": "pokemon booster Duo de Choc"
+      },
+      "display": {
+        "query": "pokemon display Duo de Choc"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Duo de Choc"
+      }
+    },
+    "sl11": {
+      "booster": {
+        "query": "pokemon booster Alliance Infaillible"
+      },
+      "display": {
+        "query": "pokemon display Alliance Infaillible"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Alliance Infaillible"
+      }
+    },
+    "sl12": {
+      "booster": {
+        "query": "pokemon booster Harmonie des Esprits"
+      },
+      "display": {
+        "query": "pokemon display Harmonie des Esprits"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Harmonie des Esprits"
+      }
+    },
+    "sl13": {
+      "booster": {
+        "query": "pokemon booster Destinées Occultes"
+      },
+      "display": {
+        "query": "pokemon display Destinées Occultes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Destinées Occultes"
+      }
+    },
+    "sl14": {
+      "booster": {
+        "query": "pokemon booster Éclipse Cosmique"
+      },
+      "display": {
+        "query": "pokemon display Éclipse Cosmique"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Éclipse Cosmique"
+      }
+    },
+    "sl15": {
+      "booster": {
+        "query": "pokemon booster Légendes Brillantes"
+      },
+      "display": {
+        "query": "pokemon display Légendes Brillantes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Légendes Brillantes"
+      }
+    },
+    "sl16": {
+      "booster": {
+        "query": "pokemon booster Détective Pikachu"
+      },
+      "display": {
+        "query": "pokemon display Détective Pikachu"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Détective Pikachu"
+      }
+    },
+    "eb01": {
+      "booster": {
+        "query": "pokemon booster Épée et Bouclier"
+      },
+      "display": {
+        "query": "pokemon display Épée et Bouclier"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Épée et Bouclier"
+      }
+    },
+    "eb02": {
+      "booster": {
+        "query": "pokemon booster Clash des Rebelles"
+      },
+      "display": {
+        "query": "pokemon display Clash des Rebelles"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Clash des Rebelles"
+      }
+    },
+    "eb03": {
+      "booster": {
+        "query": "pokemon booster Ténèbres Embrasées"
+      },
+      "display": {
+        "query": "pokemon display Ténèbres Embrasées"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Ténèbres Embrasées"
+      }
+    },
+    "eb04": {
+      "booster": {
+        "query": "pokemon booster Voltage Éclatant"
+      },
+      "display": {
+        "query": "pokemon display Voltage Éclatant"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Voltage Éclatant"
+      }
+    },
+    "eb05": {
+      "booster": {
+        "query": "pokemon booster Styles de Combat"
+      },
+      "display": {
+        "query": "pokemon display Styles de Combat"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Styles de Combat"
+      }
+    },
+    "eb06": {
+      "booster": {
+        "query": "pokemon booster Règne de Glace"
+      },
+      "display": {
+        "query": "pokemon display Règne de Glace"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Règne de Glace"
+      }
+    },
+    "eb07": {
+      "booster": {
+        "query": "pokemon booster Évolution Céleste"
+      },
+      "display": {
+        "query": "pokemon display Évolution Céleste"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Évolution Céleste"
+      }
+    },
+    "eb08": {
+      "booster": {
+        "query": "pokemon booster Célébrations"
+      },
+      "display": {
+        "query": "pokemon display Célébrations"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Célébrations"
+      }
+    },
+    "eb09": {
+      "booster": {
+        "query": "pokemon booster Poing de Fusion"
+      },
+      "display": {
+        "query": "pokemon display Poing de Fusion"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Poing de Fusion"
+      }
+    },
+    "eb10": {
+      "booster": {
+        "query": "pokemon booster Stars Étincelantes"
+      },
+      "display": {
+        "query": "pokemon display Stars Étincelantes"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Stars Étincelantes"
+      }
+    },
+    "eb11": {
+      "booster": {
+        "query": "pokemon booster Astres Radieux"
+      },
+      "display": {
+        "query": "pokemon display Astres Radieux"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Astres Radieux"
+      }
+    },
+    "eb12": {
+      "booster": {
+        "query": "pokemon booster Origine Perdue"
+      },
+      "display": {
+        "query": "pokemon display Origine Perdue"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Origine Perdue"
+      }
+    },
+    "eb13": {
+      "booster": {
+        "query": "pokemon booster Tempête Argentée"
+      },
+      "display": {
+        "query": "pokemon display Tempête Argentée"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Tempête Argentée"
+      }
+    },
+    "eb14": {
+      "booster": {
+        "query": "pokemon booster Zénith Suprême"
+      },
+      "display": {
+        "query": "pokemon display Zénith Suprême"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Zénith Suprême"
+      }
+    },
+    "eb15": {
+      "booster": {
+        "query": "pokemon booster La Voie du Maître"
+      },
+      "display": {
+        "query": "pokemon display La Voie du Maître"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur La Voie du Maître"
+      }
+    },
+    "eb16": {
+      "booster": {
+        "query": "pokemon booster Destinées Radieuses"
+      },
+      "display": {
+        "query": "pokemon display Destinées Radieuses"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Destinées Radieuses"
+      }
+    },
+    "eb17": {
+      "booster": {
+        "query": "pokemon booster Pokémon GO"
+      },
+      "display": {
+        "query": "pokemon display Pokémon GO"
+      },
+      "etb": {
+        "query": "pokemon coffret dresseur Pokémon GO"
+      }
+    }
+  }
+}
